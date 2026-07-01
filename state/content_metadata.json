@@ -1,6 +1,103 @@
 {
-  "extracted_at": "2026-07-01T09:27:21Z",
+  "extracted_at": "2026-07-01T09:43:21Z",
   "items": {
+    "2026-06-13-standardization-customization-balance-context-ai": {
+      "named_concepts": [
+        "ai agent",
+        "governance-infrastructure standardization",
+        "task-execution standardization",
+        "ai tool",
+        "platform maturity",
+        "agent skill",
+        "skill libraries",
+        "standardization customization",
+        "customization balance",
+        "two independent",
+        "regulatory exposure",
+        "organisation size",
+        "artificial intelligence",
+        "intelligence ai",
+        "agentic tool-calling",
+        "universal numeric",
+        "numeric threshold",
+        "dora report",
+        "ai amplifies",
+        "amplifies existing"
+      ],
+      "source_urls": [
+        "https://www.annfammed.org/content/19/2/171",
+        "https://dora.dev/research/2025/dora-report/",
+        "https://davidamitchell.github.io/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html",
+        "https://cmr.berkeley.edu/1988/11/31-1-organizing-for-worldwide-effectiveness-the-transnational-solution/",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html",
+        "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+        "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/",
+        "https://engineering.atspotify.com/2020/08/how-we-use-golden-paths-to-solve-fragmentation-in-our-software-ecosystem",
+        "https://patterns.innersourcecommons.org/p/trusted-committer",
+        "https://patterns.innersourcecommons.org/p/innersource-portal",
+        "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025",
+        "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf",
+        "https://aisel.aisnet.org/ijispm/vol7/iss1/3/"
+      ],
+      "key_claims": [
+        {
+          "text": "The standardization-customization trade-off operates on two separable axes, governance-infrastructure standardization and task-execution standardization, and conflating them produces apparent contradictions between sector-specific evidence that are resolved once the axes are separated",
+          "sources": [
+            "https://www.annfammed.org/content/19/2/171",
+            "https://davidamitchell.github.io/Research/research/2026-05-20-banking-agent-sprawl-governance-and-resilience.html"
+          ]
+        },
+        {
+          "text": "Regulatory exposure and operational criticality push governance-infrastructure standardization upward regardless of sector, with bank model-risk guidance requiring review intensity proportional to size, complexity, and risk profile, and shadow-IT literature independently stating that strict prohibition may be reasonable for critical or highly regulated processes",
+          "sources": [
+            "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html"
+          ]
+        },
+        {
+          "text": "Organisation size and maturity shift the crossover point at which local customization's aggregate cost exceeds its benefit through three compounding multipliers, team scale, shared-dependency density, and staff turnover, rather than through a fixed headcount or tool-count threshold",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html"
+          ]
+        },
+        {
+          "text": "Platform maturity, measured by the Cloud Native Computing Foundation (CNCF) Platform Engineering Maturity Model, changes the mechanism by which standardization is achieved, from mandate-driven adoption at low maturity to voluntary adoption at Level 3 and specialist-extension at Level 4, which converts a coercive trade-off into a preference-aligned one as maturity rises",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html"
+          ]
+        },
+        {
+          "text": "The DORA 2025 report, surveying nearly 5,000 technology professionals, found that Artificial Intelligence (AI) amplifies existing organisational conditions rather than independently improving productivity, so AI adoption magnifies whatever standardization/customization balance and infrastructure maturity already exist rather than dictating a new balance",
+          "sources": [
+            "https://dora.dev/research/2025/dora-report/"
+          ]
+        },
+        {
+          "text": "Faros AI telemetry across 22,000 developers found individual task completion rising 33.7% under AI-assisted delivery while pull request (PR) review time rose 441% and production incidents per PR rose 242.7%, a pattern consistent with local AI-driven productivity gains flooding shared review infrastructure that was not scaled commensurately, though AI-generated code quality degradation is a competing explanation for the same data",
+          "sources": [
+            "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025"
+          ]
+        },
+        {
+          "text": "Agentic, tool-calling shadow Artificial Intelligence (AI) raises the minimum required standardization of the AI-specific control plane, identity, telemetry, and pre-action approval, above what sufficed for earlier non-agentic local tooling, because discovery alone cannot reconstruct the prompt content, reasoning chain, or delegated tool actions that make agentic failures dangerous",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness.html"
+          ]
+        },
+        {
+          "text": "The golden path pattern, an opinionated supported default with permitted deviation, combined with the InnerSource Trusted Committer pattern that distributes commit rights to contributing-team members, is the most consistently evidenced design for preserving local agility while reducing ungoverned fragmentation, and it generalises to shared AI agent skill libraries",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html",
+            "https://engineering.atspotify.com/2020/08/how-we-use-golden-paths-to-solve-fragmentation-in-our-software-ecosystem"
+          ]
+        }
+      ]
+    },
     "2026-06-13-shadow-it-custom-tooling-governance-transition": {
       "named_concepts": [
         "companion repository",
