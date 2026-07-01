@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How should the balance between standardized and customized internal tooling shift across industries, organisation sizes, maturity levels, and Artificial Intelligence (AI) agent adoption patterns, and what evidence exists for effects on productivity, innovation, and employee experience?"
 added: 2026-06-13T13:03:37+00:00
 status: reviewing
