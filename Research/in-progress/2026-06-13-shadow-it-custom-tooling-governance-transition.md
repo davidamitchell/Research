@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What benefits, risks, and lifecycle costs of shadow Information Technology (IT) and custom local tooling are documented, and which governance approaches successfully transition covert local solutions into sanctioned business-managed platforms without destroying useful innovation?"
 added: 2026-06-13T13:03:37+00:00
 status: reviewing
