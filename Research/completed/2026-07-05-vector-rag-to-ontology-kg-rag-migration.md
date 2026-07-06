@@ -2,12 +2,12 @@
 review_count: 2
 title: "Migration trade-offs from vector Retrieval-Augmented Generation to ontology-backed Knowledge Graph RAG"
 added: 2026-07-05T20:53:37+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [rag-retrieval, knowledge-graphs, knowledge-management, enterprise-adoption, cost-performance]
 started: 2026-07-06T08:31:15+00:00
-completed: ~
+completed: 2026-07-06T08:54:23+00:00
 output: [knowledge]
 cites: [2026-03-08-servicenow-ai-knowledge-rag-agents, 2026-05-12-rag-document-drift-agent-behavior]
 related: [2026-03-15-context-compression-rag-enterprise-knowledge, 2026-03-03-knowledge-representation-agent-context, 2026-05-12-graph-db-saas-knowledge-ontology, 2026-05-13-graph-db-landscape-tco-interoperability, 2026-05-12-web-ontologies-production-knowledge-graph-agentic]
