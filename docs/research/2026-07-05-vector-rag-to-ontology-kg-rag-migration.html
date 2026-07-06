@@ -1,0 +1,1143 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Migration trade-offs from vector Retrieval-Augmented Generation to… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+          <style>
+#mini-graph-section { margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border); }
+#mini-graph-section h2 { font-size: var(--text-base); color: var(--text-muted);
+  font-weight: 500; margin: 0 0 0.25rem; }
+.mini-graph-meta { font-size: var(--text-xs); color: var(--text-muted); margin: 0 0 0.5rem; }
+.mini-graph-wrap { width: 100%; }
+#mini-graph-canvas { width: 100%; display: block; background: #0a0f18;
+  border: 1px solid var(--border); border-radius: 6px;
+  cursor: grab; touch-action: none;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+  aspect-ratio: 16/9; max-height: 280px; }
+#mini-graph-canvas:active { cursor: grabbing; }
+.view-full-graph { display: inline-block; margin-top: 0.5rem;
+  font-size: var(--text-xs); color: var(--text-muted); text-decoration: none; }
+.view-full-graph:hover { color: var(--text); }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/themes/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Themes</a>
+      <a href="/Research/synthesis-candidates.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Candidates</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="/Research/graph.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Graph</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Migration trade-offs from vector Retrieval-Augmented Generation to…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Migration trade-offs from vector Retrieval-Augmented Generation to…</h1>
+  <p class="full-title-subtitle">Migration trade-offs from vector Retrieval-Augmented Generation to ontology-backed Knowledge Graph RAG</p>
+  <div class="meta-bar">
+    <span>2026-07-05</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/themes/rag-retrieval.html">rag-retrieval</a> <a class="tag" href="/Research/themes/knowledge-graphs.html">knowledge-graphs</a> <a class="tag" href="/Research/themes/knowledge-management.html">knowledge-management</a> <a class="tag" href="/Research/themes/enterprise-adoption.html">enterprise-adoption</a> <a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-05-vector-rag-to-ontology-kg-rag-migration.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-07-05-vector-rag-to-ontology-kg-rag-migration" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>A production knowledge-graph-augmented customer-service retrieval system deployed at LinkedIn outperformed a vector-only baseline by 77.6% in Mean Reciprocal Rank and by 0.32 in BLEU score, and reduced median per-issue resolution time by 28.6% after roughly six months in production<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2404.17723" target="_blank" rel="noopener" title="https://arxiv.org/abs/2404.17723">Xu et al. (2024)</a></span></li>
+<li>Baseline vector RAG performs poorly on global sensemaking questions that require synthesising information across an entire dataset, because similarity search has no specific semantic anchor to retrieve against for a corpus-wide theme question<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2404.16130" target="_blank" rel="noopener" title="https://arxiv.org/abs/2404.16130">Edge et al. (2024)</a><a class="claim-source-link" href="https://microsoft.github.io/graphrag/query/global_search/" target="_blank" rel="noopener" title="https://microsoft.github.io/graphrag/query/global_search/">Microsoft (n.d.)</a></span></li>
+<li>HybridRAG, combining vector-database retrieval with knowledge-graph retrieval, outperformed both vector-only and graph-only retrieval individually on financial earnings-call question answering, at both the retrieval and answer-generation stages<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2408.04948" target="_blank" rel="noopener" title="https://arxiv.org/abs/2408.04948">Sarmah et al. (2024)</a></span></li>
+<li>An independent 2025 benchmark applying the same three-way vector-versus-graph-versus-hybrid comparison to telecom Open Radio Access Network (ORAN) specifications and RAN Intelligent Controller (RIC) Application Programming Interface (API) definitions replicates the same experimental design in a second, unrelated domain from the financial HybridRAG study<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2507.03608" target="_blank" rel="noopener" title="https://arxiv.org/abs/2507.03608">Benchmarking (2025)</a></span></li>
+<li>A dedicated cross-task benchmark project states that GraphRAG frequently underperforms vanilla vector RAG on many real-world tasks, and was built specifically to identify the scenarios where graph structure provides a measurable retrieval benefit rather than assuming a universal advantage<span class="claim-sources"><a class="claim-source-link" href="https://github.com/GraphRAG-Bench/GraphRAG-Benchmark" target="_blank" rel="noopener" title="https://github.com/GraphRAG-Bench/GraphRAG-Benchmark">GraphRAG-Bench (n.d.)</a></span></li>
+<li>The original Microsoft GraphRAG indexing pipeline requires an LLM-based entity and relationship extraction pass over every document chunk, followed by recursive Leiden-algorithm community detection and a further LLM summarisation pass over every resulting community at every hierarchy level, before any query can be answered<span class="claim-sources"><a class="claim-source-link" href="https://microsoft.github.io/graphrag/query/global_search/" target="_blank" rel="noopener" title="https://microsoft.github.io/graphrag/query/global_search/">Microsoft (n.d.)</a><a class="claim-source-link" href="https://www.nature.com/articles/s41598-019-41695-z" target="_blank" rel="noopener" title="https://www.nature.com/articles/s41598-019-41695-z">Nature (n.d.)</a></span></li>
+<li>A widely cited but not officially Microsoft-published cost estimate places the price of indexing a single 32,000-word document with the original GraphRAG pipeline on GPT-4o at roughly six to seven US dollars, an order of magnitude more expensive per document than typical vector-only embedding indexing<span class="claim-sources"><a class="claim-source-link" href="https://www.bestaiweb.ai/indexing-cost-token-blowup-and-the-hard-engineering-limits-of-graphrag-at-scale/" target="_blank" rel="noopener" title="https://www.bestaiweb.ai/indexing-cost-token-blowup-and-the-hard-engineering-limits-of-graphrag-at-scale/">GraphRAG Indexing (n.d.)</a></span></li>
+<li>A 2025 paper titled &quot;Towards Practical GraphRAG&quot; proposes replacing LLM-based entity extraction with a dependency-parsing-based construction pipeline combined with hybrid retrieval, explicitly to remove the cost barrier that the authors identify as limiting GraphRAG&#39;s enterprise adoption<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2507.03226" target="_blank" rel="noopener" title="https://arxiv.org/abs/2507.03226">Scale (2025)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What are the performance, cost, scalability, and practical trade-offs of migrating from traditional vector-based Retrieval-Augmented Generation (RAG) systems to ontology-backed Knowledge Graph Retrieval-Augmented Generation (KG-RAG / GraphRAG) systems in real-world applications such as customer service or enterprise knowledge management, and under what conditions does that migration justify its added complexity?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Migrating from vector Retrieval-Augmented Generation (RAG) to ontology-backed Knowledge Graph RAG (KG-RAG) is justified as an additive hybrid architecture that keeps the existing vector index and adds a graph store alongside it, not as a wholesale replacement of vector search. The migration earns its added complexity specifically where the corpus has dense, explicit inter-record relationships and query patterns exploit them, such as customer-service ticket cross-referencing and structured financial-document question answering, where production and controlled-benchmark evidence both show graph-augmented retrieval outperforming vector-only retrieval. A dedicated cross-domain benchmark project reports that GraphRAG frequently underperforms plain vector RAG on tasks lacking that relational density, so the migration is not universally beneficial. The original LLM-extraction-heavy GraphRAG construction pipeline carries a substantial, well-documented up-front cost, but 2025 research shows this cost is a property of the specific extraction pipeline rather than an unavoidable cost of graph-structured retrieval itself, since dependency-parsing-based construction and lazy, query-time summarisation both report closing most of the cost gap with vector RAG. Organisations should treat existing knowledge-base and source-document governance quality, established in prior research as a precondition for reliable vector RAG, as an equally binding precondition for a KG-RAG migration, because a graph built from ungoverned source documents inherits and compounds the same quality problems in a second, more expensive index.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p>A production knowledge-graph-augmented customer-service retrieval system deployed at LinkedIn outperformed a vector-only baseline by 77.6% in Mean Reciprocal Rank and by 0.32 in BLEU score, and reduced median per-issue resolution time by 28.6% after roughly six months in production. (medium confidence; single production case study; source: <a href="https://arxiv.org/abs/2404.17723">Xu et al. (2024) Retrieval-Augmented Generation with Knowledge Graphs for Customer Service Question Answering</a></p>
+</li>
+<li>
+<p>Baseline vector RAG performs poorly on global sensemaking questions that require synthesising information across an entire dataset, because similarity search has no specific semantic anchor to retrieve against for a corpus-wide theme question. (medium confidence; both sources originate from the same Microsoft GraphRAG project; source: <a href="https://arxiv.org/abs/2404.16130">Edge et al. (2024) From Local to Global: A GraphRAG Approach to Query-Focused Summarization</a> <a href="https://microsoft.github.io/graphrag/query/global_search/">Microsoft GraphRAG documentation, Global Search</a></p>
+</li>
+<li>
+<p>HybridRAG, combining vector-database retrieval with knowledge-graph retrieval, outperformed both vector-only and graph-only retrieval individually on financial earnings-call question answering, at both the retrieval and answer-generation stages. (medium confidence; single benchmark study; source: <a href="https://arxiv.org/abs/2408.04948">Sarmah et al. (2024) HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction</a></p>
+</li>
+<li>
+<p>An independent 2025 benchmark applying the same three-way vector-versus-graph-versus-hybrid comparison to telecom Open Radio Access Network (ORAN) specifications and RAN Intelligent Controller (RIC) Application Programming Interface (API) definitions replicates the same experimental design in a second, unrelated domain from the financial HybridRAG study. (medium confidence; source: <a href="https://arxiv.org/abs/2507.03608">Benchmarking Vector, Graph and Hybrid Retrieval Augmented Generation (RAG) Pipelines for Open Radio Access Networks (ORAN) (2025)</a></p>
+</li>
+<li>
+<p>A dedicated cross-task benchmark project states that GraphRAG frequently underperforms vanilla vector RAG on many real-world tasks, and was built specifically to identify the scenarios where graph structure provides a measurable retrieval benefit rather than assuming a universal advantage. (medium confidence; single benchmark-project statement; source: <a href="https://github.com/GraphRAG-Bench/GraphRAG-Benchmark">GraphRAG-Bench: Challenging Domain-specific Reasoning for Evaluating Graph Retrieval-Augmented Generation</a></p>
+</li>
+<li>
+<p>The original Microsoft GraphRAG indexing pipeline requires an LLM-based entity and relationship extraction pass over every document chunk, followed by recursive Leiden-algorithm community detection and a further LLM summarisation pass over every resulting community at every hierarchy level, before any query can be answered. (medium confidence; pipeline architecture documented primarily by the vendor; source: <a href="https://microsoft.github.io/graphrag/query/global_search/">Microsoft GraphRAG documentation, Global Search</a> <a href="https://www.nature.com/articles/s41598-019-41695-z">www.nature.com</a></p>
+</li>
+<li>
+<p>A widely cited but not officially Microsoft-published cost estimate places the price of indexing a single 32,000-word document with the original GraphRAG pipeline on GPT-4o at roughly six to seven US dollars, an order of magnitude more expensive per document than typical vector-only embedding indexing. (low confidence; source: <a href="https://www.bestaiweb.ai/indexing-cost-token-blowup-and-the-hard-engineering-limits-of-graphrag-at-scale/">GraphRAG Indexing: Why the $33K Cost Cliff Hits (bestaiweb.ai)</a></p>
+</li>
+<li>
+<p>A 2025 paper titled &quot;Towards Practical GraphRAG&quot; proposes replacing LLM-based entity extraction with a dependency-parsing-based construction pipeline combined with hybrid retrieval, explicitly to remove the cost barrier that the authors identify as limiting GraphRAG's enterprise adoption. (medium confidence; source: <a href="https://arxiv.org/abs/2507.03226">Towards Practical GraphRAG: Efficient Knowledge Graph Construction and Hybrid Retrieval at Scale (2025)</a></p>
+</li>
+<li>
+<p>Incremental graph updates, meaning updating only affected nodes, edges, and community summaries when source documents change rather than rebuilding the entire graph, remain an active open engineering concern documented directly in the Microsoft GraphRAG project's own issue tracker rather than a fully solved default capability. (medium confidence; source: <a href="https://github.com/microsoft/graphrag/issues/741">Incremental indexing (adding new content), microsoft/graphrag issue #741</a></p>
+</li>
+<li>
+<p>A prior completed item in this research corpus established that post-deployment changes to RAG source documents behave like unversioned dependency updates for a single vector index, and adding a second, more expensive-to-rebuild graph index during a migration increases the number of artefacts that can drift out of sync with each other. (medium confidence; source: <a href="https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html">When Retrieval-Augmented Generation source documents change after agent build and test</a></p>
+</li>
+<li>
+<p>A prior completed item on ServiceNow's AI knowledge stack established that RAG grounding quality depends on source knowledge-base and Configuration Management Database governance quality being addressed before AI activation, a precondition that applies equally to a knowledge-graph migration because the graph is extracted from the same source documents. (medium confidence; source: <a href="https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html">ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks</a></p>
+</li>
+<li>
+<p>The convergent production and benchmark evidence supports migrating to ontology-backed KG-RAG specifically where corpus relationships are dense and query patterns require cross-referencing or multi-hop lookup, and supports remaining on vector RAG or a lightweight hybrid where corpus size is small, queries are dominated by single-fact lookup, or the team cannot commit to incremental graph-maintenance engineering. (medium confidence; source: <a href="https://github.com/GraphRAG-Bench/GraphRAG-Benchmark">GraphRAG-Bench: Challenging Domain-specific Reasoning for Evaluating Graph Retrieval-Augmented Generation</a> <a href="https://arxiv.org/abs/2507.03226">Towards Practical GraphRAG: Efficient Knowledge Graph Construction and Hybrid Retrieval at Scale (2025)</a></p>
+</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>graph structure itself, rather than richer retrieval context of any kind, is the specific causal mechanism behind reported hallucination reduction and multi-hop reasoning gains, on the grounds that the GraphRAG survey literature describes this mechanism and cites supporting benchmark results, but this session did not locate a controlled ablation isolating graph structure as the sole variable; the assumption is treated as plausible and evidence-consistent, not confirmed (source: <a href="https://arxiv.org/abs/2501.00309">Retrieval-Augmented Generation with Graphs (GraphRAG): A Comprehensive Survey (2025)</a> <a href="https://arxiv.org/abs/2408.08921">Graph Retrieval-Augmented Generation: A Survey (2024)</a></li>
+<li>the magnitude of the LinkedIn production result (77.6% MRR improvement, 28.6% resolution-time reduction) does not transfer as a fixed expected return to other organisations, because it reflects one company's ticket corpus, benchmark design, and baseline system, on the grounds that single-deployment case studies establish direction of effect, not a portable effect size, per standard evidence-sufficiency practice (source: <a href="https://arxiv.org/abs/2404.17723">Xu et al. (2024) Retrieval-Augmented Generation with Knowledge Graphs for Customer Service Question Answering</a></li>
+<li>LazyGraphRAG's specific cost-reduction magnitude is directionally credible but not independently verified, because the primary Microsoft Research publication was inaccessible in this session and the only available account is a secondary vendor blog, on the grounds that the vendor blog's mechanism description (deferring summarisation to query time) is consistent with the publicly documented general GraphRAG architecture, but the specific multiplier claims are unverified against the primary source (source: <a href="https://particula.tech/blog/lazygraphrag-700x-cheaper-graphrag-knowledge-graphs">LazyGraphRAG: 700x Cheaper GraphRAG That Actually Works (particula.tech)</a></li>
+</ul>
+<h3>Analysis</h3>
+<p>The production and benchmark evidence converges on a scoped rather than universal conclusion. LinkedIn's customer-service deployment and the HybridRAG financial-transcript study both test domains with dense, explicit inter-record relationships (support-ticket cross-referencing and structured financial statements), and both report graph-augmented retrieval winning. GraphRAG-Bench's finding that GraphRAG frequently underperforms vanilla RAG on many real-world tasks is not a contradiction of those results once query domain and relational density are held constant as the controlling variable, because GraphRAG-Bench evaluates a broader task mix that includes queries without exploitable graph structure.</p>
+<p>A plausible rival explanation for the LinkedIn and HybridRAG results is that any richer retrieval context, not graph structure specifically, would have produced similar gains, for example longer context windows or better chunk metadata. This rival explanation is only partially addressed by the evidence gathered in this session: the HybridRAG paper's explicit note that both authors' implementations added document metadata to VectorRAG as well, and VectorRAG still underperformed HybridRAG, weakens the &quot;any richer context would do&quot; explanation somewhat, but does not eliminate it, because no controlled ablation isolating graph structure alone from other forms of context enrichment was located.</p>
+<p>On cost, the evidence resolves an apparent tension between &quot;GraphRAG is prohibitively expensive&quot; and &quot;graph-structured retrieval is production-viable&quot; claims: both are true of different pipeline implementations at different points in time, not of graph-structured retrieval as a category. The original 2024 Microsoft pipeline is LLM-extraction-heavy and costly; the 2025 dependency-parsing and lazy-summarisation approaches directly target that specific cost driver. This means a migration decision made against 2024 cost figures alone would overstate the current cost barrier.</p>
+<p>The migration-engineering evidence weighs toward an additive hybrid pattern over a wholesale replacement, because every piece of production and benchmark evidence reviewed tests a combined configuration rather than a graph-only replacement of vector search, and no source reviewed recommends decommissioning an existing vector index.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The primary Microsoft Research publication on LazyGraphRAG was inaccessible in this session (every fetch attempt returned unrelated cached content); cost-reduction claims attributed to it in this item rely on a secondary vendor blog and are labelled as unverified against the primary source.</li>
+<li>Specific quantitative figures reported by AI-generated search summaries for the HybridRAG faithfulness/relevancy scores and for the ACL GenAIK finance-hallucination paper's reduction percentages could not be independently confirmed against primary results tables in this session and were excluded from sourced-fact claims; a follow-up session with direct PDF text extraction could close this gap.</li>
+<li>No source reviewed in this session addressed regulatory drivers (for example, data-residency or explainability mandates) that might independently favour or disfavour ontology-backed KG-RAG; this is a genuine evidence gap, not an assumed absence.</li>
+<li>The evidence base for multi-hop reasoning gains attributable specifically to graph structure, as opposed to richer retrieval context generally, rests on survey-level description of a mechanism rather than a controlled ablation. [assumption; this is the least directly evidenced claim in the item, source: <a href="https://arxiv.org/abs/2501.00309">Retrieval-Augmented Generation with Graphs (GraphRAG): A Comprehensive Survey (2025)</a> <a href="https://arxiv.org/abs/2408.08921]">arxiv.org/abs/2408.08921]</a></li>
+<li>All production evidence located is drawn from single-company case studies (LinkedIn) or from academic benchmark papers; no multi-organisation, multi-year total-cost-of-ownership study comparing sustained vector RAG operation against sustained KG-RAG operation was located.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What does a controlled ablation isolating graph structure from other forms of retrieval-context enrichment (longer context windows, richer chunk metadata, reranking) show about the specific causal contribution of graph structure to hallucination reduction and multi-hop reasoning quality?</li>
+<li>What is the total cost of ownership of a hybrid vector-plus-graph retrieval system over a multi-year operational horizon, including incremental update engineering effort, compared with sustained vector-only RAG operation at the same corpus scale?</li>
+<li>Do regulatory or compliance requirements (data residency, explainability, auditability) independently favour ontology-backed KG-RAG over vector RAG in any enterprise vertical, and if so, which ones?</li>
+<li>What does the full results table of the ORAN vector-versus-graph-versus-hybrid benchmark show for latency and cost, beyond the abstract-level confirmation obtained in this session?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://arxiv.org/abs/2404.17723">Xu et al. (2024) Retrieval-Augmented Generation with Knowledge Graphs for Customer Service Question Answering</a>, production-oriented comparison of knowledge-graph-backed retrieval for customer service, deployed at LinkedIn</li>
+<li>[x] <a href="https://arxiv.org/abs/2404.16130">Edge et al. (2024) From Local to Global: A GraphRAG Approach to Query-Focused Summarization</a>, Microsoft Research GraphRAG paper with graph indexing and global-query evaluation</li>
+<li>[x] <a href="https://arxiv.org/abs/2408.04948">Sarmah et al. (2024) HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction</a>, hybrid migration pattern combining vector and graph retrieval, tested on financial transcripts</li>
+<li>[x] <a href="https://arxiv.org/abs/2501.00309">Retrieval-Augmented Generation with Graphs (GraphRAG): A Comprehensive Survey (2025)</a>, survey of GraphRAG techniques, challenges, and open problems</li>
+<li>[x] <a href="https://arxiv.org/abs/2408.08921">Graph Retrieval-Augmented Generation: A Survey (2024)</a>, broader survey of graph-backed retrieval-augmented generation designs</li>
+<li>[x] <a href="https://arxiv.org/abs/2507.03226">Towards Practical GraphRAG: Efficient Knowledge Graph Construction and Hybrid Retrieval at Scale (2025)</a>, dependency-parsing-based construction pipeline and hybrid retrieval proposed to reduce GraphRAG's cost barrier</li>
+<li>[x] <a href="https://arxiv.org/abs/2507.03608">Benchmarking Vector, Graph and Hybrid Retrieval Augmented Generation (RAG) Pipelines for Open Radio Access Networks (ORAN) (2025)</a>, independent telecom-domain replication of the vector-vs-graph-vs-hybrid comparison</li>
+<li>[x] <a href="https://aclanthology.org/2025.genaik-1.6/">Barry et al. (2025) GraphRAG: Leveraging Graph-Based Efficiency to Minimize Hallucinations in LLM-Driven RAG for Finance Data</a>, Association for Computational Linguistics (ACL) Generative AI and Knowledge Graphs (GenAIK) workshop paper on graph-based hallucination reduction in finance RAG</li>
+<li>[x] <a href="https://github.com/GraphRAG-Bench/GraphRAG-Benchmark">GraphRAG-Bench: Challenging Domain-specific Reasoning for Evaluating Graph Retrieval-Augmented Generation</a>, cross-domain benchmark project stating GraphRAG frequently underperforms vanilla RAG</li>
+<li>[x] <a href="https://microsoft.github.io/graphrag/query/global_search/">Microsoft GraphRAG documentation, Global Search</a>, official pipeline documentation for community detection and map-reduce global search</li>
+<li>[x] <a href="https://github.com/microsoft/graphrag/issues/741">Incremental indexing (adding new content), microsoft/graphrag issue #741</a>, primary project discussion of incremental graph-update engineering</li>
+<li>[x] <a href="https://www.bestaiweb.ai/indexing-cost-token-blowup-and-the-hard-engineering-limits-of-graphrag-at-scale/">GraphRAG Indexing: Why the $33K Cost Cliff Hits (bestaiweb.ai)</a>, secondary technical analysis of GraphRAG indexing cost drivers</li>
+<li>[x] <a href="https://particula.tech/blog/lazygraphrag-700x-cheaper-graphrag-knowledge-graphs">LazyGraphRAG: 700x Cheaper GraphRAG That Actually Works (particula.tech)</a>, secondary vendor blog on lazy, query-time summarisation cost reduction</li>
+<li>[x] <a href="https://neo4j.com/blog/genai/what-is-retrieval-augmented-generation-rag/">Neo4j: What is retrieval-augmented generation (RAG)?</a>, vendor documentation on hybrid vector-plus-graph retrieval patterns</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html">Context Compression and RAG Techniques for Organisational Knowledge</a>, prior completed item, RAG taxonomy and context-compression baseline</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html">Knowledge Representation for Agent Context</a>, prior completed item establishing the layered dense-embedding/knowledge-graph/hierarchical-summary architecture</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html">ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks</a>, prior completed item on knowledge-base governance as a RAG-grounding precondition</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html">Hosted graph database options for knowledge ontology</a>, prior completed item on ontology-first hosted graph database options</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-13-graph-db-landscape-tco-interoperability.html">Graph database landscape: pricing, Total Cost of Ownership (TCO), interoperability</a>, prior completed item on graph database TCO</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">Web ontologies in production Knowledge Graphs for multi-step agents</a>, prior completed item on Resource Description Framework (RDF), RDF Schema (RDFS), and Web Ontology Language (OWL) adoption sequencing</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html">When Retrieval-Augmented Generation source documents change after agent build and test</a>, prior completed item on treating RAG corpora as versioned dependencies</li>
+</ul>
+<hr />
+
+
+  </div>
+  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html">ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-12-rag-document-drift-agent-behavior.html">When Retrieval-Augmented Generation source documents change after agent build and test, what failure modes and behavioral regressions arise, and what dependency and change management practices exist to detect, govern, and mitigate them?</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html">Context Compression and RAG Techniques for Organisational Knowledge</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-03-knowledge-representation-agent-context.html">Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html">Hosted Software-as-a-Service (SaaS) graph database options for knowledge ontology</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-13-graph-db-landscape-tco-interoperability.html">Graph database landscape: pricing, total cost of ownership, interoperability, support, and hiring</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html">Web ontologies in production Knowledge Graphs for multi-step Artificial Intelligence (AI) agents: Resource Description Framework (RDF), Web Ontology Language (OWL), RDF Schema (RDFS), Simple Knowledge Organization System (SKOS), and Schema.org best practices</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-06-13-standardization-customization-balance-context-ai.html">How should the balance between standardized and customized internal tooling…</a></div>
+  </div>
+</main>
+<section id="mini-graph-section">
+<h2>Connected items</h2>
+<p class="mini-graph-meta" id="mini-graph-count">Loading…</p>
+<div class="mini-graph-wrap">
+<canvas id="mini-graph-canvas"></canvas>
+</div>
+<a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
+</section>
+<script>window.GRAPH_FOCAL_SLUG = "2026-07-05-vector-rag-to-ontology-kg-rag-migration";</script>
+<script>
+(function () {
+  var FOCAL = window.GRAPH_FOCAL_SLUG;
+  var canvas = document.getElementById('mini-graph-canvas');
+  if (!canvas || !FOCAL) return;
+  var ctx = canvas.getContext('2d');
+  var nodes = [], edges = [], nodeMap = {};
+  var transform = {x: 0, y: 0, scale: 1};
+  var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
+  var activePointers = {};
+  var REST = 80;
+  var ticks = 0, MAX_TICKS = 200, animRunning = false;
+
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 640;
+    var cssH = canvas.clientHeight || 280;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  function toWorld(cx, cy) {
+    return {
+      x: (cx - transform.x) / transform.scale,
+      y: (cy - transform.y) / transform.scale
+    };
+  }
+
+  function initNodes(data) {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
+    var neighborSlugs = {};
+    neighborSlugs[FOCAL] = true;
+    var localEdges = [], seen = {};
+    data.edges.forEach(function(e) {
+      if (e.source === FOCAL || e.target === FOCAL) {
+        neighborSlugs[e.source] = true;
+        neighborSlugs[e.target] = true;
+        seen[e.source + '|' + e.target] = true;
+        localEdges.push(e);
+      }
+    });
+    data.edges.forEach(function(e) {
+      if (neighborSlugs[e.source] && neighborSlugs[e.target] &&
+          !seen[e.source + '|' + e.target]) {
+        localEdges.push(e);
+      }
+    });
+    var localNodes = data.nodes.filter(function(n) { return neighborSlugs[n.slug]; });
+    var n = localNodes.length;
+    var r = Math.min(W, H) * 0.40;
+    nodes = localNodes.map(function(nd, i) {
+      var isFocal = nd.slug === FOCAL;
+      var angle = (2 * Math.PI * i) / n;
+      return Object.assign({}, nd, {
+        x: isFocal ? W / 2 : W / 2 + r * Math.cos(angle) + (Math.random() - 0.5) * 20,
+        y: isFocal ? H / 2 : H / 2 + r * Math.sin(angle) + (Math.random() - 0.5) * 20,
+        vx: 0, vy: 0, isFocal: isFocal
+      });
+    });
+    nodeMap = {};
+    nodes.forEach(function(nd) { nodeMap[nd.slug] = nd; });
+    edges = localEdges.map(function(e) {
+      return Object.assign({}, e, {
+        sourceNode: nodeMap[e.source],
+        targetNode: nodeMap[e.target]
+      });
+    }).filter(function(e) { return e.sourceNode && e.targetNode; });
+    var countEl = document.getElementById('mini-graph-count');
+    if (countEl) {
+      var c = n - 1;
+      countEl.textContent = c + ' direct connection' + (c !== 1 ? 's' : '');
+    }
+  }
+
+  function tick() {
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 3000, DIST_MAX = 200;
+    var SPRING = 0.005 + 0.020 * progress;
+    var DAMP = 0.50 + 0.35 * progress;
+    var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy + 1;
+        if (d2 > DIST_MAX * DIST_MAX) continue;
+        f = REPULSION / d2;
+        if (!a.isFocal) { a.vx -= dx * f; a.vy -= dy * f; }
+        if (!b.isFocal) { b.vx += dx * f; b.vy += dy * f; }
+      }
+    }
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y;
+      d = Math.sqrt(dx * dx + dy * dy) || 1;
+      f = (d - REST) * SPRING;
+      fx = dx / d * f; fy = dy / d * f;
+      if (!s.isFocal) { s.vx += fx; s.vy += fy; }
+      if (!t.isFocal) { t.vx -= fx; t.vy -= fy; }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      if (!nodes[i].isFocal) {
+        nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
+        nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+      }
+    }
+  }
+
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569', 'theme-overlap': '#f59e0b'};
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.scale, transform.scale);
+    var R = 7 / transform.scale;
+    var i, e, s, t, n;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
+      ctx.strokeStyle = REL_COLORS[e.rel] || '#475569';
+      ctx.lineWidth = Math.max(0.5, e.weight * 0.4) / transform.scale;
+      ctx.globalAlpha = 0.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i];
+      var nr = n.isFocal ? R * 2.2 : R;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
+      ctx.fillStyle = n.isFocal ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.fill();
+      ctx.fillStyle = n.isFocal ? '#fbbf24' : '#94a3b8';
+      ctx.font = ((n.isFocal ? 10 : 9) / transform.scale) + 'px sans-serif';
+      var label = n.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').slice(0, 26);
+      ctx.fillText(label, n.x + nr + 3 / transform.scale, n.y + 3 / transform.scale);
+    }
+    ctx.restore();
+  }
+
+  function startAnim() {
+    if (animRunning) return;
+    animRunning = true;
+    requestAnimationFrame(animStep);
+  }
+
+  function animStep() {
+    if (ticks < MAX_TICKS) {
+      tick(); ticks++;
+      draw();
+      requestAnimationFrame(animStep);
+    } else {
+      fitToView();
+      animRunning = false;
+    }
+  }
+
+  function fitToView() {
+    if (!nodes.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach(function(nd) {
+      if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
+      if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
+    });
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 56;
+    var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
+    transform.scale = Math.max(scale, 0.1);
+    transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
+    transform.y = H / 2 - ((minY + maxY) / 2) * transform.scale;
+    draw();
+  }
+
+  function hitNode(wx, wy) {
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
+    for (i = nodes.length - 1; i >= 0; i--) {
+      nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
+      if (dx * dx + dy * dy <= R * R) return nd;
+    }
+    return null;
+  }
+
+  function redraw() { if (!animRunning) draw(); }
+
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
+      lastMX = e.clientX; lastMY = e.clientY;
+      clickX = e.clientX; clickY = e.clientY;
+    } else {
+      dragging = false;
+    }
+  });
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        canvas.style.cursor = (nd && !nd.isFocal) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+        redraw();
+      }
+    }
+  });
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        if (nd && !nd.isFocal) window.location.href = nd.url;
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
+    }
+  });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
+    transform.x = mx - (mx - transform.x) * factor;
+    transform.y = my - (my - transform.y) * factor;
+    transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+    if (!animRunning) draw();
+  }, {passive: false});
+
+  window.addEventListener('resize', function() { resize(); redraw(); });
+
+  resize();
+  fetch('/Research/data/graph.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      initNodes(data);
+      if (nodes.length > 1) {
+        startAnim();
+      } else {
+        var sect = document.getElementById('mini-graph-section');
+        if (sect) sect.style.display = 'none';
+      }
+    })
+    .catch(function() {
+      var sect = document.getElementById('mini-graph-section');
+      if (sect) sect.style.display = 'none';
+    });
+})();
+
+</script>
+</body>
+</html>

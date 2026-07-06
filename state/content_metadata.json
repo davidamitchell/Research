@@ -1,6 +1,105 @@
 {
-  "extracted_at": "2026-07-06T08:33:21Z",
+  "extracted_at": "2026-07-06T08:57:35Z",
   "items": {
+    "2026-07-05-vector-rag-to-ontology-kg-rag-migration": {
+      "named_concepts": [
+        "vector rag",
+        "graph structure",
+        "graphrag frequently",
+        "frequently underperforms",
+        "microsoft graphrag",
+        "prior completed",
+        "controlled ablation",
+        "vector index",
+        "graph-structured retrieval",
+        "confidence single",
+        "graphrag project",
+        "underperforms vanilla",
+        "many real-world",
+        "real-world tasks",
+        "ontology-backed kg-rag",
+        "independently verified",
+        "richer retrieval",
+        "retrieval context",
+        "multi-hop reasoning",
+        "ablation isolating"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2404.17723",
+        "https://arxiv.org/abs/2404.16130",
+        "https://arxiv.org/abs/2408.04948",
+        "https://arxiv.org/abs/2501.00309",
+        "https://arxiv.org/abs/2408.08921",
+        "https://arxiv.org/abs/2507.03226",
+        "https://arxiv.org/abs/2507.03608",
+        "https://aclanthology.org/2025.genaik-1.6/",
+        "https://github.com/GraphRAG-Bench/GraphRAG-Benchmark",
+        "https://microsoft.github.io/graphrag/query/global_search/",
+        "https://github.com/microsoft/graphrag/issues/741",
+        "https://www.bestaiweb.ai/indexing-cost-token-blowup-and-the-hard-engineering-limits-of-graphrag-at-scale/",
+        "https://particula.tech/blog/lazygraphrag-700x-cheaper-graphrag-knowledge-graphs",
+        "https://neo4j.com/blog/genai/what-is-retrieval-augmented-generation-rag/",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-graph-db-saas-knowledge-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-13-graph-db-landscape-tco-interoperability.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-web-ontologies-production-knowledge-graph-agentic.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A production knowledge-graph-augmented customer-service retrieval system deployed at LinkedIn outperformed a vector-only baseline by 77.6% in Mean Reciprocal Rank and by 0.32 in BLEU score, and reduced median per-issue resolution time by 28.6% after roughly six months in production",
+          "sources": [
+            "https://arxiv.org/abs/2404.17723"
+          ]
+        },
+        {
+          "text": "Baseline vector RAG performs poorly on global sensemaking questions that require synthesising information across an entire dataset, because similarity search has no specific semantic anchor to retrieve against for a corpus-wide theme question",
+          "sources": [
+            "https://arxiv.org/abs/2404.16130",
+            "https://microsoft.github.io/graphrag/query/global_search/"
+          ]
+        },
+        {
+          "text": "HybridRAG, combining vector-database retrieval with knowledge-graph retrieval, outperformed both vector-only and graph-only retrieval individually on financial earnings-call question answering, at both the retrieval and answer-generation stages",
+          "sources": [
+            "https://arxiv.org/abs/2408.04948"
+          ]
+        },
+        {
+          "text": "An independent 2025 benchmark applying the same three-way vector-versus-graph-versus-hybrid comparison to telecom Open Radio Access Network (ORAN) specifications and RAN Intelligent Controller (RIC) Application Programming Interface (API) definitions replicates the same experimental design in a second, unrelated domain from the financial HybridRAG study",
+          "sources": [
+            "https://arxiv.org/abs/2507.03608"
+          ]
+        },
+        {
+          "text": "A dedicated cross-task benchmark project states that GraphRAG frequently underperforms vanilla vector RAG on many real-world tasks, and was built specifically to identify the scenarios where graph structure provides a measurable retrieval benefit rather than assuming a universal advantage",
+          "sources": [
+            "https://github.com/GraphRAG-Bench/GraphRAG-Benchmark"
+          ]
+        },
+        {
+          "text": "The original Microsoft GraphRAG indexing pipeline requires an LLM-based entity and relationship extraction pass over every document chunk, followed by recursive Leiden-algorithm community detection and a further LLM summarisation pass over every resulting community at every hierarchy level, before any query can be answered",
+          "sources": [
+            "https://microsoft.github.io/graphrag/query/global_search/",
+            "https://www.nature.com/articles/s41598-019-41695-z"
+          ]
+        },
+        {
+          "text": "A widely cited but not officially Microsoft-published cost estimate places the price of indexing a single 32,000-word document with the original GraphRAG pipeline on GPT-4o at roughly six to seven US dollars, an order of magnitude more expensive per document than typical vector-only embedding indexing",
+          "sources": [
+            "https://www.bestaiweb.ai/indexing-cost-token-blowup-and-the-hard-engineering-limits-of-graphrag-at-scale/"
+          ]
+        },
+        {
+          "text": "A 2025 paper titled \"Towards Practical GraphRAG\" proposes replacing LLM-based entity extraction with a dependency-parsing-based construction pipeline combined with hybrid retrieval, explicitly to remove the cost barrier that the authors identify as limiting GraphRAG's enterprise adoption",
+          "sources": [
+            "https://arxiv.org/abs/2507.03226"
+          ]
+        }
+      ]
+    },
     "2026-06-13-standardization-customization-balance-context-ai": {
       "named_concepts": [
         "ai agent",
