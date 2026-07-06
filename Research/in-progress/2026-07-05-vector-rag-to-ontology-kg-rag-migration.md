@@ -1,11 +1,11 @@
 ---
 title: "Migration trade-offs from vector Retrieval-Augmented Generation to ontology-backed Knowledge Graph RAG"
 added: 2026-07-05T20:53:37+00:00
-status: backlog
+status: in-progress
 priority: high
 blocks: []
 themes: [rag-retrieval, knowledge-graphs, knowledge-management, enterprise-adoption, cost-performance]
-started: ~
+started: 2026-07-06T08:31:15+00:00
 completed: ~
 output: []
 cites: []
