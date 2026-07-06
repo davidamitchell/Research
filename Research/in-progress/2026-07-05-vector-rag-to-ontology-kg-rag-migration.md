@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Migration trade-offs from vector Retrieval-Augmented Generation to ontology-backed Knowledge Graph RAG"
 added: 2026-07-05T20:53:37+00:00
 status: reviewing
