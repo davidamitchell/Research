@@ -2,12 +2,12 @@
 review_count: 2
 title: "AWS AgentCore and AWS-native Knowledge Context Layer: design patterns for continuous acquisition, curation, evolution, and governed serving of enterprise knowledge to AI agents via ontologies, knowledge graphs, and GraphRAG"
 added: 2026-07-20T08:14:24+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, knowledge-graphs, rag-retrieval, tools-infrastructure, governance-policy]
 started: 2026-07-20T09:37:04+00:00
-completed: ~
+completed: 2026-07-20T10:08:48+00:00
 output: [backlog-item]
 cites: [2026-07-20-tbox-abox-graphrag, 2026-05-17-aws-bedrock-agentcore-suite-capabilities, 2026-05-17-aws-bedrock-capabilities, 2026-07-05-vector-rag-to-ontology-kg-rag-migration, 2026-04-22-knowledge-curation-governance-for-regulated-ai]
 related: [2026-05-21-agentic-semantic-km-capability-model, 2026-05-12-knowledge-graph-data-product-agentic, 2026-05-25-ontology-world-model-llm-prediction-forcing-functions, 2026-05-12-graph-db-saas-knowledge-ontology, 2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-04-26-permission-safe-rag-enterprise-information-architecture]
