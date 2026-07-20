@@ -2,12 +2,12 @@
 review_count: 2
 title: "Episodic-to-semantic memory consolidation architectures for agents"
 added: 2026-07-20T09:07:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation]
 themes: [agentic-ai, memory-context, consciousness-cognition, knowledge-management]
 started: 2026-07-20T20:56:02+00:00
-completed: ~
+completed: 2026-07-20T21:21:56+00:00
 output: []
 cites: [2026-03-02-agent-memory-management-context-injection, 2026-03-15-neurological-context-management, 2026-03-17-ai-memory-systems-rag-neuroscience]
 related: [2026-07-20-agent-memory-forgetting-information-curation, 2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation, 2026-07-20-agent-memory-evaluation-framework, 2026-05-02-knowledge-graph-schema-cross-session-research-mcp]
