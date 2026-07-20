@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "TBox-driven vs ABox-emergent ontology approaches in GraphRAG systems"
 added: 2026-07-20T08:11:10+00:00
 status: reviewing
