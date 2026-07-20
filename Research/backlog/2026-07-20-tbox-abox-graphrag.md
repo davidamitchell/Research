@@ -3,7 +3,7 @@ title: "TBox-driven vs ABox-emergent ontology approaches in GraphRAG systems"
 added: 2026-07-20T08:11:10+00:00
 status: backlog
 priority: high
-blocks: []
+blocks: [2026-07-20-aws-agentcore-knowledge-context-layer]
 themes: [knowledge-graphs, rag-retrieval, benchmarks-eval, llm-reasoning]
 started: ~
 completed: ~
