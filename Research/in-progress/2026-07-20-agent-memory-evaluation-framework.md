@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Evaluation frameworks for agentic memory quality, relevance, and retrieval accuracy"
 added: 2026-07-20T09:07:23+00:00
 status: reviewing
