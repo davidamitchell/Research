@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Episodic-to-semantic memory consolidation architectures for agents"
 added: 2026-07-20T09:07:23+00:00
 status: reviewing
