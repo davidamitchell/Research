@@ -2,12 +2,12 @@
 review_count: 2
 title: "Autonomous forgetting and information curation for long-term agent memory"
 added: 2026-07-20T09:07:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-07-20-agent-memory-consolidation-episodic-semantic, 2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation]
 themes: [agentic-ai, memory-context, knowledge-management, ai-architecture]
 started: 2026-07-20T21:23:58+00:00
-completed: ~
+completed: 2026-07-20T21:50:08+00:00
 output: []
 cites: [2026-03-02-agent-memory-management-context-injection, 2026-03-17-ai-memory-systems-rag-neuroscience, 2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-07-20-agent-memory-consolidation-episodic-semantic]
 related: [2026-07-20-agent-memory-consolidation-episodic-semantic, 2026-07-20-agent-memory-evaluation-framework, 2026-07-20-privacy-preserving-agent-long-term-memory, 2026-05-02-knowledge-graph-schema-cross-session-research-mcp]

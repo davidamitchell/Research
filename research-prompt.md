@@ -185,19 +185,27 @@ aligned.
   uncertainty.** State the key conclusion first. Write plain prose; do not
   prefix sentences with `[type; source:]` labels.
 - **Key Findings** -- ordered list, 6-12 items. Each is a specific,
-  evidence-backed claim with a confidence label and source as a trailing
-  parenthetical. Format: `1. **Claim text as a complete sentence.** (high
-  confidence; source: https://url1; https://url2)` **Each Key Finding must be
-  a complete sentence of at least 20 words containing a subject, a verb, and a
-  specific object or complement.** Do not include findings that are
-  reformulations of the research question, findings that apply generically to
-  all research items, or findings that consist only of a label without a claim.
+  evidence-backed claim with an epistemic label, confidence level, and source
+  as a trailing parenthetical. Do not bold the claim sentence itself -- bold is
+  reserved for defined terms, UI labels, or technical identifiers only, never a
+  full claim sentence. Format: `1. Claim text as a complete sentence.
+  ([inference]; high confidence; source: https://url1; https://url2)` **Each
+  Key Finding must be a complete sentence of at least 20 words containing a
+  subject, a verb, and a specific object or complement.** Do not include
+  findings that are reformulations of the research question, findings that
+  apply generically to all research items, or findings that consist only of a
+  label without a claim.
 - **Evidence Map** -- table: claim | source | confidence | notes. Every Key
   Finding must appear here. **The `source` cell in every row must contain one or
   more URL-backed citations or DOIs, not only source names or shorthand labels,
-  so the row is independently verifiable on its own.**
-- **Assumptions** -- each assumption and its justification. Must match
-  **[assumption]** labels in §2 Investigation.
+  so the row is independently verifiable on its own.** Each `claim` cell must
+  begin with `[fact]`, `[inference]`, or `[assumption]`.
+- **Assumptions** -- plain prose, one sentence stating the assumption followed
+  by one sentence stating its justification, each carrying its own
+  `[assumption]` label and URL-backed source. Do not use a bolded
+  `**Assumption:** ... **Justification:** ...` two-clause format -- this is a
+  prohibited inline-header-list pattern under the `remove-ai-slop` skill. Must
+  match **[assumption]** labels in §2 Investigation.
 - **Analysis** -- how evidence was weighed, trade-offs identified, competing
   interpretations resolved.
 - **Risks, Gaps, and Uncertainties** -- what is still unknown; where evidence
@@ -215,12 +223,16 @@ aligned.
   URL-backed source just as you would in Executive Summary or Analysis.
 - **Inline evidence discipline in Findings** -- every sentence in Findings that
   asserts a factual or inferential claim must bind its epistemic label and
-  supporting source inline. Use the **suffix** (trailing) form:
+  supporting source inline. A label binds only to the sentence it is attached
+  to -- it does not extend to a preceding or following sentence in the same
+  bullet or paragraph, even if they share one topic. Use the **suffix**
+  (trailing) form:
   - **Executive Summary and Analysis:** plain prose sentences; each sentence
     that makes a claim ends with a trailing citation:
     `Claim text. [inference; source: https://url1; https://url2]`
-  - **Key Findings:** confidence and source as a trailing parenthetical after
-    the claim: `1. **Claim text.** (high confidence; source: https://url1)`
+  - **Key Findings:** epistemic label, confidence, and source as a trailing
+    parenthetical after the unbolded claim:
+    `1. Claim text. ([inference]; high confidence; source: https://url1)`
   Do not write labels **before** the claim text (prefix style such as
   `[inference; source: URL] Claim text.`). The Evidence Map is required, but it
   does **not** substitute for inline source binding in Executive Summary, Key
@@ -387,7 +399,8 @@ easily-detectable issues.
     Analysis, must carry an inline `[fact]`, `[inference]`, or `[assumption]`
     label and bind its supporting source AFTER the claim text (suffix style).
     Use `Claim text. [inference; source: URL]` for prose and
-    `1. **Claim text.** ([inference]; high confidence; source: URL)` for Key Findings.
+    `1. Claim text. ([inference]; high confidence; source: URL)` for Key Findings
+    (no bold on the claim sentence).
     Prefix-style labels placed before the claim (such as
     `[inference; source: URL] Claim text.`) are non-conforming.
     The Evidence Map alone is insufficient.
