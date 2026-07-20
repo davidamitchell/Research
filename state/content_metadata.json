@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-07-20T09:53:16Z",
+  "extracted_at": "2026-07-20T10:13:38Z",
   "items": {
     "2026-07-20-tbox-abox-graphrag": {
       "named_concepts": [
@@ -92,6 +92,109 @@
           "text": "An independent, non-peer-reviewed small-scale study (1,200 queries across two corpora) reports the opposite ranking on a noisy corpus: schema-free GraphRAG dropped only 10.5 percentage points in accuracy from a clean Wikipedia corpus to a noisy U.S. Securities and Exchange Commission filings corpus, while a fixed-ontology GraphRAG implementation dropped 21.0 percentage points, with two-hop multi-hop reasoning accuracy for the fixed-ontology system collapsing by 32.3 percentage points on the noisy corpus",
           "sources": [
             "https://github.com/kartikeyamandhar/graphrag-comparison"
+          ]
+        }
+      ]
+    },
+    "2026-07-20-aws-agentcore-knowledge-context-layer": {
+      "named_concepts": [
+        "knowledge base",
+        "amazon neptune",
+        "bedrock knowledge",
+        "neptune database",
+        "knowledge bases",
+        "fully managed",
+        "access control",
+        "managed graphrag",
+        "amazon bedrock",
+        "amazon s3",
+        "lake formation",
+        "aws labs",
+        "agentcore gateway",
+        "prior repository",
+        "customer-managed neptune",
+        "neptune analytics",
+        "acl filtering",
+        "managed feature",
+        "dedicated curation",
+        "curation service"
+      ],
+      "source_urls": [
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+        "https://docs.aws.amazon.com/neptune/latest/userguide/limits.html",
+        "https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-fine-grained-access-control.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
+        "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/vpc.html",
+        "https://aws.amazon.com/blogs/database/using-knowledge-graphs-to-build-graphrag-applications-with-amazon-bedrock-and-amazon-neptune/",
+        "https://aws.amazon.com/blogs/database/new-amazon-neptune-engine-version-delivers-up-to-9-times-faster-and-10-times-higher-throughput-for-opencypher-query-performance/",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-enterprise-ready-gen-ai-platform/best-practices.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html",
+        "https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html",
+        "https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-data-source-sync-ingest.html",
+        "https://github.com/aws-samples/sample-automatic-sync-for-bedrock-knowledge-bases",
+        "https://github.com/awslabs/graphrag-toolkit",
+        "https://www.youtube.com/user/AmazonWebServices"
+      ],
+      "key_claims": [
+        {
+          "text": "Amazon Bedrock Knowledge Bases splits into Managed and Customer-managed modes with materially different governance capability: only the Managed mode provides native connectors (Amazon S3, SharePoint, Confluence, Google Drive, OneDrive, web crawler), document-level ACL-based permission filtering at retrieval time, and native integration with AgentCore Gateway",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+          ]
+        },
+        {
+          "text": "The fully managed GraphRAG feature, which pairs Bedrock Knowledge Bases with Neptune Analytics, supports only Amazon S3 as a data source, disallows customization of the graph-build configuration, does not autoscale the underlying Neptune Analytics graph, and caps each data source at 1,000 files by default",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html"
+          ]
+        },
+        {
+          "text": "Managed GraphRAG is available in only seven AWS Regions (Frankfurt, London, Ireland, Oregon, N. Virginia, Tokyo, Singapore), while Amazon Neptune Database itself operates in over 30 Regions including the Middle East, Israel, Africa, and AWS GovCloud (US), so data-residency-constrained enterprises outside those seven Regions cannot use the managed GraphRAG feature at all",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html",
+            "https://docs.aws.amazon.com/neptune/latest/userguide/limits.html"
+          ]
+        },
+        {
+          "text": "AWS Labs publishes an open-source `graphrag-toolkit` containing `graphrag-byokg`, a package purpose-built for question-answering over a customer's own pre-existing knowledge graph, which is the closest AWS-native path to a predefined-ontology GraphRAG pattern given that the managed Bedrock feature explicitly excludes graph-build customization",
+          "sources": [
+            "https://github.com/awslabs/graphrag-toolkit",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html"
+          ]
+        },
+        {
+          "text": "AgentCore Gateway enforces access control at four distinct levels, gateway, tool, operation, and parameter, using either REQUEST interceptors validating JSON Web Token (JWT) claims, Open Authorization (OAuth) authentication, or Cedar-policy IAM principal matching, and it separately handles both ingress (verifying caller identity) and egress (injecting downstream credentials) authentication in one managed service",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-fine-grained-access-control.html",
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html"
+          ]
+        },
+        {
+          "text": "AgentCore Memory and Bedrock Knowledge Bases serve different, complementary roles rather than being substitutable: Memory persists what a specific agent has learned about a user or task across sessions, while Knowledge Bases serves durable, shared enterprise source-of-record content, so a Knowledge Context Layer's governed enterprise knowledge belongs in Knowledge Bases with Memory layered on top for personalization",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+          ]
+        },
+        {
+          "text": "Bedrock Knowledge Base data-source syncing is incremental at the document level, meaning only added, modified, or deleted files since the last sync are re-parsed and re-embedded, and metadata-only changes to a `.metadata.json` file can sync without re-embedding the associated content, but the underlying `StartIngestionJob` API call still processes the entire data source per invocation rather than accepting a targeted file list",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-data-source-sync-ingest.html",
+            "https://github.com/aws-samples/sample-automatic-sync-for-bedrock-knowledge-bases"
+          ]
+        },
+        {
+          "text": "Continuous curation on AWS is implemented as an event-driven pipeline, not a dedicated curation service: Amazon S3 Event Notifications routed through Amazon EventBridge trigger AWS Lambda functions that call the Knowledge Base ingestion API, with Amazon SQS, Amazon SNS, and AWS Step Functions added to respect per-data-source ingestion-job concurrency limits",
+          "sources": [
+            "https://github.com/aws-samples/sample-automatic-sync-for-bedrock-knowledge-bases"
           ]
         }
       ]
