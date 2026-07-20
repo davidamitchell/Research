@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "AWS AgentCore and AWS-native Knowledge Context Layer: design patterns for continuous acquisition, curation, evolution, and governed serving of enterprise knowledge to AI agents via ontologies, knowledge graphs, and GraphRAG"
 added: 2026-07-20T08:14:24+00:00
 status: reviewing
