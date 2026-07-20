@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-07-20T22:05:13Z",
+  "extracted_at": "2026-07-20T22:21:07Z",
   "items": {
     "2026-07-20-tbox-abox-graphrag": {
       "named_concepts": [
@@ -195,6 +195,99 @@
           "text": "Continuous curation on AWS is implemented as an event-driven pipeline, not a dedicated curation service: Amazon S3 Event Notifications routed through Amazon EventBridge trigger AWS Lambda functions that call the Knowledge Base ingestion API, with Amazon SQS, Amazon SNS, and AWS Step Functions added to respect per-data-source ingestion-job concurrency limits",
           "sources": [
             "https://github.com/aws-samples/sample-automatic-sync-for-bedrock-knowledge-bases"
+          ]
+        }
+      ]
+    },
+    "2026-07-20-autonomous-knowledge-curation-truth-maintenance": {
+      "named_concepts": [
+        "retention policy",
+        "ontology curation",
+        "autonomous ontology",
+        "truth maintenance",
+        "knowledge graph",
+        "et al",
+        "maintenance system",
+        "adversarial robustness",
+        "conflict detection",
+        "dual-memory routing",
+        "belief revision",
+        "belief inertia",
+        "adversarial-robustness benchmark",
+        "context-memory inter-context",
+        "system tms",
+        "language model",
+        "model llm",
+        "edited facts",
+        "systematically violate",
+        "detect-then-resolve architecture"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1016/0004-3702(79",
+        "https://archive.org/download/aitr310/AIM-461a_text.pdf",
+        "https://www.dekleer.org/Publications/An%20Assumption-Based%20TMS.pdf",
+        "https://arxiv.org/abs/2306.08302",
+        "https://arxiv.org/abs/2305.01651",
+        "https://arxiv.org/abs/2106.15110",
+        "https://aclanthology.org/2023.eacl-main.199/",
+        "https://arxiv.org/abs/2305.13172",
+        "https://arxiv.org/abs/2405.14768",
+        "https://arxiv.org/abs/2110.03215",
+        "https://aclanthology.org/2024.emnlp-main.486/",
+        "https://arxiv.org/abs/2406.19764",
+        "https://iclr.cc/virtual/2026/10017503",
+        "https://arxiv.org/abs/2502.06472",
+        "https://www.mdpi.com/2227-7390/12/15/2318",
+        "https://www.w3.org/TR/prov-o/",
+        "https://arxiv.org/abs/2508.02866"
+      ],
+      "key_claims": [
+        {
+          "text": "Classical Justification-based Truth Maintenance System (JTMS) and Assumption-based Truth Maintenance System (ATMS) theory defines minimal-retraction dependency tracking and multi-context belief labelling, but no source in this investigation describes a production LLM-KG agent implementing this mechanism directly. (; medium confidence; source: https://doi.org/10.1016/0004-3702(79)90008-0; https://www.dekleer.org/Publications/An%20Assumption-Based%20TMS.pdf; https://arxiv.org/abs/2502.06472)",
+          "sources": [
+            "https://doi.org/10.1016/0004-3702(79"
+          ]
+        },
+        {
+          "text": "Frontier LLMs evaluated against the six AGM belief-revision postulates satisfy Success and Consistency but systematically violate Inclusion and Preservation, producing belief inertia and collateral damage under iterated revision",
+          "sources": [
+            "https://iclr.cc/virtual/2026/10017503"
+          ]
+        },
+        {
+          "text": "The Belief-R evaluation separately found that LLMs fail to suppress conclusions that should have been retracted after new evidence and, in other cases, over-update when no revision was warranted",
+          "sources": [
+            "https://arxiv.org/abs/2406.19764"
+          ]
+        },
+        {
+          "text": "A detect-then-resolve architecture that filters candidate conflicts before invoking an LLM for resolution improved recall by 56.4% and F1-score by 68.2% over resolution-only baselines on knowledge graph conflict-resolution benchmarks",
+          "sources": [
+            "https://www.mdpi.com/2227-7390/12/15/2318"
+          ]
+        },
+        {
+          "text": "Knowledge conflicts in LLM-based systems fall into three distinct types, context-memory, inter-context, and intra-memory, each requiring a different detection and resolution approach rather than one unified conflict-handling routine",
+          "sources": [
+            "https://aclanthology.org/2024.emnlp-main.486/"
+          ]
+        },
+        {
+          "text": "A dual-memory routing architecture that shards edited facts into a separate \"side memory\" from original model parameters reduces interference between old and new knowledge across thousands of sequential edits, but the underlying reliability-generalisation-locality trade-off is not fully resolved",
+          "sources": [
+            "https://arxiv.org/abs/2405.14768"
+          ]
+        },
+        {
+          "text": "Temporal facts introduce a distinct noise source beyond ordinary extraction error: models trained on static snapshots exhibit \"averaging\" and \"forgetting\" failure modes on time-sensitive facts, meaning a curation policy that treats every contradiction as a binary true/false conflict will mishandle facts that are simply superseded by time",
+          "sources": [
+            "https://arxiv.org/abs/2106.15110"
+          ]
+        },
+        {
+          "text": "Multi-agent knowledge graph enrichment pipelines assign conflict resolution to a dedicated agent within a nine-agent sequence, but no accessible description of a standalone, independently evaluated retention policy (what to keep versus discard) was found separate from the extraction and conflict-resolution stages",
+          "sources": [
+            "https://arxiv.org/abs/2502.06472"
           ]
         }
       ]
