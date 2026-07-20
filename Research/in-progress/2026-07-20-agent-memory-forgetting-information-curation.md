@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Autonomous forgetting and information curation for long-term agent memory"
 added: 2026-07-20T09:07:23+00:00
 status: reviewing
