@@ -2,12 +2,12 @@
 review_count: 2
 title: "Autonomous knowledge curation and truth maintenance for agentic ontologies: deciding what to keep, resolving contradictions, and managing extraction noise"
 added: 2026-07-20T09:09:17+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-07-20-episodic-semantic-consolidation-agents]
 themes: [agentic-ai, knowledge-graphs, knowledge-management, llm-reasoning, governance-policy]
 started: 2026-07-20T21:52:47+00:00
-completed: ~
+completed: 2026-07-20T22:17:50+00:00
 output: []
 cites: [2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-05-21-agentic-semantic-km-capability-model, 2026-07-20-agent-memory-forgetting-information-curation, 2026-07-20-tbox-abox-graphrag]
 related: [2026-07-20-hybrid-memory-integration-ontology-llm-weights, 2026-07-20-episodic-semantic-consolidation-agents, 2026-05-31-capability-claim-telemetry-conflict-arbitration, 2026-03-02-agent-memory-management-context-injection]
