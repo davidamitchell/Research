@@ -2,12 +2,12 @@
 review_count: 2
 title: "TBox-driven vs ABox-emergent ontology approaches in GraphRAG systems"
 added: 2026-07-20T08:11:10+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-07-20-aws-agentcore-knowledge-context-layer]
 themes: [knowledge-graphs, rag-retrieval, benchmarks-eval, llm-reasoning]
 started: 2026-07-20T09:00:41+00:00
-completed: ~
+completed: 2026-07-20T09:34:49+00:00
 output: [knowledge]
 cites: [2026-07-05-vector-rag-to-ontology-kg-rag-migration]
 related: [2026-05-15-ontology-landscape-for-curated-enterprise-context, 2026-05-27-semantic-domain-emergence-enterprise-ontology, 2026-05-12-web-ontologies-production-knowledge-graph-agentic]
