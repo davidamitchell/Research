@@ -2,12 +2,12 @@
 review_count: 2
 title: "Evaluation frameworks for agentic memory quality, relevance, and retrieval accuracy"
 added: 2026-07-20T09:07:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, memory-context, benchmarks-eval, rag-retrieval]
 started: 2026-07-20T22:19:39+00:00
-completed: ~
+completed: 2026-07-20T22:41:35+00:00
 output: []
 cites: [2026-03-02-agent-memory-management-context-injection, 2026-03-17-ai-memory-systems-rag-neuroscience, 2026-05-02-knowledge-graph-schema-cross-session-research-mcp]
 related: [2026-07-20-agent-memory-forgetting-information-curation, 2026-07-20-agent-memory-consolidation-episodic-semantic, 2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation, 2026-07-20-privacy-preserving-agent-long-term-memory]
