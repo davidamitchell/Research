@@ -1,6 +1,101 @@
 {
-  "extracted_at": "2026-07-20T09:16:24Z",
+  "extracted_at": "2026-07-20T09:37:52Z",
   "items": {
+    "2026-07-20-tbox-abox-graphrag": {
+      "named_concepts": [
+        "independent replication",
+        "et al",
+        "knowledge graph",
+        "replication located",
+        "human review",
+        "percentage points",
+        "ontology-guided extraction",
+        "omd-graphrag ablation",
+        "rival explanation",
+        "retrieval-augmented generation",
+        "assisted human",
+        "graphrag construction",
+        "independent study",
+        "independent graphrag-comparison",
+        "graphrag-comparison study",
+        "internally consistent",
+        "ontology guidance",
+        "failure mode",
+        "graph construction",
+        "completeness effect"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2404.16130",
+        "https://arxiv.org/abs/2311.17330",
+        "https://github.com/microsoft/graphrag",
+        "https://arxiv.org/abs/2305.04676",
+        "https://arxiv.org/abs/2306.08302",
+        "https://arxiv.org/abs/2405.16506",
+        "https://github.com/microsoft/graphrag-bench",
+        "https://arxiv.org/abs/2506.02404",
+        "https://arxiv.org/abs/2603.25152",
+        "https://arxiv.org/abs/2508.19855",
+        "https://github.com/kartikeyamandhar/graphrag-comparison",
+        "https://arxiv.org/abs/2406.02962",
+        "https://dl.acm.org/doi/epdf/10.1145/3701716.3715309",
+        "https://madoc.bib.uni-mannheim.de/41515/",
+        "https://arxiv.org/abs/1810.08473",
+        "https://arxiv.org/abs/2108.00941",
+        "https://davidamitchell.github.io/Research/research/2026-07-05-vector-rag-to-ontology-kg-rag-migration.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-15-ontology-landscape-for-curated-enterprise-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-27-semantic-domain-emergence-enterprise-ontology.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The original Microsoft GraphRAG pipeline establishes the ABox-emergent baseline: an LLM extracts entities, relationships, and claims into a graph index without any predefined schema, and the Leiden community-detection algorithm partitions the graph into hierarchical communities that an LLM then summarises for query-focused, map-reduce-style global question answering",
+          "sources": [
+            "https://arxiv.org/abs/2404.16130"
+          ]
+        },
+        {
+          "text": "All graph-based global summarisation approaches, including this schema-free design, outperformed naive Retrieval-Augmented Generation on comprehensiveness and diversity metrics across podcast-transcript and news-article datasets in the original GraphRAG evaluation",
+          "sources": [
+            "https://arxiv.org/abs/2404.16130"
+          ]
+        },
+        {
+          "text": "Schema-free LLM extraction produces a documented cross-document concept-fragmentation failure mode: prompting ChatGPT to define and instantiate its own per-article ontology yielded working knowledge bases per article, but the generated ontologies were inconsistent across articles even when the underlying concepts were substantively similar, and unifying these ontologies was left as unsolved future work by the source paper",
+          "sources": [
+            "https://arxiv.org/abs/2305.04676"
+          ]
+        },
+        {
+          "text": "A TBox-driven biomedical GraphRAG system built on the pre-existing SPOKE ontology reduced token consumption by more than 50% relative to a comparison Knowledge Graph Retrieval-Augmented Generation technique without compromising accuracy, by using a minimal graph schema for context extraction and embedding-based pruning",
+          "sources": [
+            "https://arxiv.org/abs/2311.17330"
+          ]
+        },
+        {
+          "text": "The same TBox-driven biomedical system produced a 71% accuracy improvement on a curated multiple-choice-question benchmark for the Llama-2-13b model and improved the performance of the larger proprietary GPT-3.5 and GPT-4 models on biomedical prompts",
+          "sources": [
+            "https://arxiv.org/abs/2311.17330"
+          ]
+        },
+        {
+          "text": "A controlled ablation isolating an ontology-guided extraction component within an otherwise unchanged open-source GraphRAG pipeline measured a 3.17 percentage point retrieval-accuracy improvement from that component alone on the MultiHop-RAG benchmark, with multi-dimensional clustering and dual-channel retrieval fusion contributing a further 3.43 and 3.32 percentage points respectively, for a combined 9.21% average F1 improvement over a schema-free baseline",
+          "sources": [
+            "https://arxiv.org/html/2603.25152v3"
+          ]
+        },
+        {
+          "text": "A hybrid design using an expansible \"seed graph schema,\" rather than either a fixed ontology or a fully schema-free approach, achieved up to 90.71% token-cost savings and 16.62% higher accuracy than state-of-the-art baselines across six benchmarks, with the authors reporting robustness across domain shifts with minimal manual schema intervention",
+          "sources": [
+            "https://arxiv.org/abs/2508.19855"
+          ]
+        },
+        {
+          "text": "An independent, non-peer-reviewed small-scale study (1,200 queries across two corpora) reports the opposite ranking on a noisy corpus: schema-free GraphRAG dropped only 10.5 percentage points in accuracy from a clean Wikipedia corpus to a noisy U.S. Securities and Exchange Commission filings corpus, while a fixed-ontology GraphRAG implementation dropped 21.0 percentage points, with two-hop multi-hop reasoning accuracy for the fixed-ontology system collapsing by 32.3 percentage points on the noisy corpus",
+          "sources": [
+            "https://github.com/kartikeyamandhar/graphrag-comparison"
+          ]
+        }
+      ]
+    },
     "2026-07-05-vector-rag-to-ontology-kg-rag-migration": {
       "named_concepts": [
         "vector rag",
