@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-07-20T21:35:11Z",
+  "extracted_at": "2026-07-20T21:53:09Z",
   "items": {
     "2026-07-20-tbox-abox-graphrag": {
       "named_concepts": [
@@ -195,6 +195,98 @@
           "text": "Continuous curation on AWS is implemented as an event-driven pipeline, not a dedicated curation service: Amazon S3 Event Notifications routed through Amazon EventBridge trigger AWS Lambda functions that call the Knowledge Base ingestion API, with Amazon SQS, Amazon SNS, and AWS Step Functions added to respect per-data-source ingestion-job concurrency limits",
           "sources": [
             "https://github.com/aws-samples/sample-automatic-sync-for-bedrock-knowledge-bases"
+          ]
+        }
+      ]
+    },
+    "2026-07-20-agent-memory-forgetting-information-curation": {
+      "named_concepts": [
+        "github copilot",
+        "agent memory",
+        "model-version drift",
+        "academic survey",
+        "research-grade systems",
+        "read-time verification",
+        "offline curation",
+        "emg-rag assomem",
+        "design pattern",
+        "reviewed system",
+        "recency usage",
+        "production memory",
+        "systems reviewed",
+        "memory system",
+        "composite outcome-linked",
+        "outcome-linked retention",
+        "retention score",
+        "audited governance",
+        "governance event",
+        "combining recency"
+      ],
+      "source_urls": [
+        "https://www.trychroma.com/research/context-rot",
+        "https://www.langchain.com/blog/context-engineering-for-agents",
+        "https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/",
+        "https://www.letta.com/blog/agent-memory/",
+        "https://arxiv.org/html/2508.19828v1",
+        "https://yodaplus.com/blog/memory-refresh-cycles-in-gen-ai-systems-how-and-when-should-agents-forget/",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html",
+        "https://arxiv.org/abs/2409.19401",
+        "https://arxiv.org/abs/2510.10397",
+        "https://arxiv.org/abs/2512.13564",
+        "https://export.arxiv.org/api/query?id_list=2603.07670",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-consolidation-episodic-semantic.html"
+      ],
+      "key_claims": [
+        {
+          "text": "GitHub explicitly rejected an offline memory-curation service, that is, a background process to deduplicate entries, resolve conflicts, and expire stale information, in favour of read-time citation verification, because at GitHub's operating scale an offline service would add significant engineering complexity and Large Language Model inference cost while still requiring reconciliation at read time",
+          "sources": [
+            "https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/"
+          ]
+        },
+        {
+          "text": "Memory-R1, a Reinforcement Learning-trained memory manager, demonstrates that an untrained baseline system can misclassify two related, non-contradictory facts as a contradiction and destroy the earlier fact through an incorrect DELETE-then-ADD operation, whereas its trained ADD, UPDATE, DELETE, or NOOP policy consolidates the same facts correctly",
+          "sources": [
+            "https://arxiv.org/html/2508.19828v1"
+          ]
+        },
+        {
+          "text": "Using the LLaMA-3.1-8B-Instruct backbone, Memory-R1's Group Relative Policy Optimization variant improves overall F1 score by 48%, BLEU-1 by 69%, and Large Language Model-as-a-Judge score by 37% over the Mem0 baseline on the LOCOMO long-conversation memory benchmark, using as few as 152 question-answer pairs for fine-tuning",
+          "sources": [
+            "https://arxiv.org/html/2508.19828v1"
+          ]
+        },
+        {
+          "text": "Chroma Research's controlled evaluation of eighteen Large Language Models found non-uniform performance degradation as input context length increases even when task complexity is deliberately held constant, showing that larger context windows do not substitute for active information curation",
+          "sources": [
+            "https://www.trychroma.com/research/context-rot"
+          ]
+        },
+        {
+          "text": "Composite, outcome-linked retention scores outperform single-signal baselines in published benchmarks: EMG-RAG's reinforcement-learning-based edge pruning improves roughly 10% over its baseline on a real-world smartphone-memory dataset, and AssoMem's multi-signal fusion of relevance, importance, and temporal alignment outperforms prior state-of-the-art baselines across three established benchmarks plus a newly introduced dataset, yet neither is a default in a widely used production memory product",
+          "sources": [
+            "https://arxiv.org/abs/2409.19401",
+            "https://arxiv.org/abs/2510.10397"
+          ]
+        },
+        {
+          "text": "Letta's production memory architecture evicts a portion of the message buffer, roughly 70% by the vendor's own documented figure, and folds the evicted content into a recursively updated summary rather than deleting it outright, so older information loses resolution progressively instead of being destroyed at once",
+          "sources": [
+            "https://www.letta.com/blog/agent-memory/"
+          ]
+        },
+        {
+          "text": "LangChain's context-engineering framework names write, select, compress, and isolate as the four operations its own framework description treats as the primary components of agent-memory curation designs, with forgetting and retention decisions sitting primarily inside the write and compress operations",
+          "sources": [
+            "https://www.langchain.com/blog/context-engineering-for-agents"
+          ]
+        },
+        {
+          "text": "Practitioner-level forgetting design, as documented by Yodaplus, relies on four triggers, time-based, event-based, usage-based, and relevance-based refresh, none of which includes contradiction-rate detection, a capability found only in more research-grade systems such as Memory-R1 and GitHub Copilot's citation re-verification",
+          "sources": [
+            "https://yodaplus.com/blog/memory-refresh-cycles-in-gen-ai-systems-how-and-when-should-agents-forget/",
+            "https://arxiv.org/html/2508.19828v1",
+            "https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/"
           ]
         }
       ]
