@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Autonomous knowledge curation and truth maintenance for agentic ontologies: deciding what to keep, resolving contradictions, and managing extraction noise"
 added: 2026-07-20T09:09:17+00:00
 status: reviewing
