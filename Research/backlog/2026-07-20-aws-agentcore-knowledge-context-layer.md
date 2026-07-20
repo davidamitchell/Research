@@ -7,8 +7,8 @@ blocks: []
 themes: [agentic-ai, knowledge-graphs, rag-retrieval, tools-infrastructure, governance-policy]
 started: ~
 completed: ~
-output: []
-cites: [2026-05-17-aws-bedrock-agentcore-suite-capabilities, 2026-05-17-aws-bedrock-capabilities, 2026-07-05-vector-rag-to-ontology-kg-rag-migration]
+output: [backlog-item]
+cites: [2026-07-20-tbox-abox-graphrag, 2026-05-17-aws-bedrock-agentcore-suite-capabilities, 2026-05-17-aws-bedrock-capabilities, 2026-07-05-vector-rag-to-ontology-kg-rag-migration]
 related: [2026-05-21-agentic-semantic-km-capability-model, 2026-05-12-knowledge-graph-data-product-agentic, 2026-05-25-ontology-world-model-llm-prediction-forcing-functions, 2026-05-12-graph-db-saas-knowledge-ontology, 2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-04-26-permission-safe-rag-enterprise-information-architecture]
 superseded_by: ~
 supersedes: ~
