@@ -2,12 +2,12 @@
 review_count: 2
 title: "Episodic-to-semantic memory consolidation in AI agents: techniques for generalizing from experience to durable ontological knowledge"
 added: 2026-07-20T09:09:17+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, memory-context, knowledge-graphs, llm-reasoning, ai-architecture]
 started: 2026-07-21T07:48:34+00:00
-completed: ~
+completed: 2026-07-21T08:08:51+00:00
 output: []
 cites: [2026-03-02-agent-memory-management-context-injection, 2026-05-21-agentic-semantic-km-capability-model, 2026-07-20-agent-memory-consolidation-episodic-semantic, 2026-07-20-agent-memory-evaluation-framework, 2026-07-20-autonomous-knowledge-curation-truth-maintenance]
 related: [2026-07-20-hybrid-memory-integration-ontology-llm-weights, 2026-07-20-autonomous-knowledge-curation-truth-maintenance, 2026-03-15-latent-concept-extraction-confluence, 2026-07-20-tbox-abox-graphrag, 2026-07-20-agent-memory-consolidation-episodic-semantic, 2026-07-20-agent-memory-evaluation-framework]
@@ -40,7 +40,7 @@ What techniques enable AI agents to reliably generalize from specific episodic e
 - Fine-tuning or in-weights consolidation, integrating episodic knowledge directly into LLM parameters
 - Pure episodic memory retrieval without any generalization step, covered in `2026-03-02-agent-memory-management-context-injection`
 - Curation and conflict resolution of already consolidated semantic facts, covered in `2026-07-20-autonomous-knowledge-curation-truth-maintenance`
-- The schema-design question of TBox versus ABox, covered in `2026-07-20-tbox-abox-graphrag`
+- The schema-design question of TBox (Terminological Box) versus ABox (Assertion Box), covered in `2026-07-20-tbox-abox-graphrag`
 
 **Constraints:**
 - Empirical evidence of generalization quality required; purely conceptual proposals are flagged as `[assumption]`
@@ -100,13 +100,13 @@ The completed evaluation-framework item showed that current agent-memory benchma
 
 Question: what techniques enable AI agents to generalize from episodic experiences into durable semantic memory, which promotion policies are actually used, how are those policies evaluated, and what online-learning trade-offs follow from promoting abstractions too early or too late? [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-07-20-episodic-semantic-consolidation-agents.md]
 
-Scope: in scope are summarization, clustering, triplet extraction, Knowledge Graph (KG) population, promotion thresholds, continual updates, and benchmark design for semantic generalization quality; out of scope are fine-tuning into model weights, pure episodic retrieval, downstream contradiction management, and TBox versus ABox schema design. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-07-20-episodic-semantic-consolidation-agents.md]
+Scope: in scope are summarization, clustering, triplet extraction, Knowledge Graph (KG) population, promotion thresholds, continual updates, and benchmark design for semantic generalization quality; out of scope are fine-tuning into model weights, pure episodic retrieval, downstream contradiction management, and TBox (Terminological Box) versus ABox (Assertion Box) schema design. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-07-20-episodic-semantic-consolidation-agents.md]
 
 Constraints: this investigation prioritizes 2022 to 2026 primary literature and production engineering reports, requires empirical support where available, and treats purely conceptual proposals as assumptions rather than established results. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-07-20-episodic-semantic-consolidation-agents.md]
 
 Constraint mode: full, because the item is high priority, has a near-duplicate companion item that must be differentiated carefully, and sits upstream of later ontology-curation work. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-agent-memory-consolidation-episodic-semantic.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md]
 
-Prior-work scan: the completed companion item on episodic-to-semantic memory architectures established the trigger, provenance, and sleep-time-compute landscape, but it did not isolate the narrower question of which generalization techniques are actually used, how strong the promotion threshold is, or which benchmarks measure abstraction quality rather than retrieval quality. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-agent-memory-consolidation-episodic-semantic.md]
+Prior-work scan: the completed companion item on episodic-to-semantic memory architectures established the trigger, provenance, and sleep-time-compute comparison set, but it did not isolate the narrower question of which generalization techniques are actually used, how strong the promotion threshold is, or which benchmarks measure abstraction quality rather than retrieval quality. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-agent-memory-consolidation-episodic-semantic.md]
 
 The completed evaluation-framework item established that no single benchmark measures recall, freshness, conflict handling, provenance, governance, and downstream task impact together, which is directly relevant because this item asks whether any benchmark isolates semantic-promotion quality itself. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-agent-memory-evaluation-framework.md]
 
@@ -179,7 +179,7 @@ The more directly actionable insight for agent design is selectivity: the Nature
 
 ```text
 contradiction_scan: resolved
-cross_item_boundary: maintained, this item studies generalization techniques, thresholds, and evaluation; companion items handle architecture comparison, post-promotion curation, and TBox versus ABox schema design
+cross_item_boundary: maintained, this item studies generalization techniques, thresholds, and evaluation; companion items handle architecture comparison, post-promotion curation, and TBox (Terminological Box) versus ABox (Assertion Box) schema design
 acronym_first_use_scan: passed for LLM, KG, SKM, CLS, RAG
 jargon_scan: defined or explained on first use for knowledge graph, continual learning, catastrophic forgetting, and promotion precision
 em_dash_scan: passed

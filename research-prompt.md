@@ -359,11 +359,12 @@ easily-detectable issues.
     Do not assume that acronym expansion alone satisfies this requirement.
     Run this check explicitly on first-use phrases that recur in this repo's
     AIBOM work, especially "Artificial Intelligence Bill of Materials (AIBOM)",
-    "Retrieval-Augmented Generation (RAG)", and "agentic" or "agentic
-    workloads". If the first use appears in a title, Research Question, Scope,
-    or other early uncited prose, either attach an authoritative source at that
-    first use or rewrite the phrase into plain descriptive language before the
-    first review run.
+    "Retrieval-Augmented Generation (RAG)", "TBox (Terminological Box)",
+    "ABox (Assertion Box)", and "agentic" or "agentic workloads". If the
+    first use appears in a title, Research Question, Scope, or other early
+    uncited prose, either attach an authoritative source at that first use or
+    rewrite the phrase into plain descriptive language before the first review
+    run.
     **Run this check explicitly on the Research Question itself before writing
     `§0 Initialise`.** If the Research Question introduces a coined synthesis
     term or a central theoretical label, either define it in plain language in
