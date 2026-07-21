@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-07-21T08:25:08Z",
+  "extracted_at": "2026-07-21T08:45:37Z",
   "items": {
     "2026-07-20-tbox-abox-graphrag": {
       "named_concepts": [
@@ -92,6 +92,102 @@
           "text": "An independent, non-peer-reviewed small-scale study (1,200 queries across two corpora) reports the opposite ranking on a noisy corpus: schema-free GraphRAG dropped only 10.5 percentage points in accuracy from a clean Wikipedia corpus to a noisy U.S. Securities and Exchange Commission filings corpus, while a fixed-ontology GraphRAG implementation dropped 21.0 percentage points, with two-hop multi-hop reasoning accuracy for the fixed-ontology system collapsing by 32.3 percentage points on the noisy corpus",
           "sources": [
             "https://github.com/kartikeyamandhar/graphrag-comparison"
+          ]
+        }
+      ]
+    },
+    "2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation": {
+      "named_concepts": [
+        "prior repository",
+        "full rebuild",
+        "cost scales",
+        "corpus size",
+        "incremental update",
+        "schema change",
+        "truth maintenance",
+        "invalidates superseded",
+        "superseded edges",
+        "retrieval layer",
+        "preserving history",
+        "contradiction handling",
+        "formal truth-maintenance",
+        "truth-maintenance system",
+        "production agent",
+        "agent implements",
+        "bi-temporal model",
+        "zep reports",
+        "add-only extraction",
+        "one accumulating"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2501.13956",
+        "https://github.com/mem0ai/mem0",
+        "https://mem0.ai/research",
+        "https://arxiv.org/abs/2504.19413",
+        "https://microsoft.github.io/graphrag/",
+        "https://microsoft.github.io/graphrag/cli/",
+        "https://arxiv.org/abs/2404.16130",
+        "https://www.nature.com/articles/s41598-019-41695-z",
+        "https://doi.org/10.1561/1500000019",
+        "https://arxiv.org/abs/2306.08302",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-consolidation-episodic-semantic.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-linking-connected-corpus.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Zep's Graphiti engine keeps symbolic facts current with a bi-temporal model that stores when a fact entered the system and when it was true in the world, and when a new fact contradicts an existing edge it stamps that edge invalid instead of deleting it, preserving history while retrieval returns only currently-valid facts",
+          "sources": [
+            "https://arxiv.org/abs/2501.13956"
+          ]
+        },
+        {
+          "text": "Zep reports 94.8% accuracy on the Deep Memory Retrieval (DMR) task against MemGPT's 93.4%, and on the LongMemEval benchmark reports up to 18.5% higher accuracy with up to 90% lower response latency than a baseline that loads the full history into context",
+          "sources": [
+            "https://arxiv.org/abs/2501.13956"
+          ]
+        },
+        {
+          "text": "Mem0's April 2026 algorithm writes with single-pass ADD-only extraction so memories accumulate without overwrite, links entities across memories, and retrieves by fusing semantic embedding, Best-Matching-25 (BM25) lexical, and entity-match scores against one accumulating store rather than two separate indexes",
+          "sources": [
+            "https://github.com/mem0ai/mem0",
+            "https://mem0.ai/research"
+          ]
+        },
+        {
+          "text": "Mem0's graph variant, Mem0g, adds explicit extracted entity relationships on top of the text memory and improves the overall benchmark score by roughly 2 percentage points over the text-only variant, evidence that a symbolic relation layer adds a measurable but modest gain above vector recall alone",
+          "sources": [
+            "https://arxiv.org/abs/2504.19413"
+          ]
+        },
+        {
+          "text": "Mem0 reports a 26% relative improvement over OpenAI's memory feature on an LLM-as-a-Judge metric, roughly 91% lower p95 latency, and more than 90% token savings versus a full-context approach, which is the operational payoff of maintaining a structured memory rather than re-sending the whole history each query",
+          "sources": [
+            "https://arxiv.org/abs/2504.19413",
+            "https://mem0.ai/research"
+          ]
+        },
+        {
+          "text": "Microsoft GraphRAG builds its symbolic layer by having a Large Language Model (LLM) extract entities, relationships, and claims, then applies hierarchical Leiden community detection and bottom-up community summarisation, and serves the same graph and embeddings through global, local, DRIFT, and basic search modes",
+          "sources": [
+            "https://microsoft.github.io/graphrag/",
+            "https://arxiv.org/abs/2404.16130"
+          ]
+        },
+        {
+          "text": "GraphRAG synchronises without a full rebuild through standard-update and fast-update incremental indexing methods exposed in its command line interface, which process only changed content instead of re-extracting the entire corpus",
+          "sources": [
+            "https://microsoft.github.io/graphrag/cli/"
+          ]
+        },
+        {
+          "text": "Full GraphRAG reindexing cost scales with total corpus size rather than with the size of the change, and a schema or model change forces a full rebuild, so synchronisation cadence is an operational-cost decision that favours incremental update for routine ingest and full rebuild only on schema change",
+          "sources": [
+            "https://microsoft.github.io/graphrag/cli/",
+            "https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html"
           ]
         }
       ]
