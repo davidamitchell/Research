@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-07-21T07:57:44Z",
+  "extracted_at": "2026-07-21T08:11:19Z",
   "items": {
     "2026-07-20-tbox-abox-graphrag": {
       "named_concepts": [
@@ -92,6 +92,114 @@
           "text": "An independent, non-peer-reviewed small-scale study (1,200 queries across two corpora) reports the opposite ranking on a noisy corpus: schema-free GraphRAG dropped only 10.5 percentage points in accuracy from a clean Wikipedia corpus to a noisy U.S. Securities and Exchange Commission filings corpus, while a fixed-ontology GraphRAG implementation dropped 21.0 percentage points, with two-hop multi-hop reasoning accuracy for the fixed-ontology system collapsing by 32.3 percentage points on the noisy corpus",
           "sources": [
             "https://github.com/kartikeyamandhar/graphrag-comparison"
+          ]
+        }
+      ]
+    },
+    "2026-07-20-episodic-semantic-consolidation-agents": {
+      "named_concepts": [
+        "semantic memory",
+        "consulted benchmark",
+        "complementary learning",
+        "learning systems",
+        "structured semantic",
+        "rule reuse",
+        "multi-hop reasoning",
+        "semantic abstraction",
+        "selective consolidation",
+        "future usefulness",
+        "generative agents",
+        "ret-llm arigraph",
+        "summary-only distillation",
+        "longmemeval test",
+        "test long-horizon",
+        "long-horizon memory",
+        "memory competence",
+        "benchmark directly",
+        "directly scores",
+        "promotion thresholds"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2305.10250",
+        "https://arxiv.org/abs/2304.03442",
+        "https://arxiv.org/abs/2310.08560",
+        "https://arxiv.org/abs/2402.17753",
+        "https://arxiv.org/abs/2305.14322",
+        "https://arxiv.org/abs/2411.05844",
+        "https://arxiv.org/abs/2308.11432",
+        "https://arxiv.org/abs/2410.10813",
+        "https://arxiv.org/abs/2407.04363",
+        "https://arxiv.org/abs/2506.06326",
+        "https://aws.amazon.com/blogs/machine-learning/build-agents-to-learn-from-experiences-using-amazon-bedrock-agentcore-episodic-memory/",
+        "https://arxiv.org/abs/2507.11393",
+        "https://colab.ws/articles/10.1038%2Fs41593-023-01382-9",
+        "https://arxiv.org/abs/2603.07670"
+      ],
+      "key_claims": [
+        {
+          "text": "MemoryBank and Generative Agents both convert episodic traces into natural-language summaries or reflections, which supports personalization and planning, but this representation keeps semantic memory in prose form rather than as discrete, easily editable semantic facts",
+          "sources": [
+            "https://arxiv.org/abs/2305.10250",
+            "https://arxiv.org/abs/2304.03442"
+          ]
+        },
+        {
+          "text": "RET-LLM, AriGraph, and LEGO-GraphRAG show that structured promotion into triplets, graph edges, or modular graph components creates a more updateable and composable semantic memory substrate than summary-only consolidation",
+          "sources": [
+            "https://arxiv.org/abs/2305.14322",
+            "https://arxiv.org/abs/2407.04363",
+            "https://arxiv.org/abs/2411.05844"
+          ]
+        },
+        {
+          "text": "The explicit promotion thresholds found in the consulted systems are heuristic, importance score, forgetting-curve strength, heat score, or goal-completion plus reflection confidence, rather than calibrated measures of evidential sufficiency",
+          "sources": [
+            "https://arxiv.org/abs/2304.03442",
+            "https://arxiv.org/abs/2305.10250",
+            "https://arxiv.org/abs/2506.06326",
+            "https://aws.amazon.com/blogs/machine-learning/build-agents-to-learn-from-experiences-using-amazon-bedrock-agentcore-episodic-memory/"
+          ]
+        },
+        {
+          "text": "No consulted paper or production report validates a promotion rule such as \"store after N independent confirming episodes\" or shows that a threshold score maps to a measured probability that the resulting semantic abstraction is correct",
+          "sources": [
+            "https://arxiv.org/abs/2304.03442",
+            "https://arxiv.org/abs/2305.10250",
+            "https://arxiv.org/abs/2506.06326",
+            "https://aws.amazon.com/blogs/machine-learning/build-agents-to-learn-from-experiences-using-amazon-bedrock-agentcore-episodic-memory/",
+            "https://arxiv.org/abs/2603.07670"
+          ]
+        },
+        {
+          "text": "LoCoMo and LongMemEval meaningfully test long-horizon memory, temporal reasoning, and knowledge updates, but they evaluate downstream answers and summaries rather than the precision, calibration, or granularity of the earlier semantic-promotion decision itself",
+          "sources": [
+            "https://arxiv.org/abs/2402.17753",
+            "https://arxiv.org/abs/2410.10813",
+            "https://github.com/snap-research/LoCoMo",
+            "https://github.com/xiaowu0162/LongMemEval"
+          ]
+        },
+        {
+          "text": "LongMemEval is the strongest consulted benchmark lead for this item because it explicitly adds knowledge-update and abstention tasks and critiques earlier long-memory evaluations for missing updated-fact handling and large-scale multi-session reasoning",
+          "sources": [
+            "https://arxiv.org/abs/2410.10813",
+            "https://arxiv.org/html/2410.10813",
+            "https://github.com/xiaowu0162/LongMemEval"
+          ]
+        },
+        {
+          "text": "Structured semantic stores make continual updates easier to localize than prose summaries, but they do not remove the risk of premature commitment, because an early triplet or graph edge can still encode the wrong abstraction and later require curation or retraction",
+          "sources": [
+            "https://arxiv.org/abs/2305.14322",
+            "https://arxiv.org/abs/2407.04363",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md"
+          ]
+        },
+        {
+          "text": "The Complementary Learning Systems literature contributes a practical design principle, selective replay and selective consolidation for future usefulness, rather than evidence that current agent systems already implement a biologically grounded promotion policy",
+          "sources": [
+            "https://arxiv.org/abs/2507.11393",
+            "https://colab.ws/articles/10.1038%2Fs41593-023-01382-9"
           ]
         }
       ]
