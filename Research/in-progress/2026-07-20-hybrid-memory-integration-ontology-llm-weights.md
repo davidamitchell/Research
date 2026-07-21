@@ -83,7 +83,7 @@ Agentic architectures increasingly maintain two distinct knowledge representatio
 - [x] [PROV-AGENT: Unified Provenance for Tracking AI Agent Interactions in Agentic Workflows](https://arxiv.org/abs/2508.02866)
 - [x] [NeuSymMS: A Hybrid Neuro-Symbolic Memory System for Persistent, Self-Curating LLM Agents](https://arxiv.org/abs/2605.17596)
 - [x] [Unlocking the Potential of Generative AI through Neuro-Symbolic Architectures: Benefits and Limitations](https://arxiv.org/abs/2502.11269)
-- [x] [Ontologies and Semantic Web: Description Logics](https://www.obitko.com/tutorials/ontologies-semantic-web/description-logics.html)
+- [x] [De Giacomo and Lenzerini (1996) TBox and ABox Reasoning in Expressive Description Logics](https://cdn.aaai.org/Workshops/1996/WS-96-05/WS96-05-004.pdf) , authoritative Description Logic reference defining TBox and ABox
 
 ---
 
@@ -99,7 +99,7 @@ The active constraint mode is full: the investigation covers 2022 to 2026 primar
 
 Working definition: hybrid memory in this item means a neuro-symbolic arrangement in which neural modules extract, retrieve, or generate candidate knowledge while a symbolic store keeps explicit facts, relations, provenance, or lifecycle rules that can be inspected and updated independently of model weights. [inference; source: https://arxiv.org/abs/2605.17596; https://arxiv.org/abs/2502.11269]
 
-Terminological Box (TBox) means the schema-level definitions of concepts and relations in a description-logic knowledge base, while Assertion Box (ABox) means the instance-level assertions about particular entities using that schema. [fact; source: https://www.obitko.com/tutorials/ontologies-semantic-web/description-logics.html]
+Terminological Box (TBox) means the schema-level definitions of concepts and relations in a description-logic knowledge base, while Assertion Box (ABox) means the instance-level assertions about particular entities using that schema. [fact; source: https://cdn.aaai.org/Workshops/1996/WS-96-05/WS96-05-004.pdf]
 
 Prior completed item cross-reference, mandatory before investigation:
 - The completed item on TBox-versus-ABox GraphRAG established that predefined schema guidance improves extraction on curated corpora but degrades more sharply on noisy corpora, and that expansible seed schemas are the strongest current compromise. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-tbox-abox-graphrag.md]
