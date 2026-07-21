@@ -2,15 +2,15 @@
 review_count: 2
 title: "Hybrid memory integration: synchronizing structured ontologies and knowledge graphs with latent Large Language Model (LLM) weight knowledge in agentic systems"
 added: 2026-07-20T09:09:17+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, knowledge-graphs, memory-context, llm-reasoning, ai-architecture]
 started: 2026-07-21T08:45:02+00:00
-completed: ~
+completed: 2026-07-21T09:17:48+00:00
 output: []
 cites: [2026-07-20-tbox-abox-graphrag, 2026-05-25-ontology-world-model-llm-prediction-forcing-functions, 2026-03-02-agent-memory-management-context-injection]
-related: [2026-05-21-agentic-semantic-km-capability-model, 2026-07-05-vector-rag-to-ontology-kg-rag-migration, 2026-07-20-episodic-semantic-consolidation-agents, 2026-07-20-autonomous-knowledge-curation-truth-maintenance]
+related: [2026-05-21-agentic-semantic-km-capability-model, 2026-07-05-vector-rag-to-ontology-kg-rag-migration, 2026-07-20-episodic-semantic-consolidation-agents, 2026-07-20-autonomous-knowledge-curation-truth-maintenance, 2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation]
 superseded_by: ~
 supersedes: ~
 item_type: primary

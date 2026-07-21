@@ -414,6 +414,14 @@ easily-detectable issues.
     Prefix-style labels placed before the claim (such as
     `[inference; source: URL] Claim text.`) are non-conforming.
     The Evidence Map alone is insufficient.
+    **This rule applies equally to paragraph-*opening* sentences in
+    `§2 Investigation`, not only to Analysis and Executive Summary.** Sentences
+    such as "X is more mature than Y", "Z remains fragmented", or "the evidence
+    shows a real but immature story" are evaluative or comparative claims and
+    need their own trailing label even when they open a paragraph whose later
+    sentences are correctly labeled. Before finalising §2, scan the first
+    sentence of every paragraph for evaluative or comparative language and
+    confirm it carries its own label.
 
 2aa. **Synthesis/Findings parity** -- if any post-review fix changes wording,
      labels, confidence, or sources in `## Findings`, make the equivalent
