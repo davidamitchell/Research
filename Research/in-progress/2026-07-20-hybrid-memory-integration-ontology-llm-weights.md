@@ -1,0 +1,337 @@
+---
+title: "Hybrid memory integration: synchronizing structured ontologies and knowledge graphs with latent Large Language Model (LLM) weight knowledge in agentic systems"
+added: 2026-07-20T09:09:17+00:00
+status: reviewing
+priority: high
+blocks: []
+themes: [agentic-ai, knowledge-graphs, memory-context, llm-reasoning, ai-architecture]
+started: 2026-07-21T08:45:02+00:00
+completed: ~
+output: []
+cites: [2026-07-20-tbox-abox-graphrag, 2026-05-25-ontology-world-model-llm-prediction-forcing-functions, 2026-03-02-agent-memory-management-context-injection]
+related: [2026-05-21-agentic-semantic-km-capability-model, 2026-07-05-vector-rag-to-ontology-kg-rag-migration, 2026-07-20-episodic-semantic-consolidation-agents, 2026-07-20-autonomous-knowledge-curation-truth-maintenance]
+superseded_by: ~
+supersedes: ~
+item_type: primary
+confidence: medium
+versions: []
+---
+
+# Hybrid memory integration: synchronizing structured ontologies and knowledge graphs with latent Large Language Model (LLM) weight knowledge in agentic systems
+
+## Research Question
+
+How can Artificial Intelligence (AI) agents effectively synchronize structured semantic memory, meaning ontologies and knowledge graphs, with latent knowledge encoded in Large Language Model (LLM) weights, and what architectural patterns currently bridge this hybrid memory gap most effectively, including how conflicts between the two knowledge stores are detected and resolved?
+
+## Scope
+
+**In scope:**
+- Architectures that combine symbolic knowledge stores, including ontologies, knowledge graphs, and relational databases, with LLM-based agents, including retrieval-augmented generation (RAG), knowledge-grounded generation, and tool-use approaches
+- Failure modes that arise when symbolic and neural knowledge conflict: inconsistency, hallucination, stale-knowledge propagation, and override ambiguity
+- Mechanisms for detecting divergence between what a knowledge graph asserts and what an LLM's weights implicitly encode
+- Provenance and versioning approaches that allow hybrid systems to track which knowledge store is authoritative for a given fact at query time
+- Evaluation benchmarks and metrics for hybrid memory coherence, faithfulness to the structured store, and grounding quality
+- Current state-of-the-art systems, 2023 to 2026: Knowledge Graph Large Language Model (KGLLM), KnowAgent, StructGPT, Knowledge Graph (KG)-augmented Reasoning and Acting (ReAct) agents, and comparable architectures
+- Design patterns for write-through, meaning updating the knowledge graph when the LLM infers new facts, and read-through, meaning querying the knowledge graph before the LLM generates
+
+**Out of scope:**
+- Pure retrieval-augmented generation without an ontology or graph layer
+- In-weights fine-tuning or knowledge editing within the LLM itself, for example Rank-One Model Editing (ROME) or Mass Editing Memory in a Transformer (MEMIT), except where they interact directly with a KG-based semantic memory layer
+- Terminological Box (TBox), meaning schema-level concept and relation definitions, versus Assertion Box (ABox), meaning instance-level fact assertions, schema-design questions as the primary subject, because that is covered in `2026-07-20-tbox-abox-graphrag`
+- Amazon Web Services (AWS)-specific implementation patterns, because that is covered in `2026-07-20-aws-agentcore-knowledge-context-layer`
+
+**Constraints:**
+- Primary literature window: 2022 to 2026; earlier foundational papers acceptable where still materially relevant
+- Empirical evidence preferred over purely theoretical proposals; flag single-paper claims explicitly
+- Breadth across application domains, enterprise, biomedical, and general question answering (QA), to test generalizability of findings
+
+## Context
+
+Agentic architectures increasingly maintain two distinct knowledge representations at once: a structured, verifiable semantic memory layer, such as an ontology or knowledge graph, and the implicit factual knowledge encoded in LLM weights during pre-training. These two stores are often inconsistent. The graph may be authoritative for domain-specific, regulated, or time-sensitive facts, while the LLM weights carry broader world knowledge that the graph does not capture. When an agent reasons over both, it faces the hybrid memory problem: which store takes precedence, how are contradictions surfaced, and how can the system remain coherent over time? The completed items on agent memory management, `2026-03-02-agent-memory-management-context-injection`, and ontologies as world models, `2026-05-25-ontology-world-model-llm-prediction-forcing-functions`, established the theoretical motivation. This item investigates the concrete architectural solutions and their trade-offs.
+
+## Approach
+
+1. Survey current hybrid KG-LLM agent architectures and catalogue which synchronization mechanisms, read-through, write-through, or bidirectional update, each implements and what empirical results are reported.
+2. Characterise failure modes: under what conditions does the LLM override the KG, produce hallucinations that contradict the KG, or fail to use the KG at all?
+3. Investigate conflict detection: what approaches exist to identify when an LLM-generated claim contradicts an asserted KG triple, and how robust are they at scale?
+4. Examine authoritative-source policies: how do systems decide, at query time, whether the structured store or the LLM weights should be preferred for a given fact type?
+5. Assess provenance and traceability: how do hybrid systems track which knowledge store originated a claim in a generated response?
+6. Evaluate benchmarks: what evaluation frameworks measure hybrid memory coherence, and are they appropriate for agentic, multi-turn, multi-hop, tasks?
+7. Synthesise a decision framework: for which fact types, domains, and latency requirements does structured-store-first outperform LLM-first, and vice versa?
+
+## Sources
+
+- [x] [Pan et al. (2024) Unifying Large Language Models and Knowledge Graphs: A Roadmap](https://arxiv.org/abs/2306.08302) , broad survey of LLM-KG integration patterns including hybrid synchronization approaches
+- [x] [Edge et al. (2024) From Local to Global: A Graph RAG Approach to Query-Focused Summarization](https://arxiv.org/abs/2404.16130) , GraphRAG baseline establishing an ABox-emergent community-summary knowledge layer
+- [x] [Baek et al. (2023) Knowledge-Augmented Language Model Prompting for Zero-Shot Knowledge Graph Question Answering](https://arxiv.org/abs/2306.04136) , KG-augmented prompting architecture for hybrid memory
+- [x] [Luo et al. (2023) Reasoning on Graphs: Faithful and Interpretable Large Language Model Reasoning](https://arxiv.org/abs/2310.01061) , structured graph reasoning pipeline that queries a KG before LLM generation
+- [x] [Bi et al. (2024) LEGO-GraphRAG: Modularizing Graph-based Retrieval-Augmented Generation for Design Space Exploration](https://arxiv.org/abs/2411.05844) , modular decomposition of hybrid retrieval architectures
+- [x] [Carta et al. (2023) Iterative Zero-Shot LLM Prompting for Knowledge Graph Construction](https://arxiv.org/abs/2307.01128) , write-path mechanism for updating a KG from LLM outputs
+- [x] [Hu et al. (2023) Survey on Knowledge Graph Embedding Methods for Link Prediction](https://arxiv.org/abs/2301.02543) , investigated because it was seeded in this item, but the link resolves to an unrelated game-theory paper and was not used as evidence
+- [x] [StructGPT: A General Framework for Large Language Model to Reason over Structured Data](https://aclanthology.org/2023.emnlp-main.574/)
+- [x] [KnowAgent: Knowledge-Augmented Planning for LLM-Based Agents](https://aclanthology.org/2025.findings-naacl.205/)
+- [x] [KG-Agent: An Efficient Autonomous Agent Framework for Complex Reasoning over Knowledge Graph](https://aclanthology.org/2025.acl-long.468/)
+- [x] [Knowledge Graph-Guided Retrieval Augmented Generation](https://arxiv.org/abs/2502.06864)
+- [x] [HybGRAG: Hybrid Retrieval-Augmented Generation on Textual and Relational Knowledge Bases](https://arxiv.org/abs/2412.16311)
+- [x] [When to use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation](https://arxiv.org/abs/2506.05690)
+- [x] [Detect-Then-Resolve: Enhancing Knowledge Graph Conflict Resolution with Large Language Model](https://www.mdpi.com/2227-7390/12/15/2318)
+- [x] [Resolving Knowledge Conflicts in Large Language Models](https://arxiv.org/abs/2310.00935)
+- [x] [Contradiction Detection in RAG Systems: Evaluating LLMs as Context Validators for Improved Information Consistency](https://arxiv.org/abs/2504.00180)
+- [x] [PROV-O: The PROV Ontology](https://www.w3.org/TR/prov-o/)
+- [x] [PAV ontology: provenance, authoring and versioning](https://pav-ontology.github.io/pav/)
+- [x] [PROV-AGENT: Unified Provenance for Tracking AI Agent Interactions in Agentic Workflows](https://arxiv.org/abs/2508.02866)
+- [x] [NeuSymMS: A Hybrid Neuro-Symbolic Memory System for Persistent, Self-Curating LLM Agents](https://arxiv.org/abs/2605.17596)
+- [x] [Unlocking the Potential of Generative AI through Neuro-Symbolic Architectures: Benefits and Limitations](https://arxiv.org/abs/2502.11269)
+- [x] [Ontologies and Semantic Web: Description Logics](https://www.obitko.com/tutorials/ontologies-semantic-web/description-logics.html)
+
+---
+
+## Research Skill Output
+
+*(Full output from running the research skill, retained verbatim in the completed item. §§0 to 5 are the investigation; §6 seeds the Findings section below.)*
+
+### §0 Initialise
+
+The research question is how Artificial Intelligence (AI) agents can synchronize a structured semantic store with latent Large Language Model (LLM) weight knowledge, and which current architectural patterns handle authority, contradiction, provenance, and evaluation most effectively. [fact; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2605.17596]
+
+The active constraint mode is full: the investigation covers 2022 to 2026 primary literature, prioritises empirical evidence, excludes pure vector-only retrieval, and must produce a full synthesis with executive summary, key findings, evidence map, assumptions, analysis, risks, and open questions. [fact; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2506.05690]
+
+Working definition: hybrid memory in this item means a neuro-symbolic arrangement in which neural modules extract, retrieve, or generate candidate knowledge while a symbolic store keeps explicit facts, relations, provenance, or lifecycle rules that can be inspected and updated independently of model weights. [inference; source: https://arxiv.org/abs/2605.17596; https://arxiv.org/abs/2502.11269]
+
+Terminological Box (TBox) means the schema-level definitions of concepts and relations in a description-logic knowledge base, while Assertion Box (ABox) means the instance-level assertions about particular entities using that schema. [fact; source: https://www.obitko.com/tutorials/ontologies-semantic-web/description-logics.html]
+
+Prior completed item cross-reference, mandatory before investigation:
+- The completed item on TBox-versus-ABox GraphRAG established that predefined schema guidance improves extraction on curated corpora but degrades more sharply on noisy corpora, and that expansible seed schemas are the strongest current compromise. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-tbox-abox-graphrag.md]
+- The completed item on ontology completeness as a world model established that ontologies provide explicit declarative structure but do not by themselves supply the predictive latent dynamics that a full world model requires. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-25-ontology-world-model-llm-prediction-forcing-functions.md]
+- The completed item on agent memory management established that memory is fundamentally a context-engineering problem, and that graph memory helps multi-hop retrieval but does not itself solve governance, provenance, or incremental-update issues. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md]
+- The completed item on the agentic semantic Knowledge Management (KM) capability model established that the semantic layer should own meaning and traceability while the orchestration layer owns routing, planning, state persistence, and tool invocation. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-21-agentic-semantic-km-capability-model.md]
+- The completed item on vector RAG to ontology-backed KG-RAG migration established that additive vector-plus-graph architectures are usually stronger than wholesale replacement, and that graph cost depends on the extraction pipeline rather than graph retrieval as a category. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-05-vector-rag-to-ontology-kg-rag-migration.md]
+- The completed item on episodic-to-semantic consolidation established that structured promotion into triplets or graph elements is more editable than summary-only memory, but that promotion-quality benchmarks remain immature. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-episodic-semantic-consolidation-agents.md]
+- The completed item on autonomous knowledge curation and truth maintenance established that current systems rely on detect-then-resolve conflict handling and provenance standards rather than a production-scale classical Truth Maintenance System (TMS). [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md]
+
+This item therefore extends prior work from three directions: it asks how read paths and write paths synchronize symbolic and latent knowledge, how authority should be assigned between the two stores, and how that synchronization is or is not benchmarked. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-tbox-abox-graphrag.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md]
+
+### §1 Question Decomposition
+
+1. What architecture families currently mediate between LLM weights and structured knowledge stores? [fact; source: https://arxiv.org/abs/2306.08302]
+   1.1 Which systems simply append retrieved graph facts to prompts? [fact; source: https://arxiv.org/abs/2306.04136]
+   1.2 Which systems give the LLM explicit graph-query or structured-data tools before generation? [fact; source: https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/]
+   1.3 Which systems mix graph retrieval with semantic or textual retrieval? [fact; source: https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311; https://arxiv.org/abs/2411.05844]
+2. What write-path patterns exist for updating a knowledge graph from LLM outputs? [fact; source: https://arxiv.org/abs/2307.01128; https://arxiv.org/abs/2306.08302]
+   2.1 Are writes direct, or are they staged as candidate facts pending validation? [fact; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318]
+3. How do systems detect and resolve conflicts between retrieved symbolic knowledge and latent or prompted model knowledge? [fact; source: https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180; https://www.mdpi.com/2227-7390/12/15/2318]
+   3.1 Can current LLMs localize the specific conflicting segment, not only notice that conflict exists? [fact; source: https://arxiv.org/abs/2310.00935]
+   3.2 Does detect-then-resolve outperform resolution-only handling? [fact; source: https://www.mdpi.com/2227-7390/12/15/2318]
+4. How do systems record provenance, versioning, and source authority? [fact; source: https://www.w3.org/TR/prov-o/; https://pav-ontology.github.io/pav/; https://arxiv.org/abs/2508.02866]
+   4.1 Which standards describe entities, activities, agents, derivations, authorship, and versions? [fact; source: https://www.w3.org/TR/prov-o/; https://pav-ontology.github.io/pav/]
+   4.2 Do consulted hybrid-memory papers show these standards as the active arbitration mechanism at runtime? [fact; source: https://arxiv.org/abs/2508.02866; https://arxiv.org/abs/2605.17596]
+5. What benchmarks actually evaluate the hybrid memory problem? [fact; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+   5.1 Which benchmark answer quality over graph retrieval? [fact; source: https://arxiv.org/abs/2506.05690]
+   5.2 Which benchmark conflict detection between internal and external knowledge? [fact; source: https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+   5.3 Which benchmark directly scores ongoing coherence between model weights and a mutable symbolic store across turns? [fact; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+6. What design guidance follows by fact type, domain stability, and latency budget? [fact; source: https://arxiv.org/abs/2412.16311; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-tbox-abox-graphrag.md]
+
+### §2 Investigation
+
+Pan et al. organise LLM-KG unification into three frameworks: KG-enhanced LLMs, LLM-augmented KGs, and synergized LLMs plus KGs in which both play equal roles. [fact; source: https://arxiv.org/abs/2306.08302] That taxonomy is useful for this item because the synchronization problem spans both directions, reading from the graph into the model context and writing model outputs back into the graph. [inference; source: https://arxiv.org/abs/2306.08302]
+
+The most lightweight read-through pattern in the consulted set is prompt augmentation. Baek et al.'s Knowledge-Augmented language model PromptING (KAPING) retrieves relevant KG facts by semantic similarity, prepends those facts to the question, requires no model training, and reports up to 48% average improvement over relevant zero-shot baselines across multiple LLMs. [fact; source: https://arxiv.org/abs/2306.04136] This pattern synchronizes by copying selected symbolic facts into the context window, but it leaves authority control mostly implicit because the LLM still decides how to reconcile those facts with its own latent knowledge during generation. [inference; source: https://arxiv.org/abs/2306.04136]
+
+A stronger read-through pattern is tool-mediated structured reasoning. StructGPT uses Iterative Reading-then-Reasoning (IRR), where specialized interfaces collect evidence from structured data and the LLM iteratively reasons over the returned evidence. [fact; source: https://aclanthology.org/2023.emnlp-main.574/] RoG, short for Reasoning on Graphs, goes further by generating KG-grounded relation paths as faithful plans, retrieving valid reasoning paths from the KG, and then performing reasoning over those retrieved paths; on Complex Web Questions (CWQ), it reports 22.3% Hits@1 improvement, where Hits@1 means the proportion of queries for which the correct answer is the top-ranked retrieved result, and 14.4% F1-score improvement, where F1-score means the harmonic mean of precision and recall, over the cited state-of-the-art baseline, and its ablation results show materially worse precision, recall, and F1-score when planning is removed. [fact; source: https://arxiv.org/abs/2310.01061] KG-Agent extends this agentic pattern by integrating an LLM, a multifunctional toolbox, a KG-based executor, and knowledge memory, with an iteration mechanism that selects tools and updates memory during reasoning over the KG. [fact; source: https://aclanthology.org/2025.acl-long.468/]
+
+GraphRAG and its descendants show that synchronization often depends on combining structured and unstructured retrieval rather than choosing one exclusively. Edge et al.'s GraphRAG builds a graph index in two stages, first an entity graph from source documents and then pregenerated community summaries, to answer global, corpus-level questions that plain retrieval handles poorly. [fact; source: https://arxiv.org/abs/2404.16130] KG2RAG starts with semantically retrieved seed chunks and then uses KG-guided chunk expansion and KG-based chunk organization to improve diversity and coherence of the retrieved context. [fact; source: https://arxiv.org/abs/2502.06864] HybGRAG explicitly targets semi-structured knowledge bases that contain both text and relations, uses a retriever bank plus critic module, and reports an average 51% relative improvement in Hit@1 on the STaRK benchmark. [fact; source: https://arxiv.org/abs/2412.16311] LEGO-GraphRAG does not introduce one synchronization policy of its own, but it is valuable because it modularizes GraphRAG into extraction and retrieval components and reports that design choices trade off reasoning quality against runtime efficiency and token or graphics processing unit (GPU) cost. [fact; source: https://arxiv.org/abs/2411.05844]
+
+The consulted sources show a real but immature write-through story. Pan et al. place LLM-augmented KGs, including embedding, completion, construction, graph-to-text generation, and QA, beside KG-enhanced LLMs in the same roadmap, which indicates that write-back is a first-class research direction rather than an afterthought. [fact; source: https://arxiv.org/abs/2306.08302] Carta et al. propose iterative zero-shot prompting for knowledge graph construction to reduce human effort and domain-expertise requirements, which makes LLM-assisted graph population feasible as a candidate-fact generator. [fact; source: https://arxiv.org/abs/2307.01128] The evidence located in this session does not show an equally mature autonomous truth-maintenance layer attached to these write paths, so the strongest supported pattern is staged write-through, meaning the LLM proposes or extracts candidate facts that are later validated, deduplicated, or reconciled before they become authoritative graph content. [inference; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md]
+
+KnowAgent is relevant as an adjacent case because it uses an explicit action knowledge base and a knowledgeable self-learning strategy to constrain planning trajectories and reduce planning hallucination. [fact; source: https://aclanthology.org/2025.findings-naacl.205/] It is not a full ontology-KG synchronization paper, but it supports the broader finding that agents behave more coherently when external structured memory constrains decision-making instead of leaving the LLM to improvise from latent weights alone. [inference; source: https://aclanthology.org/2025.findings-naacl.205/; https://aclanthology.org/2025.acl-long.468/]
+
+Conflict handling is more mature on the read side than on the write side. Wang et al.'s conflict framework argues that LLMs should identify that a conflict exists, pinpoint the conflicting segments, and provide distinct answers or viewpoints; their experiments show that models are relatively good at noticing conflict but weaker at localizing the specific conflicting knowledge and producing distinct conflict-aware answers. [fact; source: https://arxiv.org/abs/2310.00935] The contradiction-detection-in-RAG study similarly finds that context validation remains difficult even for state-of-the-art LLMs when retrieved sources contradict one another. [fact; source: https://arxiv.org/abs/2504.00180] The Detect-Then-Resolve system, named Conflict Resolution with Detection and Large language model (CRDL) by its authors, adds an explicit conflict-detection stage before LLM-based resolution and reports 56.4% recall improvement and 68.2% F1-score improvement over resolution-only baselines on KG conflict-resolution benchmarks. [fact; source: https://www.mdpi.com/2227-7390/12/15/2318] These three sources together support a specific architectural lesson: conflict detection should be its own module rather than an implicit side effect of answer generation. [inference; source: https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180; https://www.mdpi.com/2227-7390/12/15/2318]
+
+Provenance and versioning support exists at the standards level, but the consulted research does not show it as the default arbitration mechanism in deployed hybrid memory pipelines. The PROV Ontology (PROV-O) defines entities, activities, and agents plus derivation and attribution relations for provenance chains. [fact; source: https://www.w3.org/TR/prov-o/] The Provenance, Authoring and Versioning ontology (PAV) adds lightweight provenance, authoring, and versioning properties such as `pav:version`, `pav:previousVersion`, `pav:retrievedFrom`, and `pav:sourceAccessedAt`. [fact; source: https://pav-ontology.github.io/pav/] PROV-AGENT extends provenance capture to prompts, responses, decisions, and agent interactions in agentic workflows. [fact; source: https://arxiv.org/abs/2508.02866] NeuSymMS shows a recent hybrid neuro-symbolic memory architecture that couples neural fact extraction with explicit lifecycle rules, deduplication, reconciliation, and short-term versus long-term promotion. [fact; source: https://arxiv.org/abs/2605.17596] The step from having a provenance schema to using that schema as the runtime authority arbiter remains weakly evidenced in the consulted material. [inference; source: https://www.w3.org/TR/prov-o/; https://pav-ontology.github.io/pav/; https://arxiv.org/abs/2508.02866; https://arxiv.org/abs/2605.17596]
+
+Benchmark coverage is fragmented. GraphRAG-Bench evaluates graph retrieval across fact retrieval, complex reasoning, contextual summarization, and creative generation, and was designed to answer when graph structure helps rather than assuming it always does. [fact; source: https://arxiv.org/abs/2506.05690; https://github.com/GraphRAG-Bench/GraphRAG-Benchmark] ConflictCOLM and Contradiction Detection in RAG evaluate whether models can detect or manage conflicts between internal and contextual knowledge. [fact; source: https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180] None of the consulted benchmarks directly scores ongoing coherence between mutable symbolic memory and latent parametric memory across multiple write-read cycles, for example whether a newly corrected graph fact consistently overrides stale parametric knowledge in later multi-turn interactions. [assumption; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+
+A source-quality issue emerged during investigation: the seeded Hu et al. link, `https://arxiv.org/abs/2301.02543`, resolves to an unrelated paper titled "Zero-Determinant Strategy in Stochastic Stackelberg Asymmetric Security Game" rather than a knowledge-graph-embedding survey. [fact; source: https://arxiv.org/abs/2301.02543] This source was therefore excluded from evidence and retained only as a documented seed-list error. [fact; source: https://arxiv.org/abs/2301.02543]
+
+### §3 Reasoning
+
+1. Current high-performing hybrid-memory systems externalize authoritative structured facts and query them before generation, rather than trying to force direct synchronization between graph content and parametric weights. [inference; source: https://arxiv.org/abs/2306.04136; https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/]
+2. Prompt-prepended graph facts are the cheapest synchronization mechanism, but they provide weaker authority control than tool-mediated or plan-mediated architectures because the LLM still arbitrates implicitly at answer time. [inference; source: https://arxiv.org/abs/2306.04136; https://aclanthology.org/2023.emnlp-main.574/]
+3. Tool-mediated graph access improves faithfulness because it separates evidence acquisition from free-form generation and makes the supporting path or interface more inspectable. [inference; source: https://arxiv.org/abs/2310.01061; https://aclanthology.org/2023.emnlp-main.574/; https://aclanthology.org/2025.acl-long.468/]
+4. Hybrid retrieval, meaning semantic or textual retrieval plus graph retrieval, is stronger than pure graph-only or pure text-only access when questions require both relational and descriptive evidence. [inference; source: https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-05-vector-rag-to-ontology-kg-rag-migration.md]
+5. Automatic write-through remains the least mature component because the consulted write-path papers emphasize extraction and construction, while the strongest evaluated contradiction work still relies on explicit detection, staged resolution, and external validation logic. [inference; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md]
+6. Provenance and versioning schemas provide the vocabulary needed for authority routing, but schema availability should not be mistaken for empirical proof that production systems already use provenance as the operative source-of-truth controller. [inference; source: https://www.w3.org/TR/prov-o/; https://pav-ontology.github.io/pav/; https://arxiv.org/abs/2508.02866]
+7. The most defensible authority policy in the consulted evidence base is fact-type routing: use the structured store first for regulated, time-sensitive, or explicitly curated facts, and use the LLM's latent knowledge mainly for broad background, proposal generation, or fallback when graph coverage is absent. [inference; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2605.17596; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-25-ontology-world-model-llm-prediction-forcing-functions.md]
+8. The absence of a direct multi-turn hybrid-memory coherence benchmark is material, because it means present evidence mostly measures downstream answer quality, retrieval effectiveness, or single-conflict handling, not durable synchronization quality over time. [assumption; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+
+### §4 Consistency Check
+
+```text
+contradiction_scan: resolved
+context_condition_1: ontology guidance helps on curated corpora but may degrade on noisy corpora, retained as a conditional finding rather than a contradiction
+context_condition_2: graph retrieval improves some multi-hop and hybrid tasks but can underperform vanilla RAG on non-relational tasks, resolved by separating query classes and corpus structure
+source_issue_1: seeded Hu et al. link resolves to an unrelated paper, excluded from evidence and documented in risks
+authority_claim_check: no claim states that provenance standards already solve runtime arbitration; wording limited to "provide vocabulary" or "support"
+benchmark_gap_check: absence of direct hybrid-memory coherence benchmark kept at assumption level rather than fact level
+confidence_adjustment: overall confidence remains medium because several central claims rely on single-paper quantitative results or cross-source absence inferences
+```
+
+### §5 Depth and Breadth Expansion
+
+Technical lens: The strongest technical pattern is not graph insertion by itself but graph-mediated control flow, where the model must query interfaces, follow relation paths, or use retrieval modules before it answers. [inference; source: https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/] That pattern fits the earlier repository finding that the semantic layer should own meaning and traceability while the orchestration layer manages execution. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-21-agentic-semantic-km-capability-model.md]
+
+Economic lens: The cost-effective deployment pattern is additive rather than replacement, because hybrid retrieval systems can preserve fast semantic search for cheap access while invoking graph traversal only where relational structure adds measurable value. [inference; source: https://arxiv.org/abs/2412.16311; https://arxiv.org/abs/2411.05844; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-05-vector-rag-to-ontology-kg-rag-migration.md] This also limits write-path cost by staging graph updates instead of treating every generated fact as an immediate committed truth. [inference; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318]
+
+Regulatory and governance lens: Structured-store-first routing is more defensible in audited or time-sensitive settings because provenance, derivation, attribution, and version relations can be stated explicitly for graph facts in a way that latent parametric knowledge cannot. [inference; source: https://www.w3.org/TR/prov-o/; https://pav-ontology.github.io/pav/; https://arxiv.org/abs/2508.02866] The consulted sources do not show that provenance metadata alone guarantees correct authority routing, so governance value is real but conditional on enforcement logic outside the schema itself. [inference; source: https://www.w3.org/TR/prov-o/; https://arxiv.org/abs/2508.02866]
+
+Historical lens: The field has moved from prompt-level KG augmentation, KAPING, to interface-mediated structured reading, StructGPT, to graph-planned reasoning, RoG and KG-Agent, and then toward modular or hybrid retriever banks, KG2RAG, HybGRAG, and LEGO-GraphRAG. [fact; source: https://arxiv.org/abs/2306.04136; https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/; https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311; https://arxiv.org/abs/2411.05844] That trajectory suggests that synchronization problems become more explicit, not less, as systems become more agentic and multi-step. [inference; source: https://aclanthology.org/2025.acl-long.468/; https://arxiv.org/abs/2412.16311]
+
+Behavioural lens: The behavioural failure mode is not only factual hallucination but planning hallucination, silent override of curated facts, and failure to surface contradictions early enough for intervention. [inference; source: https://aclanthology.org/2025.findings-naacl.205/; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180] External structured memory reduces these failures when it constrains action or reasoning paths, but it does not remove them unless conflict detection, provenance, and curation policies are also present. [inference; source: https://aclanthology.org/2025.findings-naacl.205/; https://www.mdpi.com/2227-7390/12/15/2318; https://arxiv.org/abs/2605.17596]
+
+### §6 Synthesis
+
+*(This section seeds the Findings below.)*
+
+**Executive summary:**
+
+Current evidence supports a structured-store-first hybrid architecture in which the agent queries an external ontology or knowledge graph before generation, uses the graph as the authority for curated or time-sensitive facts, and treats the LLM's latent knowledge mainly as background knowledge, proposal generation, or fallback coverage. [inference; source: https://arxiv.org/abs/2306.04136; https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/] The most effective current bridge between symbolic and latent memory is not direct synchronization of weights and triples, but explicit mediation through prompts, tools, plans, retriever banks, and conflict-detection modules. [inference; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311; https://www.mdpi.com/2227-7390/12/15/2318] Write-through remains weaker than read-through, because consulted sources show credible LLM-assisted construction and extraction but much thinner evidence for autonomous fact admission, retraction, and long-run coherence control. [inference; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md] Benchmark coverage remains fragmented: graph-retrieval benchmarks and conflict benchmarks exist, but no consulted benchmark directly measures durable hybrid-memory coherence across repeated graph updates and later agent turns. [assumption; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+
+**Key findings:**
+
+1. Current hybrid-memory architectures synchronize symbolic and latent knowledge most reliably by making the agent read through the structured store before generation, using prompt augmentation, tool calls, or graph-grounded plans instead of relying on the model's latent weights alone. ([inference]; high confidence; source: https://arxiv.org/abs/2306.04136; https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/)
+2. The strongest current bridge pattern is hybrid retrieval, not graph-only retrieval, because systems such as KG2RAG and HybGRAG combine semantic or textual recall with relational graph expansion and outperform simpler single-store strategies on hybrid question answering tasks. ([inference]; medium confidence; source: https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-05-vector-rag-to-ontology-kg-rag-migration.md)
+3. Tool-mediated or plan-mediated graph access provides a stronger authority mechanism than prompt-only fact injection, because StructGPT, RoG, and KG-Agent separate evidence acquisition from answer generation and make the supporting interface or path more inspectable. ([inference]; medium confidence; source: https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/)
+4. Write-through is materially less mature than read-through, because the consulted sources support LLM-assisted graph construction and candidate-fact extraction, but the strongest evaluated systems still stage validation and conflict handling outside the generator rather than committing facts autonomously. ([inference]; medium confidence; source: https://arxiv.org/abs/2307.01128; https://arxiv.org/abs/2306.08302; https://www.mdpi.com/2227-7390/12/15/2318)
+5. Conflict handling works best as an explicit detect-then-resolve pipeline, because LLMs can often notice a conflict but are weaker at localizing the exact contradiction and choosing a stable response without a dedicated detection stage. ([inference]; high confidence; source: https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180; https://www.mdpi.com/2227-7390/12/15/2318)
+6. Provenance and versioning standards, PROV-O, PAV, and PROV-AGENT, supply the right metadata vocabulary for authority routing, but the consulted hybrid-memory papers do not show those schemas operating as the default runtime arbitration layer in production-style systems. ([inference]; medium confidence; source: https://www.w3.org/TR/prov-o/; https://pav-ontology.github.io/pav/; https://arxiv.org/abs/2508.02866; https://arxiv.org/abs/2605.17596)
+7. Cross-item evidence in this repository indicates that structured graph memory is easier to update, retract, and curate than prose summaries, but only if synchronization is paired with selective consolidation and truth-maintenance policies rather than indiscriminate memory writes. ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-episodic-semantic-consolidation-agents.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md)
+8. The evaluation gap is real enough to affect design confidence, because GraphRAG-Bench measures graph retrieval quality and conflict benchmarks measure contradiction handling, but no consulted benchmark directly tests whether a corrected graph fact persistently overrides stale latent knowledge across later multi-turn interactions. ([assumption]; medium confidence; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180)
+
+**Evidence map:**
+
+- [x] https://arxiv.org/abs/2306.08302 supports the three-way taxonomy of KG-enhanced LLMs, LLM-augmented KGs, and synergized LLM-plus-KG systems, and frames read and write synchronization as complementary directions. [fact; source: https://arxiv.org/abs/2306.08302]
+- [x] https://arxiv.org/abs/2306.04136 supports prompt-level graph fact injection and reports up to 48% average zero-shot improvement over relevant baselines. [fact; source: https://arxiv.org/abs/2306.04136]
+- [x] https://aclanthology.org/2023.emnlp-main.574/, https://arxiv.org/abs/2310.01061, and https://aclanthology.org/2025.acl-long.468/ support the stronger tool-mediated and plan-mediated read-through pattern. [fact; source: https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/]
+- [x] https://arxiv.org/abs/2502.06864 and https://arxiv.org/abs/2412.16311 support hybrid retrieval as a stronger pattern for questions that need both text and relations. [fact; source: https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311]
+- [x] https://arxiv.org/abs/2307.01128 supports LLM-assisted KG construction but does not by itself supply evaluated truth-maintenance or authority-routing evidence. [fact; source: https://arxiv.org/abs/2307.01128]
+- [x] https://www.mdpi.com/2227-7390/12/15/2318, https://arxiv.org/abs/2310.00935, and https://arxiv.org/abs/2504.00180 support explicit conflict-detection and conflict-resolution handling. [fact; source: https://www.mdpi.com/2227-7390/12/15/2318; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+- [x] https://www.w3.org/TR/prov-o/, https://pav-ontology.github.io/pav/, and https://arxiv.org/abs/2508.02866 support provenance and versioning vocabulary, while https://arxiv.org/abs/2605.17596 shows a recent hybrid memory system using explicit lifecycle rules. [fact; source: https://www.w3.org/TR/prov-o/; https://pav-ontology.github.io/pav/; https://arxiv.org/abs/2508.02866; https://arxiv.org/abs/2605.17596]
+- [x] https://arxiv.org/abs/2506.05690 and https://github.com/GraphRAG-Bench/GraphRAG-Benchmark support graph-retrieval evaluation scope, but not long-run graph-versus-weights coherence. [inference; source: https://arxiv.org/abs/2506.05690; https://github.com/GraphRAG-Bench/GraphRAG-Benchmark]
+- [ ] https://arxiv.org/abs/2301.02543 was identified in the seed list but not consulted as evidence because it resolves to an unrelated paper. [fact; source: https://arxiv.org/abs/2301.02543]
+
+**Assumptions:**
+
+No consulted benchmark directly measures durable hybrid-memory coherence across repeated graph updates and later multi-turn reuse. [assumption; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180] This assumption is justified because the consulted benchmark set covers graph retrieval quality or conflict detection quality, but none describes repeated write-read cycles between a mutable graph and a model's latent memory. [assumption; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+
+For high-value factual domains, a staged candidate-fact write path is safer than immediate autonomous graph commits. [assumption; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318] This assumption is justified because consulted write-path papers emphasize extraction and construction, while the strongest conflict-resolution evidence still depends on explicit validation stages rather than blind direct commits. [assumption; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318]
+
+**Analysis:**
+
+The evidence weighs toward a layered answer rather than a single winner. Prompt-level augmentation, represented by KAPING, is cheap and effective for zero-shot knowledge graph question answering, but it leaves the model to reconcile retrieved facts with its own latent priors implicitly. [inference; source: https://arxiv.org/abs/2306.04136] StructGPT, RoG, and KG-Agent all move authority upward into the control flow by forcing the model to query interfaces, retrieve paths, or call tools before answering, which is a stronger synchronization pattern when the task is multi-hop, auditable, or high consequence. [inference; source: https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/]
+
+A plausible rival approach is LLM-first reasoning with only lightweight retrieved text, on the argument that modern models already contain broad world knowledge and external structure mainly adds latency. [inference; source: https://arxiv.org/abs/2306.04136; https://arxiv.org/abs/2506.05690] The consulted evidence supports that rival for simple or low-structure questions, but it weakens on hybrid or multi-hop tasks where graph structure or explicit plans contribute measurable gains, as shown by RoG, KG2RAG, and HybGRAG. [inference; source: https://arxiv.org/abs/2310.01061; https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311]
+
+A second rival approach is direct bidirectional synchronization, meaning letting the model continuously update the graph and then trusting the graph as synchronized truth. [inference; source: https://arxiv.org/abs/2307.01128] The current evidence does not justify that architecture as the default production pattern, because write-through validation, contradiction resolution, and long-run coherence benchmarking remain much less mature than read-through retrieval and answer grounding. [inference; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318; https://arxiv.org/abs/2506.05690]
+
+The repository's prior items sharpen this conclusion. The TBox-versus-ABox item shows that even within graph construction, schema rigidity must be tuned to corpus stability. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-tbox-abox-graphrag.md] The truth-maintenance and episodic-consolidation items show that structured memory is only as reliable as its curation and admission rules. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-episodic-semantic-consolidation-agents.md] Put together, the best-supported architecture pattern is structured-store-first read-through plus staged write-through plus explicit conflict detection plus provenance capture, not naive bidirectional sync. [inference; source: https://aclanthology.org/2023.emnlp-main.574/; https://www.mdpi.com/2227-7390/12/15/2318; https://arxiv.org/abs/2605.17596]
+
+**Risks, gaps, uncertainties:**
+
+The strongest quantitative claims in this item come from single papers rather than replicated multi-lab benchmarks, especially for HybGRAG's 51% Hit@1 gain and KAPING's up-to-48% average improvement. [inference; source: https://arxiv.org/abs/2412.16311; https://arxiv.org/abs/2306.04136]
+
+The seeded Hu et al. source link is incorrect, which reduces confidence that the inherited seed list was fully validated before this session. [fact; source: https://arxiv.org/abs/2301.02543] The substituted evidence base remains sufficient for this item's conclusions, but any future session should independently verify every inherited paper identifier before drafting. [inference; source: https://arxiv.org/abs/2301.02543]
+
+No consulted source provided an end-to-end production case study showing provenance metadata, authority routing, contradiction detection, and graph update policy all evaluated together in one deployed hybrid-memory system. [assumption; source: https://arxiv.org/abs/2508.02866; https://arxiv.org/abs/2605.17596; https://www.mdpi.com/2227-7390/12/15/2318]
+
+**Open questions:**
+
+- What benchmark would directly test whether a graph correction persists across later turns when the model's latent knowledge still points to the older fact?
+- Which admission policy is best for write-through candidate facts: source diversity, repeated observation, contradiction screening, or human approval thresholds?
+- Can provenance schemas such as PROV-O, PAV, and PROV-AGENT be converted into a runtime authority engine rather than remaining descriptive metadata only?
+- What is the lightest-weight graph layer that still yields a measurable benefit over prompt-only or vector-only grounding for coding and research agents?
+
+### §7 Recursive Review
+
+```text
+review_result: pass_with_medium_confidence
+structure_check: sections_0_to_7_completed
+acronym_audit: AI, LLM, KG, RAG, QA, TBox, ABox, ReAct, AWS, GPU, KGLLM, KM, and TMS expanded at first narrative use within edited content
+definition_audit: hybrid_memory_defined; TBox_and_ABox_defined; provenance_terms linked to authoritative sources
+citation_audit: every factual claim in Research Skill Output carries a URL-backed source; findings executive summary sentences carry trailing epistemic labels and sources
+parity_check: Findings derived from §6 and do not introduce a materially new conclusion
+source_integrity_check: incorrect seeded Hu link excluded from evidence and documented
+remaining_limit: no direct benchmark for durable graph-versus-weights coherence was found, so benchmark-gap claims remain assumptions or medium-confidence inferences
+```
+
+---
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+Current evidence supports a structured-store-first hybrid architecture for agentic systems, where the agent queries an external ontology or knowledge graph before generation and treats that store as authoritative for curated, regulated, or time-sensitive facts. [inference; source: https://arxiv.org/abs/2306.04136; https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061] The most effective current bridge between symbolic and latent memory is explicit mediation through prompts, tools, plans, retriever banks, and conflict-detection modules, not direct synchronization between graph triples and model weights. [inference; source: https://arxiv.org/abs/2306.08302; https://arxiv.org/abs/2502.06864; https://www.mdpi.com/2227-7390/12/15/2318] Read-through mechanisms are materially more mature than write-through mechanisms, because graph-assisted retrieval and graph-grounded reasoning are well evidenced while autonomous fact admission and retraction remain thinly validated. [inference; source: https://arxiv.org/abs/2310.01061; https://arxiv.org/abs/2307.01128; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md] Benchmarks cover graph retrieval quality and conflict handling, but the consulted literature does not yet provide a direct test of durable coherence between mutable symbolic memory and latent parametric memory across repeated updates. [assumption; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+
+### Key Findings
+
+1. Current hybrid-memory architectures synchronize symbolic and latent knowledge most reliably by making the agent read through the structured store before generation, using prompt augmentation, tool calls, or graph-grounded plans instead of relying on the model's latent weights alone. ([inference]; high confidence; source: https://arxiv.org/abs/2306.04136; https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/)
+2. The strongest current bridge pattern is hybrid retrieval, not graph-only retrieval, because systems such as KG2RAG and HybGRAG combine semantic or textual recall with relational graph expansion and outperform simpler single-store strategies on hybrid question answering tasks. ([inference]; medium confidence; source: https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-05-vector-rag-to-ontology-kg-rag-migration.md)
+3. Tool-mediated or plan-mediated graph access provides a stronger authority mechanism than prompt-only fact injection, because StructGPT, RoG, and KG-Agent separate evidence acquisition from answer generation and make the supporting interface or path more inspectable. ([inference]; medium confidence; source: https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/)
+4. Write-through is materially less mature than read-through, because the consulted sources support LLM-assisted graph construction and candidate-fact extraction, but the strongest evaluated systems still stage validation and conflict handling outside the generator rather than committing facts autonomously. ([inference]; medium confidence; source: https://arxiv.org/abs/2307.01128; https://arxiv.org/abs/2306.08302; https://www.mdpi.com/2227-7390/12/15/2318)
+5. Conflict handling works best as an explicit detect-then-resolve pipeline, because LLMs can often notice a conflict but are weaker at localizing the exact contradiction and choosing a stable response without a dedicated detection stage. ([inference]; high confidence; source: https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180; https://www.mdpi.com/2227-7390/12/15/2318)
+6. Provenance and versioning standards, PROV-O, PAV, and PROV-AGENT, supply the right metadata vocabulary for authority routing, but the consulted hybrid-memory papers do not show those schemas operating as the default runtime arbitration layer in production-style systems. ([inference]; medium confidence; source: https://www.w3.org/TR/prov-o/; https://pav-ontology.github.io/pav/; https://arxiv.org/abs/2508.02866; https://arxiv.org/abs/2605.17596)
+7. Cross-item evidence in this repository indicates that structured graph memory is easier to update, retract, and curate than prose summaries, but only if synchronization is paired with selective consolidation and truth-maintenance policies rather than indiscriminate memory writes. ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-episodic-semantic-consolidation-agents.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md)
+8. The evaluation gap is real enough to affect design confidence, because GraphRAG-Bench measures graph retrieval quality and conflict benchmarks measure contradiction handling, but no consulted benchmark directly tests whether a corrected graph fact persistently overrides stale latent knowledge across later multi-turn interactions. ([assumption]; medium confidence; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Read-through via prompts, tools, or graph-grounded plans is the dominant reliable synchronization pattern | https://arxiv.org/abs/2306.04136; https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/ | high | Multiple independent primary sources across prompt, tool, and agent patterns |
+| [inference] Hybrid retrieval is stronger than single-store retrieval for questions needing both textual and relational evidence | https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-05-vector-rag-to-ontology-kg-rag-migration.md | medium | Two recent primary papers plus repository prior art |
+| [inference] Tool-mediated or plan-mediated graph access gives stronger authority control than prompt-only augmentation | https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/ | medium | Strong mechanism evidence, but limited head-to-head arbitration studies |
+| [inference] Write-through is less mature than read-through because validation and contradiction handling remain externalized | https://arxiv.org/abs/2307.01128; https://arxiv.org/abs/2306.08302; https://www.mdpi.com/2227-7390/12/15/2318 | medium | Construction evidence exists, but autonomous admission control is thin |
+| [inference] Detect-then-resolve conflict handling outperforms implicit or resolution-only handling | https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180; https://www.mdpi.com/2227-7390/12/15/2318 | high | Multiple sources agree that conflict localization is hard and explicit detection helps |
+| [inference] Provenance and versioning standards exist, but runtime authority arbitration is not yet strongly evidenced in consulted systems | https://www.w3.org/TR/prov-o/; https://pav-ontology.github.io/pav/; https://arxiv.org/abs/2508.02866; https://arxiv.org/abs/2605.17596 | medium | Standards are authoritative; deployment evidence is sparse |
+| [inference] Structured graph memory is more editable than prose summaries only when paired with consolidation and truth-maintenance rules | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-episodic-semantic-consolidation-agents.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md | medium | Cross-item synthesis rather than new external experiment |
+| [assumption] No consulted benchmark directly measures durable graph-versus-weights coherence across repeated updates and later turns | https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180 | medium | Absence-of-evidence claim over the consulted benchmark set |
+
+### Assumptions
+
+No consulted benchmark directly measures durable hybrid-memory coherence across repeated graph updates and later multi-turn reuse. [assumption; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180] This is a reasonable assumption because the consulted benchmark set targets graph retrieval quality or conflict detection quality, but none describes repeated write-read cycles between a mutable graph and a model's latent memory. [assumption; source: https://arxiv.org/abs/2506.05690; https://arxiv.org/abs/2310.00935; https://arxiv.org/abs/2504.00180]
+
+For high-value factual domains, a staged candidate-fact write path is safer than immediate autonomous graph commits. [assumption; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318] This is a reasonable assumption because consulted write-path papers emphasize extraction and construction, while the strongest conflict-resolution evidence still depends on explicit validation stages rather than blind direct commits. [assumption; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318]
+
+### Analysis
+
+The evidence supports a layered hybrid architecture rather than a simple symbolic-versus-neural winner. KAPING shows that prompt-level graph grounding can improve zero-shot performance cheaply, but StructGPT, RoG, and KG-Agent show that explicit structured reading or planning yields a stronger control surface when the task needs multi-hop reasoning, inspectability, or graph-path evidence. [inference; source: https://arxiv.org/abs/2306.04136; https://aclanthology.org/2023.emnlp-main.574/; https://arxiv.org/abs/2310.01061; https://aclanthology.org/2025.acl-long.468/]
+
+A plausible rival approach is LLM-first reasoning with only lightweight retrieved text, on the view that larger models already know enough and graph layers mainly add latency. [inference; source: https://arxiv.org/abs/2306.04136; https://arxiv.org/abs/2506.05690] The consulted evidence supports that rival for simple or weakly relational questions, but it weakens on hybrid or multi-hop tasks where graph structure or explicit plans contribute measurable gains, as shown by RoG, KG2RAG, and HybGRAG. [inference; source: https://arxiv.org/abs/2310.01061; https://arxiv.org/abs/2502.06864; https://arxiv.org/abs/2412.16311]
+
+A second rival approach is direct bidirectional synchronization, where the model continuously writes back to the graph and the graph is treated as synchronized truth. [inference; source: https://arxiv.org/abs/2307.01128] The current evidence does not justify that pattern as the default production choice, because write-through validation, contradiction resolution, and long-run coherence benchmarking are much less mature than read-through retrieval and answer grounding. [inference; source: https://arxiv.org/abs/2307.01128; https://www.mdpi.com/2227-7390/12/15/2318; https://arxiv.org/abs/2506.05690]
+
+The prior completed items in this repository sharpen the recommendation. The TBox-versus-ABox item shows that graph-schema rigidity must be tuned to corpus stability, while the episodic-consolidation and truth-maintenance items show that structured memory only remains trustworthy when it has admission rules, selective consolidation, and explicit contradiction handling. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-tbox-abox-graphrag.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-episodic-semantic-consolidation-agents.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md] The best-supported present-day design is therefore structured-store-first read-through plus staged write-through plus explicit conflict detection plus provenance capture, not naive continuous bidirectional sync. [inference; source: https://aclanthology.org/2023.emnlp-main.574/; https://www.mdpi.com/2227-7390/12/15/2318; https://arxiv.org/abs/2605.17596]
+
+### Risks, Gaps, and Uncertainties
+
+The strongest quantitative claims in this item come from single papers rather than replicated multi-lab benchmarks, especially for HybGRAG's 51% Hit@1 gain and KAPING's up-to-48% average improvement. [inference; source: https://arxiv.org/abs/2412.16311; https://arxiv.org/abs/2306.04136]
+
+The seeded Hu et al. source link is incorrect, which reduces confidence that the inherited seed list was fully validated before this session. [fact; source: https://arxiv.org/abs/2301.02543] The substituted evidence base remains sufficient for this item's conclusions, but any future session should independently verify every inherited paper identifier before drafting. [inference; source: https://arxiv.org/abs/2301.02543]
+
+No consulted source provided an end-to-end production case study showing provenance metadata, authority routing, contradiction detection, and graph update policy all evaluated together in one deployed hybrid-memory system. [assumption; source: https://arxiv.org/abs/2508.02866; https://arxiv.org/abs/2605.17596; https://www.mdpi.com/2227-7390/12/15/2318]
+
+### Open Questions
+
+- What benchmark would directly test whether a graph correction persists across later turns when the model's latent knowledge still points to the older fact?
+- Which admission policy is best for write-through candidate facts: source diversity, repeated observation, contradiction screening, or human approval thresholds?
+- Can provenance schemas such as PROV-O, PAV, and PROV-AGENT be converted into a runtime authority engine rather than remaining descriptive metadata only?
+- What is the lightest-weight graph layer that still yields a measurable benefit over prompt-only or vector-only grounding for coding and research agents?
+
+---
+
+## Output
+
+- Type: knowledge
+- Description: A structured synthesis of current hybrid-memory integration patterns for agentic systems, concluding that structured-store-first read-through with staged write-through, explicit conflict detection, and provenance capture is the most defensible current architecture pattern. [inference; source: https://aclanthology.org/2023.emnlp-main.574/; https://www.mdpi.com/2227-7390/12/15/2318; https://arxiv.org/abs/2605.17596]
+- Links: https://arxiv.org/abs/2310.01061; https://www.mdpi.com/2227-7390/12/15/2318; https://arxiv.org/abs/2506.05690
