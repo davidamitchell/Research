@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Episodic-to-semantic memory consolidation in AI agents: techniques for generalizing from experience to durable ontological knowledge"
 added: 2026-07-20T09:09:17+00:00
 status: reviewing
