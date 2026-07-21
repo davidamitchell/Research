@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Hybrid memory integration: synchronizing structured ontologies and knowledge graphs with latent Large Language Model (LLM) weight knowledge in agentic systems"
 added: 2026-07-20T09:09:17+00:00
 status: reviewing
