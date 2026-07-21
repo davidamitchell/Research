@@ -389,6 +389,15 @@ easily-detectable issues.
     Findings or in a `§2.B`-style definition sentence, bind that sentence to an
     authoritative causal-hierarchy source rather than relying only on prior
     repository items or benchmark papers.
+    **Named algorithms and ranking functions need an authoritative definition
+    link, not just a spelled-out name.** If the item names a specific algorithm,
+    ranking function, or graph-clustering method (for example Best-Matching-25
+    (BM25), Leiden community detection, Louvain, HNSW, or Okapi), bind its first
+    use to an authoritative definition source (the original paper, standards body
+    publication, or recognised glossary). Expanding the acronym or spelling out
+    the name does not satisfy this rule on its own. Run
+    `grep -nE "BM25|Leiden|Louvain|HNSW|Okapi|PageRank" <item>` and confirm each
+    named method carries a definition link at first use.
 
 2. **Claim labels** -- every factual or inferential claim in
     `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
@@ -628,6 +637,17 @@ easily-detectable issues.
 5. **Em-dashes** -- scan the entire document for `—` (U+2014 em-dash). Every
    occurrence is a violation. Replace each with a comma, colon, or restructured
    sentence. Em-dashes are prohibited without exception.
+
+5a. **Absolute / settled-outcome verbs on inference claims** -- scan `## Findings`
+   and `§6 Synthesis` for absolute or settled-outcome verbs applied to claims
+   that rest on architectural reasoning rather than measurement, especially
+   "prevents", "cannot", "ensures", "guarantees", "eliminates", "never", and
+   "always". Run `grep -niE "\bprevents\b|\bprevented\b|\bcannot\b|guarantee|ensures|eliminat|\bnever\b|\balways\b" <item>`.
+   For any match on an `[inference]` claim whose evidence is unmeasured, soften
+   to design-intent language ("is designed to limit", "aims to reduce",
+   "is intended to keep aligned"). An absolute-outcome verb that contradicts the
+   item's own Risks/Gaps section (for example claiming drift is "prevented" while
+   Risks concedes no source measures drift) is a speculation-control violation.
 
 6. **Failed primary-source searches** -- scan §2 Investigation for any claim
    where a secondary source references a paper, arXiv preprint, or DOI that

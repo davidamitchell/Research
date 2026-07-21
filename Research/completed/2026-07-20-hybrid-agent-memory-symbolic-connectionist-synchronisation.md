@@ -2,12 +2,12 @@
 review_count: 2
 title: "Symbolic-connectionist synchronisation in hybrid agent memory"
 added: 2026-07-20T09:07:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, memory-context, knowledge-graphs, rag-retrieval, ai-architecture]
 started: 2026-07-21T08:10:39+00:00
-completed: ~
+completed: 2026-07-21T08:42:05+00:00
 output: []
 cites: [2026-03-02-agent-memory-management-context-injection, 2026-03-03-knowledge-linking-connected-corpus, 2026-05-02-knowledge-graph-schema-cross-session-research-mcp, 2026-07-20-tbox-abox-graphrag, 2026-07-20-autonomous-knowledge-curation-truth-maintenance, 2026-07-20-agent-memory-consolidation-episodic-semantic]
 related: [2026-07-20-agent-memory-evaluation-framework, 2026-03-17-ai-memory-systems-rag-neuroscience, 2026-07-20-privacy-preserving-agent-long-term-memory]
