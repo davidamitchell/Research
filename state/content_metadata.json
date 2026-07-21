@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-07-21T09:01:14Z",
+  "extracted_at": "2026-07-21T09:22:14Z",
   "items": {
     "2026-07-20-tbox-abox-graphrag": {
       "named_concepts": [
@@ -92,6 +92,122 @@
           "text": "An independent, non-peer-reviewed small-scale study (1,200 queries across two corpora) reports the opposite ranking on a noisy corpus: schema-free GraphRAG dropped only 10.5 percentage points in accuracy from a clean Wikipedia corpus to a noisy U.S. Securities and Exchange Commission filings corpus, while a fixed-ontology GraphRAG implementation dropped 21.0 percentage points, with two-hop multi-hop reasoning accuracy for the fixed-ontology system collapsing by 32.3 percentage points on the noisy corpus",
           "sources": [
             "https://github.com/kartikeyamandhar/graphrag-comparison"
+          ]
+        }
+      ]
+    },
+    "2026-07-20-hybrid-memory-integration-ontology-llm-weights": {
+      "named_concepts": [
+        "consulted benchmark",
+        "conflict handling",
+        "graph retrieval",
+        "retrieval quality",
+        "latent knowledge",
+        "less mature",
+        "contradiction handling",
+        "benchmark directly",
+        "hybrid architecture",
+        "current bridge",
+        "latent memory",
+        "prompts tools",
+        "repeated updates",
+        "graph-grounded plans",
+        "hybrid retrieval",
+        "plan-mediated graph",
+        "graph access",
+        "stronger authority",
+        "structgpt rog",
+        "versioning standards"
+      ],
+      "source_urls": [
+        "https://arxiv.org/abs/2306.08302",
+        "https://arxiv.org/abs/2404.16130",
+        "https://arxiv.org/abs/2306.04136",
+        "https://arxiv.org/abs/2310.01061",
+        "https://arxiv.org/abs/2411.05844",
+        "https://arxiv.org/abs/2307.01128",
+        "https://arxiv.org/abs/2301.02543",
+        "https://aclanthology.org/2023.emnlp-main.574/",
+        "https://aclanthology.org/2025.findings-naacl.205/",
+        "https://aclanthology.org/2025.acl-long.468/",
+        "https://arxiv.org/abs/2502.06864",
+        "https://arxiv.org/abs/2412.16311",
+        "https://stark.stanford.edu",
+        "https://arxiv.org/abs/2506.05690",
+        "https://www.mdpi.com/2227-7390/12/15/2318",
+        "https://arxiv.org/abs/2310.00935",
+        "https://arxiv.org/abs/2504.00180",
+        "https://www.w3.org/TR/prov-o/",
+        "https://pav-ontology.github.io/pav/",
+        "https://arxiv.org/abs/2508.02866",
+        "https://arxiv.org/abs/2605.17596",
+        "https://arxiv.org/abs/2502.11269",
+        "https://cdn.aaai.org/Workshops/1996/WS-96-05/WS96-05-004.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "Current hybrid-memory architectures synchronize symbolic and latent knowledge most reliably by making the agent read through the structured store before generation, using prompt augmentation, tool calls, or graph-grounded plans instead of relying on the model's latent weights alone",
+          "sources": [
+            "https://arxiv.org/abs/2306.04136",
+            "https://aclanthology.org/2023.emnlp-main.574/",
+            "https://arxiv.org/abs/2310.01061",
+            "https://aclanthology.org/2025.acl-long.468/"
+          ]
+        },
+        {
+          "text": "The strongest current bridge pattern is hybrid retrieval, not graph-only retrieval, because systems such as KG2RAG and HybGRAG combine semantic or textual recall with relational graph expansion and outperform simpler single-store strategies on hybrid question answering tasks",
+          "sources": [
+            "https://arxiv.org/abs/2502.06864",
+            "https://arxiv.org/abs/2412.16311",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-05-vector-rag-to-ontology-kg-rag-migration.md"
+          ]
+        },
+        {
+          "text": "Tool-mediated or plan-mediated graph access provides a stronger authority mechanism than prompt-only fact injection, because StructGPT, RoG, and KG-Agent separate evidence acquisition from answer generation and make the supporting interface or path more inspectable",
+          "sources": [
+            "https://aclanthology.org/2023.emnlp-main.574/",
+            "https://arxiv.org/abs/2310.01061",
+            "https://aclanthology.org/2025.acl-long.468/"
+          ]
+        },
+        {
+          "text": "Write-through is materially less mature than read-through, because the consulted sources support LLM-assisted graph construction and candidate-fact extraction, but the strongest evaluated systems still stage validation and conflict handling outside the generator rather than committing facts autonomously",
+          "sources": [
+            "https://arxiv.org/abs/2307.01128",
+            "https://arxiv.org/abs/2306.08302",
+            "https://www.mdpi.com/2227-7390/12/15/2318"
+          ]
+        },
+        {
+          "text": "Conflict handling works best as an explicit detect-then-resolve pipeline, because LLMs can often notice a conflict but are weaker at localizing the exact contradiction and choosing a stable response without a dedicated detection stage",
+          "sources": [
+            "https://arxiv.org/abs/2310.00935",
+            "https://arxiv.org/abs/2504.00180",
+            "https://www.mdpi.com/2227-7390/12/15/2318"
+          ]
+        },
+        {
+          "text": "Provenance and versioning standards, PROV-O, PAV, and PROV-AGENT, supply the right metadata vocabulary for authority routing, but the consulted hybrid-memory papers do not show those schemas operating as the default runtime arbitration layer in production-style systems",
+          "sources": [
+            "https://www.w3.org/TR/prov-o/",
+            "https://pav-ontology.github.io/pav/",
+            "https://arxiv.org/abs/2508.02866",
+            "https://arxiv.org/abs/2605.17596"
+          ]
+        },
+        {
+          "text": "Cross-item evidence in this repository indicates that structured graph memory is easier to update, retract, and curate than prose summaries, but only if synchronization is paired with selective consolidation and truth-maintenance policies rather than indiscriminate memory writes",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-episodic-semantic-consolidation-agents.md",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md"
+          ]
+        },
+        {
+          "text": "The evaluation gap is real enough to affect design confidence, because GraphRAG-Bench measures graph retrieval quality and conflict benchmarks measure contradiction handling, but no consulted benchmark directly tests whether a corrected graph fact persistently overrides stale latent knowledge across later multi-turn interactions",
+          "sources": [
+            "https://arxiv.org/abs/2506.05690",
+            "https://arxiv.org/abs/2310.00935",
+            "https://arxiv.org/abs/2504.00180"
           ]
         }
       ]
