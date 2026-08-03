@@ -669,7 +669,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-07-21 09:20 UTC</p>
+<p>Generated on: 2026-08-03 08:47 UTC</p>
 <p><a id="2026-07-20-tbox-abox-graphrag-md"></a></p>
 <h2>TBox-driven vs ABox-emergent ontology approaches in GraphRAG systems</h2>
 <p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-tbox-abox-graphrag.md</p>
@@ -813,6 +813,135 @@ main {
 <li>How does an expansible seed-schema design (Youtu-GraphRAG) perform specifically on the noisy-corpus condition isolated by the independent graphrag-comparison study? No source tested the expansible-schema design under that specific noisy-corpus condition.</li>
 </ul>
 <hr />
+<hr />
+<p><a id="2026-07-20-privacy-preserving-agent-long-term-memory-md"></a></p>
+<h2>Privacy-preserving long-term memory for Artificial Intelligence agents</h2>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-privacy-preserving-agent-long-term-memory.md</p>
+<h2>Research Question</h2>
+<p>How can Artificial Intelligence (AI) agents preserve the utility of long-term memory for personalisation and historical context while enforcing privacy, security, and data-sovereignty controls strong enough to prevent sensitive-data leakage, unsafe recall, or non-compliant retention?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference; source: https://docs.github.com/en/copilot/concepts/agents/copilot-memory; https://openai.com/index/memory-and-new-controls-for-chatgpt/; https://support.google.com/gemini/answer/16598406] No reviewed production Artificial Intelligence (AI) memory system documents strong controls across all four privacy-relevant control points simultaneously: explicit collection consent, storage-layer scoping, retrieval-time validation, and audited deletion. [inference; source: https://docs.github.com/en/copilot/concepts/agents/copilot-memory; https://openai.com/index/memory-and-new-controls-for-chatgpt/] GitHub Copilot Memory has the strongest documented collection and retrieval controls, an explicit trigger, per-repository scoping, and citation-based validation, but no published encryption specification, while OpenAI's ChatGPT has the most permissive collection model and a documented gap between deleting a chat and deleting the memories derived from it. [fact; source: https://arxiv.org/abs/2503.03704; https://arxiv.org/abs/2509.10540] Published memory-specific attacks, query-only memory injection (MINJA) and the EchoLeak zero-click exploit (CVE-2025-32711), demonstrate that restricting who can directly write to a memory store does not prevent an agent's own memory-consolidation and context-blending behaviour from being exploited as the effective write path. [inference; source: https://www.newamerica.org/oti/briefs/ai-agents-and-memory/; https://arxiv.org/abs/2310.06816] Encryption of stored memory is a necessary but insufficient control, because every documented leakage mechanism operates at the point where content is decrypted for the model to reason over it, not at the storage medium itself. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-forgetting-information-curation.html; https://www.mdpi.com/1999-5903/17/4/151] The most actionable and least-addressed gap is audited deletion: no reviewed system logs deletion as a governance event, which falls short of the demonstrable-accountability standard the General Data Protection Regulation (GDPR)'s Right to Erasure requires.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>GitHub Copilot Memory implements the strongest documented collection and retrieval controls among the products reviewed, restricting fact creation to users with repository write access, binding facts to a single repository, and re-validating each fact's supporting citation against the current branch before use. ([fact]; medium confidence; source: https://docs.github.com/en/copilot/concepts/agents/copilot-memory)</li>
+<li>OpenAI's ChatGPT derives a &quot;chat history&quot; reference layer from prior conversations without requiring the user to select the specific fact being stored, which is a materially weaker collection-time consent model than the explicit &quot;saved memories&quot; write path it offers alongside it. ([inference]; medium confidence; source: https://openai.com/index/memory-and-new-controls-for-chatgpt/)</li>
+<li>Deleting a ChatGPT conversation does not delete the memories derived from that conversation, so a user must separately locate and delete the memory record to exercise an effective erasure control, a distinction the product's own documentation states explicitly. ([fact]; medium confidence; source: https://openai.com/index/memory-and-new-controls-for-chatgpt/)</li>
+<li>Google Gemini's Personal Intelligence requires an explicit per-app Connected Apps consent step before any external app data personalises a Gemini chat, and is unavailable for work, school, or supervised Google Accounts, which gives it a narrower default consent surface than ChatGPT's inferred chat-history layer despite drawing on more data sources once connected. ([inference]; medium confidence; source: https://support.google.com/gemini/answer/16598406; https://openai.com/index/memory-and-new-controls-for-chatgpt/)</li>
+<li>The query-only Memory INJection Attack (MINJA) demonstrates that an attacker can corrupt an agent's persistent memory purely by issuing queries and observing outputs, without any direct write privilege to the memory store, by using bridging queries and a progressively shortened indication prompt to make a malicious record retrievable by later, unrelated victim queries. ([fact]; medium confidence; source: https://arxiv.org/abs/2503.03704)</li>
+<li>Because MINJA exploits the agent's own memory-consolidation behaviour rather than a storage-write permission gap, access-control models that restrict only who can directly write to a memory store, such as GitHub Copilot Memory's write-access gate, do not by themselves prevent this class of attack. ([inference]; medium confidence; source: https://arxiv.org/abs/2503.03704; https://docs.github.com/en/copilot/concepts/agents/copilot-memory)</li>
+<li>EchoLeak (CVE-2025-32711) is a documented real-world zero-click prompt injection exploit against Microsoft 365 Copilot in which a hidden instruction embedded in an email was later retrieved and acted on when the user issued an unrelated query, exploiting the fact that the system blended new user input and previously ingested content into one undifferentiated context. ([fact]; high confidence; source: https://arxiv.org/abs/2509.10540; https://nvd.nist.gov/vuln/detail/CVE-2025-32711)</li>
+<li>Encryption of stored memory does not defeat the leakage mechanisms this item identifies, because retrieval-time plaintext exposure, embedding inversion, and membership inference against vector-indexed memory all exploit the point at which content is decrypted for the model to reason over it, not the storage medium. ([inference]; medium confidence; source: https://www.newamerica.org/oti/briefs/ai-agents-and-memory/; https://arxiv.org/abs/2310.06816; https://arxiv.org/abs/2405.20446)</li>
+<li>The Model Context Protocol (MCP) currently lacks a standardized method for authenticating agents or delegating scoped, intermediate permissions to external services, forcing a binary choice between full delegation and no access at all, which the New America Open Technology Institute brief identifies as a structural precondition for cross-service leakage of sensitive inferences between connected tools. ([inference]; medium confidence; source: https://www.newamerica.org/oti/briefs/ai-agents-and-memory/)</li>
+<li>No reviewed production agent-memory system logs deletion as an audited governance event, which does not meet the demonstrable-accountability standard the GDPR's Right to Erasure and accountability principles require of a data controller processing personal data. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-forgetting-information-curation.html; https://www.mdpi.com/1999-5903/17/4/151)</li>
+<li>Bi-temporal invalidation, the pattern of marking superseded facts invalid with timestamps rather than deleting them to preserve point-in-time query history, is in direct tension with a hard-delete erasure requirement unless the superseded record is also purged rather than merely marked invalid. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation.html; https://www.mdpi.com/1999-5903/17/4/151)</li>
+<li>The Open Worldwide Application Security Project (OWASP) Agentic Security Initiative names memory and context poisoning as a distinct top-level risk category in its Top 10 for Agentic Applications, defined by persistence beyond a single session, temporal decoupling between injection and exploitation, and privileged input vectors that extend beyond the direct prompt channel to any process able to write to persistent memory. ([inference]; medium confidence; source: https://genai.owasp.org/initiatives/agentic-security-initiative/)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[fact] GitHub Copilot Memory scopes facts to a single repository, gates creation on write access, and re-validates citations at retrieval time.</td>
+<td><a href="https://docs.github.com/en/copilot/concepts/agents/copilot-memory">GitHub Docs: About GitHub Copilot Memory</a></td>
+<td>medium</td>
+<td>Single vendor documentation source; internally detailed and specific, but not independently corroborated by a second source.</td>
+</tr>
+<tr>
+<td>[inference] ChatGPT's inferred chat-history layer is a weaker collection-time consent model than explicit saved memories.</td>
+<td><a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">OpenAI: Memory and new controls for ChatGPT</a></td>
+<td>medium</td>
+<td>Interpretive comparison of two mechanisms both documented in the same official source.</td>
+</tr>
+<tr>
+<td>[fact] Deleting a ChatGPT conversation does not delete memories derived from it.</td>
+<td><a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">OpenAI: Memory and new controls for ChatGPT</a></td>
+<td>medium</td>
+<td>Explicit statement in vendor documentation, but a single source with no independent corroboration.</td>
+</tr>
+<tr>
+<td>[fact] Gemini Personal Intelligence requires explicit per-app consent and is unavailable for work/school/supervised accounts.</td>
+<td><a href="https://support.google.com/gemini/answer/16598406">Google: Personalize Gemini Apps with Personal Intelligence</a></td>
+<td>high</td>
+<td>Explicit vendor documentation with eligibility conditions listed.</td>
+</tr>
+<tr>
+<td>[fact] MINJA compromises agent memory via query-only interaction using bridging queries and a progressively shortened indication prompt.</td>
+<td><a href="https://arxiv.org/abs/2503.03704">Dong et al. (2025), arXiv:2503.03704</a></td>
+<td>medium</td>
+<td>Peer-reviewable preprint with released code; single research group, no independent replication found in this session.</td>
+</tr>
+<tr>
+<td>[inference] Write-access-only controls do not prevent MINJA-class attacks.</td>
+<td><a href="https://arxiv.org/abs/2503.03704">Dong et al. (2025), arXiv:2503.03704</a>; <a href="https://docs.github.com/en/copilot/concepts/agents/copilot-memory">GitHub Docs: About GitHub Copilot Memory</a></td>
+<td>medium</td>
+<td>Derived by combining an attack paper with a specific product's stated control model; Copilot Memory itself was not directly attacked in the cited paper.</td>
+</tr>
+<tr>
+<td>[fact] EchoLeak (CVE-2025-32711) is a documented zero-click prompt injection exploit against Microsoft 365 Copilot.</td>
+<td><a href="https://arxiv.org/abs/2509.10540">Reddy and Gujral (2025), arXiv:2509.10540</a>; <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-32711">NVD CVE-2025-32711</a></td>
+<td>high</td>
+<td>Corroborated by an independent authoritative vulnerability database record.</td>
+</tr>
+<tr>
+<td>[inference] Encryption at rest does not defeat retrieval-time, inversion, or membership-inference leakage of memory content.</td>
+<td><a href="https://www.newamerica.org/oti/briefs/ai-agents-and-memory/">New America / OTI: AI Agents and Memory</a>; <a href="https://arxiv.org/abs/2310.06816">arXiv:2310.06816</a>; <a href="https://arxiv.org/abs/2405.20446">arXiv:2405.20446</a></td>
+<td>medium</td>
+<td>Policy brief plus two research papers on an adjacent artefact (RAG embeddings); applied here by architectural analogy to memory embeddings, not directly tested against a memory product.</td>
+</tr>
+<tr>
+<td>[inference] MCP lacks a standardized agent authentication or scoped-delegation method, forcing a binary full-delegation-or-none permission model.</td>
+<td><a href="https://www.newamerica.org/oti/briefs/ai-agents-and-memory/">New America / OTI: AI Agents and Memory</a></td>
+<td>medium</td>
+<td>Single policy-analysis source; not cross-checked against the MCP specification directly in this session.</td>
+</tr>
+<tr>
+<td>[inference] No reviewed system logs deletion as an audited governance event, falling short of GDPR accountability requirements.</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-forgetting-information-curation.html">Mitchell (2026) Agent Memory Forgetting</a>; <a href="https://www.mdpi.com/1999-5903/17/4/151">Future Internet (MDPI, 2025)</a></td>
+<td>medium</td>
+<td>Combines a prior repository finding with a peer-reviewed legal-technical analysis; no single source states both halves directly.</td>
+</tr>
+<tr>
+<td>[inference] Bi-temporal invalidation is in tension with hard-delete erasure requirements.</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation.html">Mitchell (2026) Hybrid Agent Memory Synchronisation</a>; <a href="https://www.mdpi.com/1999-5903/17/4/151">Future Internet (MDPI, 2025)</a></td>
+<td>medium</td>
+<td>Architectural pattern from one repository item read against a legal requirement from another source.</td>
+</tr>
+<tr>
+<td>[inference] OWASP's Agentic Security Initiative names memory and context poisoning (ASI06) as a distinct top-level agentic risk.</td>
+<td><a href="https://genai.owasp.org/initiatives/agentic-security-initiative/">OWASP Gen AI Security Project: Agentic Security Initiative</a></td>
+<td>medium</td>
+<td>Official OWASP domain confirmed; specific ASI06 risk definition drawn from search-verified summaries of the initiative's published Top 10, not from a directly fetched full risk-description page in this session.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<p>[assumption; source: https://www.mdpi.com/1999-5903/17/4/151] This item assumes that user-facing &quot;delete my memory&quot; controls in the four reviewed products delete only the retrievable memory record and not any parametric influence the interaction may have had on underlying model weights. [assumption; source: https://www.mdpi.com/1999-5903/17/4/151] No product's public documentation reviewed here makes a parametric-unlearning claim, and the peer-reviewed GDPR-and-LLM analysis treats machine unlearning as a distinct, unresolved technical problem separate from record deletion, which is consistent with this assumption rather than evidence against it.</p>
+<p>[assumption; source: https://mem0.ai/research] This item assumes that Mem0's self-reported LoCoMo, LongMemEval, and BEAM benchmark figures are directionally informative about retrieval efficiency but not independently verified measures of the product's real-world accuracy. [assumption; source: https://mem0.ai/research] The evaluation framework backing these figures is open-sourced by the same vendor that reports the results, and no third-party reproduction was found in this session, so the figures are treated as a vendor claim rather than a corroborated fact.</p>
+<p>[assumption; source: https://docs.github.com/en/copilot/concepts/agents/copilot-memory] This item assumes that encryption-at-rest is present in some unspecified form across the four commercial memory products reviewed, despite the absence of a published specification for any of them. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/copilot-memory] This assumption follows standard enterprise cloud-storage practice referenced implicitly by GitHub, OpenAI, and Google's broader platform security documentation, but no memory-specific encryption claim was directly verified in this session, so the assumption is treated as a plausible baseline rather than a demonstrated control.</p>
+<h3>Analysis</h3>
+<p>[inference] The four control points, collection consent, storage scoping, retrieval validation, and deletion audit, are analytically independent because the reviewed products each document strength at some points and silence at others, so no single composite score captures product-level privacy posture. [fact; source: https://docs.github.com/en/copilot/concepts/agents/copilot-memory] GitHub Copilot Memory's documentation specifies concrete storage- and retrieval-layer mechanisms, citation re-validation and per-repository binding, that OpenAI's and Google's published documentation do not describe at the same level of technical detail for their own products. [inference; source: https://docs.github.com/en/copilot/concepts/agents/copilot-memory; https://openai.com/index/memory-and-new-controls-for-chatgpt/] An alternative reading, that OpenAI's broader chat-history layer is simply a more capable feature rather than a weaker consent control, does not hold against the product's own documentation, which frames chat-history reference as an opt-out default rather than an opt-in choice, a consent-model distinction independent of the feature's retrieval capability. [fact; source: https://arxiv.org/abs/2503.03704; https://arxiv.org/abs/2509.10540] The query-only Memory INJection Attack (MINJA) and the EchoLeak zero-click exploit are the only memory-specific attacks in this item's source set with a released reproduction artefact or an assigned Common Vulnerabilities and Exposures (CVE) identifier, unlike the OWASP Agentic Security Initiative's ASI06 category, which the item treats as a taxonomy rather than a demonstrated exploit. [inference; source: https://arxiv.org/abs/2503.03704; https://docs.github.com/en/copilot/concepts/agents/copilot-memory] Applying MINJA's attack mechanism, query-only memory consolidation, against GitHub Copilot Memory's documented write-access gate shows the gate does not address this attack class, because MINJA does not require the write-access privilege the gate restricts. [inference; source: https://www.newamerica.org/oti/briefs/ai-agents-and-memory/] The New America brief's argument that agentic memory's technical value proposition, persistence and cross-service inference, is structurally opposed to the GDPR's data-minimisation requirement to retain only what a specific, bounded purpose requires supports treating memory utility and data minimisation as genuinely in tension rather than reconcilable through interface design alone.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<p>The single largest gap identified is the absence of any documented encryption specification for the four commercial memory products reviewed; this item's encryption-at-rest assumption is a plausible baseline, not a verified control, and a future item with access to vendor security whitepapers or Service Organization Control 2 (SOC 2) reports could close this gap directly.
+The comparative claims in Key Finding 6 (write-access gating does not prevent MINJA-class attacks) combine an attack paper that did not target GitHub Copilot Memory directly with a product whose control model was described independently; no source in this item documents an actual MINJA-style attack executed against Copilot Memory, so the claim remains an architectural inference rather than a demonstrated exploit against that specific product.
+The OWASP Agentic Security Initiative's ASI06 risk description in the Evidence Map was drawn from search-verified secondary summaries rather than a directly fetched full-text page of the initiative's published Top 10 document, because the fetched genai.owasp.org page returned rendered HTML/CSS rather than readable prose in this session; the official domain and initiative name are confirmed, but the specific ASI06 wording should be re-verified against the primary Portable Document Format (PDF) before being treated as a verbatim citation in any downstream item.
+Mem0's benchmark figures and the MemoryGraft preprint's claimed attack-success percentages are both vendor- or secondary-source-only figures that could not be independently corroborated in this session; neither is used as a load-bearing quantitative claim in the Key Findings above for that reason.
+No source reviewed in this item documents a production mechanism for jurisdiction-aware retrieval-time filtering of memory content, despite the cross-border risk the New America brief raises; this is a design gap rather than a resolved finding and is carried forward as an open question.</p>
+<h3>Open Questions</h3>
+<ul>
+<li>What would a jurisdiction-aware retrieval-time filter for persistent agent memory look like architecturally, and has any vendor documented one?</li>
+<li>Does GitHub Copilot Memory's citation-based validation mechanism withstand a MINJA-style query-only injection attack in practice, and has anyone tested this directly?</li>
+<li>What does a demonstrably audited deletion event (as opposed to an unaudited content operation) look like as a concrete logging schema for agent memory systems, and does any vendor or open-source project already implement one?</li>
+<li>How do enterprise Copilot Business/Enterprise administrator bulk-export and bulk-delete controls for user-level preferences interact with an individual user's own GDPR erasure rights when the two are exercised in conflict?</li>
+</ul>
 <hr />
 <p><a id="2026-07-20-hybrid-memory-integration-ontology-llm-weights-md"></a></p>
 <h2>Hybrid memory integration: synchronizing structured ontologies and knowledge graphs with latent Large Language Model (LLM) weight knowledge in agentic systems</h2>
