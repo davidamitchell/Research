@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-08-03T08:31:42Z",
+  "extracted_at": "2026-08-03T08:49:17Z",
   "items": {
     "2026-07-20-tbox-abox-graphrag": {
       "named_concepts": [
@@ -92,6 +92,102 @@
           "text": "An independent, non-peer-reviewed small-scale study (1,200 queries across two corpora) reports the opposite ranking on a noisy corpus: schema-free GraphRAG dropped only 10.5 percentage points in accuracy from a clean Wikipedia corpus to a noisy U.S. Securities and Exchange Commission filings corpus, while a fixed-ontology GraphRAG implementation dropped 21.0 percentage points, with two-hop multi-hop reasoning accuracy for the fixed-ontology system collapsing by 32.3 percentage points on the noisy corpus",
           "sources": [
             "https://github.com/kartikeyamandhar/graphrag-comparison"
+          ]
+        }
+      ]
+    },
+    "2026-07-20-privacy-preserving-agent-long-term-memory": {
+      "named_concepts": [
+        "copilot memory",
+        "github copilot",
+        "agentic security",
+        "security initiative",
+        "agent memory",
+        "audited deletion",
+        "query-only memory",
+        "memory store",
+        "exploit against",
+        "owasp agentic",
+        "reviewed production",
+        "strongest documented",
+        "documented collection",
+        "retrieval controls",
+        "citation-based validation",
+        "encryption specification",
+        "memories derived",
+        "memory-specific attacks",
+        "memory injection",
+        "echoleak zero-click"
+      ],
+      "source_urls": [
+        "https://www.newamerica.org/oti/briefs/ai-agents-and-memory/",
+        "https://docs.github.com/en/copilot/concepts/agents/copilot-memory",
+        "https://openai.com/index/memory-and-new-controls-for-chatgpt/",
+        "https://support.google.com/gemini/answer/16598406",
+        "https://aws.amazon.com/blogs/security/the-agentic-ai-security-scoping-matrix-a-framework-for-securing-autonomous-ai-systems/",
+        "https://mem0.ai/research",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+        "https://arxiv.org/abs/2503.03704",
+        "https://arxiv.org/abs/2509.10540",
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-32711",
+        "https://genai.owasp.org/initiatives/agentic-security-initiative/",
+        "https://www.mdpi.com/1999-5903/17/4/151",
+        "https://gdpr-info.eu/art-17-gdpr/",
+        "https://arxiv.org/abs/2310.06816",
+        "https://arxiv.org/abs/2405.20446"
+      ],
+      "key_claims": [
+        {
+          "text": "GitHub Copilot Memory implements the strongest documented collection and retrieval controls among the products reviewed, restricting fact creation to users with repository write access, binding facts to a single repository, and re-validating each fact's supporting citation against the current branch before use",
+          "sources": [
+            "https://docs.github.com/en/copilot/concepts/agents/copilot-memory"
+          ]
+        },
+        {
+          "text": "OpenAI's ChatGPT derives a \"chat history\" reference layer from prior conversations without requiring the user to select the specific fact being stored, which is a materially weaker collection-time consent model than the explicit \"saved memories\" write path it offers alongside it",
+          "sources": [
+            "https://openai.com/index/memory-and-new-controls-for-chatgpt/"
+          ]
+        },
+        {
+          "text": "Deleting a ChatGPT conversation does not delete the memories derived from that conversation, so a user must separately locate and delete the memory record to exercise an effective erasure control, a distinction the product's own documentation states explicitly",
+          "sources": [
+            "https://openai.com/index/memory-and-new-controls-for-chatgpt/"
+          ]
+        },
+        {
+          "text": "Google Gemini's Personal Intelligence requires an explicit per-app Connected Apps consent step before any external app data personalises a Gemini chat, and is unavailable for work, school, or supervised Google Accounts, which gives it a narrower default consent surface than ChatGPT's inferred chat-history layer despite drawing on more data sources once connected",
+          "sources": [
+            "https://support.google.com/gemini/answer/16598406",
+            "https://openai.com/index/memory-and-new-controls-for-chatgpt/"
+          ]
+        },
+        {
+          "text": "The query-only Memory INJection Attack (MINJA) demonstrates that an attacker can corrupt an agent's persistent memory purely by issuing queries and observing outputs, without any direct write privilege to the memory store, by using bridging queries and a progressively shortened indication prompt to make a malicious record retrievable by later, unrelated victim queries",
+          "sources": [
+            "https://arxiv.org/abs/2503.03704"
+          ]
+        },
+        {
+          "text": "Because MINJA exploits the agent's own memory-consolidation behaviour rather than a storage-write permission gap, access-control models that restrict only who can directly write to a memory store, such as GitHub Copilot Memory's write-access gate, do not by themselves prevent this class of attack",
+          "sources": [
+            "https://arxiv.org/abs/2503.03704",
+            "https://docs.github.com/en/copilot/concepts/agents/copilot-memory"
+          ]
+        },
+        {
+          "text": "EchoLeak (CVE-2025-32711) is a documented real-world zero-click prompt injection exploit against Microsoft 365 Copilot in which a hidden instruction embedded in an email was later retrieved and acted on when the user issued an unrelated query, exploiting the fact that the system blended new user input and previously ingested content into one undifferentiated context",
+          "sources": [
+            "https://arxiv.org/abs/2509.10540",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-32711"
+          ]
+        },
+        {
+          "text": "Encryption of stored memory does not defeat the leakage mechanisms this item identifies, because retrieval-time plaintext exposure, embedding inversion, and membership inference against vector-indexed memory all exploit the point at which content is decrypted for the model to reason over it, not the storage medium",
+          "sources": [
+            "https://www.newamerica.org/oti/briefs/ai-agents-and-memory/",
+            "https://arxiv.org/abs/2310.06816",
+            "https://arxiv.org/abs/2405.20446"
           ]
         }
       ]
