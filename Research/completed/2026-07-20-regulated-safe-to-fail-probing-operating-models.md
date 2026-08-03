@@ -2,12 +2,12 @@
 review_count: 2
 title: "Governance and operating models for safe-to-fail experimentation in regulated industries"
 added: 2026-07-20T20:55:45+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [governance-policy, regulatory-compliance, organisational-design, enterprise-adoption, benchmarks-eval]
 started: 2026-08-03T08:48:24+00:00
-completed: ~
+completed: 2026-08-03T09:31:06+00:00
 output: []
 cites: [2026-04-22-enterprise-ai-platform-operating-models, 2026-04-24-business-led-low-code-agent-governance, 2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment, 2026-05-23-governance-controls-effectiveness-conditions, 2026-02-28-exploit-explore-ai-portfolio-framework]
 related: [2026-04-22-enterprise-ai-platform-operating-models, 2026-04-24-business-led-low-code-agent-governance, 2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment, 2026-05-23-governance-controls-effectiveness-conditions, 2026-02-28-exploit-explore-ai-portfolio-framework, 2026-05-14-citizen-development-rollout-empirical-evidence]

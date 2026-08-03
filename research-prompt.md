@@ -520,6 +520,18 @@ easily-detectable issues.
     named surface; otherwise narrow the claim, lower confidence, or add the
     missing source before proceeding.
 
+2d1. **Inline-citation-to-Sources completeness check** -- before the draft
+    commit, extract every URL cited inline across
+    `## Research Skill Output` and `## Findings` (for example via
+    `grep -noE "https?://[^]\s;)]+" <item>`) and confirm each distinct URL also
+    has a corresponding entry in `## Sources`. Sources discovered mid-research
+    and used only as an analogical or secondary reference (not part of the
+    original seed list) are just as reportable as seeded sources if they are
+    cited substantively -- run this check even when a source was folded in
+    during §2, §3, or §5 writing rather than during initial source-gathering.
+    Fix any gap before triggering the first review; this has caused a full
+    review-cycle failure when skipped.
+
 2e. **Repository cross-reference sweep** -- for each Key Finding and Evidence
     Map row that touches a governance surface also covered elsewhere in
     `Research/completed/`, search for materially related completed items and
