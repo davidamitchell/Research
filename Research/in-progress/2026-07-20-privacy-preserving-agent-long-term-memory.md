@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Privacy-preserving long-term memory for Artificial Intelligence agents"
 added: 2026-07-20T09:07:23+00:00
 status: reviewing
