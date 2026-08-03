@@ -2,12 +2,12 @@
 review_count: 2
 title: "Privacy-preserving long-term memory for Artificial Intelligence agents"
 added: 2026-07-20T09:07:23+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, memory-context, security-risk, governance-policy]
 started: 2026-08-03T08:10:40+00:00
-completed: ~
+completed: 2026-08-03T08:44:53+00:00
 output: []
 cites: [2026-03-02-agent-memory-management-context-injection, 2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-04-26-permission-safe-rag-enterprise-information-architecture, 2026-05-06-aibom-effectiveness-risk-mitigation-limits, 2026-07-20-agent-memory-forgetting-information-curation, 2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation]
 related: [2026-03-17-ai-memory-systems-rag-neuroscience, 2026-07-20-agent-memory-evaluation-framework]
