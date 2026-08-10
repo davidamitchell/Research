@@ -2,12 +2,12 @@
 review_count: 2
 title: "What is an Enterprise Architect?"
 added: 2026-08-09T08:35:31+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [software-engineering, governance-policy, enterprise-adoption, organisational-design]
 started: 2026-08-10T07:32:45+00:00
-completed: ~
+completed: 2026-08-10T07:56:13+00:00
 output: [knowledge]
 cites: []
 related: [2026-05-31-togaf-motivation-architecture-driver-goal-requirement]
