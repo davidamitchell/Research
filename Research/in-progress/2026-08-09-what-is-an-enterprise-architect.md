@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What is an Enterprise Architect?"
 added: 2026-08-09T08:35:31+00:00
 status: reviewing
