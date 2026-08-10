@@ -1,6 +1,95 @@
 {
-  "extracted_at": "2026-08-10T07:44:05Z",
+  "extracted_at": "2026-08-10T07:59:10Z",
   "items": {
+    "2026-08-09-what-is-an-enterprise-architect": {
+      "named_concepts": [
+        "business architecture",
+        "enterprise architecture",
+        "bizbok guide",
+        "enterprise architect",
+        "ea role",
+        "practitioner sources",
+        "zachman framework",
+        "architecture guild",
+        "technical depth",
+        "total cost",
+        "ownership reduction",
+        "conformance rate",
+        "ivory tower",
+        "architect elevator",
+        "five-pillar competency",
+        "solution architect",
+        "directly fetched",
+        "two independent",
+        "ea owns",
+        "enterprise-wide cross-domain"
+      ],
+      "source_urls": [
+        "https://www.opengroup.org/togaf",
+        "https://bizzdesign.com/blog/business-architecture-vs-enterprise-architecture",
+        "https://en.wikipedia.org/wiki/Zachman_Framework",
+        "https://education.iasaglobal.org/",
+        "https://martinfowler.com/articles/architect-elevator.html",
+        "https://www.gartner.com/en/documents/6731934",
+        "https://en.wikipedia.org/wiki/Federal_Enterprise_Architecture",
+        "https://www.ben-morris.com/enterprise-architecture-anti-patterns/",
+        "https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained",
+        "https://kpidepot.com/benchmarks/enterprise-architecture-kpi-benchmarks-36",
+        "https://www.leanix.net/en/wiki/ea/enterprise-architecture-metrics",
+        "https://www.leanix.net/en/wiki/ea/enterprise-architect-vs-domain-architect-vs-developer"
+      ],
+      "key_claims": [
+        {
+          "text": "The TOGAF Standard, published by The Open Group, defines the Enterprise Architect as accountable for developing and maintaining an enterprise-wide architecture spanning Business, Data, Application, and Technology domains, in contrast to narrower single-domain or single-project architect roles",
+          "sources": [
+            "https://www.opengroup.org/togaf"
+          ]
+        },
+        {
+          "text": "The Zachman Framework is a classification ontology, not a process methodology, organising enterprise knowledge into six perspectives crossed with six interrogatives, which makes the Zachman-derived EA role one of ensuring completeness and consistency of enterprise descriptions rather than executing a change process",
+          "sources": [
+            "https://en.wikipedia.org/wiki/Zachman_Framework"
+          ]
+        },
+        {
+          "text": "Gregor Hohpe's \"Architect Elevator\" framing holds that most traditional architect tasks such as drawing diagrams and mandating designs are better performed by development teams and tooling, and that the distinctive, non-substitutable contribution of an enterprise-level architect is moving between an organisation's strategic and technical layers to keep them mutually informed",
+          "sources": [
+            "https://martinfowler.com/articles/architect-elevator.html"
+          ]
+        },
+        {
+          "text": "Enterprise architects in the Federal Enterprise Architecture Framework (FEAF) context are required to maintain current-state and target-state descriptions across Performance, Business, Data, Application, Infrastructure, and Security reference models and to produce a transition roadmap, partly to support statutory Clinger-Cohen Act IT capital-planning compliance",
+          "sources": [
+            "https://en.wikipedia.org/wiki/Federal_Enterprise_Architecture"
+          ]
+        },
+        {
+          "text": "A practitioner source (Ben Morris) names \"ivory tower\" architecture, where strategy and guidance are produced with too little contact with delivery reality, as one of several named enterprise architecture anti-patterns",
+          "sources": [
+            "https://www.ben-morris.com/enterprise-architecture-anti-patterns/"
+          ]
+        },
+        {
+          "text": "A three-tier accountability model recurs across practitioner sources: the EA owns the enterprise-wide architecture framework and standards, governs solution-level designs by requiring conformance without personally producing every artefact, and advises delivery teams and executives without unilateral authority outside its governance remit",
+          "sources": [
+            "https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained"
+          ]
+        },
+        {
+          "text": "Enterprise Architecture Metrics practitioners and analyst sources describe EA success measurement as outcome-based rather than activity-based, citing strategic-alignment ratios, total cost of ownership reduction, application-portfolio rationalisation, and project conformance rate as recurring key performance indicators",
+          "sources": [
+            "https://kpidepot.com/benchmarks/enterprise-architecture-kpi-benchmarks-36",
+            "https://www.leanix.net/en/wiki/ea/enterprise-architecture-metrics"
+          ]
+        },
+        {
+          "text": "Business Architecture, as described in secondary sources summarising the Business Architecture Guild's BIZBOK Guide, is technology-agnostic and scoped to organisational capabilities, value streams, and business processes, whereas Enterprise Architecture is the broader, technology-inclusive discipline that treats business architecture as one of its constituent domains",
+          "sources": [
+            "https://bizzdesign.com/blog/business-architecture-vs-enterprise-architecture"
+          ]
+        }
+      ]
+    },
     "2026-07-20-tbox-abox-graphrag": {
       "named_concepts": [
         "independent replication",
