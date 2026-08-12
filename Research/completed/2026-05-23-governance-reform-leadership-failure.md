@@ -5,7 +5,6 @@ added: 2026-05-23T01:19:53+00:00
 status: completed
 priority: high
 blocks: []
-tags: [governance, organisation, organisational-design, regulated-enterprise, change-management, incentives, institutional-economics]
 started: 2026-05-23T09:04:03+00:00
 completed: 2026-05-23T09:22:42+00:00
 output: []

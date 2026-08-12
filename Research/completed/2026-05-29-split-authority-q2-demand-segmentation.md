@@ -4,7 +4,6 @@ title: "Q2: Demand segmentation for fast-path vs controlled-path flow"
 added: 2026-05-29
 status: completed
 priority: high
-tags: [demand-segmentation, triage, flow-design, governance]
 blocks: [2026-05-29-split-authority-q1-flow-constraint]
 started: 2026-05-30T03:51:41+00:00
 completed: 2026-05-30T05:21:54+00:00
@@ -25,12 +24,7 @@ supersedes: ~
 superseded_by: []
 item_type: primary
 confidence: medium
-themes:
-  - governance-policy
-  - organisational-design
-  - cost-performance
-  - tools-infrastructure
-  - enterprise-adoption
+themes: [governance-policy, organisational-design, cost-performance, tools-infrastructure, enterprise-adoption]
 versions:
   - version: "1.0"
     sha: a525c3dd79cd5c0750f54966d0c8ae7a52ec5590

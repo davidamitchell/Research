@@ -4,7 +4,6 @@ title: "Q6: Leading indicators of instability in split-authority flow systems"
 added: 2026-05-29
 status: completed
 priority: high
-tags: [leading-indicators, flow-metrics, delivery-risk, instability]
 blocks: [2026-05-29-split-authority-q1-flow-constraint, 2026-05-29-split-authority-q2-demand-segmentation, 2026-05-29-split-authority-q3-routing-exception-isolation]
 started: 2026-05-31T12:06:51+00:00
 completed: 2026-05-31T20:33:29+00:00
@@ -26,12 +25,7 @@ supersedes: ~
 superseded_by: []
 item_type: primary
 confidence: medium
-themes:
-  - governance-policy
-  - benchmarks-eval
-  - cost-performance
-  - organisational-design
-  - tools-infrastructure
+themes: [governance-policy, benchmarks-eval, cost-performance, organisational-design, tools-infrastructure]
 versions: []
 ---
 

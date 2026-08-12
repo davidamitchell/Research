@@ -4,7 +4,6 @@ title: "Q1: Dominant flow constraint in split-authority delivery systems"
 added: 2026-05-29
 status: completed
 priority: high
-tags: [constraint-analysis, flow, governance, queueing]
 blocks: []
 started: 2026-05-31T21:21:16+00:00
 completed: 2026-05-31T21:55:02+00:00
@@ -27,11 +26,7 @@ supersedes: ~
 superseded_by: []
 item_type: primary
 confidence: medium
-themes:
-  - governance-policy
-  - organisational-design
-  - cost-performance
-  - software-engineering
+themes: [governance-policy, organisational-design, cost-performance, software-engineering]
 versions:
   - version: "1.0"
     sha: 3ce7ba6

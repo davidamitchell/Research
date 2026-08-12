@@ -4,7 +4,6 @@ title: "Q3: Routing design that isolates exceptions from routine flow"
 added: 2026-05-29
 status: completed
 priority: high
-tags: [routing, queue-design, exception-handling, triage]
 blocks: [2026-05-29-split-authority-q1-flow-constraint, 2026-05-29-split-authority-q2-demand-segmentation]
 started: 2026-05-31T10:00:34+00:00
 completed: 2026-05-31T10:43:18+00:00
@@ -21,12 +20,7 @@ supersedes: ~
 superseded_by: []
 item_type: primary
 confidence: medium
-themes:
-  - governance-policy
-  - organisational-design
-  - cost-performance
-  - tools-infrastructure
-  - enterprise-adoption
+themes: [governance-policy, organisational-design, cost-performance, tools-infrastructure, enterprise-adoption]
 gaps: []
 versions:
   - version: "1.0"

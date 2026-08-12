@@ -3,7 +3,6 @@ title: "Q5: Control model for the best throughput-risk trade-off"
 added: 2026-05-29
 status: completed
 priority: high
-tags: [control-model, governance-patterns, throughput-risk, delegation]
 blocks: [2026-05-29-split-authority-q2-demand-segmentation, 2026-05-29-split-authority-q3-routing-exception-isolation, 2026-05-29-split-authority-q4-decision-rights-placement]
 started: 2026-05-31T11:29:07+00:00
 completed: 2026-05-31T12:04:52+00:00
@@ -23,12 +22,7 @@ supersedes: ~
 superseded_by: []
 item_type: primary
 confidence: medium
-themes:
-  - governance-policy
-  - organisational-design
-  - cost-performance
-  - enterprise-adoption
-  - regulatory-compliance
+themes: [governance-policy, organisational-design, cost-performance, enterprise-adoption, regulatory-compliance]
 versions:
   - version: "1.0"
     sha: "4f1954794cfd0f9b991296294dbd5736523c1ef3"

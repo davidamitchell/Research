@@ -5,7 +5,6 @@ added: 2026-05-23T01:19:53+00:00
 status: completed
 priority: high
 blocks: []
-tags: [governance, organisation, transaction-costs, institutional-economics, coase, williamson, regulated-enterprise, enterprise]
 started: 2026-05-23T08:11:52+00:00
 completed: 2026-05-23T08:39:34+00:00
 output: [knowledge]

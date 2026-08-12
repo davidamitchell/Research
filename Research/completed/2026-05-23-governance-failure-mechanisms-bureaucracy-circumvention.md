@@ -5,7 +5,6 @@ added: 2026-05-23T01:19:53+00:00
 status: completed
 priority: high
 blocks: []
-tags: [governance, organisation, bureaucracy, regulated-enterprise, institutional-economics, transaction-costs, incentives]
 started: 2026-05-23T08:41:34+00:00
 completed: 2026-05-23T09:02:30+00:00
 output: [knowledge]

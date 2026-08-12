@@ -3,7 +3,6 @@ title: "Q4: Decision rights that should move closer to execution"
 added: 2026-05-29
 status: completed
 priority: high
-tags: [decision-rights, delegation, governance, execution]
 blocks: [2026-05-29-split-authority-q1-flow-constraint]
 started: 2026-05-31T10:45:25+00:00
 completed: 2026-05-31T11:26:10+00:00
@@ -22,12 +21,7 @@ supersedes: ~
 superseded_by: []
 item_type: primary
 confidence: medium
-themes:
-  - governance-policy
-  - organisational-design
-  - cost-performance
-  - enterprise-adoption
-  - software-engineering
+themes: [governance-policy, organisational-design, cost-performance, enterprise-adoption, software-engineering]
 gaps: []
 versions:
   - version: "1.0"
