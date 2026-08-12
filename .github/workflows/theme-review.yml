@@ -50,6 +50,45 @@ jobs:
       - name: Generate theme report
         run: python scripts/theme_report.py
 
+      - name: Add job summary for mappable stray themes
+        run: |
+          python - <<'PYEOF'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path("state/theme_report.json").read_text())
+          s = data["summary"]
+          mappable = data.get("mappable_strays", [])
+          gaps = data.get("stray_themes", [])
+
+          lines = [
+              "## Theme governance summary",
+              "",
+              f"- **Items scanned:** {s['total_items_scanned']}",
+              f"- **Uncovered items:** {s['uncovered_count']}",
+              f"- **Stray themes:** {s['stray_theme_count']} "
+              f"({s['mappable_stray_count']} mappable, {s['genuine_gap_count']} gaps)",
+              f"- **Unused canonical themes:** {s['unused_canonical_count']}",
+              "",
+          ]
+
+          if mappable:
+              lines += ["### Mappable stray themes", "", "| Stray theme | Suggested canonical | Confidence |", "|---|---|---|"]
+              for m in mappable[:30]:
+                  lines.append(f"| `{m['stray']}` | `{m['canonical']}` | {m['confidence']} |")
+              if len(mappable) > 30:
+                  lines.append(f"| … | | |")
+              lines.append("")
+
+          if gaps:
+              lines += ["### Genuine gap themes", "", ", ".join(f"`{t}`" for t in gaps), ""]
+
+          summary_path = Path("$GITHUB_STEP_SUMMARY")
+          # $GITHUB_STEP_SUMMARY is an environment variable; write via shell expansion below.
+          Path("/tmp/theme_summary.md").write_text("\n".join(lines), encoding="utf-8")
+          PYEOF
+          cat /tmp/theme_summary.md >> "$GITHUB_STEP_SUMMARY"
+
       - name: Commit report
         run: |
           git config user.name  "github-actions[bot]"
