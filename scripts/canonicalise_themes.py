@@ -31,7 +31,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import json
 import re
 import sys
 from datetime import date
@@ -425,9 +424,9 @@ def normalise_stray_themes(
 
     Returns the list of files that were (or would be) changed.
     """
-    import json
+    import json as _json
 
-    report = json.loads(report_path.read_text(encoding="utf-8"))
+    report = _json.loads(report_path.read_text(encoding="utf-8"))
     _ = vocab  # vocab available for future confidence checks; currently unused
     mappings = {
         m["stray"]: m["canonical"]
@@ -518,9 +517,7 @@ def main(argv: list[str] | None = None) -> int:
             else args.root / "state" / "theme_report.json"
         )
         if report_path.exists():
-            normalised = normalise_stray_themes(
-                args.root, vocab, report_path, dry_run=args.dry_run
-            )
+            normalised = normalise_stray_themes(args.root, vocab, report_path, dry_run=args.dry_run)
             changed.extend(p for p in normalised if p not in changed)
         elif args.report is not True:
             print(f"ERROR: report not found: {report_path}", file=sys.stderr)

@@ -197,7 +197,7 @@ def token_set(slug: str) -> set[str]:
     return set(slug.split("-"))
 
 
-def token_jaccard(a: str, b: str) -> float:
+def _token_jaccard(a: str, b: str) -> float:
     """Return token Jaccard similarity between two hyphenated slugs."""
     tokens_a = token_set(a)
     tokens_b = token_set(b)
@@ -216,7 +216,7 @@ def _find_best_token_match(stray: str, canonical_slugs: list[str]) -> tuple[str,
     """
     best: tuple[str, float] | None = None
     for canonical in canonical_slugs:
-        score = token_jaccard(stray, canonical)
+        score = _token_jaccard(stray, canonical)
         if score < 0.5:
             continue
         if best is None or score > best[1]:
@@ -369,9 +369,7 @@ def build_theme_report(root: Path, vocab_path: Path = VOCAB_PATH) -> dict:
     # most stray occurrences.
     candidate_aliases: dict[str, list[str]] = defaultdict(list)
     for suggestion in mappable:
-        if suggestion["confidence"] == CONFIDENCE_HIGH and suggestion["basis"].startswith(
-            "alias"
-        ):
+        if suggestion["confidence"] == CONFIDENCE_HIGH and suggestion["basis"].startswith("alias"):
             # Already a known alias — not a candidate for vocabulary growth.
             continue
         candidate_aliases[suggestion["canonical"]].append(suggestion["stray"])
@@ -571,7 +569,9 @@ def main() -> None:
     print(f"  {s['items_with_themes']} items with themes")
     print(f"  {s['uncovered_count']} items uncovered")
     print(f"  {s['near_duplicate_count']} near-duplicate vocabulary candidates")
-    print(f"  {s['stray_theme_count']} stray themes ({s['mappable_stray_count']} mappable, {s['genuine_gap_count']} gaps)")
+    print(
+        f"  {s['stray_theme_count']} stray themes ({s['mappable_stray_count']} mappable, {s['genuine_gap_count']} gaps)"
+    )
     print(f"  {s['unused_canonical_count']} unused canonical themes")
 
     json_path = state_dir / "theme_report.json"
