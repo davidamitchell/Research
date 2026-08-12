@@ -669,7 +669,131 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-08-03 09:32 UTC</p>
+<p>Generated on: 2026-08-10 07:57 UTC</p>
+<p><a id="2026-08-09-what-is-an-enterprise-architect-md"></a></p>
+<h2>What is an Enterprise Architect?</h2>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-09-what-is-an-enterprise-architect.md</p>
+<h2>Research Question</h2>
+<p>What does an Enterprise Architect (EA) do, what do they explicitly not do, and how is the role distinguished from Business Architect and Domain Architect roles, including what they own, what they govern, what they produce, and what good versus poor performance looks like?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>An Enterprise Architect (EA) owns and maintains an enterprise-wide, cross-domain architecture baseline (spanning business, data, application, and technology) and a roadmap for moving from current state to target state, governing conformance to that baseline through negotiated standards rather than personally authoring every solution-level artefact. [inference; source: https://www.opengroup.org/togaf] This ownership-and-governance boundary is what most reliably separates the EA role from a Business Architect, whose scope is limited to the technology-agnostic business-capability and value-stream layer, and from a Domain Architect, whose scope is technical depth within one domain such as data, security, or infrastructure. [inference; source: https://bizzdesign.com/blog/business-architecture-vs-enterprise-architecture; https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained] The role explicitly excludes unilateral solution design and technology mandate-setting, which belong to Solution and Software Architects operating inside EA-set guardrails. [inference; source: https://martinfowler.com/articles/architect-elevator.html] Good EA performance is recognised through outcome-linked metrics such as total cost of ownership reduction and project conformance rate, whereas poor performance recurs across independent practitioner sources as &quot;ivory tower&quot; detachment from delivery and deliverables (diagrams, decks) that do not translate into actionable guidance. [inference; source: https://kpidepot.com/benchmarks/enterprise-architecture-kpi-benchmarks-36; https://www.ben-morris.com/enterprise-architecture-anti-patterns/] The single largest residual uncertainty is that framework standards (TOGAF, FEAF) specify roles more formally than commercial practice actually follows them, so the aspirational and empirical pictures diverge in ways this item can only partly reconcile from public secondary sources. [assumption; source: https://www.ben-morris.com/enterprise-architecture-anti-patterns/]</p>
+<h3>Key Findings</h3>
+<ol>
+<li>The TOGAF Standard, published by The Open Group, defines the Enterprise Architect as accountable for developing and maintaining an enterprise-wide architecture spanning Business, Data, Application, and Technology domains, in contrast to narrower single-domain or single-project architect roles. ([fact]; medium confidence; source: https://www.opengroup.org/togaf)</li>
+<li>The Zachman Framework is a classification ontology, not a process methodology, organising enterprise knowledge into six perspectives crossed with six interrogatives, which makes the Zachman-derived EA role one of ensuring completeness and consistency of enterprise descriptions rather than executing a change process. ([inference]; medium confidence; source: https://en.wikipedia.org/wiki/Zachman_Framework)</li>
+<li>Gregor Hohpe's &quot;Architect Elevator&quot; framing holds that most traditional architect tasks such as drawing diagrams and mandating designs are better performed by development teams and tooling, and that the distinctive, non-substitutable contribution of an enterprise-level architect is moving between an organisation's strategic and technical layers to keep them mutually informed. ([fact]; medium confidence; source: https://martinfowler.com/articles/architect-elevator.html)</li>
+<li>Enterprise architects in the Federal Enterprise Architecture Framework (FEAF) context are required to maintain current-state and target-state descriptions across Performance, Business, Data, Application, Infrastructure, and Security reference models and to produce a transition roadmap, partly to support statutory Clinger-Cohen Act IT capital-planning compliance. ([inference]; medium confidence; source: https://en.wikipedia.org/wiki/Federal_Enterprise_Architecture)</li>
+<li>A practitioner source (Ben Morris) names &quot;ivory tower&quot; architecture, where strategy and guidance are produced with too little contact with delivery reality, as one of several named enterprise architecture anti-patterns. ([fact]; medium confidence; source: https://www.ben-morris.com/enterprise-architecture-anti-patterns/)</li>
+<li>A three-tier accountability model recurs across practitioner sources: the EA owns the enterprise-wide architecture framework and standards, governs solution-level designs by requiring conformance without personally producing every artefact, and advises delivery teams and executives without unilateral authority outside its governance remit. ([inference]; medium confidence; source: https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained)</li>
+<li>Enterprise Architecture Metrics practitioners and analyst sources describe EA success measurement as outcome-based rather than activity-based, citing strategic-alignment ratios, total cost of ownership reduction, application-portfolio rationalisation, and project conformance rate as recurring key performance indicators. ([inference]; medium confidence; source: https://kpidepot.com/benchmarks/enterprise-architecture-kpi-benchmarks-36; https://www.leanix.net/en/wiki/ea/enterprise-architecture-metrics)</li>
+<li>Business Architecture, as described in secondary sources summarising the Business Architecture Guild's BIZBOK Guide, is technology-agnostic and scoped to organisational capabilities, value streams, and business processes, whereas Enterprise Architecture is the broader, technology-inclusive discipline that treats business architecture as one of its constituent domains. ([inference]; medium confidence; source: https://bizzdesign.com/blog/business-architecture-vs-enterprise-architecture)</li>
+<li>Solution Architects operate at project-specific, tactical scope designing and delivering an individual system within guardrails the Enterprise Architect sets, while Domain Architects (e.g. Data, Security, Infrastructure Architect) operate with technical depth in one domain across the organisation. ([inference]; medium confidence; source: https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained; https://www.leanix.net/en/wiki/ea/enterprise-architect-vs-domain-architect-vs-developer)</li>
+<li>IASA's Business Technology Architecture Body of Knowledge (BTABoK), formerly the IT Architecture Body of Knowledge (ITABoK), names Enterprise Architect as one of several distinct architect specialisations sharing a common five-pillar competency baseline (Business Technology Strategy, Human Dynamics, IT Environment, Design, Quality Attributes) alongside Business, Solution, Software, Information, and Infrastructure Architect roles. ([inference]; medium confidence; source: https://education.iasaglobal.org/)</li>
+<li>The EA-Solution Architect relationship functions as a negotiated &quot;handshake&quot; in practice: the EA sets integration and governance standards, and the Solution Architect flags when a specific project requirement falls outside the established framework, making architectural coherence a joint rather than a unilaterally top-down responsibility. ([fact]; medium confidence; source: https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[fact] TOGAF defines EA as accountable for enterprise-wide, cross-domain architecture and standards governance</td>
+<td>https://www.opengroup.org/togaf</td>
+<td>Medium</td>
+<td>Primary standards body source, but single source; High confidence requires two or more independent sources</td>
+</tr>
+<tr>
+<td>[inference] Zachman Framework is a classification ontology, making its EA role one of completeness/consistency assurance</td>
+<td>https://en.wikipedia.org/wiki/Zachman_Framework</td>
+<td>Medium</td>
+<td>Tertiary encyclopedic source; framework structure itself is well documented</td>
+</tr>
+<tr>
+<td>[fact] Hohpe's Architect Elevator: traditional architect tasks belong to developers/tooling; EA's role is cross-layer bridging</td>
+<td>https://martinfowler.com/articles/architect-elevator.html</td>
+<td>Medium</td>
+<td>Primary practitioner essay, directly fetched and read, but single source</td>
+</tr>
+<tr>
+<td>[inference] FEAF requires enterprise architects to maintain reference-model descriptions and transition roadmaps tied to Clinger-Cohen compliance</td>
+<td>https://en.wikipedia.org/wiki/Federal_Enterprise_Architecture</td>
+<td>Medium</td>
+<td>Tertiary source; primary FEAF PDF (whitehouse.gov) not independently re-verified in this session</td>
+</tr>
+<tr>
+<td>[fact] &quot;Ivory tower&quot; architecture is named as a frequent EA anti-pattern by a single directly-fetched practitioner source</td>
+<td>https://www.ben-morris.com/enterprise-architecture-anti-patterns/</td>
+<td>Medium</td>
+<td>Practitioner primary essay, directly fetched, but single source</td>
+</tr>
+<tr>
+<td>[inference] Three-tier own/govern/advise accountability model recurs in practitioner comparisons</td>
+<td>https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained</td>
+<td>Medium</td>
+<td>Single vendor-affiliated practitioner source; not independently corroborated by a second source for the exact three-tier framing</td>
+</tr>
+<tr>
+<td>[inference] EA success measurement is outcome-based: strategic alignment, total cost of ownership reduction, portfolio rationalisation, conformance rate</td>
+<td>https://kpidepot.com/benchmarks/enterprise-architecture-kpi-benchmarks-36; https://www.leanix.net/en/wiki/ea/enterprise-architecture-metrics</td>
+<td>Medium</td>
+<td>Two independent secondary/vendor sources corroborate; primary Gartner document accessed only via secondary paraphrase</td>
+</tr>
+<tr>
+<td>[inference] Business Architecture is technology-agnostic and scoped to capabilities/value streams; EA is the broader technology-inclusive discipline</td>
+<td>https://bizzdesign.com/blog/business-architecture-vs-enterprise-architecture</td>
+<td>Medium</td>
+<td>Vendor blog summarising BIZBOK Guide; primary Guild source is paywalled</td>
+</tr>
+<tr>
+<td>[inference] Solution Architect = project-tactical scope; Domain Architect = single-domain technical depth</td>
+<td>https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained; https://www.leanix.net/en/wiki/ea/enterprise-architect-vs-domain-architect-vs-developer</td>
+<td>Medium</td>
+<td>Two independent vendor/practitioner sources corroborate the scope distinction</td>
+</tr>
+<tr>
+<td>[inference] BTABoK/ITABoK names EA as one of several specialisations sharing a five-pillar competency baseline</td>
+<td>https://education.iasaglobal.org/</td>
+<td>Medium</td>
+<td>Direct fetch returned only a landing-page title; claim corroborated via secondary synthesis, not direct primary-text read</td>
+</tr>
+<tr>
+<td>[fact] EA-Solution Architect relationship works as a negotiated standards &quot;handshake,&quot; not unilateral top-down control</td>
+<td>https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained</td>
+<td>Medium</td>
+<td>Directly fetched and read primary practitioner source, but single source</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<p>The BTABoK/ITABoK five-pillar competency model is assumed to still reflect IASA's current framework structure as of this research. This assumption is justified because the secondary search results describing it were current and IASA's own education portal, though only its landing page was directly accessible, still resolves under the same domain and naming. [assumption; source: https://education.iasaglobal.org/]
+Gartner's outcome-based EA measurement position is assumed to be accurately represented by secondary paraphrase rather than direct primary-document text. This assumption is justified because the Gartner document itself sits behind an access-controlled client portal and no freely accessible primary text could be independently verified in this session. [assumption; source: https://www.gartner.com/en/documents/6731934]
+The Business Architecture Guild's BIZBOK-derived Business Architecture/Enterprise Architecture boundary is assumed to be accurately summarised by vendor blog sources rather than the primary Guild text. This assumption is justified because the BIZBOK Guide itself is a paywalled membership publication not accessible in this session, while two independent vendor sources converge on the same boundary description. [assumption; source: https://bizzdesign.com/blog/business-architecture-vs-enterprise-architecture]</p>
+<h3>Analysis</h3>
+<p>The most directly-verified claims in this item rest on primary practitioner sources fetched and read in full (Hohpe's Architect Elevator essay, Ben Morris's anti-pattern taxonomy, and EACOE's role comparison), rather than through secondary paraphrase, though each is still held at medium rather than high confidence because a single source, however directly verified, does not meet the two-independent-source bar for high confidence. [inference; source: https://martinfowler.com/articles/architect-elevator.html; https://www.ben-morris.com/enterprise-architecture-anti-patterns/; https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained] Claims resting on the Zachman Framework, FEAF, BIZBOK, and BTABoK are held at medium rather than high confidence because the primary standard or body-of-knowledge text was either inaccessible in this session (Zachman.com, FEAF PDF, BIZBOK Guide, BTABoK content pages) or accessible only as a landing page, so the item relies on tertiary encyclopedic or secondary vendor summaries for those frameworks. [inference; source: https://en.wikipedia.org/wiki/Zachman_Framework] The competing interpretation that EA is merely a job title applied inconsistently, with no stable underlying accountability, is only partly supported: while titling practice clearly varies in the labour market, every framework and practitioner source examined converges on the same four-part accountability core (enterprise-wide scope, standards governance rather than direct production, strategic-technical bridging, and an explicit boundary against unilateral solution design), which weighs against treating the role as purely title inflation with no substantive content. [inference; source: https://www.opengroup.org/togaf; https://martinfowler.com/articles/architect-elevator.html; https://www.eacoe.org/enterprise-architect-vs-solution-architect-key-differences-explained] The main unresolved trade-off is between framework-prescribed authority (TOGAF's governance mandate, FEAF's statutory tie) and the practitioner-observed reality that this authority frequently does not translate into actual influence, which the anti-pattern literature attributes to a communication and delivery-engagement gap rather than to the frameworks themselves being wrong about what the role should do. [inference; source: https://www.ben-morris.com/enterprise-architecture-anti-patterns/]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The Zachman Framework's official site (zachman.com) was inaccessible in this session; its role framing is corroborated only through the Wikipedia summary and secondary practitioner blogs rather than the primary framework text, so nuances in Zachman's own EA role framing may be missed. [assumption; source: https://en.wikipedia.org/wiki/Zachman_Framework]</li>
+<li>The primary FEAF Version 2 document could not be re-fetched directly (only reached via a secondary Wikipedia summary and a landing-page reference to a Whitehouse.gov PDF listed in the original Sources), so specific FEAF role text beyond the general reference-model structure was not independently verified. [assumption; source: https://en.wikipedia.org/wiki/Federal_Enterprise_Architecture]</li>
+<li>The Business Architecture Guild's BIZBOK Guide is a paywalled membership publication; this item relies on vendor-blog paraphrase for the Business Architecture/Enterprise Architecture boundary, which may understate nuances the Guild itself makes about overlapping scope. [assumption; source: https://bizzdesign.com/blog/business-architecture-vs-enterprise-architecture]</li>
+<li>Gartner's specific outcome-metrics position was reached only via a secondary aggregator; the primary Gartner Executive FastStart document requires client access not available in this session. [assumption; source: https://www.gartner.com/en/documents/6731934]</li>
+<li>IASA's ITABoK/BTABoK direct content pages (<code>itabok.iasaglobal.org</code>, <code>metis.iasaglobal.org</code>) returned redirects or inaccessible content in this session, limiting the item to a secondary synthesis of the competency model rather than a direct primary-text read. [assumption; source: https://education.iasaglobal.org/]</li>
+<li>Nick Malik's practitioner blog (a seeded source on MSDN) was not independently located or verified in this session, as MSDN blog archives from that author could not be confirmed accessible; this source is therefore removed from the item's evidence base pending future verification.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Does TOGAF 10th Edition materially change the Architecture Skills Framework's competency-to-role mapping relative to TOGAF 9.2, and if so, how does that affect the EA/Solution Architect boundary described here?</li>
+<li>What does empirical labour-market data (job postings, salary surveys) show about how consistently &quot;Enterprise Architect&quot; job titles map to the accountability core identified in this item, versus being applied to project-level solution architecture roles?</li>
+<li>How does the Business Architecture Guild's BIZBOK Guide itself (rather than vendor paraphrase) describe the boundary and overlap between Business Architecture and Enterprise Architecture governance authority?</li>
+</ul>
+<hr />
+<hr />
 <p><a id="2026-07-20-tbox-abox-graphrag-md"></a></p>
 <h2>TBox-driven vs ABox-emergent ontology approaches in GraphRAG systems</h2>
 <p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-07-20-tbox-abox-graphrag.md</p>
