@@ -12,6 +12,9 @@ Outputs computed:
 - Near-duplicate candidates among the canonical vocabulary using
   Levenshtein distance ≤ 2 combined with token Jaccard similarity ≥ 0.6
   (per W-0076 findings)
+- Stray themes (not in canonical vocabulary), split into:
+  - Mappable strays — match a known alias or heuristic rule
+  - Genuine gaps — no clear canonical mapping
 - Theme distribution statistics
 
 Usage:
@@ -34,30 +37,57 @@ _YAML_BLOCK_RE = re.compile(r"```yaml\n(.*?)```", re.DOTALL)
 
 VOCAB_PATH = Path(__file__).parent.parent / "docs" / "themes-vocabulary.md"
 
+# Confidence labels for mappable-stray suggestions.
+CONFIDENCE_HIGH = "high"
+CONFIDENCE_MEDIUM = "medium"
+CONFIDENCE_LOW = "low"
+
 
 # ---------------------------------------------------------------------------
 # Vocabulary loading
 # ---------------------------------------------------------------------------
 
 
-def _load_canonical_slugs(vocab_path: Path) -> list[str]:
-    """Return the list of canonical theme slugs from the vocabulary file."""
+def load_themes_vocabulary(vocab_path: Path) -> dict[str, str]:
+    """Return a reverse map: alias/canonical -> canonical slug.
+
+    Mirrors the loader in ``scripts/canonicalise_themes.py`` so the report
+    shares the same view of the synonym map.
+    """
     text = vocab_path.read_text(encoding="utf-8")
     match = _YAML_BLOCK_RE.search(text)
     if not match:
         raise ValueError(f"No yaml code block found in {vocab_path}")
+
     yaml_text = match.group(1)
-    slugs: list[str] = []
+    alias_map: dict[str, str] = {}
+
+    current_canonical: str | None = None
     for line in yaml_text.splitlines():
         stripped = line.strip()
-        if (
-            stripped
-            and not stripped.startswith("#")
-            and not line.startswith(" ")
-            and not line.startswith("-")
-            and stripped.endswith(":")
-        ):
-            slugs.append(stripped[:-1])
+        if not stripped or stripped.startswith("#"):
+            continue
+        if not line.startswith(" ") and not line.startswith("-") and stripped.endswith(":"):
+            current_canonical = stripped[:-1]
+            alias_map[current_canonical] = current_canonical
+        elif stripped.startswith("- ") and current_canonical is not None:
+            alias = stripped[2:].strip()
+            if alias:
+                alias_map[alias] = current_canonical
+
+    return alias_map
+
+
+def _load_canonical_slugs(vocab_path: Path) -> list[str]:
+    """Return the list of canonical theme slugs from the vocabulary file."""
+    vocab = load_themes_vocabulary(vocab_path)
+    # The reverse map contains each canonical slug mapped to itself.
+    slugs: list[str] = []
+    seen: set[str] = set()
+    for slug, canonical in vocab.items():
+        if slug == canonical and slug not in seen:
+            seen.add(slug)
+            slugs.append(slug)
     return slugs
 
 
@@ -158,6 +188,118 @@ def _extract_themes_from_text(text: str) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
+# Stray-theme matching
+# ---------------------------------------------------------------------------
+
+
+def token_set(slug: str) -> set[str]:
+    """Return the hyphen-separated tokens of a slug."""
+    return set(slug.split("-"))
+
+
+def token_jaccard(a: str, b: str) -> float:
+    """Return token Jaccard similarity between two hyphenated slugs."""
+    tokens_a = token_set(a)
+    tokens_b = token_set(b)
+    if not tokens_a or not tokens_b:
+        return 0.0
+    intersection = tokens_a & tokens_b
+    union = tokens_a | tokens_b
+    return len(intersection) / len(union)
+
+
+def _find_best_token_match(stray: str, canonical_slugs: list[str]) -> tuple[str, float] | None:
+    """Return the canonical slug with the highest token Jaccard similarity.
+
+    Only returns a match when similarity is ≥ 0.5 (one shared token of two,
+    or stronger).
+    """
+    best: tuple[str, float] | None = None
+    for canonical in canonical_slugs:
+        score = token_jaccard(stray, canonical)
+        if score < 0.5:
+            continue
+        if best is None or score > best[1]:
+            best = (canonical, score)
+    return best
+
+
+def _find_substring_match(stray: str, canonical_slugs: list[str]) -> str | None:
+    """Return a canonical slug when one is a substring of the other."""
+    for canonical in canonical_slugs:
+        if canonical in stray or stray in canonical:
+            return canonical
+    return None
+
+
+def classify_stray_themes(
+    stray_themes: list[str],
+    vocab: dict[str, str],
+    canonical_slugs: list[str],
+) -> tuple[list[dict], list[str]]:
+    """Split stray themes into mappable suggestions and genuine gaps.
+
+    Each mappable result is a dict with keys:
+      - stray: the stray slug
+      - canonical: suggested canonical slug
+      - confidence: high | medium | low
+      - basis: short description of why it maps
+
+    Matching precedence:
+      1. Exact alias match in the vocabulary (high confidence).
+      2. Token Jaccard ≥ 0.5 against a canonical slug (medium/high).
+      3. Substring containment (low).
+    """
+    mappable: list[dict] = []
+    gaps: list[str] = []
+
+    for stray in stray_themes:
+        # 1. Exact alias match
+        if stray in vocab and vocab[stray] != stray:
+            mappable.append(
+                {
+                    "stray": stray,
+                    "canonical": vocab[stray],
+                    "confidence": CONFIDENCE_HIGH,
+                    "basis": "alias in vocabulary",
+                }
+            )
+            continue
+
+        # 2. Token Jaccard
+        token_match = _find_best_token_match(stray, canonical_slugs)
+        if token_match is not None:
+            canonical, score = token_match
+            confidence = CONFIDENCE_HIGH if score >= 0.75 else CONFIDENCE_MEDIUM
+            mappable.append(
+                {
+                    "stray": stray,
+                    "canonical": canonical,
+                    "confidence": confidence,
+                    "basis": f"token Jaccard {score:.2f}",
+                }
+            )
+            continue
+
+        # 3. Substring containment
+        substring_match = _find_substring_match(stray, canonical_slugs)
+        if substring_match is not None:
+            mappable.append(
+                {
+                    "stray": stray,
+                    "canonical": substring_match,
+                    "confidence": CONFIDENCE_LOW,
+                    "basis": "substring match",
+                }
+            )
+            continue
+
+        gaps.append(stray)
+
+    return mappable, gaps
+
+
+# ---------------------------------------------------------------------------
 # Core collection
 # ---------------------------------------------------------------------------
 
@@ -210,13 +352,29 @@ def build_theme_report(root: Path, vocab_path: Path = VOCAB_PATH) -> dict:
     """Build the full theme governance report data structure."""
     slug_to_themes, theme_to_slugs = collect_themes(root)
     uncovered = find_uncovered_items(root)
-    canonical_slugs = _load_canonical_slugs(vocab_path)
+    vocab = load_themes_vocabulary(vocab_path)
+    canonical_slugs = sorted({slug for slug, canonical in vocab.items() if slug == canonical})
     near_dupes = find_theme_near_duplicates(canonical_slugs)
 
     frequency = {t: len(slugs) for t, slugs in sorted(theme_to_slugs.items())}
 
     # Themes in corpus that are NOT in the canonical vocabulary (stray slugs)
     stray = sorted(t for t in theme_to_slugs if t not in set(canonical_slugs))
+
+    # Split strays into mappable suggestions and genuine gaps
+    mappable, gaps = classify_stray_themes(stray, vocab, canonical_slugs)
+
+    # Aggregate candidate aliases: aliases that appear in the corpus but are not
+    # yet in the vocabulary. These are the canonical forms that would absorb the
+    # most stray occurrences.
+    candidate_aliases: dict[str, list[str]] = defaultdict(list)
+    for suggestion in mappable:
+        if suggestion["confidence"] == CONFIDENCE_HIGH and suggestion["basis"].startswith(
+            "alias"
+        ):
+            # Already a known alias — not a candidate for vocabulary growth.
+            continue
+        candidate_aliases[suggestion["canonical"]].append(suggestion["stray"])
 
     # Canonical themes with zero corpus items
     unused = sorted(t for t in canonical_slugs if t not in theme_to_slugs)
@@ -229,6 +387,8 @@ def build_theme_report(root: Path, vocab_path: Path = VOCAB_PATH) -> dict:
             "uncovered_count": len(uncovered),
             "near_duplicate_count": len(near_dupes),
             "stray_theme_count": len(stray),
+            "mappable_stray_count": len(mappable),
+            "genuine_gap_count": len(gaps),
             "unused_canonical_count": len(unused),
         },
         "frequency": frequency,
@@ -237,7 +397,11 @@ def build_theme_report(root: Path, vocab_path: Path = VOCAB_PATH) -> dict:
             "uncovered_slugs": uncovered,
         },
         "near_duplicates": near_dupes,
-        "stray_themes": stray,
+        "mappable_strays": mappable,
+        "candidate_aliases": {
+            canonical: sorted(slugs) for canonical, slugs in sorted(candidate_aliases.items())
+        },
+        "stray_themes": gaps,
         "unused_canonicals": unused,
     }
 
@@ -254,6 +418,8 @@ def render_theme_report_markdown(data: dict) -> str:
         f"**Uncovered items (no themes:):** {s['uncovered_count']}  ",
         f"**Near-duplicate vocabulary candidates:** {s['near_duplicate_count']}  ",
         f"**Stray (non-vocabulary) themes in corpus:** {s['stray_theme_count']}  ",
+        f"**Mappable stray themes:** {s['mappable_stray_count']}  ",
+        f"**Genuine gap themes:** {s['genuine_gap_count']}  ",
         f"**Unused canonical themes:** {s['unused_canonical_count']}",
         "",
         "---",
@@ -291,16 +457,56 @@ def render_theme_report_markdown(data: dict) -> str:
         "",
         "---",
         "",
+        "## Mappable stray themes",
+        "",
+        "> Stray themes that can be normalised to an existing canonical theme.",
+        "> Add high-confidence aliases to `docs/themes-vocabulary.md` or rewrite the item.",
+        "",
+    ]
+    if data["mappable_strays"]:
+        lines += ["| Stray theme | Suggested canonical | Confidence | Basis |", "|---|---|---|---|"]
+        for m in data["mappable_strays"]:
+            lines.append(
+                f"| `{m['stray']}` | `{m['canonical']}` | {m['confidence']} | {m['basis']} |"
+            )
+    else:
+        lines.append("_None found — every stray theme is a genuine gap._")
+
+    lines += [
+        "",
+        "---",
+        "",
+        "## Candidate aliases for vocabulary growth",
+        "",
+        "> Canonical themes that would absorb the most currently-unmapped stray themes.",
+        "> Only add aliases when the growth-policy threshold (≥3 items) is met.",
+        "",
+    ]
+    if data["candidate_aliases"]:
+        lines += ["| Canonical theme | Candidate aliases | Count |", "|---|---|---|"]
+        for canonical, aliases in sorted(
+            data["candidate_aliases"].items(), key=lambda x: (-len(x[1]), x[0])
+        ):
+            alias_str = ", ".join(f"`{a}`" for a in aliases)
+            lines.append(f"| `{canonical}` | {alias_str} | {len(aliases)} |")
+    else:
+        lines.append("_No candidate aliases from heuristic matching._")
+
+    lines += [
+        "",
+        "---",
+        "",
         "## Stray themes (not in canonical vocabulary)",
         "",
-        "> Theme slugs found in corpus items that are not in `docs/themes-vocabulary.md`.",
-        "> These may be pre-migration artefacts or new candidate themes.",
+        "> Theme slugs found in corpus items that are not in `docs/themes-vocabulary.md`",
+        "> and could not be mapped to a canonical theme. These may be genuine new themes",
+        "> or pre-migration artefacts.",
         "",
     ]
     if data["stray_themes"]:
         lines.append(", ".join(f"`{t}`" for t in data["stray_themes"]))
     else:
-        lines.append("_None found — all corpus themes are in the vocabulary._")
+        lines.append("_None found — all corpus themes are in the vocabulary or are mappable._")
 
     lines += [
         "",
@@ -365,7 +571,7 @@ def main() -> None:
     print(f"  {s['items_with_themes']} items with themes")
     print(f"  {s['uncovered_count']} items uncovered")
     print(f"  {s['near_duplicate_count']} near-duplicate vocabulary candidates")
-    print(f"  {s['stray_theme_count']} stray themes")
+    print(f"  {s['stray_theme_count']} stray themes ({s['mappable_stray_count']} mappable, {s['genuine_gap_count']} gaps)")
     print(f"  {s['unused_canonical_count']} unused canonical themes")
 
     json_path = state_dir / "theme_report.json"
