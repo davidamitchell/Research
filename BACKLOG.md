@@ -5,6 +5,29 @@
 
 ---
 
+## W-0085
+
+status: open
+created: 2026-08-12
+updated: 2026-08-12
+
+### Outcome
+
+A `scripts/theme_graph.py` module (or extension of `scripts/theme_report.py`) builds a bipartite item↔theme graph from the research corpus and runs community detection (e.g. Leiden or k-core) to surface emergent theme clusters. The output feeds `theme_report.md` as a new "Community-based alias candidates" section, complementing the existing string-similarity near-duplicate detection.
+
+### Context
+
+Current theme matching in `scripts/theme_report.py` relies on hand-curated aliases, Levenshtein distance, and token Jaccard. GraphRAG theory and the `context-ontology-accelerator` project show that community detection over a knowledge graph can discover latent concept clusters from co-occurrence structure alone. The research corpus is naturally a bipartite graph (items linked to their themes); running community detection on it can empirically reveal which stray themes belong to which canonical themes and which canonical themes might be merged or split. This is a medium-term, low-dependency improvement that does not require AWS/Neptune.
+
+### Notes
+
+- Reference: GraphRAG uses Leiden for hierarchical community detection; recent work (Core-based Hierarchies for Efficient GraphRAG, arXiv:2603.05207) argues k-core decomposition is more stable on sparse graphs.
+- Reference: `context-ontology-accelerator` packages/ontology-engine induces ontologies via embedding alignment and LLM-based judge/generator loops; its VKG layer is less relevant here.
+- Candidate Python stack: `networkx` + `python-louvain` for Leiden/Louvain, or `igraph` for k-core dendrograms.
+- Should reuse the same `collect_themes()` data already produced by `scripts/theme_report.py`.
+
+---
+
 ## W-0001
 
 status: done
