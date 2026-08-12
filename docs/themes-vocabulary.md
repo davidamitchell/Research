@@ -36,28 +36,28 @@ instead. The monthly review workflow surfaces candidates automatically.
 
 | Canonical slug | Aliases | Scope |
 |---|---|---|
-| `agentic-ai` | `ai`, `agent`, `ai-agents`, `agents`, `agentic-systems` | AI agents, tool use, autonomous decision-making systems |
-| `llm-reasoning` | `prompt-engineering`, `chain-of-thought` | LLM (Large Language Model) reasoning, chain-of-thought prompting, structured output, prompt engineering |
+| `agentic-ai` | `ai`, `agent`, `ai-agents`, `agents`, `agentic-systems`, `decision-making` | AI agents, tool use, autonomous decision-making systems |
+| `llm-reasoning` | `prompt-engineering`, `chain-of-thought`, `causal-inference`, `causal-reasoning` | LLM (Large Language Model) reasoning, chain-of-thought prompting, structured output, prompt engineering |
 | `memory-context` | `context-window`, `context-compression` | Memory management, context windows, compression, retrieval within a session |
-| `multi-agent` | `multi-agent-systems`, `agent-coordination` | Multi-agent orchestration, coordination patterns, swarm architectures |
+| `multi-agent` | `multi-agent-systems`, `agent-coordination`, `distributed-complexity` | Multi-agent orchestration, coordination patterns, swarm architectures |
 | `rag-retrieval` | `retrieval-augmented-generation`, `vector-search` | Retrieval-augmented generation (RAG), vector search, semantic retrieval |
-| `governance-policy` | `ai-governance`, `ethics`, `low-code-governance` | AI governance, regulation, ethics, risk frameworks, policy |
+| `governance-policy` | `ai-governance`, `ethics`, `low-code-governance`, `information-asymmetry`, `vendor-management` | AI governance, regulation, ethics, risk frameworks, policy |
 | `benchmarks-eval` | `evaluation`, `evals`, `metrics`, `research-methodology` | Evaluation, benchmarks, metrics, measurement methodology |
-| `security-risk` | `operational-risk`, `supply-chain-security`, `adversarial` | Adversarial attacks, security vulnerabilities, operational and supply-chain risk |
+| `security-risk` | `operational-risk`, `supply-chain-security`, `adversarial`, `distribution-shift`, `robust-system-design` | Adversarial attacks, security vulnerabilities, operational and supply-chain risk |
 | `knowledge-graphs` | `ontologies`, `taxonomies` | Knowledge graphs, ontologies, taxonomies, structured knowledge representation |
 | `consciousness-cognition` | `neuro-inspired-ai`, `cognitive-science`, `neuroscience` | Consciousness, cognitive science, neuroscience, neuro-inspired AI |
-| `ai-architecture` | `mechanistic-interpretability`, `model-architecture`, `fine-tuning` | Model architecture, training, fine-tuning, mechanistic interpretability |
-| `tools-infrastructure` | `workflow`, `workflow-automation`, `developer-experience`, `citizen-development`, `developer-tools` | MCP (Model Context Protocol), tooling, developer infrastructure, pipelines, workflow automation, low-code |
-| `mlops-deployment` | `deployment`, `production-systems` | Deployment, MLOps (Machine Learning Operations), production system management |
+| `ai-architecture` | `mechanistic-interpretability`, `model-architecture`, `fine-tuning`, `model-interpretability`, `system-interpretability`, `causal-modeling`, `causal-representation-learning`, `dynamical-systems-theory`, `system-dynamics`, `computational-theory` | Model architecture, training, fine-tuning, mechanistic interpretability |
+| `tools-infrastructure` | `workflow`, `workflow-automation`, `developer-experience`, `citizen-development`, `developer-tools`, `low-code-development` | MCP (Model Context Protocol), tooling, developer infrastructure, pipelines, workflow automation, low-code |
+| `mlops-deployment` | `deployment`, `production-systems`, `observability-monitoring`, `system-reliability` | Deployment, MLOps (Machine Learning Operations), production system management |
 | `workforce-skills` | `skills-gap`, `capability-building` | Workforce impact, skills gaps, capability building, talent development |
-| `cost-performance` | `efficiency`, `performance-tradeoffs` | Cost optimisation, efficiency, performance trade-offs |
-| `knowledge-management` | `pkm`, `information-architecture`, `personal-knowledge-management` | Personal knowledge management (PKM), information architecture, synthesis, research tooling |
-| `organisational-design` | `organisation`, `org-design`, `organisation-design` | Organisational design, structure, reporting, change management |
+| `cost-performance` | `efficiency`, `performance-tradeoffs`, `effort-minimisation` | Cost optimisation, efficiency, performance trade-offs |
+| `knowledge-management` | `pkm`, `information-architecture`, `personal-knowledge-management`, `knowledge-transfer` | Personal knowledge management (PKM), information architecture, synthesis, research tooling |
+| `organisational-design` | `organisation`, `org-design`, `organisation-design`, `organisational-learning`, `organisational-behaviour`, `organisational-theory` | Organisational design, structure, reporting, change management |
 | `regulatory-compliance` | `compliance-automation`, `legal-requirements` | Regulatory compliance, legal requirements, compliance automation |
-| `human-ai-interaction` | `human-ai-collaboration`, `ux`, `human-computer-interaction` | Human-AI interaction, collaboration UX (User Experience), human-computer interaction |
-| `formal-methods` | `formal-verification`, `program-synthesis` | Formal methods, formal verification, provable correctness, program synthesis |
+| `human-ai-interaction` | `human-ai-collaboration`, `ux`, `human-computer-interaction`, `explainability-transparency`, `psychological-safety` | Human-AI interaction, collaboration UX (User Experience), human-computer interaction |
+| `formal-methods` | `formal-verification`, `program-synthesis`, `formal-epistemology`, `formal-guarantees`, `formal-learning-theory`, `formal-reliability`, `theorem-proving`, `epistemic-formalism`, `epistemic-foundations`, `epistemology-of-ai` | Formal methods, formal verification, provable correctness, program synthesis |
 | `software-engineering` | `software-engineering-practices`, `engineering-practices` | Software engineering practices, code quality, architecture, developer experience |
-| `enterprise-adoption` | `enterprise-strategy`, `digital-transformation` | Enterprise adoption, digital transformation strategy, organisational change |
+| `enterprise-adoption` | `enterprise-strategy`, `digital-transformation`, `organisational-impact` | Enterprise adoption, digital transformation strategy, organisational change |
 
 ---
 
@@ -74,15 +74,19 @@ agentic-ai:
   - ai-agents
   - agents
   - agentic-systems
+  - decision-making
 llm-reasoning:
   - prompt-engineering
   - chain-of-thought
+  - causal-inference
+  - causal-reasoning
 memory-context:
   - context-window
   - context-compression
 multi-agent:
   - multi-agent-systems
   - agent-coordination
+  - distributed-complexity
 rag-retrieval:
   - retrieval-augmented-generation
   - vector-search
@@ -90,6 +94,8 @@ governance-policy:
   - ai-governance
   - ethics
   - low-code-governance
+  - information-asymmetry
+  - vendor-management
 benchmarks-eval:
   - evaluation
   - evals
@@ -99,6 +105,8 @@ security-risk:
   - operational-risk
   - supply-chain-security
   - adversarial
+  - distribution-shift
+  - robust-system-design
 knowledge-graphs:
   - ontologies
   - taxonomies
@@ -110,29 +118,44 @@ ai-architecture:
   - mechanistic-interpretability
   - model-architecture
   - fine-tuning
+  - model-interpretability
+  - system-interpretability
+  - causal-modeling
+  - causal-representation-learning
+  - dynamical-systems-theory
+  - system-dynamics
+  - computational-theory
 tools-infrastructure:
   - workflow
   - workflow-automation
   - developer-experience
   - citizen-development
   - developer-tools
+  - low-code-development
 mlops-deployment:
   - deployment
   - production-systems
+  - observability-monitoring
+  - system-reliability
 workforce-skills:
   - skills-gap
   - capability-building
 cost-performance:
   - efficiency
   - performance-tradeoffs
+  - effort-minimisation
 knowledge-management:
   - pkm
   - information-architecture
   - personal-knowledge-management
+  - knowledge-transfer
 organisational-design:
   - organisation
   - org-design
   - organisation-design
+  - organisational-learning
+  - organisational-behaviour
+  - organisational-theory
 regulatory-compliance:
   - compliance-automation
   - legal-requirements
@@ -140,13 +163,24 @@ human-ai-interaction:
   - human-ai-collaboration
   - ux
   - human-computer-interaction
+  - explainability-transparency
+  - psychological-safety
 formal-methods:
   - formal-verification
   - program-synthesis
+  - formal-epistemology
+  - formal-guarantees
+  - formal-learning-theory
+  - formal-reliability
+  - theorem-proving
+  - epistemic-formalism
+  - epistemic-foundations
+  - epistemology-of-ai
 software-engineering:
   - software-engineering-practices
   - engineering-practices
 enterprise-adoption:
   - enterprise-strategy
   - digital-transformation
+  - organisational-impact
 ```
