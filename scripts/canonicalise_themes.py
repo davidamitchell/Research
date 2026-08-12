@@ -20,13 +20,18 @@ Migration rules:
 
 A migration summary is written to ``state/themes-migration.md``.
 
+When given ``--report``, the script also consumes ``state/theme_report.json``
+(produced by ``scripts/theme_report.py``) and rewrites stray themes that are
+already listed as aliases in the vocabulary.
+
 Usage:
-    python scripts/canonicalise_themes.py [--root /path/to/repo] [--dry-run]
+    python scripts/canonicalise_themes.py [--root /path/to/repo] [--dry-run] [--report]
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from datetime import date
@@ -103,6 +108,11 @@ def _block_re(field: str) -> re.Pattern[str]:
         rf"^({re.escape(field)}\s*:)\s*\n((?:[ \t]+-[ \t]+\S.*\n)+)",
         re.MULTILINE,
     )
+
+
+# Module-level inline/block regex for themes: used by normalise_stray_themes.
+_THEMES_INLINE_RE = _inline_re("themes")
+_THEMES_BLOCK_RE = _block_re("themes")
 
 
 def _field_line_re(field: str) -> re.Pattern[str]:
@@ -385,7 +395,108 @@ def _build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Path to themes-vocabulary.md (default: docs/themes-vocabulary.md)",
     )
+    p.add_argument(
+        "--report",
+        nargs="?",
+        const=True,
+        default=False,
+        type=str,
+        help=(
+            "Also normalise stray themes using state/theme_report.json "
+            "(optionally provide a path to the report)"
+        ),
+    )
     return p
+
+
+def normalise_stray_themes(
+    root: Path,
+    vocab: dict[str, str],
+    report_path: Path,
+    *,
+    dry_run: bool = False,
+) -> list[Path]:
+    """Rewrite stray themes in item frontmatter to their canonical forms.
+
+    Reads ``theme_report.json`` produced by ``scripts/theme_report.py`` and
+    applies only high-confidence alias mappings (i.e. stray slugs that are
+    already listed as aliases in the vocabulary). Lower-confidence heuristic
+    matches are ignored because they require human review.
+
+    Returns the list of files that were (or would be) changed.
+    """
+    import json
+
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    _ = vocab  # vocab available for future confidence checks; currently unused
+    mappings = {
+        m["stray"]: m["canonical"]
+        for m in report.get("mappable_strays", [])
+        if m.get("confidence") == "high" and m.get("basis", "").startswith("alias")
+    }
+    if not mappings:
+        return []
+
+    changed: list[Path] = []
+    dirs = [
+        root / "Research" / "completed",
+        root / "Research" / "backlog",
+        root / "Research" / "in-progress",
+    ]
+    for d in dirs:
+        if not d.exists():
+            continue
+        for path in sorted(d.glob("*.md")):
+            if path.name.lower() in {".gitkeep", "readme.md"}:
+                continue
+            text = path.read_text(encoding="utf-8")
+            fm_match = re.match(r"^---\n(.*?)\n---", text, re.DOTALL)
+            if not fm_match:
+                continue
+
+            original_themes = _extract_field(text, "themes")
+            new_themes: list[str] = []
+            rewritten = False
+            for theme in original_themes:
+                if theme in mappings and mappings[theme] != theme:
+                    new_themes.append(mappings[theme])
+                    rewritten = True
+                else:
+                    new_themes.append(theme)
+
+            if not rewritten:
+                continue
+
+            # Deduplicate while preserving order
+            seen: set[str] = set()
+            deduped: list[str] = []
+            for t in new_themes:
+                if t not in seen:
+                    seen.add(t)
+                    deduped.append(t)
+
+            new_text = text
+            inline_match = _THEMES_INLINE_RE.search(new_text)
+            block_match = _THEMES_BLOCK_RE.search(new_text)
+            if inline_match:
+                replacement = f"{inline_match.group(1)} {_format_inline(deduped)}"
+                new_text = (
+                    new_text[: inline_match.start()] + replacement + new_text[inline_match.end() :]
+                )
+            elif block_match:
+                replacement = f"{block_match.group(1)} {_format_inline(deduped)}\n"
+                new_text = (
+                    new_text[: block_match.start()] + replacement + new_text[block_match.end() :]
+                )
+            else:
+                continue
+
+            if new_text != text:
+                if not dry_run:
+                    path.write_text(new_text, encoding="utf-8")
+                changed.append(path)
+
+    return changed
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -399,6 +510,21 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     changed = canonicalise_directory(args.root, vocab, dry_run=args.dry_run)
+
+    if args.report:
+        report_path = (
+            args.report
+            if isinstance(args.report, Path)
+            else args.root / "state" / "theme_report.json"
+        )
+        if report_path.exists():
+            normalised = normalise_stray_themes(
+                args.root, vocab, report_path, dry_run=args.dry_run
+            )
+            changed.extend(p for p in normalised if p not in changed)
+        elif args.report is not True:
+            print(f"ERROR: report not found: {report_path}", file=sys.stderr)
+            return 1
 
     if not args.dry_run:
         write_migration_summary(args.root, changed)
