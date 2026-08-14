@@ -1,6 +1,104 @@
 {
-  "extracted_at": "2026-08-14T07:47:49Z",
+  "extracted_at": "2026-08-14T08:08:21Z",
   "items": {
+    "2026-08-13-llm-consumption-maturity-ladder": {
+      "named_concepts": [
+        "mit cisr",
+        "maturity model",
+        "cost-benefit paper",
+        "ai maturity",
+        "production case",
+        "regulated industries",
+        "arxiv cost-benefit",
+        "industries move",
+        "defines four",
+        "consumption ladder",
+        "self-hosting break-even",
+        "case study",
+        "disclosed methodology",
+        "enterprise ai",
+        "technical llm",
+        "llm consumption",
+        "managed multi-model",
+        "million tokens",
+        "tokens per",
+        "dynamic model"
+      ],
+      "source_urls": [
+        "https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian",
+        "https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html",
+        "https://arxiv.org/abs/2603.04445",
+        "https://www.gartner.com/en/documents/5937907",
+        "https://www.idc.com/resource-center/blog/futurescape-2026-moving-into-the-agentic-future/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/",
+        "https://docs.litellm.ai/docs/routing",
+        "https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/",
+        "https://a16z.com/ai-enterprise-2025/",
+        "https://arxiv.org/abs/2509.18101",
+        "https://huggingface.co/papers/2603.04445",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-aws-bedrock-capabilities.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-ms-azure-ai-foundry-capabilities.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-aws-bedrock-agentcore-suite-capabilities.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The MIT CISR Enterprise AI Maturity Model defines four organizational-capability stages, Experiment and Prepare (28% of surveyed organizations), Build Pilots and Capabilities (34%), Industrialize AI Throughout the Enterprise (31%), and Become AI Future-Ready (7%), based on a 2022 survey of 721 companies and 2024 executive interviews",
+          "sources": [
+            "https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level",
+            "https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian"
+          ]
+        },
+        {
+          "text": "Organizations in MIT CISR Stages 3 and 4 report above-industry-average financial performance while organizations in Stages 1 and 2 report below-average performance, indicating maturity-model position correlates with financial outcomes in the surveyed sample",
+          "sources": [
+            "https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level"
+          ]
+        },
+        {
+          "text": "The AWS Prescriptive Guidance generative AI maturity model defines four levels, Envision, Experiment, Launch, and Scale, assessed across six pillars (Business, People, Governance, Platform, Security, Operations) adapted from the AWS Cloud Adoption Framework, and explicitly states that maturity levels commonly overlap within a single organization rather than progressing linearly",
+          "sources": [
+            "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+          ]
+        },
+        {
+          "text": "Neither the MIT CISR nor the AWS maturity model names model self-hosting, fine-tuning, or owned-hardware inference as an explicit stage criterion, so an organization's position on either theoretical maturity model does not determine its position on the technical LLM consumption ladder",
+          "sources": [
+            "https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level",
+            "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html"
+          ]
+        },
+        {
+          "text": "A 2025 cost-benefit analysis of on-premise open-source LLM deployment found break-even periods of a few months for small models, approximately 2 years for medium models, and approximately 5 years for large models against commercial API usage, concluding self-hosting is economically viable primarily above roughly 50 million tokens per month of sustained volume or under strict data-residency requirements",
+          "sources": [
+            "https://arxiv.org/html/2509.18101v3"
+          ]
+        },
+        {
+          "text": "Amazon Bedrock's intelligent prompt routing and the open-source LiteLLM router represent two distinct production implementations of dynamic model routing, per-request quality/cost optimization within a model family for Bedrock, and availability/reliability load balancing across more than 100 provider deployments for LiteLLM, illustrating that \"dynamic routing\" spans multiple technical mechanisms not distinguished by the theoretical maturity models",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html",
+            "https://docs.litellm.ai/docs/routing"
+          ]
+        },
+        {
+          "text": "An academic survey of dynamic model routing and cascading classifies production routing systems along three axes, decision timing, decision inputs, and decision computation, and identifies query-difficulty-aware routing, preference-aligned routing, clustering-based routing, reinforcement-learning-based policies, uncertainty quantification, multimodal routing, and cascading as the main technical paradigms in use",
+          "sources": [
+            "https://arxiv.org/abs/2603.04445",
+            "https://huggingface.co/papers/2603.04445"
+          ]
+        },
+        {
+          "text": "Menlo Ventures' 2025 survey of approximately 500 United States enterprise decision-makers found enterprise generative AI spend grew from $1.7 billion in 2023 to $37 billion in 2025 and that 76% of AI use cases were purchased rather than built internally, up from a near-even split in 2024",
+          "sources": [
+            "https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/"
+          ]
+        }
+      ]
+    },
     "2026-08-12-ai-coding-agent-runtime-security-evolution": {
       "named_concepts": [
         "cloud agent",
