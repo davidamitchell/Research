@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How Do Enterprise AI Maturity Frameworks Map onto the LLM Consumption Ladder?"
 added: 2026-08-13T18:27:40+00:00
 status: reviewing
