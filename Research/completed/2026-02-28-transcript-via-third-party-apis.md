@@ -68,6 +68,7 @@ This is the highest-reliability approach if a suitable service is affordable.
 # Supadata example
 import httpx
 
+
 def fetch_transcript_supadata(video_id: str, api_key: str) -> str:
     resp = httpx.get(
         "https://api.supadata.ai/v1/youtube/transcript",
@@ -278,6 +279,7 @@ This item evaluates third-party APIs as a fourth pathway, distinct from the abov
 [fact] Supadata provides an official Python SDK (`supadata-ai/py`). The API call pattern is:
 ```python
 from supadata import Supadata
+
 supadata = Supadata(api_key="YOUR_API_KEY")
 transcript = supadata.transcript(url="https://www.youtube.com/watch?v=...", mode="auto")
 print(transcript.content)

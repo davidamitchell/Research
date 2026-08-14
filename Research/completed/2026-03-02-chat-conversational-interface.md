@@ -178,6 +178,7 @@ def search_research(query: str, tags: list[str] | None = None) -> list[dict]:
     """Search the research corpus. Returns ranked items with title, date, tags, and executive summary excerpt."""
     ...
 
+
 @mcp.tool()
 def get_research_item(slug: str) -> str:
     """Return the full Markdown content of a research item by slug (filename without .md)."""

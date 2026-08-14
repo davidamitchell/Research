@@ -199,6 +199,7 @@ import base64, requests, datetime, os
 
 app = App(token=os.environ["SLACK_BOT_TOKEN"])
 
+
 @app.event("message")
 def handle_message(event, ack):
     ack()
@@ -211,8 +212,9 @@ def handle_message(event, ack):
     requests.put(
         f"https://api.github.com/repos/{OWNER}/{REPO}/contents/inbox/{ts}.md",
         headers={"Authorization": f"token {GH_TOKEN}", "Accept": "application/vnd.github+json"},
-        json={"message": f"capture: {ts}", "content": encoded}
+        json={"message": f"capture: {ts}", "content": encoded},
     )
+
 
 handler = SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"])
 handler.start()
@@ -241,7 +243,7 @@ Source: Slack chat.postMessage docs; Bolt for Python respond() reference.
 def handle_retrieval(ack, command, respond):
     ack("Searching…")  # immediate text acknowledgment
     query = command["text"]
-    results = search_brain(query)   # may take 1–5 seconds
+    results = search_brain(query)  # may take 1–5 seconds
     respond(f"Results for '{query}':\n{results}")
 ```
 The initial `ack("Searching…")` posts an ephemeral "Searching…" message to the user within the 3-second window. The `respond()` call posts the actual results once `search_brain` completes.

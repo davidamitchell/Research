@@ -131,15 +131,15 @@ from google.genai import types
 
 client = genai.Client()
 response = client.models.generate_content(
-    model='gemini-3-flash-preview',
+    model="gemini-3-flash-preview",
     contents=types.Content(
         parts=[
             types.Part(
-                file_data=types.FileData(file_uri='https://www.youtube.com/watch?v=9hE5-98ZeCg')
+                file_data=types.FileData(file_uri="https://www.youtube.com/watch?v=9hE5-98ZeCg")
             ),
-            types.Part(text='Please summarize the video in 3 sentences.')
+            types.Part(text="Please summarize the video in 3 sentences."),
         ]
-    )
+    ),
 )
 ```
 
