@@ -669,7 +669,153 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-08-10 07:57 UTC</p>
+<p>Generated on: 2026-08-13 07:58 UTC</p>
+<p><a id="2026-08-12-ai-coding-agent-runtime-security-evolution-md"></a></p>
+<h2>Secure Runtime Evolution for AI Coding Agents</h2>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-12-ai-coding-agent-runtime-security-evolution.md</p>
+<h2>Research Question</h2>
+<p>What is the logical progression in AI (Artificial Intelligence) coding-agent runtime design from local process/Operating System (OS) sandboxes, through shared Continuous Integration (CI)/cloud development infrastructure (for example GitHub Actions and GitHub Codespaces), to purpose-built multi-tenant platforms with managed harnesses and stronger isolation (for example Amazon Bedrock AgentCore custom containers plus microVM sessions), and how do secure-execution principles (isolation strength, least privilege, harness-sandbox separation, state persistence versus ephemerality, and egress control) explain and constrain each stage while shaping measurable trade-offs in security, latency, cost, developer experience, and autonomy?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Coding-agent runtime design progresses through three architecturally distinct stages, each defined by a different combination of isolation strength, credential-delegation granularity, and harness-sandbox separation, and the transition between stages is driven by documented multi-agent concurrency and credential-exposure failures rather than by a single security principle alone. [inference; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/; https://docs.github.com/en/codespaces/reference/security-in-github-codespaces] Local process/Operating System (OS) sandboxes (stage 1) rely on process-level constraints and share the developer's credentials, network, and machine resources across every agent running there. [fact; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/; https://gist.github.com/wincent/2752d8d97727577050c043e4ff9e386e] Shared Continuous Integration (CI)/cloud development infrastructure (stage 2, exemplified by GitHub Copilot's cloud agent on GitHub Actions and GitHub Codespaces) introduces per-session virtual machines or ephemeral runners and permission-scoped tokens, but reuses security controls built for general-purpose CI and cloud-Integrated Development Environment (IDE) products rather than agent-specific threats. [fact; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent; https://docs.github.com/en/codespaces/reference/security-in-github-codespaces] Purpose-built multi-tenant platforms (stage 3, exemplified by Amazon Web Services (AWS) Bedrock AgentCore Runtime and Cloudflare's isolate/container hybrid) introduce per-session hardware-virtualized or isolate-level isolation and a distinct credential-mediation layer separate from the agent loop, but stage 3 itself splits into at least two competing architectures optimising isolation-per-session against horizontal cost efficiency at scale. [inference; source: https://blog.cloudflare.com/cloudflare-computer/; https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/] Independent execution-security research confirms the harness-sandbox separation pattern but identifies policy-enforcement and access-control failure rates of 69% to 98% against real-world denylists that stronger isolation alone does not resolve. [fact; source: https://arxiv.org/abs/2607.05743] This means the runtime-evolution progression documented in this item addresses one threat class (isolation strength) while leaving a second, largely unaddressed class of vulnerability (policy enforcement and access control) that the cited systematisation identifies but does not itself frame in terms of runtime-stage progression. [inference; source: https://arxiv.org/abs/2607.05743]</p>
+<h3>Key Findings</h3>
+<ol>
+<li>Local coding-agent execution shares the developer's shell, filesystem, loaded credentials, and network interface with the agent process because there is no separate execution boundary, and the standard mitigation for running multiple local agents in parallel, <code>git worktree</code>, isolates only the working directory while leaving port bindings, SSH keys, and outbound network identity shared across all agents on the host. ([fact]; medium confidence; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/)</li>
+<li>GitHub Copilot's cloud agent runs in an ephemeral development environment powered by GitHub Actions, marking the first architectural point at which agent-loop logic and execution environment are handled by different systems, though the underlying runner security model was designed for general Continuous Integration (CI) workloads rather than for agentic execution specifically. ([fact]; medium confidence; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent; https://docs.github.com/en/actions/reference/security/secure-use)</li>
+<li>GitHub Codespaces isolates each session on its own newly built virtual machine with a firewalled network blocking inbound and cross-codespace traffic, and scopes the session's GitHub token to read-only, read/write, or automatic-fork access strictly according to the underlying user's own repository permissions. ([fact]; medium confidence; source: https://docs.github.com/en/codespaces/reference/security-in-github-codespaces)</li>
+<li>Amazon Bedrock AgentCore Runtime gives every coding-agent session a dedicated Firecracker microVM with a persistent workspace directory that survives suspension and resumption for up to 14 days of inactivity, replacing hand-built persistence workarounds such as S3 syncing or Git-bundle checkpointing that engineering teams have historically built themselves. ([fact]; medium confidence; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/)</li>
+<li>AgentCore separates credential handling from the agent loop entirely through a Gateway-and-Identity layer implementing three distinct least-privilege patterns (bot, on-behalf-of using OAuth 2.0 Token Exchange under RFC 8693, and broker), so that downstream service tokens for tools such as GitHub, Jira, and Slack are never held directly by the agent process. ([fact]; medium confidence; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/)</li>
+<li>Cloudflare's competing purpose-built architecture defaults every agent session to a lightweight isolate rather than a dedicated microVM or container, escalating to a full container sandbox only for the minority of operations needing native binaries or heavier compute, arguing that container-per-agent isolation cannot scale to hundreds of millions or billions of concurrent agent sessions industry-wide. ([fact]; medium confidence; source: https://blog.cloudflare.com/cloudflare-computer/)</li>
+<li>Firecracker's underlying microVM technology starts application code in as little as 125 milliseconds, supports up to 150 microVM creations per second per host, and runs each microVM with under 5 mebibytes of memory overhead, which is the technical basis making per-session hardware-virtualized isolation practical at the density stage-3 platforms require. ([fact]; medium confidence; source: https://firecracker-microvm.github.io/)</li>
+<li>A peer-reviewed systematisation of 39 execution-security papers published between 2023 and 2026 found that policy-enforcement mechanisms in the reviewed literature fail against real-world denylists at rates from 69% to 98%, that no isolation paper in the corpus re-evaluated its own defense under that same adversarial condition, and that benign but out-of-scope agent actions occur at rates up to 17.1% under realistic prompting without being addressed by any access-control paper reviewed. ([fact]; medium confidence; source: https://arxiv.org/abs/2607.05743)</li>
+<li>The same systematisation treats Time-Of-Check-To-Time-Of-Use (TOCTOU) races and Model Context Protocol (MCP) threats as one underlying state-validation problem rather than separate literatures, implying that stronger runtime isolation, the stage-3 focus of this item, leaves this class of vulnerability, along with the policy-bypass and dishonest-policy-author gaps, substantially unaddressed regardless of which isolation stage a platform has reached. ([inference]; medium confidence; source: https://arxiv.org/abs/2607.05743)</li>
+<li>Migrating a coding-agent runtime from a developer's local machine to shared or purpose-built cloud infrastructure introduces new reliability failure modes not present locally, illustrated by Cursor's own account of moving from roughly one-nine to past two-nines reliability only after adopting a durable-execution workflow engine to survive inference-provider outages, pod replacement, and multi-day task runs. ([fact]; medium confidence; source: https://cursor.com/blog/cloud-agent-lessons)</li>
+<li>An independently compiled survey of coding-agent sandbox implementations documents four distinct isolation tiers actually deployed across production tools, ranging from OS-level primitives used by local Command Line Interface (CLI) agents such as Codex CLI, through userspace-kernel interception and microVM runtimes, to hardened container runtimes used by providers like Daytona, confirming that &quot;purpose-built platform&quot; spans multiple isolation technologies rather than one standard implementation across the industry. ([fact]; medium confidence; source: https://gist.github.com/wincent/2752d8d97727577050c043e4ff9e386e)</li>
+<li>A separate line of research shows that the presence of a code-execution sandbox environment itself, independent of execution-security architecture, measurably improves large language model (LLM) task performance by up to 15.5% while cutting token consumption up to 8 times, indicating that investment in richer coding-agent runtimes serves a capability objective as well as a security objective. ([fact]; medium confidence; source: https://arxiv.org/abs/2601.16206)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[fact] Local agents share shell, filesystem, credentials, network with developer; no separate execution boundary</td>
+<td>https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/</td>
+<td>medium</td>
+<td>Vendor engineering post; corroborated qualitatively by sandbox survey</td>
+</tr>
+<tr>
+<td>[fact] <code>git worktree</code> isolates only working directory, not host resources/credentials</td>
+<td>https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/</td>
+<td>medium</td>
+<td>Single source; architecturally uncontroversial claim about git</td>
+</tr>
+<tr>
+<td>[fact] Local CLI agents use Landlock/Seatbelt/seccomp OS primitives, not virtualization</td>
+<td>https://gist.github.com/wincent/2752d8d97727577050c043e4ff9e386e</td>
+<td>medium</td>
+<td>Independently compiled community list; not a vendor's own claim about itself</td>
+</tr>
+<tr>
+<td>[fact] Copilot cloud agent runs in ephemeral GitHub Actions-powered environment</td>
+<td>https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent</td>
+<td>medium</td>
+<td>Primary vendor documentation</td>
+</tr>
+<tr>
+<td>[fact] GitHub Actions: <code>GITHUB_TOKEN</code> should default read-only; <code>pull_request_target</code>/<code>workflow_run</code> privileged</td>
+<td>https://docs.github.com/en/actions/reference/security/secure-use</td>
+<td>medium</td>
+<td>Primary vendor security guidance</td>
+</tr>
+<tr>
+<td>[fact] Codespaces: isolated VM and network per session; token scoped to user's repo permissions</td>
+<td>https://docs.github.com/en/codespaces/reference/security-in-github-codespaces</td>
+<td>medium</td>
+<td>Primary vendor documentation</td>
+</tr>
+<tr>
+<td>[fact] AgentCore Runtime gives each session a dedicated Firecracker microVM with persistent workspace (14-day retention)</td>
+<td>https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/</td>
+<td>medium</td>
+<td>Vendor engineering post; corroborated by AWS devguide service description</td>
+</tr>
+<tr>
+<td>[fact] AgentCore modular services: Runtime, Gateway, Identity, Memory, Policy, etc.</td>
+<td>https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</td>
+<td>medium</td>
+<td>Primary vendor documentation</td>
+</tr>
+<tr>
+<td>[fact] AgentCore Identity: bot, on-behalf-of (RFC 8693), and broker credential patterns</td>
+<td>https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/</td>
+<td>medium</td>
+<td>Vendor engineering post with code examples</td>
+</tr>
+<tr>
+<td>[fact] Cloudflare defaults to isolates, escalates to container only when needed; container-per-agent does not scale globally</td>
+<td>https://blog.cloudflare.com/cloudflare-computer/</td>
+<td>medium</td>
+<td>Single vendor source describing its own new (preview-stage) product; not independently benchmarked</td>
+</tr>
+<tr>
+<td>[fact] Firecracker: 125ms startup, 150 microVMs/sec/host, &lt;5MiB overhead</td>
+<td>https://firecracker-microvm.github.io/</td>
+<td>medium</td>
+<td>Primary project documentation; exact benchmark hardware not specified</td>
+</tr>
+<tr>
+<td>[fact] 69-98% policy-enforcement denylist bypass rates; 17.1% benign out-of-scope actions; TOCTOU/MCP as one state-validation gap</td>
+<td>https://arxiv.org/abs/2607.05743</td>
+<td>medium</td>
+<td>Peer-reviewed/preprint systematisation of 39 papers with direct source verification per the abstract</td>
+</tr>
+<tr>
+<td>[fact] Cursor: one-nine to two-nines reliability after adopting Temporal; 50M+ actions/day, 40%+ PRs from cloud agents</td>
+<td>https://cursor.com/blog/cloud-agent-lessons</td>
+<td>medium</td>
+<td>Vendor engineering post with specific operational metrics</td>
+</tr>
+<tr>
+<td>[fact] Four-tier sandbox taxonomy (OS-level, application kernel, microVM, container) across real coding-agent products</td>
+<td>https://gist.github.com/wincent/2752d8d97727577050c043e4ff9e386e</td>
+<td>medium</td>
+<td>Independently compiled community source, not peer-reviewed</td>
+</tr>
+<tr>
+<td>[fact] Minimal sandbox environment alone improves LLM task performance up to 15.5%, reduces tokens up to 8x</td>
+<td>https://arxiv.org/abs/2601.16206</td>
+<td>medium</td>
+<td>Single peer-reviewed/preprint paper; not yet cross-validated by a second independent study in this item</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<p>GitHub Actions runners used for Copilot's cloud agent are assumed to apply network-egress restrictions comparable to those documented for Codespaces during agent-driven jobs. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent] The consulted GitHub documentation describes the ephemeral runner environment and token permission model but does not itself state a default outbound network policy specific to Copilot cloud agent sessions, so this assumption fills a documented gap rather than restating a directly sourced claim. [assumption; source: https://docs.github.com/en/actions/reference/security/secure-use]</p>
+<p>The cost-per-session of Cloudflare's isolate-first architecture is assumed to be lower than AWS's microVM-per-session architecture at comparable coding-agent workload scale. [assumption; source: https://blog.cloudflare.com/cloudflare-computer/] Neither vendor publishes a directly comparable cost benchmark for equivalent coding-agent sessions, so this assumption is inferred from each vendor's own stated design rationale for choosing its respective default execution primitive rather than from a measured, independently audited comparison. [assumption; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/]</p>
+<p>Firecracker's published 125 millisecond startup and 150-per-second creation-rate figures are assumed to be broadly representative of AgentCore's own coding-agent session start times. [assumption; source: https://firecracker-microvm.github.io/] The Firecracker project documentation does not specify the benchmark hardware or workload configuration used to obtain these figures, and AWS's AgentCore-specific engineering post does not restate a session-start-time figure of its own, so this assumption bridges a generic-technology benchmark to a specific product's claimed behaviour. [assumption; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/]</p>
+<h3>Analysis</h3>
+<p>The evidence supports treating isolation strength as increasing across the three named stages for the specific products examined (GitHub, AWS, Cloudflare), but the strength of that claim is bounded by the small number of platforms directly consulted rather than a comprehensive market census. [inference; source: https://gist.github.com/wincent/2752d8d97727577050c043e4ff9e386e] Weighing the AWS AgentCore evidence against the Cloudflare evidence required resolving an apparent tension: Cloudflare's isolate-first default could look like weaker isolation than a dedicated microVM per session, but Cloudflare directly attributes this design choice to horizontal scalability rather than to accepting a weaker security posture, and both platforms represent a stronger, more granular isolation boundary than the shared-VM or shared-runner model documented for GitHub Actions and Codespaces. [inference; source: https://blog.cloudflare.com/cloudflare-computer/; https://docs.github.com/en/codespaces/reference/security-in-github-codespaces] A plausible rival explanation for why some teams remain at stage 2 rather than adopting a stage-3 platform is that GitHub Codespaces and Actions already provide isolation, token scoping, and an audit trail sufficient for many organisations' risk tolerance, and the marginal security gain from stage 3 may not justify the operational cost of migrating credential flows to a new platform for teams whose coding agents do not need cross-organisation tool access or multi-day session persistence. [inference; source: https://docs.github.com/en/codespaces/reference/security-in-github-codespaces; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html] The evidence gathered here does not directly quantify that marginal benefit, so this remains a plausible but unverified competing account for slower stage-3 adoption. [assumption; source: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html] The independent execution-security systematisation is weighted heavily in this analysis because it directly verifies its claims against 39 source papers and four disclosed Common Vulnerabilities and Exposures (CVEs) rather than describing a single vendor's own product, and it directly contradicts any framing in which reaching stage 3 alone constitutes &quot;solved&quot; runtime security, since its reported 69-98% policy-bypass failure rates and unaddressed TOCTOU/MCP state-validation gap are independent of isolation stage. [inference; source: https://arxiv.org/abs/2607.05743] Cursor's engineering account is treated as corroborating rather than central evidence, because it documents the stage 1-to-stage 2/3 transition from the perspective of a still-evolving proprietary platform rather than a fixed reference architecture, but its concrete reliability figures are treated as credible because they are internally reported operational metrics rather than marketing claims about competitors. [inference; source: https://cursor.com/blog/cloud-agent-lessons]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<p>The item relies on one paper for its central claim that policy-enforcement and access-control failures are independent of isolation stage; a second independent study measuring denylist-bypass rates specifically against stage-3 platforms such as AgentCore was not located in this session, so this claim's generality across all stage-3 implementations is not separately confirmed. [assumption; source: https://arxiv.org/abs/2607.05743]</p>
+<p>Network-egress policy specific to GitHub Copilot's cloud agent running on GitHub Actions is not directly documented in the consulted sources and is carried forward only as an assumption rather than a confirmed control. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent]</p>
+<p>No independently audited cost comparison between microVM-per-session and isolate-with-container-escalation architectures was located, so the economic trade-off between AWS's and Cloudflare's stage-3 approaches rests on each vendor's own stated rationale rather than a neutral benchmark. [assumption; source: https://blog.cloudflare.com/cloudflare-computer/; https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/]</p>
+<p>Firecracker's documented startup-latency and density figures are generic to the technology rather than measured specifically for AgentCore coding-agent sessions. [assumption; source: https://firecracker-microvm.github.io/]</p>
+<p>Cloudflare's <code>@cloudflare/computer</code> runtime is explicitly described as an early preview not recommended for production use at the time this item's sources were consulted, so its architecture is documented as a design intent rather than as production-proven behaviour at the scale AgentCore has already demonstrated. [fact; source: https://blog.cloudflare.com/cloudflare-computer/]</p>
+<p>This item did not locate a primary source quantifying GitHub Copilot cloud agent's own session concurrency limits, cost per session, or startup latency, so a direct numeric comparison of latency and cost across all three named stages could not be completed. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent]</p>
+<h3>Open Questions</h3>
+<p>What network-egress controls does GitHub Copilot's cloud agent apply by default on its GitHub Actions-backed runners, and how do they compare to Codespaces' documented firewall behaviour?</p>
+<p>What is the measured concurrency limit, per-session cost, and startup latency for GitHub Copilot's cloud agent, and how do these compare directly to AgentCore Runtime and Cloudflare's isolate architecture under equivalent coding-agent workloads?</p>
+<p>Does any published, adversarially tested benchmark exist comparing policy-enforcement bypass rates specifically across stage-3 platforms (AgentCore Policy service, Cloudflare's architecture, and competing offerings) using the same denylist-bypass methodology reported in the Balkanization systematisation?</p>
+<p>Once Cloudflare's <code>@cloudflare/computer</code> runtime exits preview, does its production isolation and reliability profile match the design rationale described in its announcement post?</p>
+<hr />
+<hr />
 <p><a id="2026-08-09-what-is-an-enterprise-architect-md"></a></p>
 <h2>What is an Enterprise Architect?</h2>
 <p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-09-what-is-an-enterprise-architect.md</p>
