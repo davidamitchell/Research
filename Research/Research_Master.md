@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-08-13 07:58 UTC
+Generated on: 2026-08-14 08:06 UTC
 
 ## Table of Contents
 
+* [How Do Enterprise AI Maturity Frameworks Map onto the LLM Consumption Ladder?](#2026-08-13-llm-consumption-maturity-ladder-md)
 * [Secure Runtime Evolution for AI Coding Agents](#2026-08-12-ai-coding-agent-runtime-security-evolution-md)
 * [What is an Enterprise Architect?](#2026-08-09-what-is-an-enterprise-architect-md)
 * [TBox-driven vs ABox-emergent ontology approaches in GraphRAG systems](#2026-07-20-tbox-abox-graphrag-md)
@@ -448,6 +449,98 @@ Generated on: 2026-08-13 07:58 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-08-13-llm-consumption-maturity-ladder-md"></a>
+
+## How Do Enterprise AI Maturity Frameworks Map onto the LLM Consumption Ladder?
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-13-llm-consumption-maturity-ladder.md
+
+## Research Question
+
+How do theoretical frameworks of enterprise Artificial Intelligence (AI) / generative AI maturity map onto the observed, practice-driven progression of large language model (LLM) consumption strategies, from reliance on a single frontier model and its proprietary harness, through subscription services with manual selection and managed multi-model platforms (e.g., Amazon Bedrock, Microsoft Foundry), to dynamic task-based model routing, self-hosted open-weight models, fine-tuning of those models, and ultimately owned-hardware inference, and what organizational, economic, technical, and governance factors drive (or inhibit) transitions across these stages?
+
+**Supporting sub-questions:**
+
+1. To what extent do existing maturity models (organizational capability stages) predict or explain the specific technical consumption ladder of LLM usage?
+2. What empirical evidence from production systems demonstrates cost, quality, latency, compliance, or risk trade-offs at each transition point?
+3. How do dynamic routing mechanisms and hybrid architectures function as bridging practices between managed platforms and full self-hosting?
+4. Under what conditions do organizations reverse or hybridize stages (e.g., retain frontier models for certain workloads while self-hosting others)?
+5. What gaps exist between theoretical prescriptions for "AI future-ready" or "scale" maturity and the operational realities of model ownership, fine-tuning pipelines, and on-premises inference?
+
+## Findings
+
+### Executive Summary
+
+Enterprise AI maturity frameworks measure organizational capability, not the technical LLM consumption rung an organization occupies, and the two are only loosely coupled: MIT CISR's Stage 3 "industrialize AI" criteria can be satisfied while an organization remains on a managed multi-model platform, because cost-benefit modeling shows self-hosting or model ownership is economically rational primarily above roughly 50 million tokens per month of volume or under strict data-residency mandates. [inference; source: https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level; https://arxiv.org/html/2509.18101v3] Dynamic model routing, implemented in production by systems such as Amazon Bedrock's intelligent prompt routing and the open-source LiteLLM router, is the technical bridging mechanism that lets organizations operate multiple models, including an eventual self-hosted model, under one interface without a wholesale migration off managed platforms. [inference; source: https://arxiv.org/abs/2603.04445; https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html; https://docs.litellm.ai/docs/routing] Practice-side 2025 survey evidence shows enterprises buying rather than building AI capability (76% of use cases purchased) and running multi-model portfolios (37% of organizations using five or more models in production), a pattern consistent with most organizations sitting below the volume threshold that would justify self-hosting. [fact; source: https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/; https://a16z.com/ai-enterprise-2025/] The most significant unresolved gap is the absence of named, sourced production case studies confirming that regulated industries move to self-hosting earlier than pure cost economics would predict. [inference; source: https://arxiv.org/html/2509.18101v3]
+
+### Key Findings
+
+1. The MIT CISR Enterprise AI Maturity Model defines four organizational-capability stages, Experiment and Prepare (28% of surveyed organizations), Build Pilots and Capabilities (34%), Industrialize AI Throughout the Enterprise (31%), and Become AI Future-Ready (7%), based on a 2022 survey of 721 companies and 2024 executive interviews. ([fact]; medium confidence; source: https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level; https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian)
+2. Organizations in MIT CISR Stages 3 and 4 report above-industry-average financial performance while organizations in Stages 1 and 2 report below-average performance, indicating maturity-model position correlates with financial outcomes in the surveyed sample. ([fact]; medium confidence; source: https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level)
+3. The AWS Prescriptive Guidance generative AI maturity model defines four levels, Envision, Experiment, Launch, and Scale, assessed across six pillars (Business, People, Governance, Platform, Security, Operations) adapted from the AWS Cloud Adoption Framework, and explicitly states that maturity levels commonly overlap within a single organization rather than progressing linearly. ([fact]; medium confidence; source: https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html)
+4. Neither the MIT CISR nor the AWS maturity model names model self-hosting, fine-tuning, or owned-hardware inference as an explicit stage criterion, so an organization's position on either theoretical maturity model does not determine its position on the technical LLM consumption ladder. ([inference]; medium confidence; source: https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level; https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html)
+5. A 2025 cost-benefit analysis of on-premise open-source LLM deployment found break-even periods of a few months for small models, approximately 2 years for medium models, and approximately 5 years for large models against commercial API usage, concluding self-hosting is economically viable primarily above roughly 50 million tokens per month of sustained volume or under strict data-residency requirements. ([fact]; medium confidence; source: https://arxiv.org/html/2509.18101v3)
+6. Amazon Bedrock's intelligent prompt routing and the open-source LiteLLM router represent two distinct production implementations of dynamic model routing, per-request quality/cost optimization within a model family for Bedrock, and availability/reliability load balancing across more than 100 provider deployments for LiteLLM, illustrating that "dynamic routing" spans multiple technical mechanisms not distinguished by the theoretical maturity models. ([fact]; high confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html; https://docs.litellm.ai/docs/routing)
+7. An academic survey of dynamic model routing and cascading classifies production routing systems along three axes, decision timing, decision inputs, and decision computation, and identifies query-difficulty-aware routing, preference-aligned routing, clustering-based routing, reinforcement-learning-based policies, uncertainty quantification, multimodal routing, and cascading as the main technical paradigms in use. ([fact]; medium confidence; source: https://arxiv.org/abs/2603.04445; https://huggingface.co/papers/2603.04445)
+8. Menlo Ventures' 2025 survey of approximately 500 United States enterprise decision-makers found enterprise generative AI spend grew from $1.7 billion in 2023 to $37 billion in 2025 and that 76% of AI use cases were purchased rather than built internally, up from a near-even split in 2024. ([fact]; medium confidence; source: https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/)
+9. Andreessen Horowitz's 2025 survey of 100 Chief Information Officers across 15 industries found 37% of respondents used five or more large language models in production, up from 29% the prior year. ([fact]; medium confidence; source: https://a16z.com/ai-enterprise-2025/)
+10. The combination of a high self-hosting break-even threshold and a market-wide shift toward buying managed multi-model capability suggests most surveyed enterprises' workloads sit below the volume level that would make self-hosting cost-rational, which qualifies MIT CISR's Stage 3 description of proprietary model development as a capability few organizations can justify on cost grounds alone. ([inference]; medium confidence; source: https://arxiv.org/html/2509.18101v3; https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/; https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level)
+11. Rising integration complexity of agentic workflows is reported to increase the switching cost of changing model providers, which may lock organizations into their current consumption-ladder rung rather than accelerate their progression toward self-hosting or ownership. ([inference]; low confidence; source: https://a16z.com/ai-enterprise-2025/)
+12. No publicly disclosed, named healthcare or finance production case study with concrete cost or volume figures confirming earlier-than-cost-rational movement to self-hosting was located within this item's search scope, leaving the "regulated industries move earlier" claim as an evidenced-motivation inference rather than a directly confirmed pattern. ([inference]; low confidence; source: https://arxiv.org/html/2509.18101v3)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] MIT CISR defines four maturity stages with disclosed population shares (28/34/31/7%) | https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level; https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian | medium | 2022 survey n=721, 2024 interviews n=9; both citations report the same single MIT CISR survey, not independent sources |
+| [fact] Stage 3/4 organizations outperform industry peers financially | https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level | medium | Correlational, not causal; sample self-selected survey respondents |
+| [fact] AWS defines four levels across six pillars, non-linear | https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html | medium | Single-source primary AWS documentation of its own framework; no independent corroborating source |
+| [inference] Neither maturity model names self-hosting/ownership as a stage criterion | https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level; https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html | medium | Derived by absence; both sources reviewed in full for this criterion |
+| [fact] Self-hosting break-even is months (small) to ~5 years (large models); rational above ~50M tokens/month or data-residency mandate | https://arxiv.org/html/2509.18101v3 | medium | Single primary academic source; no independent replication located |
+| [fact] Bedrock and LiteLLM implement two distinct routing mechanisms | https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html; https://docs.litellm.ai/docs/routing | high | Primary vendor/project documentation |
+| [fact] Routing survey classifies systems along 3 axes and 7 paradigms | https://arxiv.org/abs/2603.04445; https://huggingface.co/papers/2603.04445 | medium | Peer-surveyed academic taxonomy; both citations mirror the same single paper on two hosting platforms, not independent sources |
+| [fact] Menlo Ventures 2025: $37B spend, 76% buy vs. build | https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/ | medium | n≈500 US enterprise decision-makers, disclosed methodology; single-source survey, no independent replication |
+| [fact] a16z 2025: 37% of CIOs run 5+ models in production | https://a16z.com/ai-enterprise-2025/ | medium | n=100 CIOs, 15 industries, disclosed methodology; single-source survey, no independent replication |
+| [inference] Most enterprise workloads sit below self-hosting break-even volume | https://arxiv.org/html/2509.18101v3; https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/; https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level | medium | Combines two independent surveys with one cost model; not directly measured together |
+| [inference] Rising switching costs may lock organizations at current rung | https://a16z.com/ai-enterprise-2025/ | low | Single source, qualitative CIO commentary, not quantified |
+| [inference] Regulated industries move earlier to self-hosting than cost break-even predicts | https://arxiv.org/html/2509.18101v3 | low | No named case study located; motivation-based inference only |
+
+### Assumptions
+
+Gartner's, Forrester's, and Deloitte's maturity-model stage counts are assumed to be directionally similar to the MIT CISR and AWS models. The primary Gartner research document is paywalled and Forrester's and Deloitte's equivalent primary reports were not located as freely accessible documents within this session's search scope. [assumption; source: https://www.gartner.com/en/documents/5937907]
+
+Generalization of the arXiv cost-benefit paper's break-even years beyond the specific hardware and model sizes it analyzed is treated as a working assumption. No second independent total cost of ownership (TCO) study with disclosed methodology was located to cross-verify the exact break-even periods. [assumption; source: https://arxiv.org/html/2509.18101v3]
+
+A pattern of regulated industries such as healthcare and finance moving to self-hosting earlier than pure cost economics would predict is treated as plausible but unconfirmed. The cited source states compliance concerns hinder commercial adoption generally but does not itself disclose a named production case confirming earlier movement. [assumption; source: https://arxiv.org/html/2509.18101v3]
+
+### Analysis
+
+The two theoretical maturity models converge on measuring organizational capability (literacy, pilots, governance, scale) rather than technical infrastructure ownership, while the technical consumption ladder is governed by a largely separate cost-benefit calculation. [inference; source: https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level; https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-maturity-model/overview-levels.html; https://arxiv.org/html/2509.18101v3] The arXiv cost-benefit paper's break-even figures rest on a disclosed cost model and hardware assumptions, unlike aggregator blog posts citing a lower, unsourced "2 million tokens per day" threshold that provided no traceable primary study during this session's search. [inference; source: https://arxiv.org/html/2509.18101v3] The Menlo Ventures and Andreessen Horowitz surveys both disclose sample size, composition, and survey methodology, and their findings on buy-over-build and multi-model adoption are directionally consistent with each other despite being independently conducted by different organizations. [inference; source: https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/; https://a16z.com/ai-enterprise-2025/] A plausible rival explanation for the low observed rate of self-hosting is not cost alone but a shortage of Machine Learning Operations (MLOps) and infrastructure engineering talent required to operate self-hosted inference at production reliability; the cost-benefit paper's own operating-expenditure modeling attributes a substantial share of total cost of ownership to engineering and compliance staffing rather than hardware alone, so talent scarcity and cost economics are likely complementary rather than competing explanations for low self-hosting rates. [inference; source: https://arxiv.org/html/2509.18101v3] Routing systems resolve an apparent tension between the maturity models' scale-stage language and the empirical multi-model finding: rather than choosing one model per maturity stage, production routing lets organizations run many models simultaneously and shift the unit of decision to a per-request basis, which is not a capability either maturity model's stage descriptions anticipate. [inference; source: https://arxiv.org/abs/2603.04445; https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-routing.html]
+
+### Risks, Gaps, and Uncertainties
+
+The Gartner, Forrester, and Deloitte maturity-model stage definitions could not be independently verified against primary documents in this session because they are paywalled or were not located as freely accessible reports, so this item's cross-mapping of theory to practice rests primarily on the two frameworks that were independently verifiable, MIT CISR and AWS. [assumption; source: https://www.gartner.com/en/documents/5937907]
+
+No named, sourced production case study of a healthcare or finance organization's self-hosting decision with disclosed cost or volume figures was located within this item's search scope, so the claim that regulated industries move earlier to self-hosting rests on the cost-benefit paper's stated motivation rather than on direct case evidence. [assumption; source: https://arxiv.org/html/2509.18101v3]
+
+The arXiv cost-benefit paper is a single academic source for the break-even figures used in this item's highest-confidence quantitative claim; no second independent total cost of ownership study with disclosed methodology was located to cross-verify those figures, so the specific break-even years should be treated as a first estimate rather than a settled industry consensus. [assumption; source: https://arxiv.org/html/2509.18101v3]
+
+International Data Corporation's specific FutureScape 2026 adoption-rate percentages could not be verified against an accessible primary page in this session; the businesswire.com press release timed out on fetch and only the qualitative direction from the IDC.com blog post was retained. [assumption; source: https://www.idc.com/resource-center/blog/futurescape-2026-moving-into-the-agentic-future/]
+
+### Open Questions
+
+What percentage of organizations that report satisfying MIT CISR Stage 3 criteria are, on the technical consumption ladder, still using only managed multi-model platforms rather than self-hosted or fine-tuned models? This would require a survey that cross-tabulates maturity-model self-assessment against disclosed technical infrastructure choice, which none of the sources reviewed in this item provide.
+
+What named, cost-disclosed production case studies exist of healthcare or finance organizations moving to self-hosting specifically because of data-residency requirements rather than cost optimization? This item found motivating evidence but no confirmed case study.
+
+Does agentic orchestration (multiple coordinated models or agents per task) change the self-hosting break-even calculation compared to the single-request inference cost model used in the arXiv cost-benefit paper? This item's cited cost-benefit study models single-request inference and does not address multi-agent orchestration cost structures.
+
+### Output
+
+Type: knowledge. This item produces a structured mapping between organizational AI maturity frameworks and the technical LLM consumption ladder, identifying the cost-benefit and routing mechanisms that explain why the two are only loosely coupled. [inference; source: https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level; https://arxiv.org/html/2509.18101v3; https://arxiv.org/abs/2603.04445] The three most important sources are the MIT CISR Enterprise AI Maturity Model (https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian), the arXiv cost-benefit analysis of on-premise LLM deployment (https://arxiv.org/abs/2509.18101), and the Moslem and Kelleher dynamic routing survey (https://arxiv.org/abs/2603.04445).
 
 ---
 
