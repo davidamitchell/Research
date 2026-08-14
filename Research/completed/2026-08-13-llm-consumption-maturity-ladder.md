@@ -2,12 +2,12 @@
 review_count: 2
 title: "How Do Enterprise AI Maturity Frameworks Map onto the LLM Consumption Ladder?"
 added: 2026-08-13T18:27:40+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [enterprise-adoption, mlops-deployment, cost-performance, governance-policy, tools-infrastructure]
 started: 2026-08-14T07:31:45+00:00
-completed: ~
+completed: 2026-08-14T08:04:03+00:00
 output: [knowledge]
 cites: [2026-05-17-aws-bedrock-capabilities, 2026-05-17-ms-azure-ai-foundry-capabilities, 2026-05-17-aws-bedrock-agentcore-suite-capabilities]
 related: [2026-04-22-enterprise-ai-use-case-routing-frameworks, 2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model]
