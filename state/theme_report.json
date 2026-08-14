@@ -1,11 +1,13 @@
 {
   "summary": {
     "total_canonical_themes": 22,
-    "total_items_scanned": 445,
-    "items_with_themes": 443,
+    "total_items_scanned": 446,
+    "items_with_themes": 444,
     "uncovered_count": 2,
     "near_duplicate_count": 0,
     "stray_theme_count": 38,
+    "mappable_stray_count": 36,
+    "genuine_gap_count": 2,
     "unused_canonical_count": 0
   },
   "frequency": {
@@ -25,7 +27,7 @@
     "distribution-shift": 1,
     "dynamical-systems-theory": 1,
     "effort-minimisation": 1,
-    "enterprise-adoption": 27,
+    "enterprise-adoption": 28,
     "epistemic-formalism": 1,
     "epistemic-foundations": 2,
     "epistemic-robustness": 1,
@@ -37,7 +39,7 @@
     "formal-methods": 24,
     "formal-reliability": 1,
     "formal-verification": 2,
-    "governance-policy": 212,
+    "governance-policy": 213,
     "human-ai-interaction": 11,
     "information-asymmetry": 1,
     "knowledge-graphs": 39,
@@ -51,7 +53,7 @@
     "multi-agent": 12,
     "observability-monitoring": 1,
     "organisational-behaviour": 1,
-    "organisational-design": 87,
+    "organisational-design": 88,
     "organisational-impact": 1,
     "organisational-learning": 4,
     "organisational-theory": 1,
@@ -60,7 +62,7 @@
     "regulatory-compliance": 19,
     "robust-system-design": 1,
     "security-risk": 118,
-    "software-engineering": 42,
+    "software-engineering": 43,
     "system-dynamics": 1,
     "system-interpretability": 1,
     "system-reliability": 1,
@@ -78,45 +80,228 @@
     ]
   },
   "near_duplicates": [],
+  "mappable_strays": [
+    {
+      "stray": "causal-inference",
+      "canonical": "llm-reasoning",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "causal-modeling",
+      "canonical": "ai-architecture",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "causal-reasoning",
+      "canonical": "llm-reasoning",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "causal-representation-learning",
+      "canonical": "ai-architecture",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "computational-theory",
+      "canonical": "ai-architecture",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "decision-making",
+      "canonical": "agentic-ai",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "distributed-complexity",
+      "canonical": "multi-agent",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "distribution-shift",
+      "canonical": "security-risk",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "dynamical-systems-theory",
+      "canonical": "ai-architecture",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "effort-minimisation",
+      "canonical": "cost-performance",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "epistemic-formalism",
+      "canonical": "formal-methods",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "epistemic-foundations",
+      "canonical": "formal-methods",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "epistemology-of-ai",
+      "canonical": "formal-methods",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "explainability-transparency",
+      "canonical": "human-ai-interaction",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "formal-epistemology",
+      "canonical": "formal-methods",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "formal-guarantees",
+      "canonical": "formal-methods",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "formal-learning-theory",
+      "canonical": "formal-methods",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "formal-reliability",
+      "canonical": "formal-methods",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "formal-verification",
+      "canonical": "formal-methods",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "information-asymmetry",
+      "canonical": "governance-policy",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "knowledge-transfer",
+      "canonical": "knowledge-management",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "low-code-development",
+      "canonical": "tools-infrastructure",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "model-interpretability",
+      "canonical": "ai-architecture",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "observability-monitoring",
+      "canonical": "mlops-deployment",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "organisational-behaviour",
+      "canonical": "organisational-design",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "organisational-impact",
+      "canonical": "enterprise-adoption",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "organisational-learning",
+      "canonical": "organisational-design",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "organisational-theory",
+      "canonical": "organisational-design",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "psychological-safety",
+      "canonical": "human-ai-interaction",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "robust-system-design",
+      "canonical": "security-risk",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "system-dynamics",
+      "canonical": "ai-architecture",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "system-interpretability",
+      "canonical": "ai-architecture",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "system-reliability",
+      "canonical": "mlops-deployment",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "theorem-proving",
+      "canonical": "formal-methods",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "vendor-management",
+      "canonical": "governance-policy",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    },
+    {
+      "stray": "workflow-automation",
+      "canonical": "tools-infrastructure",
+      "confidence": "high",
+      "basis": "alias in vocabulary"
+    }
+  ],
+  "candidate_aliases": {},
   "stray_themes": [
-    "causal-inference",
-    "causal-modeling",
-    "causal-reasoning",
-    "causal-representation-learning",
     "causal-robustness",
-    "computational-theory",
-    "decision-making",
-    "distributed-complexity",
-    "distribution-shift",
-    "dynamical-systems-theory",
-    "effort-minimisation",
-    "epistemic-formalism",
-    "epistemic-foundations",
-    "epistemic-robustness",
-    "epistemology-of-ai",
-    "explainability-transparency",
-    "formal-epistemology",
-    "formal-guarantees",
-    "formal-learning-theory",
-    "formal-reliability",
-    "formal-verification",
-    "information-asymmetry",
-    "knowledge-transfer",
-    "low-code-development",
-    "model-interpretability",
-    "observability-monitoring",
-    "organisational-behaviour",
-    "organisational-impact",
-    "organisational-learning",
-    "organisational-theory",
-    "psychological-safety",
-    "robust-system-design",
-    "system-dynamics",
-    "system-interpretability",
-    "system-reliability",
-    "theorem-proving",
-    "vendor-management",
-    "workflow-automation"
+    "epistemic-robustness"
   ],
   "unused_canonicals": []
 }
