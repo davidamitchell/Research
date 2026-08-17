@@ -9,6 +9,7 @@ started: ~
 completed: ~
 output: []
 cites:
+  - 2026-08-17-decision-governance
   - 2026-05-29-split-authority-p1-operating-model-synthesis
   - 2026-05-29-split-authority-q4-decision-rights-placement
   - 2026-05-23-governance-controls-effectiveness-conditions
