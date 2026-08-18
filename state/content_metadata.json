@@ -1,6 +1,99 @@
 {
-  "extracted_at": "2026-08-18T07:30:36Z",
+  "extracted_at": "2026-08-18T07:47:12Z",
   "items": {
+    "2026-08-17-decision-governance": {
+      "named_concepts": [
+        "decision rights",
+        "mit cisr",
+        "agentic ai",
+        "operating-model archetype",
+        "decentralized operational",
+        "net profit",
+        "revenue growth",
+        "operational decision",
+        "percentage points",
+        "operational authority",
+        "action democracy",
+        "minimum viable",
+        "viable policy",
+        "profit margin",
+        "new-offering revenue",
+        "multi-level accountability",
+        "failure modes",
+        "paralysis unowned",
+        "initiative abandonment",
+        "decentralized organizations"
+      ],
+      "source_urls": [
+        "https://cisr.mit.edu/publication/2021_0701_DecisionRightsAcceleration_MeulenBeath",
+        "https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath",
+        "https://cisr.mit.edu/publication/2023_0101_DecentralizedDecisionMaking_VanderMeulen",
+        "https://cisr.mit.edu/publication/2020_0801_DecisionRights_Meulen",
+        "https://cisr.mit.edu/content/current-projects-decentralized-decision-making",
+        "https://umbrex.com/resources/frameworks/organization-frameworks/mit-cisr-operating-model-quadrants-coordination-unification-diversification-replication/",
+        "https://sloanreview.mit.edu/article/the-four-guardrails-that-enable-agility/",
+        "https://sloanreview.mit.edu/article/a-matrixed-approach-to-designing-it-governance/",
+        "https://cisr.mit.edu/publication/MIT_CISRwp406_DesigningDigitalOrganzations_RossSebastianBeathScantleburyMockerFonstadKaganMoloneyKrusellBCG",
+        "https://cisr.mit.edu/research-library?filters=1&topic%5B0%5D=30",
+        "https://cisr.mit.edu/research-library?filters=1&topic%5B0%5D=45",
+        "https://cisr.mit.edu/publication/MIT_CISRwp450_MarsCreatingValue_VanderMeulenBeath",
+        "https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust",
+        "https://kpmg.com/us/en/articles/2025/ai-governance-for-the-agentic-ai-era.html",
+        "https://www.deloitte.com/us/en/insights/topics/emerging-technologies/ai-agents-scaling-faster.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Decision rights combine two distinct elements, the authority to decide and the accountability for the outcome, and organizations that decentralize split these into a strategic tier retained by leaders (what and why) and an operational tier delegated to teams (how)",
+          "sources": [
+            "https://cisr.mit.edu/publication/2021_0701_DecisionRightsAcceleration_MeulenBeath",
+            "https://cisr.mit.edu/publication/2023_0101_DecentralizedDecisionMaking_VanderMeulen"
+          ]
+        },
+        {
+          "text": "Four guardrail categories, Purpose in Action, Democracy of Data, Minimum Viable Policy, and Resources to Run, function as enabling constraints that bound decentralized team authority without dictating method, analogous to highway barriers rather than approval gates",
+          "sources": [
+            "https://cisr.mit.edu/publication/2021_0701_DecisionRightsAcceleration_MeulenBeath",
+            "https://sloanreview.mit.edu/article/the-four-guardrails-that-enable-agility/"
+          ]
+        },
+        {
+          "text": "A 2022 MIT CISR survey of 342 organizational leaders found decentralized organizations, defined as 50% or more of teams holding operational decision rights, reported net profit margins 6.2 percentage points and revenue growth 9.8 percentage points higher than centralized peers, with new-offering revenue share averaging 28.8%, about 1.5 times the centralized-peer figure",
+          "sources": [
+            "https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath"
+          ]
+        },
+        {
+          "text": "The performance benefit of decentralization is conditional on an ingrained organizational purpose: decentralized organizations with ingrained purpose outperformed industry averages by 5.4 and 12.9 percentage points on net profit margin and revenue growth respectively, while decentralized organizations without ingrained purpose underperformed industry averages on both measures",
+          "sources": [
+            "https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath"
+          ]
+        },
+        {
+          "text": "Decentralizing operational decision rights to only a limited subset of teams, rather than broadly, hindered organizations' ability to sense and seize opportunities and reduced innovative capacity and financial performance, even though the surveyed average was only 47% of teams holding decentralized authority",
+          "sources": [
+            "https://cisr.mit.edu/publication/2023_0101_DecentralizedDecisionMaking_VanderMeulen"
+          ]
+        },
+        {
+          "text": "The MIT CISR operating-model framework defines four enterprise archetypes, Coordination, Unification, Diversification, and Replication, along two dimensions, process integration and process standardization, and each archetype carries distinct implications for how much operational decision authority can be delegated to units versus retained centrally",
+          "sources": [
+            "https://umbrex.com/resources/frameworks/organization-frameworks/mit-cisr-operating-model-quadrants-coordination-unification-diversification-replication/"
+          ]
+        },
+        {
+          "text": "Organizations with clear, non-overlapping accountability structures avoid the decision paralysis, unowned technical debt, and initiative abandonment documented in organizations with overlapping or absent accountability at the strategic or delivery layer, indicating that multi-level accountability design is a distinct requirement from decision-rights allocation, not a byproduct of it",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md"
+          ]
+        },
+        {
+          "text": "A formal accountability office can integrate risk, cost, and benefits accountability across separately owned functions without full co-location, provided it holds a minimum authority grant of budget-approval rights, risk sign-off authority, a benefits-reporting mandate, and escalation or veto rights, a pattern directly transferable to decentralized operational governance design",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.md"
+          ]
+        }
+      ]
+    },
     "2026-08-13-llm-consumption-maturity-ladder": {
       "named_concepts": [
         "mit cisr",
