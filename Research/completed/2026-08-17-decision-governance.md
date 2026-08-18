@@ -2,12 +2,12 @@
 review_count: 2
 title: "Decision governance for decentralized execution"
 added: 2026-08-17T10:58:13+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [governance-policy, organisational-design, enterprise-adoption, agentic-ai]
 started: 2026-08-18T07:16:25+00:00
-completed: ~
+completed: 2026-08-18T07:43:59+00:00
 output: [knowledge]
 cites:
   - 2026-05-16-governance-structures-build-mode-without-full-accountability-colocation
