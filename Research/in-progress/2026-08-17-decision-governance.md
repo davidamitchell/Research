@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Decision governance for decentralized execution"
 added: 2026-08-17T10:58:13+00:00
 status: reviewing
