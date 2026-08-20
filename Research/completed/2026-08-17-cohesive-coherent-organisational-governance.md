@@ -2,12 +2,12 @@
 review_count: 2
 title: "What constitutes cohesive and coherent organisational governance for aligned, high-velocity, low-risk decentralised decision-making in large organisations facing Artificial Intelligence (AI)-driven change?"
 added: 2026-08-17T11:04:45+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [governance-policy, organisational-design, enterprise-adoption, benchmarks-eval]
 started: 2026-08-20T07:18:11+00:00
-completed: ~
+completed: 2026-08-20T07:55:56+00:00
 output: []
 cites:
   - 2026-08-17-decision-governance
