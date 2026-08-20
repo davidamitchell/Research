@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-08-20T07:36:26Z",
+  "extracted_at": "2026-08-20T07:59:11Z",
   "items": {
     "2026-08-17-decision-governance": {
       "named_concepts": [
@@ -90,6 +90,99 @@
           "text": "A formal accountability office can integrate risk, cost, and benefits accountability across separately owned functions without full co-location, provided it holds a minimum authority grant of budget-approval rights, risk sign-off authority, a benefits-reporting mandate, and escalation or veto rights, a pattern directly transferable to decentralized operational governance design",
           "sources": [
             "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.md"
+          ]
+        }
+      ]
+    },
+    "2026-08-17-cohesive-coherent-organisational-governance": {
+      "named_concepts": [
+        "mit cisr",
+        "performance thresholds",
+        "governance maturity",
+        "independently replicated",
+        "decision rights",
+        "internal-fit external-fit",
+        "usability study",
+        "theory-practice mismatch",
+        "dynamic-capabilities framework",
+        "van hillegersberg",
+        "single vendor",
+        "vendor survey",
+        "rival explanation",
+        "internal consistency",
+        "external fit",
+        "environmental turbulence",
+        "information technology",
+        "persistent theory-practice",
+        "governance quality",
+        "effective governance"
+      ],
+      "source_urls": [
+        "https://hbr.org/2001/01/strategy-as-simple-rules",
+        "https://store.hbr.org/product/it-governance-how-top-performers-manage-it-decision-rights-for-superior-results/2535",
+        "https://www.amazon.com/dp/1118409957",
+        "https://www.oecd.org/en/publications/g20-oecd-principles-of-corporate-governance-2023_ed750b30-en.html",
+        "https://www.deloitte.com/us/en/insights/topics/technology-management/rewiring-ai-operating-model.html",
+        "https://cisr.mit.edu/content/classic-topics-decision-rights",
+        "https://www.jstor.org/stable/257544",
+        "https://umbrex.com/resources/frameworks/organization-frameworks/nadler-tushman-congruence-model/",
+        "https://www.iso.org/standard/65036.html",
+        "https://www.iso.org/standard/65037.html",
+        "https://pentesterworld.com/articles/cobit-capability-levels-process-maturity-assessment",
+        "https://sloanreview.mit.edu/article/a-matrixed-approach-to-designing-it-governance/",
+        "https://research.utwente.nl/en/publications/the-continuing-mismatch-between-it-governance-maturity-theory-and/",
+        "https://open.ncl.ac.uk/theories/19/dynamic-capabilities-theory/",
+        "https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html",
+        "https://www.gsb.stanford.edu/faculty-research/working-papers/organizational-ambidexterity-past-present-future"
+      ],
+      "key_claims": [
+        {
+          "text": "Cohesiveness, defined as internal consistency among decision rights, organisational structure, and accountability mechanisms, and coherence, defined as external fit between that configuration and strategy, risk, and environment, are distinct constructs traceable to the 1978 Miles, Snow, Meyer and Coleman internal-fit/external-fit typology rather than synonyms for a single governance quality",
+          "sources": [
+            "https://www.jstor.org/stable/257544"
+          ]
+        },
+        {
+          "text": "The Nadler-Tushman congruence model operationalises internal cohesiveness as alignment among four components, work, people, formal structure, and informal culture, and is used as a diagnostic instrument for identifying which specific component is out of alignment when governance underperforms",
+          "sources": [
+            "https://umbrex.com/resources/frameworks/organization-frameworks/nadler-tushman-congruence-model/"
+          ]
+        },
+        {
+          "text": "Unclear or duplicated accountability produces observable cohesiveness failure modes, decision paralysis, unowned technical debt, and initiative abandonment, independent of which decision-rights design an organisation otherwise chooses",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md"
+          ]
+        },
+        {
+          "text": "Firms with above-median-effectiveness IT governance earned profits more than 20% higher than firms with below-median governance pursuing the same strategy, based on a global study of more than 250 enterprises",
+          "sources": [
+            "https://store.hbr.org/product/it-governance-how-top-performers-manage-it-decision-rights-for-superior-results/2535"
+          ]
+        },
+        {
+          "text": "Organisations with effective governance changed some aspect of that governance about once per year, while organisations with less effective governance changed governance as many as three times per year, making governance-change frequency an inverse marker of governance quality",
+          "sources": [
+            "https://sloanreview.mit.edu/article/a-matrixed-approach-to-designing-it-governance/"
+          ]
+        },
+        {
+          "text": "A 2022 Massachusetts Institute of Technology (MIT) Center for Information Systems Research (CISR) survey of 342 organisational leaders found that decentralised organisations outperformed centralised peers on profit margin and revenue growth only when paired with ingrained organisational purpose, and underperformed industry averages on both measures without it",
+          "sources": [
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-17-decision-governance.md"
+          ]
+        },
+        {
+          "text": "Published governance maturity instruments, including ISO 37000/37004 and COBIT, use standardised 0-5 or principle-based scoring scales, but the one located empirical usability study found these instruments carry a persistent theory-practice mismatch that self-assessment alone does not resolve, requiring supplementary structured interviews",
+          "sources": [
+            "https://research.utwente.nl/en/publications/the-continuing-mismatch-between-it-governance-maturity-theory-and/"
+          ]
+        },
+        {
+          "text": "No source located in this investigation directly links a validated governance maturity score to the profit or growth performance thresholds identified in the Weill-Ross and MIT CISR studies, meaning maturity-model results and financial-performance results come from evidentially separate research streams",
+          "sources": [
+            "https://sloanreview.mit.edu/article/a-matrixed-approach-to-designing-it-governance/",
+            "https://research.utwente.nl/en/publications/the-continuing-mismatch-between-it-governance-maturity-theory-and/"
           ]
         }
       ]
