@@ -669,7 +669,141 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-08-14 08:06 UTC</p>
+<p>Generated on: 2026-08-18 07:45 UTC</p>
+<p><a id="2026-08-17-decision-governance-md"></a></p>
+<h2>Decision governance for decentralized execution</h2>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-17-decision-governance.md</p>
+<h2>Research Question</h2>
+<p>How do large, established organizations deliberately design, implement, and continuously recalibrate the interdependencies among (1) decision governance systems (allocation of strategic versus operational decision rights, guardrails around purpose/data/policy/resources, and escalation/conflict-resolution protocols), (2) organizational design and operating models (degrees of process integration versus standardization, structural forms that support empowered cross-functional teams, and hybrid hierarchical–network configurations), and (3) multi-level accountability architectures (individual, team, unit, and enterprise mechanisms for measurement, consequence, and learning) to achieve rapid, high-quality decentralized operational decision-making while safeguarding strategic coherence, risk control, and superior performance under continuous digital disruption, data abundance, and growing deployment of Artificial Intelligence (AI)-supported or agentic decision processes?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Large, established organizations achieve rapid, high-quality decentralized operational decision-making primarily by pairing an explicit split of decision rights (strategic authority retained by leaders, operational authority delegated to teams) with four bounding guardrails, Purpose in Action, Democracy of Data, Minimum Viable Policy, and Resources to Run, rather than by decentralization alone. [inference; source: https://cisr.mit.edu/publication/2021_0701_DecisionRightsAcceleration_MeulenBeath; https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath] Three independently fielded Massachusetts Institute of Technology (MIT) Center for Information Systems Research (CISR) surveys (2019, 2020-reported, 2022) each associate guardrail-bounded decentralization with higher net profit margin, revenue growth, and new-offering revenue share than either centralized control or decentralization without guardrails or purpose alignment. [fact; source: https://cisr.mit.edu/publication/2020_0801_DecisionRights_Meulen; https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath; https://sloanreview.mit.edu/article/the-four-guardrails-that-enable-agility/] The feasible scope of decentralization is itself bounded by the enterprise's operating-model archetype, Coordination, Unification, Diversification, or Replication, which sets how much process standardization and cross-unit data integration is structurally required. [inference; source: https://umbrex.com/resources/frameworks/organization-frameworks/mit-cisr-operating-model-quadrants-coordination-unification-diversification-replication/] Multi-level accountability must be deliberately re-assigned rather than assumed to decentralize automatically alongside decision rights, because unclear or duplicated accountability produces documented failure modes, decision paralysis, unowned technical debt, and initiative abandonment, independent of the decision-rights design chosen. [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md] Extending this human-decentralization model to agentic AI decision processes requires the same three elements, decision rights, guardrails, escalation, but implemented as executable, code-level controls rather than organizational norms, and the emerging agentic-AI governance literature has not yet been validated with MIT CISR-style performance evidence. [inference; source: https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust; https://cisr.mit.edu/publication/2021_0701_DecisionRightsAcceleration_MeulenBeath]</p>
+<h3>Key Findings</h3>
+<ol>
+<li>Decision rights combine two distinct elements, the authority to decide and the accountability for the outcome, and organizations that decentralize split these into a strategic tier retained by leaders (what and why) and an operational tier delegated to teams (how). ([fact]; medium confidence; source: https://cisr.mit.edu/publication/2021_0701_DecisionRightsAcceleration_MeulenBeath; https://cisr.mit.edu/publication/2023_0101_DecentralizedDecisionMaking_VanderMeulen)</li>
+<li>Four guardrail categories, Purpose in Action, Democracy of Data, Minimum Viable Policy, and Resources to Run, function as enabling constraints that bound decentralized team authority without dictating method, analogous to highway barriers rather than approval gates. ([fact]; medium confidence; source: https://cisr.mit.edu/publication/2021_0701_DecisionRightsAcceleration_MeulenBeath; https://sloanreview.mit.edu/article/the-four-guardrails-that-enable-agility/)</li>
+<li>A 2022 MIT CISR survey of 342 organizational leaders found decentralized organizations, defined as 50% or more of teams holding operational decision rights, reported net profit margins 6.2 percentage points and revenue growth 9.8 percentage points higher than centralized peers, with new-offering revenue share averaging 28.8%, about 1.5 times the centralized-peer figure. ([fact]; medium confidence; source: https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath)</li>
+<li>The performance benefit of decentralization is conditional on an ingrained organizational purpose: decentralized organizations with ingrained purpose outperformed industry averages by 5.4 and 12.9 percentage points on net profit margin and revenue growth respectively, while decentralized organizations without ingrained purpose underperformed industry averages on both measures. ([fact]; medium confidence; source: https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath)</li>
+<li>Decentralizing operational decision rights to only a limited subset of teams, rather than broadly, hindered organizations' ability to sense and seize opportunities and reduced innovative capacity and financial performance, even though the surveyed average was only 47% of teams holding decentralized authority. ([fact]; medium confidence; source: https://cisr.mit.edu/publication/2023_0101_DecentralizedDecisionMaking_VanderMeulen)</li>
+<li>The MIT CISR operating-model framework defines four enterprise archetypes, Coordination, Unification, Diversification, and Replication, along two dimensions, process integration and process standardization, and each archetype carries distinct implications for how much operational decision authority can be delegated to units versus retained centrally. ([inference]; medium confidence; source: https://umbrex.com/resources/frameworks/organization-frameworks/mit-cisr-operating-model-quadrants-coordination-unification-diversification-replication/)</li>
+<li>Organizations with clear, non-overlapping accountability structures avoid the decision paralysis, unowned technical debt, and initiative abandonment documented in organizations with overlapping or absent accountability at the strategic or delivery layer, indicating that multi-level accountability design is a distinct requirement from decision-rights allocation, not a byproduct of it. ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md)</li>
+<li>A formal accountability office can integrate risk, cost, and benefits accountability across separately owned functions without full co-location, provided it holds a minimum authority grant of budget-approval rights, risk sign-off authority, a benefits-reporting mandate, and escalation or veto rights, a pattern directly transferable to decentralized operational governance design. ([fact]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.md)</li>
+<li>Most organizations struggle to change decision rights deliberately: nearly two-thirds of 986 surveyed companies rated themselves only &quot;not effective at all&quot; to &quot;moderately effective&quot; at doing so, defaulting to CEO- and top-team-driven transformation while the rest of the organization remains in silos. ([fact]; medium confidence; source: https://cisr.mit.edu/publication/2020_0801_DecisionRights_Meulen)</li>
+<li>Organizations with effective IT governance changed some aspect of governance about once per year, while organizations with less effective governance changed governance up to three times per year, the only directly sourced recalibration-cadence data point identified in this investigation and one scoped narrowly to IT governance rather than to the full decision-rights, operating-model, and accountability configuration. ([fact]; medium confidence; source: https://sloanreview.mit.edu/article/a-matrixed-approach-to-designing-it-governance/)</li>
+<li>Agentic AI governance guidance converges on requiring the same three elements as human decentralization, decision rights scaled to agent autonomy, guardrails, and escalation, but as executable technical controls, permissioning, real-time monitoring, signed and reversible actions, and automatic escalation of high-impact decisions, rather than as organizational norms. ([inference]; medium confidence; source: https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust; https://kpmg.com/us/en/articles/2025/ai-governance-for-the-agentic-ai-era.html)</li>
+<li>Agentic AI introduces risk mechanisms absent from the human-decentralization literature, including agents attempting to work around or change their own permissions, prompt injection overriding an agent's existing rules, and uncontrolled multi-agent loops that inflate cost, none of which have MIT CISR-style longitudinal performance evidence behind proposed mitigations. ([fact]; medium confidence; source: https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust; https://www.deloitte.com/us/en/insights/topics/emerging-technologies/ai-agents-scaling-faster.html)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[fact] Decision rights = authority + accountability, split strategic vs. operational</td>
+<td>https://cisr.mit.edu/publication/2021_0701_DecisionRightsAcceleration_MeulenBeath ; https://cisr.mit.edu/publication/2023_0101_DecentralizedDecisionMaking_VanderMeulen</td>
+<td>medium</td>
+<td>Consulted [x]; consistent across three MIT CISR briefings, but all same research group, not independent organizations</td>
+</tr>
+<tr>
+<td>[fact] Four guardrails: Purpose in Action, Democracy of Data, Minimum Viable Policy, Resources to Run</td>
+<td>https://cisr.mit.edu/publication/2021_0701_DecisionRightsAcceleration_MeulenBeath ; https://sloanreview.mit.edu/article/the-four-guardrails-that-enable-agility/</td>
+<td>medium</td>
+<td>Consulted [x]; MIT SMR article authored by van der Meulen, MIT CISR research scientist, so both sources share one research group</td>
+</tr>
+<tr>
+<td>[fact] 2022 survey: decentralized orgs +6.2pp net profit margin, +9.8pp revenue growth, 28.8% new-offering revenue</td>
+<td>https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath</td>
+<td>medium</td>
+<td>Consulted [x]; N=342, self-reported; same research group as findings below</td>
+</tr>
+<tr>
+<td>[fact] Purpose-ingrained decentralized orgs +5.4/+12.9pp vs. industry; without purpose, -0.2/-0.7pp</td>
+<td>https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath</td>
+<td>medium</td>
+<td>Consulted [x]; same N=342 survey as above</td>
+</tr>
+<tr>
+<td>[fact] Only 47% of teams hold decentralized decision authority on average; partial decentralization hinders sensing/seizing</td>
+<td>https://cisr.mit.edu/publication/2023_0101_DecentralizedDecisionMaking_VanderMeulen</td>
+<td>medium</td>
+<td>Consulted [x]</td>
+</tr>
+<tr>
+<td>[inference] Operating-model archetype bounds feasible decision-rights decentralization</td>
+<td>https://umbrex.com/resources/frameworks/organization-frameworks/mit-cisr-operating-model-quadrants-coordination-unification-diversification-replication/</td>
+<td>medium</td>
+<td>Consulted [x]; secondary summary of Ross/Weill/Robertson (2006); original MIT CISR working paper gated, not consulted [ ]</td>
+</tr>
+<tr>
+<td>[inference] Overlapping/absent accountability causes paralysis, unowned debt, initiative abandonment</td>
+<td>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md</td>
+<td>medium</td>
+<td>Consulted [x]; single prior completed repository item, no independent second source</td>
+</tr>
+<tr>
+<td>[fact] Minimum authority grant (budget, risk sign-off, benefits mandate, escalation) enables integration without full accountability co-location</td>
+<td>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.md</td>
+<td>medium</td>
+<td>Consulted [x]; prior completed repository item</td>
+</tr>
+<tr>
+<td>[fact] ~2/3 of 986 surveyed companies rate themselves only moderately effective or worse at changing decision rights</td>
+<td>https://cisr.mit.edu/publication/2020_0801_DecisionRights_Meulen</td>
+<td>medium</td>
+<td>Consulted [x]; N=1,311 survey population, subsample reported</td>
+</tr>
+<tr>
+<td>[fact] Effective IT governance orgs change governance ~once/year vs. up to 3x/year for less effective orgs</td>
+<td>https://sloanreview.mit.edu/article/a-matrixed-approach-to-designing-it-governance/</td>
+<td>medium</td>
+<td>Consulted [x] (endnotes only; full article body gated)</td>
+</tr>
+<tr>
+<td>[inference] Agentic AI requires decision rights, guardrails, escalation as executable technical controls</td>
+<td>https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust ; https://kpmg.com/us/en/articles/2025/ai-governance-for-the-agentic-ai-era.html</td>
+<td>medium</td>
+<td>Consulted [x]; industry advisory sources, not peer-reviewed</td>
+</tr>
+<tr>
+<td>[fact] Agentic-AI-specific risks: permission workaround attempts, prompt injection, uncontrolled multi-agent loops</td>
+<td>https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust ; https://www.deloitte.com/us/en/insights/topics/emerging-technologies/ai-agents-scaling-faster.html</td>
+<td>medium</td>
+<td>Consulted [x]; industry advisory sources</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<p>The industry-advisory sources on agentic AI governance (EY, KPMG, Deloitte) describe emerging practice rather than validated outcomes. [assumption; source: https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust] This item treats their governance recommendations as directionally credible because they converge independently across three different advisory firms on the same three control elements, decision rights, monitoring, escalation, but does not treat them as having the same evidentiary weight as the MIT CISR performance surveys, which measure firm-level financial outcomes rather than describing recommended practice. [assumption; source: https://kpmg.com/us/en/articles/2025/ai-governance-for-the-agentic-ai-era.html; https://www.deloitte.com/us/en/insights/topics/emerging-technologies/ai-agents-scaling-faster.html]</p>
+<p>The operating-model archetype's constraint on feasible decision-rights decentralization (Key Finding 6) is treated as a structural relationship rather than a directly measured one. [assumption; source: https://umbrex.com/resources/frameworks/organization-frameworks/mit-cisr-operating-model-quadrants-coordination-unification-diversification-replication/] This item makes this inference because the secondary Umbrex summary states the archetype's governance implications qualitatively but the original MIT CISR working papers describing empirical linkage between archetype choice and decision-rights outcomes were not accessible in this session. [assumption; source: https://umbrex.com/resources/frameworks/organization-frameworks/mit-cisr-operating-model-quadrants-coordination-unification-diversification-replication/]</p>
+<h3>Analysis</h3>
+<p>The MIT CISR evidence base for guardrail-bounded decentralization is internally consistent across three survey waves but originates from a single research group, so the magnitude of the performance gap (ranging from roughly 6 to 26 percentage points across different metrics and waves) should be read as directionally robust rather than precisely comparable across waves, since survey definitions of &quot;decentralized&quot; and &quot;empowered&quot; shifted slightly between the 2019, 2020, and 2022 instruments. [inference; source: https://cisr.mit.edu/publication/2020_0801_DecisionRights_Meulen; https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath] A plausible competing explanation for the observed performance association is reverse causality: better-performing organizations may have more slack to invest in guardrail design and purpose articulation, rather than guardrails causing the performance gain. [inference; source: https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath] The MIT CISR briefings do not report a controlled or longitudinal before/after design that would rule out this reverse-causality explanation, so the causal direction implied in the Executive Summary should be read as the best-supported interpretation given cross-sectional survey evidence, not as an established causal mechanism. [inference; source: https://cisr.mit.edu/publication/2023_1001_PurposeinAction_VanderMeulenBeath]</p>
+<p>The operating-model archetype constraint (Key Finding 6) and the accountability-architecture requirement (Key Finding 7) were weighed against each other because both bound the same design space, feasible decentralization, from different directions: the archetype sets a structural ceiling on how far operational authority can be pushed before breaking required standardization or integration, while the accountability architecture sets a design floor below which decentralization produces the documented failure modes regardless of how much authority is technically delegated. [inference; source: https://umbrex.com/resources/frameworks/organization-frameworks/mit-cisr-operating-model-quadrants-coordination-unification-diversification-replication/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md] Both constraints must be satisfied jointly, an operating model that permits decentralization does not by itself prevent accountability-gap failure modes, and clear accountability assignment does not by itself expand what an operating model structurally permits to be decentralized. [inference; source: https://umbrex.com/resources/frameworks/organization-frameworks/mit-cisr-operating-model-quadrants-coordination-unification-diversification-replication/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.md]</p>
+<p>For agentic AI, an alternative to the code-level-controls conclusion in Key Finding 11 is that organizations could instead simply exclude agentic systems from operational decision rights entirely and retain human-in-the-loop review for every agent action, avoiding the need to redesign guardrails as executable controls. [inference; source: https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust] EY's own guidance addresses this alternative directly, stating that early-stage agentic deployments should favor more human oversight until monitoring and reliability are proven, which is consistent with retaining human review as a transitional rather than permanent design choice rather than a rejection of eventual decentralized agentic decision rights. [fact; source: https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust] The related completed item on enterprise Artificial Intelligence (AI) platform operating models recommends a single central control plane for configuration, access, evaluation, observability, and policy across multiple internal AI platforms, which weighs against distributing agentic guardrail and escalation enforcement across independently-operating deployments, and instead points toward a centrally-owned platform team as the accountable owner of the executable controls Key Finding 11 describes, even where the enterprise's broader operating-model archetype (Key Finding 6) tolerates decentralized operational authority elsewhere. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The classic IT-governance decision-rights archetype taxonomy commonly associated with Weill and Ross's 2004 book could not be independently verified in this session because the MIT Sloan Management Review article's full body text was not retrievable through the available fetch tool, only its endnotes rendered. [assumption; source: https://sloanreview.mit.edu/article/a-matrixed-approach-to-designing-it-governance/]</li>
+<li>No source consulted in this session measures the recalibration cadence for the full three-way decision-rights, operating-model, and accountability configuration; the only cadence data point found (annual IT-governance change) is scoped narrowly to IT governance mechanisms. [fact; source: https://sloanreview.mit.edu/article/a-matrixed-approach-to-designing-it-governance/]</li>
+<li>The MIT CISR performance findings rely on self-reported survey data validated against Compustat actuals only for the 2019 wave, at a moderate correlation (r(232)≈0.34); the 2020- and 2022-wave figures do not report an equivalent external validation check. [fact; source: https://cisr.mit.edu/publication/2020_0801_DecisionRights_Meulen]</li>
+<li>The Mars, Allstate, and Toyota case studies referenced as illustrative examples of the four-guardrails framework were not independently accessible in this session (member-gated working papers); the framework's case evidence is therefore represented here only through the secondary MIT CISR briefing and MIT Sloan Management Review summaries, not the primary case narratives. [assumption; source: https://sloanreview.mit.edu/article/the-four-guardrails-that-enable-agility/]</li>
+<li>No source consulted in this session directly measures multi-level accountability outcomes (individual, team, unit, enterprise) as a single integrated design; the accountability evidence gathered addresses strategic/delivery-layer accountability gaps and central-office integration authority separately rather than as one measured system. [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-14-org-failure-modes-accountability-gaps.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-governance-structures-build-mode-without-full-accountability-colocation.md]</li>
+<li>The agentic-AI governance literature consulted is entirely industry-advisory (EY, KPMG, Deloitte) rather than peer-reviewed or outcome-measured; no source in this investigation reports firm-level performance or risk-reduction outcomes from adopting the proposed agentic guardrail controls, unlike the MIT CISR evidence for human decentralization. [fact; source: https://www.ey.com/en_us/insights/ai/agentic-ai-governance-and-real-time-trust; https://kpmg.com/us/en/articles/2025/ai-governance-for-the-agentic-ai-era.html; https://www.deloitte.com/us/en/insights/topics/emerging-technologies/ai-agents-scaling-faster.html]</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What measured recalibration cadence, if any, applies to the joint decision-rights, operating-model, and accountability configuration, as distinct from IT governance alone?</li>
+<li>What firm-level performance or risk outcomes, if any, have been measured for organizations that have implemented executable, code-level guardrails for agentic decision processes, as distinct from recommended practice?</li>
+<li>How do the four MIT CISR guardrail categories map onto the classic IT-governance decision-rights archetypes (business monarchy, IT monarchy, federal, and similar terms) once the underlying Weill and Ross taxonomy can be independently verified against primary text?</li>
+<li>What minimum authority grant, if any, is required for individual- and team-level accountability specifically (as distinct from the enterprise-level integrator authority already documented in the related completed item) to close the loop on decentralized operational decisions?</li>
+</ul>
+<hr />
+<hr />
 <p><a id="2026-08-13-llm-consumption-maturity-ladder-md"></a></p>
 <h2>How Do Enterprise AI Maturity Frameworks Map onto the LLM Consumption Ladder?</h2>
 <p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-13-llm-consumption-maturity-ladder.md</p>
