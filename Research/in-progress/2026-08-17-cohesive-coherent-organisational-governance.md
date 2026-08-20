@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What constitutes cohesive and coherent organisational governance for aligned, high-velocity, low-risk decentralised decision-making in large organisations facing AI-driven change?"
 added: 2026-08-17T11:04:45+00:00
 status: reviewing
