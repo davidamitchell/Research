@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Context collision and relational blindness in flat-vector RAG"
 added: 2026-08-20T07:13:11+00:00
 status: reviewing
