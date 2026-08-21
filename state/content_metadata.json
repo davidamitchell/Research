@@ -1,6 +1,112 @@
 {
-  "extracted_at": "2026-08-21T07:31:03Z",
+  "extracted_at": "2026-08-21T07:51:09Z",
   "items": {
+    "2026-08-20-aws-coa-governance-latency-contextual-debt": {
+      "named_concepts": [
+        "human review",
+        "induction path",
+        "in-flight guard",
+        "independent corroboration",
+        "unstructured path",
+        "governance gate",
+        "package documentation",
+        "contextual debt",
+        "serve layer",
+        "turnaround time",
+        "model context",
+        "context protocol",
+        "unstructured induction",
+        "human proposal-review",
+        "hermit ontoqa",
+        "oops validation",
+        "shapes constraint",
+        "constraint language",
+        "automated merge",
+        "general availability"
+      ],
+      "source_urls": [
+        "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-context--ontology-accelarator-generally-available/",
+        "https://github.com/aws/context-ontology-accelerator",
+        "https://github.com/aws/context-ontology-accelerator/blob/main/packages/ontology-engine/README.md",
+        "https://raw.githubusercontent.com/aws/context-ontology-accelerator/main/packages/ontology-engine/src/coa_ontology/proposals.py",
+        "https://github.com/aws/context-ontology-accelerator/blob/main/packages/mcp-server/README.md",
+        "https://github.com/aws/context-ontology-accelerator/blob/main/packages/control-plane/README.md",
+        "https://api.github.com/repos/aws/context-ontology-accelerator/contents/packages/ontology-engine/src/coa_ontology/validation",
+        "https://clawaws.com/blog/context-ontology-accelerator-agent-graph-context/",
+        "https://modelcontextprotocol.io/specification/2025-06-18/server/resources",
+        "https://arxiv.org/abs/2506.01232",
+        "https://corescholar.libraries.wright.edu/knoesis/660/",
+        "https://oops.linkeddata.es/advanced.jsp",
+        "https://arxiv.org/abs/2403.05175",
+        "https://en.wikipedia.org/wiki/Catastrophic_interference",
+        "https://www.emergentmind.com/topics/context-debt",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-aws-agentcore-knowledge-context-layer.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-hybrid-memory-integration-ontology-llm-weights.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-15-ontology-landscape-for-curated-enterprise-context.html",
+        "https://www.w3.org/TR/turtle/",
+        "https://www.w3.org/TR/sparql11-query/",
+        "https://www.cedarpolicy.com/",
+        "https://www.w3.org/TR/owl2-overview/",
+        "https://www.w3.org/TR/shacl/"
+      ],
+      "key_claims": [
+        {
+          "text": "COA follows a Scan, Model, Serve lifecycle in which the Model stage's ontology induction output is stored as an `OntologyProposals` record, and a domain expert must call the source-type-agnostic `POST /ontology/proposals/{id}/accept` endpoint before that content enters the graph agents can query, making human approval the single governance gate for both structured and unstructured induction paths",
+          "sources": [
+            "https://github.com/aws/context-ontology-accelerator/blob/main/packages/ontology-engine/README.md",
+            "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-context--ontology-accelarator-generally-available/"
+          ]
+        },
+        {
+          "text": "For the unstructured, document-derived induction path, COA's own package documentation states that the three-tier automated validation subsystem (the HermiT OWL reasoner, the OntoQA quality-metrics framework, and the OOPS! pitfall scanner) \"is not invoked, so proposals are stored without conformance checks,\" listing this as a known release gap rather than a bug, which means the governance delay on that path is unassisted human review of an unvalidated proposal, not human review of an OWL/SHACL-validated one",
+          "sources": [
+            "https://github.com/aws/context-ontology-accelerator/blob/main/packages/ontology-engine/README.md"
+          ]
+        },
+        {
+          "text": "The automated pipeline that runs after a human accepts a proposal, covering catalog projection, ontology bulk load, and embedding accumulation, is documented in source comments to take 30 to 60 seconds, a duration the code states exceeds Amazon API Gateway's 29-second integration timeout and is the stated reason the accept step must run asynchronously; this figure measures only the post-approval merge and is not evidence about the preceding human review duration",
+          "sources": [
+            "https://raw.githubusercontent.com/aws/context-ontology-accelerator/main/packages/ontology-engine/src/coa_ontology/proposals.py"
+          ]
+        },
+        {
+          "text": "COA implements an explicit in-flight guard that blocks starting a new induction job in a namespace whenever a proposal there is unreviewed, updated, failed, or actively merging, so a single slow or neglected human review stalls the ingestion of every subsequently arrived source change in that namespace, not only the batch that produced the pending proposal",
+          "sources": [
+            "https://raw.githubusercontent.com/aws/context-ontology-accelerator/main/packages/ontology-engine/src/coa_ontology/proposals.py"
+          ]
+        },
+        {
+          "text": "The Serve layer's tiered query resolution executes exclusively against the materialized Neptune graph, and the documented MCP tool set (`list_metrics`, `describe_schema`, `query`, `translate_sparql`, `rag_retrieval`, `graph_traversal`) provides no way to query an in-review or provisional proposal, so an environmental change captured during Scan is invisible to every agent until a human completes the accept decision for that batch",
+          "sources": [
+            "https://clawaws.com/blog/context-ontology-accelerator-agent-graph-context/",
+            "https://github.com/aws/context-ontology-accelerator/blob/main/packages/mcp-server/README.md"
+          ]
+        },
+        {
+          "text": "The Model Context Protocol specification defines optional `subscribe` and `listChanged` server capabilities that let a server push change notifications to a connected client, but COA's `mcp-server` package documentation describes only agent-initiated tool invocations and does not mention implementing either capability, so the inability to represent live mutation is an implementation choice within COA rather than a limitation of the Model Context Protocol as a specification",
+          "sources": [
+            "https://modelcontextprotocol.io/specification/2025-06-18/server/resources",
+            "https://github.com/aws/context-ontology-accelerator/blob/main/packages/mcp-server/README.md"
+          ]
+        },
+        {
+          "text": "No source located in this session, AWS-authored or independent, states a measured or targeted duration for the human proposal-review step itself, distinct from the documented 30-to-60-second automated merge, which is consistent with this being an early-adoption evidence gap given that AWS announced COA's general availability only one month before this research was conducted",
+          "sources": [
+            "https://aws.amazon.com/about-aws/whats-new/2026/07/aws-context--ontology-accelarator-generally-available/"
+          ]
+        },
+        {
+          "text": "COA's mandatory accept gate is a stability-maximizing design choice in continual-learning terms, the established tradeoff between retaining prior knowledge and rapidly absorbing new information, because it makes it architecturally impossible for a proposal to alter the served graph without a human decision, preventing automated catastrophic forgetting or silent drift at the cost that the graph cannot incorporate new structure faster than that decision is made",
+          "sources": [
+            "https://arxiv.org/abs/2403.05175",
+            "https://github.com/aws/context-ontology-accelerator/blob/main/packages/ontology-engine/README.md"
+          ]
+        }
+      ]
+    },
     "2026-08-17-decision-governance": {
       "named_concepts": [
         "decision rights",
