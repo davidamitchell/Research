@@ -1,6 +1,95 @@
 {
-  "extracted_at": "2026-08-21T08:37:43Z",
+  "extracted_at": "2026-08-21T08:54:09Z",
   "items": {
+    "2026-08-20-graphrag-macro-level-hallucination": {
+      "named_concepts": [
+        "community detection",
+        "macro-level hallucination",
+        "standard graphrag",
+        "failure mode",
+        "retrieval-time noise",
+        "retrieval-augmented generation",
+        "community-based graphrag",
+        "community-detection algorithm",
+        "semantic correctness",
+        "falsely-associated nodes",
+        "benchmark found",
+        "vector retrieval-augmented",
+        "controlled ablation",
+        "community-detection pipeline",
+        "vector rag",
+        "entity-merge step",
+        "semantic entity",
+        "entity resolution",
+        "leiden community-detection",
+        "benchmarks measure"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-05-vector-rag-to-ontology-kg-rag-migration.html",
+        "https://arxiv.org/abs/2404.16130",
+        "https://arxiv.org/abs/2506.05690",
+        "https://microsoft.github.io/graphrag/index/default_dataflow/",
+        "https://www.nature.com/articles/s41598-019-41695-z",
+        "https://arxiv.org/html/2603.14828v2",
+        "https://arxiv.org/html/2512.09148v1",
+        "https://arxiv.org/html/2603.20252v1",
+        "https://arxiv.org/html/2502.11371v1",
+        "https://www.sowmith.dev/blog/graphrag-entity-disambiguation",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-evaluation-framework.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-27-semantic-domain-emergence-enterprise-ontology.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The default GraphRAG entity-merge step collapses extracted mentions only when they share an identical title and type string, with no fuzzy-matching, alias-resolution, or human-review step described in the reference workflow, meaning aliases and near-duplicate entity mentions predictably persist as separate graph nodes",
+          "sources": [
+            "https://microsoft.github.io/graphrag/index/default_dataflow/"
+          ]
+        },
+        {
+          "text": "The Leiden community-detection algorithm guarantees that every detected community is internally well-connected, correcting a documented defect of the earlier Louvain algorithm where up to 25 percent of communities could be badly connected, but this guarantee is purely topological and carries no mechanism for verifying the semantic correctness of the underlying nodes and edges",
+          "sources": [
+            "https://www.nature.com/articles/s41598-019-41695-z"
+          ]
+        },
+        {
+          "text": "The reference GraphRAG query pipeline filters intermediate community answers by a 0-100 helpfulness score measuring relevance to the user's question, discarding zero-scoring answers, but this filter has no independent mechanism for verifying the factual correctness of a community report's underlying claims",
+          "sources": [
+            "https://arxiv.org/abs/2404.16130"
+          ]
+        },
+        {
+          "text": "A 2026 study measuring knowledge-graph tuple-extraction correctness across five large language model builders of varying scale found that even the strongest builder produced correct tuples for only 68 percent of query-relevant gold-evidence sentences, establishing a quantified upper-bound ceiling on atomic extraction accuracy under favourable, narrow-scope conditions",
+          "sources": [
+            "https://arxiv.org/html/2603.14828v2"
+          ]
+        },
+        {
+          "text": "The same study formalises two distinct, recurring knowledge-graph error modes, spurious noise (structurally plausible but factually unsupported triples) and incomplete information (missing bridging facts), and shows these require different retrieval-time countermeasures because they produce different failure trajectories",
+          "sources": [
+            "https://arxiv.org/html/2603.14828v2"
+          ]
+        },
+        {
+          "text": "A corpus-scale robustness benchmark found that a representative GraphRAG method held fact-retrieval accuracy roughly steady near 60 percent across a twentyfold increase in corpus token count, while standard vector Retrieval-Augmented Generation's complex-reasoning accuracy dropped from 58.64 percent to 43.20 percent over the same range, attributed to the graph's structural constraints filtering retrieval-time noise",
+          "sources": [
+            "https://arxiv.org/html/2506.05690v3"
+          ]
+        },
+        {
+          "text": "On summarisation- and creative-generation-class tasks, the benchmark found a tree-structured summarisation method scored highest on faithfulness (70.9 percent) while standard vector Retrieval-Augmented Generation covered more of the required evidence (40.0 percent), a documented precision-versus-breadth trade-off rather than a demonstration that graph-structured summarisation eliminates hallucination risk",
+          "sources": [
+            "https://arxiv.org/html/2506.05690v3"
+          ]
+        },
+        {
+          "text": "The same benchmark found that a community-based GraphRAG method's prompt length for global-search answers expands from roughly 7,800 to 40,000 tokens as task difficulty increases, and reports that this token accumulation \"often introduces redundant information, which in turn degrades context relevance during retrieval.\"",
+          "sources": [
+            "https://arxiv.org/html/2506.05690v3"
+          ]
+        }
+      ]
+    },
     "2026-08-20-flat-vector-rag-context-collision": {
       "named_concepts": [
         "relational structure",
