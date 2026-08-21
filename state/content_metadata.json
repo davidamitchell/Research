@@ -1,6 +1,107 @@
 {
-  "extracted_at": "2026-08-21T07:51:09Z",
+  "extracted_at": "2026-08-21T08:21:35Z",
   "items": {
+    "2026-08-20-flat-vector-rag-context-collision": {
+      "named_concepts": [
+        "relational structure",
+        "context length",
+        "inter-context conflict",
+        "context collision",
+        "flat-vector rag",
+        "relationally dense",
+        "limiting factor",
+        "reasoning tree",
+        "retrieval-augmented generation",
+        "two independent",
+        "belief inertia",
+        "source-aware prompting",
+        "flat-chunk representation",
+        "relation structure",
+        "agm postulate",
+        "retrieval recall",
+        "generation rag",
+        "compound failure",
+        "single context-window",
+        "context-window limit"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-07-05-vector-rag-to-ontology-kg-rag-migration.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html",
+        "https://www.cs.huji.ac.il/w~lehmann/nonmon/AGM_JSL.pdf",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-hybrid-memory-integration-ontology-llm-weights.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-20-information-density-filtering-financial-rag.html",
+        "https://arxiv.org/abs/2403.08319",
+        "https://aclanthology.org/2024.emnlp-main.486/",
+        "https://arxiv.org/abs/2506.08500",
+        "https://arxiv.org/abs/2410.07176",
+        "https://arxiv.org/abs/2307.03172",
+        "https://arxiv.org/abs/2404.06654",
+        "https://arxiv.org/abs/2601.11255",
+        "https://arxiv.org/abs/2404.16130",
+        "https://github.com/GraphRAG-Bench/GraphRAG-Benchmark",
+        "https://arxiv.org/abs/2501.01880",
+        "https://arxiv.org/abs/2406.19764",
+        "https://aclanthology.org/2024.emnlp-main.586/"
+      ],
+      "key_claims": [
+        {
+          "text": "Knowledge conflicts affecting Large Language Models (LLMs) divide into three categories by origin, context-memory, inter-context, and intra-memory conflict, and this item's \"context collision\" scope corresponds specifically to inter-context conflict, contradictory or overlapping content within the same retrieved set",
+          "sources": [
+            "https://arxiv.org/abs/2403.08319",
+            "https://aclanthology.org/2024.emnlp-main.486/"
+          ]
+        },
+        {
+          "text": "A Retrieval-Augmented Generation (RAG)-specific taxonomy further splits inter-context conflict into five behavioral categories, no conflict, complementary information, subjective disagreement, freshness, and direct factual contradiction, each requiring a different model response rather than one uniform resolution routine",
+          "sources": [
+            "https://arxiv.org/abs/2506.08500"
+          ]
+        },
+        {
+          "text": "Top-k similarity retrieval has no ranking step that evaluates mutual agreement between selected chunks, and two independent research groups studying different benchmarks, a RAG-conflict taxonomy project and a retrieval-robustness project, both conclude that resulting conflicting or imperfect retrieval is inevitable and common under realistic conditions rather than a rare adversarial edge case",
+          "sources": [
+            "https://arxiv.org/abs/2506.08500",
+            "https://arxiv.org/abs/2410.07176"
+          ]
+        },
+        {
+          "text": "Context-window position and effective length alone degrade reasoning even absent any factual contradiction, since the Lost in the Middle study measured a U-shaped accuracy curve and the RULER benchmark measured substantial degradation on multi-hop aggregation tasks before advertised context limits were reached",
+          "sources": [
+            "https://arxiv.org/abs/2307.03172",
+            "https://arxiv.org/abs/2404.06654"
+          ]
+        },
+        {
+          "text": "A separate contradiction-driven failure persists when context length is not the limiting factor, evidenced by systematic violation of the Inclusion and Preservation postulates within Alchourron-Gardenfors-Makinson (AGM) rational belief-revision theory, a framework originating in Alchourron, Gardenfors, and Makinson's 1985 paper on partial meet contraction and revision functions, producing measured belief inertia and collateral retraction of unrelated correct facts",
+          "sources": [
+            "https://www.cs.huji.ac.il/w~lehmann/nonmon/AGM_JSL.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html"
+          ]
+        },
+        {
+          "text": "The peer-reviewed Belief-R dataset corroborates the belief-revision failure directionally, finding that models both fail to retract conclusions that contradicting evidence should invalidate and, in other cases, over-revise when no contradiction was actually present",
+          "sources": [
+            "https://arxiv.org/abs/2406.19764"
+          ]
+        },
+        {
+          "text": "Reranking, context compression (LLMLingua-2, RAPTOR), and source-aware prompting all operate within the flat-chunk representation without introducing an explicit relation structure between entities or claims, so none directly targets mutual-consistency evaluation between retained chunks",
+          "sources": [
+            "https://arxiv.org/abs/2403.08319",
+            "https://davidamitchell.github.io/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html"
+          ]
+        },
+        {
+          "text": "Astute RAG's source-aware consolidation method is the one flat-vector-compatible mitigation with direct evidence of narrowing the conflict-resolution gap, matching or exceeding parametric-knowledge-only performance under worst-case retrieval conditions, but its authors frame this as resilience rather than as general contradiction resolution",
+          "sources": [
+            "https://arxiv.org/abs/2410.07176"
+          ]
+        }
+      ]
+    },
     "2026-08-20-aws-coa-governance-latency-contextual-debt": {
       "named_concepts": [
         "human review",
