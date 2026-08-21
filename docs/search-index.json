@@ -186,7 +186,7 @@
       "question_excerpt": "What Amazon Web Services (AWS) AgentCore capabilities and AWS-native services are required to design and operate a Knowledge Context Layer (KCL) that continuously acquires, curates, evolves, and serve",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary A Knowledge Context Layer (KCL) built on Amazon Web Services (AWS) composes into three distinct deployable tiers rather than one AWS-native design, and the fully managed tier (Amazon Bedrock Knowledge Bases with Amazon Neptune Analytics GraphRAG (Graph Retrieval-Augmented Generation)) trades away customer-supplied ontology control and non-Amaz…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-apra-cps"
+        "nist-ai-ai-rmf-apra-cps"
       ],
       "url": "/Research/research/2026-07-20-aws-agentcore-knowledge-context-layer.html"
     },
@@ -260,7 +260,7 @@
       "question_excerpt": "At what scale or under what operating conditions do the aggregate costs of fragmented local tooling exceed the productivity gains from customization, and which metrics let organisations detect that cr",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Aggregate local-tooling costs exceed customization benefits when three structural multipliers reach a combined threshold: tool footprint per team exceeds the organisation's administrative absorption capacity, shared dependency density creates coordination overhead that compounds with each additional tool, and staff turnover exposes the knowled…",
       "thread_slugs": [
-        "review-time-pr-review-platform-engineering"
+        "faros-ai-productivity-gains-ai-adoption"
       ],
       "url": "/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html"
     },
@@ -274,7 +274,7 @@
       "question_excerpt": "How does local optimisation of team- and role-level tooling in knowledge work reduce organisation-level throughput, and which interdependencies determine when local gains become global losses?",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary In knowledge-work pipelines with shared dependencies, local tooling optimisation reliably degrades whole-system throughput when the shared constraint's capacity is not increased commensurately, a mechanism that the Theory of Constraints (TOC) has described since 1984 and that DevOps Research and Assessment (DORA) 2025 and Faros AI 2026 telemet…",
       "thread_slugs": [
-        "review-time-pr-review-platform-engineering"
+        "faros-ai-productivity-gains-ai-adoption"
       ],
       "url": "/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html"
     },
@@ -289,7 +289,7 @@
       "findings_excerpt": "Executive Summary Empirical evidence from 2024–2026 shows that AI-enabled software delivery produces real individual-level productivity gains that do not reliably convert to sustained organizational-level delivery acceleration, and that the gap is explained by three compounding mechanisms: downstream bottleneck shift, maintenance cost deferral, and systematic perception bias. [inference; source: h…",
       "thread_slugs": [
         "ai-adoption-ai-coding-delivery-stability",
-        "review-time-pr-review-platform-engineering"
+        "faros-ai-productivity-gains-ai-adoption"
       ],
       "url": "/Research/research/2026-06-10-ai-productivity-quality-governance-open-questions.html"
     },
@@ -315,7 +315,7 @@
       "question_excerpt": "How do Site Reliability Engineering (SRE) practices establish what a system can safely do, expressed as a contractual boundary rather than an observed average: specifically, how are Service Level Obje",
       "findings_excerpt": "Executive Summary SRE establishes SLOs as contractual capability boundaries through a combined evidence-gathering, three-party stakeholder-negotiation, and error-budget-enforcement process, not through the threshold number alone. [inference; source: https://sre.google/workbook/implementing-slos/; https://sre.google/workbook/error-budget-policy/] User-impact evidence is the specified primary input…",
       "thread_slugs": [
-        "error-budget-exception-volume-boundary-tests"
+        "exception-volume-error-budget-failure-mode"
       ],
       "url": "/Research/research/2026-05-31-sre-slo-threshold-justification.html"
     },
@@ -453,7 +453,7 @@
       "question_excerpt": "Which metrics best predict unsafe queue growth, rising delivery risk, or hidden demand accumulation in a split-authority delivery system, where \"split-authority\" means a context in which authority is",
       "findings_excerpt": "Executive Summary Five metric families, arranged into four warning tiers by causal distance from the approval constraint, constitute the minimum viable early-warning telemetry for split-authority delivery systems: queue age at the 75th percentile per lane, blocked-work ratio, exception volume as the four-week rolling Class 3 share of intake, lead time trend as a four-week moving average, and rewor…",
       "thread_slugs": [
-        "error-budget-exception-volume-boundary-tests"
+        "exception-volume-error-budget-failure-mode"
       ],
       "url": "/Research/research/2026-05-29-split-authority-q6-instability-leading-indicators.html"
     },
@@ -469,7 +469,7 @@
       "question_excerpt": "When should the system use pre-approval, bounded delegation with guardrails, or post-hoc review and exception escalation?",
       "findings_excerpt": "Executive Summary Post-hoc review is the correct and sufficient control for Class 1 (fast-path) work, bounded delegation with guardrails is the correct control for Class 2 (standard-path) work, and pre-approval is the correct control for Class 3 (exception-path) work, with class assignment determined by the three Q2 boundary tests (template, recovery, blast radius). [inference; source: https://dav…",
       "thread_slugs": [
-        "error-budget-exception-volume-boundary-tests"
+        "exception-volume-error-budget-failure-mode"
       ],
       "url": "/Research/research/2026-05-29-split-authority-q5-control-model-tradeoff.html"
     },
@@ -500,7 +500,7 @@
       "question_excerpt": "What intake, triage, queueing, escalation, and routing model allows routine work to move quickly while isolating high-risk or ambiguous work?",
       "findings_excerpt": "Executive Summary A three-lane physical routing model, in which fast-path (Class 1), standard-path (Class 2), and exception-path (Class 3) work each occupy dedicated queues with minimum capacity reservations and the exception lane carries an explicit Work in Progress (WIP) limit, is the minimum viable design for allowing routine work to move quickly while isolating high-risk or ambiguous work in a…",
       "thread_slugs": [
-        "error-budget-exception-volume-boundary-tests"
+        "exception-volume-error-budget-failure-mode"
       ],
       "url": "/Research/research/2026-05-29-split-authority-q3-routing-exception-isolation.html"
     },
@@ -571,7 +571,7 @@
       "findings_excerpt": "Executive Summary AI coding tools produce reliably positive productivity gains in isolated, well-defined tasks (21-55% faster in controlled studies) but produce a 19% slowdown for experienced developers working on realistic complex tasks in mature codebases - the dominant work category in large software organisations. [inference; source: https://arxiv.org/abs/2507.09089; https://arxiv.org/abs/2410…",
       "thread_slugs": [
         "ai-adoption-ai-coding-delivery-stability",
-        "review-time-pr-review-platform-engineering"
+        "faros-ai-productivity-gains-ai-adoption"
       ],
       "url": "/Research/research/2026-05-27-ai-first-software-ecology-developer-ecosystems.html"
     },
@@ -928,7 +928,7 @@
       "question_excerpt": "In what ways does the Complexity Horizon of deeply nested, microservice-oriented classical architectures create an epistemic barrier where a deterministic system becomes just as uninterpretable and op",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Deeply nested microservice systems can cross a real Complexity Horizon where deterministic execution remains locally replayable but whole-system behaviour becomes opaque enough that operators must explain incidents through traces, aggregate signals, and controlled experiments instead of direct mental simulation. [inference; source: https://fac…",
       "thread_slugs": [
-        "language-model-local-replayability-deterministic-systems"
+        "deterministic-systems-local-replayability-language-model"
       ],
       "url": "/Research/research/2026-05-18-rq6-3-complexity-horizon-classical-systems.html"
     },
@@ -978,7 +978,7 @@
       "question_excerpt": "How do the failure modes of a stochastic multi-step Large Language Model (LLM) agent, meaning a tool-using system whose action path can vary across runs, differ fundamentally from the failure modes of",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Stochastic multi-step Large Language Model agents fail differently from deterministic coded systems because the same unvalidated input can be absorbed as plausible context, branch differently across runs, and propagate a semantically wrong task state without an immediate hard failure. [inference; source: https://www.anthropic.com/research/trus…",
       "thread_slugs": [
-        "language-model-local-replayability-deterministic-systems"
+        "deterministic-systems-local-replayability-language-model"
       ],
       "url": "/Research/research/2026-05-18-rq5-1-stochastic-vs-deterministic-failures.html"
     },
@@ -1160,7 +1160,7 @@
       "question_excerpt": "Are multi-step Large Language Model (LLM)-based systems inherently less explainable than equivalently scoped deterministic software systems, or does production-scale distributed-system complexity make",
       "findings_excerpt": "Executive Summary Multi-step Large Language Model-based systems are not equally explainable to equivalently scoped deterministic software systems, because they add model-internal opacity and residual run-to-run variation before production-scale complexity is even considered. [inference; source: https://arxiv.org/abs/1606.03490; https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/repro…",
       "thread_slugs": [
-        "language-model-local-replayability-deterministic-systems"
+        "deterministic-systems-local-replayability-language-model"
       ],
       "url": "/Research/research/2026-05-18-agentic-explainability-vs-traditional.html"
     },
@@ -1318,7 +1318,7 @@
       "question_excerpt": "How does integration of Large Language Models (LLMs) into policy-ambiguity resolution change liability allocation, escalation behaviour, and an organisation's ability to justify the resulting decision",
       "findings_excerpt": "Executive Summary Large Language Model assistance in policy-ambiguity resolution tends to shift responsibility into a layered governance model and weaken defensibility when the model's interpretation becomes the practical final judgment rather than a logged proposal reviewed by a trained human owner. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-servic…",
       "thread_slugs": [
-        "verification-intensity-manageable-caseload-human-review"
+        "verification-intensity-meaningful-human-queue-depth"
       ],
       "url": "/Research/research/2026-05-17-ai-policy-ambiguity-accountability-governance-risk.html"
     },
@@ -1368,7 +1368,7 @@
       "question_excerpt": "What is the complete set of features, functions, and capabilities offered by ServiceNow AI Control Tower, and how do those capabilities address enterprise Artificial Intelligence (AI) governance, obse",
       "findings_excerpt": "Executive Summary ServiceNow AI Control Tower currently provides a centralized governance layer for AI inventory, lifecycle oversight, risk and compliance workflows, reporting, and an expanding set of cross-platform observability controls, which makes it a credible enterprise oversight surface for regulated Artificial Intelligence (AI) operations but not a complete standalone governance stack. [in…",
       "thread_slugs": [
-        "control-tower-ai-control-runtime-observability"
+        "control-tower-ai-control-ai-agent"
       ],
       "url": "/Research/research/2026-05-17-servicenow-ai-control-tower-capabilities.html"
     },
@@ -1862,7 +1862,7 @@
       "question_excerpt": "How should inherent risk, meaning exposure before relying on controls, and control effectiveness, meaning the demonstrated reliability of the mitigating control, scores in a PRC library change when wo",
       "findings_excerpt": "Executive Summary Material workforce processes that are undocumented, unstandardized, or partly manual should be scored as higher inherent risk and lower control effectiveness than an equivalent organization-defined process, because the evidence base shows that process opacity, manual handling, and local variation increase uncertainty, error probability, and continuity dependence. [inference; sour…",
       "thread_slugs": [
-        "basel-committee-banking-supervision-critical-operations"
+        "basel-committee-banking-supervision-operational-risk"
       ],
       "url": "/Research/research/2026-05-09-prc-risk-scoring-unstandardized-workforce-processes.html"
     },
@@ -1900,7 +1900,7 @@
       "question_excerpt": "How should key-person dependency in workforce-critical processes be mapped to execution, delivery, and process-management risk categories in Basel Committee framing?",
       "findings_excerpt": "Executive Summary Key-person dependency in a workforce-critical process should be classified first as Basel Committee on Banking Supervision operational risk, and then mapped specifically to \"Execution, Delivery & Process Management\" when the dependency threatens recurring process execution, handoffs, deadlines, or delivery outcomes. [inference; source: https://www.bis.org/bcbs/publ/d515.pdf; http…",
       "thread_slugs": [
-        "basel-committee-banking-supervision-critical-operations"
+        "basel-committee-banking-supervision-operational-risk"
       ],
       "url": "/Research/research/2026-05-09-key-person-dependency-basel-risk-linkage.html"
     },
@@ -1926,7 +1926,7 @@
       "question_excerpt": "How do Basel Committee on Banking Supervision (BCBS), International Organization for Standardization (ISO) 31000, and National Institute of Standards and Technology (NIST) frameworks classify risk whe",
       "findings_excerpt": "Executive Summary Business-critical workforce data kept in unmanaged spreadsheets or desktop databases is classified by Basel Committee on Banking Supervision (BCBS) guidance as operational risk, by International Organization for Standardization (ISO) 31000 as an internal governance and information-quality risk affecting objectives, and by National Institute of Standards and Technology (NIST) as a…",
       "thread_slugs": [
-        "basel-committee-banking-supervision-critical-operations"
+        "basel-committee-banking-supervision-operational-risk"
       ],
       "url": "/Research/research/2026-05-09-basel-iso-nist-shadow-workforce-risk-classification.html"
     },
@@ -2060,7 +2060,7 @@
       "question_excerpt": "Under high-volume deployment of multi-step Artificial Intelligence (AI) systems, what factors cause human-in-the-loop (HITL) oversight to degrade into rubber-stamping, meaning approval without genuine",
       "findings_excerpt": "Executive Summary The strongest supported scaled oversight model is a hybrid tiered design, not a single universal control, because high-volume AI programs keep meaningful human control only when synchronous approval is reserved for the highest-consequence actions and lower-risk work shifts to exception review, statistical sampling, and periodic audit. [inference; source: https://ai-act-service-de…",
       "thread_slugs": [
-        "verification-intensity-manageable-caseload-human-review"
+        "verification-intensity-meaningful-human-queue-depth"
       ],
       "url": "/Research/research/2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates.html"
     },
@@ -2304,9 +2304,9 @@
       "question_excerpt": "- [fact; source: https://owaspaibom.org/] Artificial Intelligence Bill of Materials (AIBOM) is used here in the Open Worldwide Application Security Project (OWASP) sense of an artifact intended to mak",
       "findings_excerpt": "Executive Summary Current regulation already creates a meaningful but partial compliance case for AIBOM, because the EU AI Act, NIST AI RMF, APRA CPS 230, and Basel guidance all require documented visibility into AI systems, integrated components, or critical dependencies. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11; https://doi.org/10.6028/NIST.AI.100-1; http…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act",
-        "nist-ai-ai-act-ai-rmf",
-        "ai-rmf-nist-ai-apra-cps"
+        "nist-ai-ai-rmf-ai-act",
+        "nist-ai-ai-rmf-ai-act-2",
+        "nist-ai-ai-rmf-apra-cps"
       ],
       "url": "/Research/research/2026-05-06-aibom-regulatory-eu-ai-act-intersection.html"
     },
@@ -2320,7 +2320,7 @@
       "question_excerpt": "What logs, traces, audit Application Programming Interfaces (APIs), Artificial Intelligence Bill of Materials (AIBOM) export capabilities, version-pinning mechanisms, allowlists, and policy hooks actu",
       "findings_excerpt": "Executive Summary AWS Bedrock Agents provide the strongest documented substrate for automated Artificial Intelligence Bill of Materials (AIBOM) generation among the four reviewed platforms because AWS exposes both a machine-readable configuration API and detailed step-level runtime traces with immutable version snapshots. [inference; source: https://owaspaibom.org/; https://docs.aws.amazon.com/bed…",
       "thread_slugs": [
-        "control-tower-ai-control-runtime-observability"
+        "control-tower-ai-control-ai-agent"
       ],
       "url": "/Research/research/2026-05-06-aibom-platform-observability-control-comparison.html"
     },
@@ -2538,7 +2538,7 @@
       "question_excerpt": "How should human-in-the-loop (HITL) design be adapted when Artificial Intelligence (AI) review volume reaches the point where human reviewers become a throughput bottleneck or default to rubber-stampi",
       "findings_excerpt": "Executive Summary Pre-execution human review should stop being the default control for every Artificial Intelligence action once review volume outgrows careful human verification, because high-volume queues predictably degrade into bottlenecks or nominal sign-off rather than meaningful oversight. [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/; https://pmc.ncbi.nlm.nih.gov/ar…",
       "thread_slugs": [
-        "verification-intensity-manageable-caseload-human-review"
+        "verification-intensity-meaningful-human-queue-depth"
       ],
       "url": "/Research/research/2026-05-02-hitl-review-volume-bottleneck-rubber-stamp.html"
     },
@@ -2552,7 +2552,7 @@
       "question_excerpt": "What security capabilities are required in an enterprise Artificial Intelligence (AI) system, beyond basic Application Programming Interface (API) access controls and audit logging, to address prompt",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Enterprise AI systems need a security stack that goes beyond access control and audit logs by adding controls for prompt and retrieval boundary integrity, model and connector provenance, identity-scoped execution, deterministic egress control, and runtime circuit breakers. [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-inject…",
       "thread_slugs": [
-        "ai-systems-agentic-ai-prompt-injection"
+        "ai-systems-prompt-injection-agentic-ai"
       ],
       "url": "/Research/research/2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain.html"
     },
@@ -2854,7 +2854,7 @@
       "question_excerpt": "What is the current state of Explainable Artificial Intelligence (XAI) research, who leads it and what are the primary techniques, and how does XAI intersect with regulatory obligations, audit require",
       "findings_excerpt": "Executive Summary Current regulation in heavily regulated industries requires explainability mainly as a governance capability, not as a mandate to use any single Explainable Artificial Intelligence (XAI) method. [inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689; https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/expla…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act"
+        "nist-ai-ai-rmf-ai-act"
       ],
       "url": "/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html"
     },
@@ -2904,7 +2904,7 @@
       "question_excerpt": "What alternative Continuous Integration and Continuous Delivery (CI/CD) pipeline platforms, specifically Harness, Amazon Web Services (AWS) CodeBuild and CodeDeploy, and Jenkins, can serve as the gove",
       "findings_excerpt": "(Seeded from §6 Synthesis and kept substantively aligned.) Executive Summary [inference; source: https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/; https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html; https://www.jenkins.io/doc/book/pipeline/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-p…",
       "thread_slugs": [
-        "copilot-studio-power-platform-direct-publish"
+        "power-platform-copilot-studio-native-governance"
       ],
       "url": "/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html"
     },
@@ -2930,9 +2930,9 @@
       "question_excerpt": "What explicit human oversight and accountability requirements, covering named human owners for every governed entity, defined escalation paths for high-risk autonomous actions, accountability designat",
       "findings_excerpt": "Executive Summary inference; source: [UELGF complete framework synthesis UELGF governed golden rails EU AI Act, Article 14 EU AI Act, Article 26] UELGF should be extended with mandatory named natural-person ownership, explicit escalation routing, pre-execution approval gates for high-consequence actions, and a recorded accountability chain, because the current framework's ownership model is too im…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act",
-        "nist-ai-ai-act-ai-rmf",
-        "ai-systems-agentic-ai-prompt-injection"
+        "nist-ai-ai-rmf-ai-act",
+        "nist-ai-ai-rmf-ai-act-2",
+        "ai-systems-prompt-injection-agentic-ai"
       ],
       "url": "/Research/research/2026-04-28-uelgf-human-oversight-accountability-layer.html"
     },
@@ -2970,7 +2970,7 @@
       "question_excerpt": "What workflow orchestration and governance capabilities does ServiceNow currently provide for Artificial Intelligence (AI) agent workloads, specifically its identity resolution, permissions, audit tra",
       "findings_excerpt": "(Populated from section 6 Synthesis above.) Executive Summary [inference; source: https://www.cio.com/article/3813359/servicenow-adds-ai-agent-orchestrator-studio-to-its-now-platform.html; https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185; https://www.servicenow.com/community/now-assist-articles/enable-mcp-and-a2a-…",
       "thread_slugs": [
-        "control-tower-ai-control-runtime-observability"
+        "control-tower-ai-control-ai-agent"
       ],
       "url": "/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html"
     },
@@ -3200,7 +3200,7 @@
       "question_excerpt": "What governance constraints are imposed by major vendor Artificial Intelligence (AI) and low-code platforms, specifically, what governance capabilities are natively supported versus where external con",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization; https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html; https…",
       "thread_slugs": [
-        "copilot-studio-power-platform-direct-publish"
+        "power-platform-copilot-studio-native-governance"
       ],
       "url": "/Research/research/2026-04-26-vendor-platform-governance-constraints-compensating-controls.html"
     },
@@ -3262,8 +3262,8 @@
       "question_excerpt": "How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with external regulatory and compliance obligations, specifically, what is the mapping between governance",
       "findings_excerpt": "Executive Summary [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554] Enterprise AI and low-code governance can be aligned with the reviewed regulatory frameworks by des…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act",
-        "nist-ai-ai-act-ai-rmf"
+        "nist-ai-ai-rmf-ai-act",
+        "nist-ai-ai-rmf-ai-act-2"
       ],
       "url": "/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html"
     },
@@ -3301,7 +3301,7 @@
       "question_excerpt": "What maturity model best describes the evolution of governance capabilities for AI and low-code in enterprises, specifically, what are the clearly defined maturity stages, capability benchmarks, and p",
       "findings_excerpt": "Executive Summary [inference; source: https://cmmiinstitute.com/learning/appraisals; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://www.iso.org/standard/81230.html; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-re…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act"
+        "nist-ai-ai-rmf-ai-act"
       ],
       "url": "/Research/research/2026-04-26-ai-lowcode-governance-maturity-model.html"
     },
@@ -3411,7 +3411,7 @@
       "question_excerpt": "In an environment where citizen development tooling is already licensed and accessible to non-technical staff, and where the distinction between personal productivity and production automation has col",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary [inference; source: https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-custo…",
       "thread_slugs": [
-        "copilot-studio-power-platform-direct-publish"
+        "power-platform-copilot-studio-native-governance"
       ],
       "url": "/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html"
     },
@@ -3425,8 +3425,8 @@
       "question_excerpt": "Agents do not inherit a user's typical behaviour, they inherit the worst-case interpretation of that user's full permission set, because they operate without fatigue, attention limits, or working hour",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final; https://handbook.apra.gov.au/standard/cps-230; https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora] The four named frameworks do not explicitly describe the worst-ca…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act",
-        "ai-rmf-nist-ai-apra-cps"
+        "nist-ai-ai-rmf-ai-act",
+        "nist-ai-ai-rmf-apra-cps"
       ],
       "url": "/Research/research/2026-04-26-access-control-amplification-agentic-operations.html"
     },
@@ -3536,7 +3536,7 @@
       "question_excerpt": "What regulatory obligations do financial-services regulators globally, including the European Union (EU), Australia, New Zealand (NZ), the United States (US), and the United Kingdom (UK), impose on Ar",
       "findings_excerpt": "Executive Summary [fact; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689; https://www.federalreserve.gov/supervisionreg/srletters/sr1107.pdf; https://www.privacy.org.nz/resources-and-learning/a-z-topics/ai/generative-artificial-intelligence/; https://files.consumerfinance.gov/f/documents/cfpb_2022-03_circular_2022-05.pdf; https://www.apra.gov.au/sites/default/files/cpg…",
       "thread_slugs": [
-        "nist-ai-ai-act-ai-rmf"
+        "nist-ai-ai-rmf-ai-act-2"
       ],
       "url": "/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html"
     },
@@ -3550,8 +3550,8 @@
       "question_excerpt": "Under what conditions does business-led low-code Artificial Intelligence (AI) agent creation produce durable organisational value versus technical debt and governance fragmentation, and what foundatio",
       "findings_excerpt": "(Populated from section 6 Synthesis above.) Executive Summary [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://gi…",
       "thread_slugs": [
-        "nist-ai-ai-act-ai-rmf",
-        "ai-rmf-nist-ai-apra-cps"
+        "nist-ai-ai-rmf-ai-act-2",
+        "nist-ai-ai-rmf-apra-cps"
       ],
       "url": "/Research/research/2026-04-24-business-led-low-code-agent-governance.html"
     },
@@ -3577,8 +3577,8 @@
       "question_excerpt": "What operational models exist for governing authoritative knowledge as a managed enterprise capability for Artificial Intelligence (AI) consumption in regulated financial institutions, covering domain",
       "findings_excerpt": "Executive Summary [inference] Regulated financial institutions should govern AI-facing authoritative knowledge through a hybrid operating model with central control standards and federated domain stewardship, because that structure best satisfies accountability, freshness, and auditability at the same time (NIST AI RMF 1.0, APRA CPS 230, 2025 DORA AI Capabilities Model report). [fact] The required…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act",
-        "ai-rmf-nist-ai-apra-cps"
+        "nist-ai-ai-rmf-ai-act",
+        "nist-ai-ai-rmf-apra-cps"
       ],
       "url": "/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html"
     },
@@ -3834,8 +3834,8 @@
       "question_excerpt": "`AGENTS.md` has emerged as the cross-tool convergence format for agent project instructions, supported by OpenAI Codex, GitHub Copilot, Claude Code, Cursor, Aider, Gemini Command Line Interface (CLI),",
       "findings_excerpt": "Executive Summary Deleting AGENTS.md in favour of .github/copilot-instructions.md as sole instructions source is the better-supported approach for this repo's two primary tools. [inference] The Copilot CLI (used in research-loop.yml) reads .github/copilot-instructions.md reliably; AGENTS.md support in the CLI exists in documentation but has a verified bug that may suppress it in practice. The Copi…",
       "thread_slugs": [
-        "coding-agent-copilot-coding-claude-code",
-        "coding-agent-copilot-coding-agents-md"
+        "copilot-coding-coding-agent-claude-code",
+        "copilot-coding-coding-agent-agents-md"
       ],
       "url": "/Research/research/2026-03-28-agents-md-role-and-cross-agent-instructions.html"
     },
@@ -3849,7 +3849,7 @@
       "question_excerpt": "What are the best practices for setting up a GitHub repository so that it can be worked on effectively by multiple Artificial Intelligence (AI) agents, specifically: (1) Claude via the iOS Claude app,",
       "findings_excerpt": "Executive Summary The repository currently serves the Copilot coding agent only partially: .github/copilot-instructions.md loads correctly, but the agent starts without Python dependencies and without the .github/skills/ submodule because no copilot-setup-steps.yml exists. Three additions cover all currently-reachable surfaces: copilot-setup-steps.yml (fixes the Copilot coding agent environment),…",
       "thread_slugs": [
-        "coding-agent-copilot-coding-claude-code"
+        "copilot-coding-coding-agent-claude-code"
       ],
       "url": "/Research/research/2026-03-29-multi-agent-repo-setup.html"
     },
@@ -3875,7 +3875,7 @@
       "question_excerpt": "Given the two primary agent entry points, (A) assigning a GitHub issue to the Copilot coding agent and (B) using the Claude iOS `code` feature, what environment does each agent start in, and what cont",
       "findings_excerpt": "Executive Summary The Copilot coding agent and Claude Code on the web each require a separate setup mechanism: copilot-setup-steps.yml controls the Copilot agent's environment completely, while Claude Code on the web uses a Bash setup script configured in the Claude.ai User Interface (UI), not a repository file. Neither agent respects devcontainer.json, which is Codespaces-scoped only. Without cop…",
       "thread_slugs": [
-        "coding-agent-copilot-coding-claude-code"
+        "copilot-coding-coding-agent-claude-code"
       ],
       "url": "/Research/research/2026-03-28-environment-setup-consistency.html"
     },
@@ -3889,8 +3889,8 @@
       "question_excerpt": "Given the current repo setup -- instructions in `.github/copilot-instructions.md`, skills submodule at `.github/skills/`, no `AGENTS.md` at root, no `CLAUDE.md` at root -- what does each agent actuall",
       "findings_excerpt": "Executive Summary The GitHub Copilot coding agent reads .github/copilot-instructions.md automatically when assigned a GitHub issue, and since August 2025 also reads AGENTS.md, CLAUDE.md, and GEMINI.md when present. Claude Code on the web (the Claude iOS app's code feature) reads CLAUDE.md automatically and is inferred to read AGENTS.md based on cross-tool documentation patterns, but does NOT read…",
       "thread_slugs": [
-        "coding-agent-copilot-coding-claude-code",
-        "coding-agent-copilot-coding-agents-md"
+        "copilot-coding-coding-agent-claude-code",
+        "copilot-coding-coding-agent-agents-md"
       ],
       "url": "/Research/research/2026-03-28-agent-instruction-loading-and-skills-access.html"
     },
@@ -4013,8 +4013,8 @@
       "findings_excerpt": "Executive Summary [inference] Artificial Intelligence (AI) finishers are most dependable when they operate inside bounded GitHub-native tasks, because the agent can handle planning, execution, validation, and packaging while the human keeps scoping authority and final sign-off. Sources: https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent; https://www.anthropic.com/re…",
       "thread_slugs": [
         "ai-adoption-ai-coding-delivery-stability",
-        "coding-agent-copilot-coding-claude-code",
-        "coding-agent-copilot-coding-agents-md"
+        "copilot-coding-coding-agent-claude-code",
+        "copilot-coding-coding-agent-agents-md"
       ],
       "url": "/Research/research/2026-03-22-agents-as-finishers-and-synthesisers.html"
     },
@@ -4304,7 +4304,7 @@
       "question_excerpt": "What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems: who is exploiting it, who is defending against it, and what does the research community consid",
       "findings_excerpt": "Executive Summary [inference] Prompt injection is now an operational security problem for agentic AI systems - AI systems that pursue goals with limited supervision and use tools or external software - rather than a hypothetical edge case. (Sources: https://www.congress.gov/crs-product/IF13151 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://un…",
       "thread_slugs": [
-        "ai-systems-agentic-ai-prompt-injection"
+        "ai-systems-prompt-injection-agentic-ai"
       ],
       "url": "/Research/research/2026-03-15-prompt-injection-threat-landscape.html"
     },
@@ -4378,7 +4378,7 @@
       "question_excerpt": "Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call `search_brain` before responding to surfac",
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary A custom GPT can be configured with Actions that call a self-hosted HTTPS endpoint to write a memory (add_memory) and to retrieve context before responding (search_brain) - both capabilities are fully supported by the OpenAI Actions architecture. OpenAI's built-in ChatGPT memory system has no programmatic API; no export or import hook exists,…",
       "thread_slugs": [
-        "fly-io-write-path-contents-api"
+        "fly-io-cloudflare-workers-claude-ios"
       ],
       "url": "/Research/research/2026-03-08-chatgpt-actions-memory-integration.html"
     },
@@ -4464,7 +4464,7 @@
       "question_excerpt": "Software engineering (Fred Brooks, 1975), evolutionary psychology (Robin Dunbar, 1992), and graph\ntheory each independently arrive at the same structural limit: approximately 5 people for a\nhigh-coord",
       "findings_excerpt": "This section consolidates and extends the §6 Synthesis from the Research Skill Output above, incorporating the consistency-check resolutions from §4 and the cross-disciplinary lenses from §5. Where §6 presents claims in structured list form tied to individual questions, the findings below are consolidated by theme and confidence level. Executive Summary Three disciplines converge on the ~5-person…",
       "thread_slugs": [
-        "mythical-man-month-tke-memo-team-size"
+        "per-employee-productivity-gains-revenue-per"
       ],
       "url": "/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html"
     },
@@ -4502,7 +4502,7 @@
       "question_excerpt": "Artificial Intelligence (AI) has increased per-person output by 5–10x. If coordination cost scales with the square of team size\n(see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha",
       "findings_excerpt": "Executive Summary AI increased per-person output by 5–10x without reducing coordination overhead per person; this makes the economic penalty for over-staffing above five proportionally larger than in the pre-AI era. The n(n-1)/2 communication-channel formula (Brooks, 1975) is unchanged — a 5-to-6 person expansion adds 50% more channels — but when each channel taxes individuals now worth $2M/year r…",
       "thread_slugs": [
-        "mythical-man-month-tke-memo-team-size"
+        "per-employee-productivity-gains-revenue-per"
       ],
       "url": "/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html"
     },
@@ -4516,7 +4516,7 @@
       "question_excerpt": "When Artificial Intelligence (AI) multiplies the productive capacity of each person by 5–10x, organisations face a\nstrategic choice: reduce headcount to cut costs, or redeploy the same people against",
       "findings_excerpt": "Executive Summary The ambition-expansion response to AI productivity gains is demonstrably viable: Lovable ($2.74M ARR per employee), Midjourney (~$4.7M), ElevenLabs (~$825K), Anthropic (~$3.6M–$7.5M), and OpenAI (~$5M) all achieve revenue-per-employee ratios 4–36x the private SaaS median of $130K, by keeping teams small and attacking large markets rather than shrinking a large base. The primary o…",
       "thread_slugs": [
-        "mythical-man-month-tke-memo-team-size"
+        "per-employee-productivity-gains-revenue-per"
       ],
       "url": "/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html"
     },
@@ -4665,7 +4665,7 @@
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary A Telegram bot can serve as a viable mobile memory capture and retrieval surface for the Memory-System. The capture path — message received → inbox/YYYY-MM-DD-HHmmss.md committed to the GitHub repository via the Contents API — is fully implementable using long-polling with python-telegram-bot and a fine-grained PAT. Long-polling requires no pu…",
       "thread_slugs": [
         "fly-io-contents-api-github-contents",
-        "fly-io-write-path-contents-api",
+        "fly-io-cloudflare-workers-claude-ios",
         "fine-grained-pat-ios-shortcuts-contents-api"
       ],
       "url": "/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html"
@@ -4747,7 +4747,7 @@
       "findings_excerpt": "Executive Summary Self-hosting a Python MCP server for mobile AI integration resolves to a split architecture. The write path — a stateless GitHub Contents API proxy — fits naturally on Cloudflare Workers ($0/month, zero cold start). The read path — embedding inference plus LanceDB vector search — requires either a persistent container on Fly.io or Railway ($5/month) or an existing home server exp…",
       "thread_slugs": [
         "fly-io-contents-api-github-contents",
-        "fly-io-write-path-contents-api"
+        "fly-io-cloudflare-workers-claude-ios"
       ],
       "url": "/Research/research/2026-03-08-self-hosted-mcp-server-options.html"
     },
@@ -4774,7 +4774,7 @@
       "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary AI coding harnesses across commercial and OSS tools have converged on three architectural choices: tool-mediated execution (every agent action goes through discrete tool calls), file-based project-context injection (AGENTS.md, CLAUDE.md, or equivalent), and git as the primary state and progress persistence mechanism. The primary divergence is…",
       "thread_slugs": [
         "ai-adoption-ai-coding-delivery-stability",
-        "coding-agent-copilot-coding-agents-md"
+        "copilot-coding-coding-agent-agents-md"
       ],
       "url": "/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html"
     },
@@ -4969,8 +4969,8 @@
       "question_excerpt": "What is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation's AI capability should NOT be owned by or coupled to its data/analytics department o",
       "findings_excerpt": "Executive Summary Coupling an organisation's AI capability to its data/analytics department is a structural category error: analytics platforms fail the non-functional requirements of production AI agents by design, and the data/analytics team lacks the organisational mandate, skills, and regulatory accountability required for the operational agent layer. The correct integration architecture place…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act",
-        "ai-rmf-nist-ai-apra-cps"
+        "nist-ai-ai-rmf-ai-act",
+        "nist-ai-ai-rmf-apra-cps"
       ],
       "url": "/Research/research/2026-03-02-ai-not-a-data-problem.html"
     },
@@ -5020,7 +5020,7 @@
       "question_excerpt": "What are the Reserve Bank of New Zealand's specific supervisory expectations for AI use by regulated entities, and how do these align with or diverge from the expectations of comparator regulators (AP",
       "findings_excerpt": "Executive Summary RBNZ has no standalone AI supervisory framework; its first substantive AI-focused publication is the May 2025 \"Rise of the Machines\" article in the Financial Stability Report, which maps systemic risks but announces no new regulatory requirements. AI risk for RBNZ-regulated entities is currently governed through existing principles-based frameworks: BS11/BPR operational risk and…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act"
+        "nist-ai-ai-rmf-ai-act"
       ],
       "url": "/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html"
     },
@@ -5046,8 +5046,8 @@
       "question_excerpt": "Given that Hallucination-Associated Neurons (H-Neurons) emerge during pre-training rather than instruction tuning or RLHF, what does this reveal about how hallucination-prone behaviour is encoded duri",
       "findings_excerpt": "Executive Summary H-Neurons originate during pre-training because the next-token prediction objective provides an unrestricted positive reward for compliant, agreeable continuations whenever training corpora contain sycophantic or confidently-stated-false text — which web-scale corpora do at sufficient concentration to consolidate dedicated over-compliance circuits. Post-training alignment (SFT, R…",
       "thread_slugs": [
-        "gao-et-parameter-inertia-ntp-objective",
-        "gao-et-inference-time-intervention-ntp-objective"
+        "gao-et-parameter-inertia-al-arxiv",
+        "gao-et-inference-time-intervention-h-neuron-activation"
       ],
       "url": "/Research/research/2026-03-05-h-neuron-pretraining-origins.html"
     },
@@ -5061,7 +5061,7 @@
       "question_excerpt": "What exactly is over-compliance behaviour in LLMs, how do Hallucination-Associated Neurons (H-Neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou",
       "findings_excerpt": "Executive Summary Over-compliance — the tendency of LLMs to generate outputs that satisfy user expectations at the cost of factual accuracy — is the causal pathway linking Hallucination-Associated Neurons (H-Neurons) to hallucination, sycophancy, and jailbreak failure, confirmed by activation scaling experiments across four structurally independent benchmarks in Gao et al. (arXiv:2512.01797). Thre…",
       "thread_slugs": [
-        "gao-et-inference-time-intervention-ntp-objective"
+        "gao-et-inference-time-intervention-h-neuron-activation"
       ],
       "url": "/Research/research/2026-03-05-h-neuron-over-compliance.html"
     },
@@ -5075,8 +5075,8 @@
       "question_excerpt": "Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu",
       "findings_excerpt": "Executive Summary LLM hallucinations — factual confabulation, sycophantic capitulation, and context-unfaithful generation — are three expressions of a single neural mechanism: a sparse set of FFN neurons (< 1‰ of total) called Hallucination-Associated Neurons (H-Neurons) that encode an over-compliance disposition formed during pre-training via the next-token prediction objective, which rewards sta…",
       "thread_slugs": [
-        "gao-et-parameter-inertia-ntp-objective",
-        "gao-et-inference-time-intervention-ntp-objective"
+        "gao-et-parameter-inertia-al-arxiv",
+        "gao-et-inference-time-intervention-h-neuron-activation"
       ],
       "url": "/Research/research/2026-03-05-h-neurons-synthesis.html"
     },
@@ -5114,7 +5114,7 @@
       "question_excerpt": "What are Hallucination-Associated Neurons (H-Neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for",
       "findings_excerpt": "Executive Summary A sparse subset of feed-forward network neurons — fewer than 1‰ of total parameters across every tested model — reliably predicts and causally drives hallucination in large language models. Gao et al. (arXiv:2512.01797, Tsinghua University, December 2025) identify these Hallucination-Associated Neurons (H-Neurons) using the CETT metric and L1-regularised sparse linear probing, de…",
       "thread_slugs": [
-        "gao-et-parameter-inertia-ntp-objective"
+        "gao-et-parameter-inertia-al-arxiv"
       ],
       "url": "/Research/research/2026-03-05-h-neurons-in-llms.html"
     },
@@ -5152,7 +5152,7 @@
       "question_excerpt": "Why do living organisms need predictive brains? What is the precise relationship between the thermodynamic concept of entropy (disorder), the information-theoretic concept of free energy (surprise), K",
       "findings_excerpt": "Executive Summary Living organisms need predictive brains because prediction is the efficient mechanism for maintaining the low-entropy states that life requires: any organism that cannot anticipate and correct deviations in its internal states will eventually reach thermodynamic equilibrium with its environment — death. The mathematical bridge from thermodynamic entropy to Friston's variational f…",
       "thread_slugs": [
-        "free-energy-controlled-hallucination-machine-thesis"
+        "free-energy-energy-principle-predictive-processing"
       ],
       "url": "/Research/research/2026-02-28-free-energy-entropy-and-life.html"
     },
@@ -5178,7 +5178,7 @@
       "question_excerpt": "What is the evidence that perception is a generative, top-down process rather than a bottom-up readout of the world — and what are the strongest objections to Seth's \"controlled hallucination\" framing",
       "findings_excerpt": "Executive Summary Perception is a generative, top-down process: the brain continuously predicts sensory input and uses incoming signals primarily as correction, not construction. This is established across four independent experimental paradigms — the rubber hand illusion, binocular rivalry, mismatch negativity, and observer-relative visual illusions — and mechanistically grounded in Rao & Ballard…",
       "thread_slugs": [
-        "controlled-hallucination-visual-cortex-prediction-error"
+        "controlled-hallucination-rao-ballard-free-energy"
       ],
       "url": "/Research/research/2026-02-28-controlled-hallucination-perception-as-construction.html"
     },
@@ -5193,8 +5193,8 @@
       "findings_excerpt": "Executive Summary Organisations deploying AI coding assistants at scale achieve real but task-scoped individual productivity gains of 40–55% on well-specified coding tasks; however, these gains do not automatically translate to team-level delivery improvement without process redesign, and Google's DORA 2024 data shows higher AI adoption is associated with worse delivery stability. Google reports t…",
       "thread_slugs": [
         "ai-adoption-ai-coding-delivery-stability",
-        "review-time-pr-review-platform-engineering",
-        "coding-agent-copilot-coding-agents-md"
+        "faros-ai-productivity-gains-ai-adoption",
+        "copilot-coding-coding-agent-agents-md"
       ],
       "url": "/Research/research/2026-02-28-ai-strategy-swe-focus.html"
     },
@@ -5208,8 +5208,8 @@
       "question_excerpt": "Which organisations have developed coherent AI strategies with security as the primary objective — either using AI to enhance security posture or governing the security risks that AI systems themselve",
       "findings_excerpt": "Executive Summary AI security strategy in 2025–2026 requires parallel governance architecture for two distinct problems: AI as an attack-amplification tool in adversaries' hands, and AI systems as a novel attack surface within organisations. AI-enhanced phishing has grown 1,265% in volume since generative AI became broadly available, with $2.7 billion in BEC losses in the US in 2024 alone, while t…",
       "thread_slugs": [
-        "nist-ai-ai-act-ai-rmf",
-        "ai-systems-agentic-ai-prompt-injection"
+        "nist-ai-ai-rmf-ai-act-2",
+        "ai-systems-prompt-injection-agentic-ai"
       ],
       "url": "/Research/research/2026-02-28-ai-strategy-security-focus.html"
     },
@@ -5501,8 +5501,8 @@
       "question_excerpt": "What do leading global AI strategies look like, how does New Zealand's regulatory and policy landscape (RBNZ, DIA, MBIE, and others) compare, and what use-case typology — from human augmentation throu",
       "findings_excerpt": "Executive Summary New Zealand released its first national AI strategy, Investing with Confidence, in July 2025. It is adoption-focused and deliberately light-touch: the government chose to use existing legal instruments rather than introduce AI-specific legislation. The strategy aligns with OECD AI Principles and is led by MBIE, with supporting roles for DIA, RBNZ, and the Privacy Commissioner. In…",
       "thread_slugs": [
-        "ai-rmf-nist-ai-ai-act",
-        "nist-ai-ai-act-ai-rmf"
+        "nist-ai-ai-rmf-ai-act",
+        "nist-ai-ai-rmf-ai-act-2"
       ],
       "url": "/Research/research/2026-02-28-ai-strategy.html"
     },
@@ -5516,8 +5516,8 @@
       "question_excerpt": "What exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl",
       "findings_excerpt": "(Fill in when completing. Follow the research skill synthesis structure.) Executive Summary Predictive processing (PP) is a well-supported computational framework in which the brain maintains hierarchical generative models that continuously predict incoming sensory signals; what propagates upward through the cortex is primarily prediction error (mismatch between prediction and input), not raw sens…",
       "thread_slugs": [
-        "controlled-hallucination-visual-cortex-prediction-error",
-        "free-energy-controlled-hallucination-machine-thesis"
+        "controlled-hallucination-rao-ballard-free-energy",
+        "free-energy-energy-principle-predictive-processing"
       ],
       "url": "/Research/research/2026-02-28-predictive-processing-active-inference.html"
     },
@@ -5555,8 +5555,8 @@
       "question_excerpt": "What are the key concepts presented in Anil Seth's \"Reality Is A Controlled Hallucination\" (https://youtu.be/HYUoS0GkGCs), and how do they relate to and reinforce each other when synthesised?",
       "findings_excerpt": "Executive Summary Anil Seth argues that conscious experience — including both the perception of the external world and the sense of self — is a \"controlled hallucination\": an active, top-down construction by the brain, continuously constrained by sensory signals. The brain is not a passive receiver but a prediction machine: it generates continuous hypotheses about the causes of sensory input, prop…",
       "thread_slugs": [
-        "controlled-hallucination-visual-cortex-prediction-error",
-        "free-energy-controlled-hallucination-machine-thesis"
+        "controlled-hallucination-rao-ballard-free-energy",
+        "free-energy-energy-principle-predictive-processing"
       ],
       "url": "/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html"
     },
