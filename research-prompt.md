@@ -194,7 +194,13 @@ aligned.
   subject, a verb, and a specific object or complement.** Do not include
   findings that are reformulations of the research question, findings that
   apply generically to all research items, or findings that consist only of a
-  label without a claim.
+  label without a claim. **Before assigning "high confidence" to any Key
+  Finding, count the distinct sources cited in its trailing parenthetical; if
+  fewer than two are present, or if multiple citations share the same
+  originating organisation, downgrade to "medium" confidence or add a second
+  independent source.** (Added 2026-08-21 after a review failure on exactly
+  this pattern: three Key Findings were labelled "high confidence" while each
+  cited only one source.)
 - **Evidence Map** -- table: claim | source | confidence | notes. Every Key
   Finding must appear here. **The `source` cell in every row must contain one or
   more URL-backed citations or DOIs, not only source names or shorthand labels,
@@ -298,6 +304,12 @@ failed for this reason alone. Run it now, before Step 5:
 
 Also expand any domain-specific abbreviation introduced in this item's topic
 area. Fix every violation before moving on.
+
+**Reversed-order check (new, added 2026-08-21).** Presence of an expansion is
+not sufficient; the order must be `Full Name (ABBR)`, never `(ABBR, Full Name)`.
+Run `grep -noE "\([A-Z]{2,}(-[A-Z]{2,})?,\s*[A-Z][a-z]" <item>` and confirm zero
+matches, or that any match is a benign list (not an expansion attempt). Fix any
+reversed-order expansion before moving on.
 
 ### 5. Sense check
 

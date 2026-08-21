@@ -2,12 +2,12 @@
 review_count: 2
 title: "Macro-level hallucination risk in schema-free GraphRAG clustering"
 added: 2026-08-20T07:13:11+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [knowledge-graphs, rag-retrieval, llm-reasoning, benchmarks-eval, memory-context]
 started: 2026-08-21T08:20:25+00:00
-completed: ~
+completed: 2026-08-21T08:49:52+00:00
 output: [knowledge]
 cites: [2026-07-20-tbox-abox-graphrag, 2026-07-05-vector-rag-to-ontology-kg-rag-migration, 2026-05-27-semantic-domain-emergence-enterprise-ontology]
 related: [2026-07-20-agent-memory-evaluation-framework, 2026-03-15-context-compression-rag-enterprise-knowledge, 2026-05-20-information-density-filtering-financial-rag]
