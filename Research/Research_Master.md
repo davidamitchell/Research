@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-08-21 07:49 UTC
+Generated on: 2026-08-21 08:19 UTC
 
 ## Table of Contents
 
+* [Context collision and relational blindness in flat-vector RAG](#2026-08-20-flat-vector-rag-context-collision-md)
 * [Governance latency and contextual debt in AWS Context Ontology Accelerator pipelines](#2026-08-20-aws-coa-governance-latency-contextual-debt-md)
 * [Decision governance for decentralized execution](#2026-08-17-decision-governance-md)
 * [What constitutes cohesive and coherent organisational governance for aligned, high-velocity, low-risk decentralised decision-making in large organisations facing Artificial Intelligence (AI)-driven change?](#2026-08-17-cohesive-coherent-organisational-governance-md)
@@ -452,6 +453,88 @@ Generated on: 2026-08-21 07:49 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-08-20-flat-vector-rag-context-collision-md"></a>
+
+## Context collision and relational blindness in flat-vector RAG
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-20-flat-vector-rag-context-collision.md
+
+## Research Question
+
+Given that classical flat-vector Retrieval-Augmented Generation (RAG) acts as an external access mechanism rather than a persistent internal memory state, how do contradictory semantic overlaps in top-k retrieval degrade an agent's deterministic reasoning, and in context-collision scenarios is the failure primarily a context-window limit or a deeper inability to resolve structural conflicts without a relational memory layer?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+Context collision in classical flat-vector Retrieval-Augmented Generation (RAG) is a compound failure with two independent mechanisms, not a single context-window limit. [inference; source: https://arxiv.org/abs/2307.03172; https://arxiv.org/abs/2506.08500] A documented position- and length-driven degradation mechanism (Lost in the Middle's U-shaped accuracy curve, RULER's effective-context-length shrinkage) harms reasoning even over non-contradictory evidence, confirming the context-window explanation is real. [inference; source: https://arxiv.org/abs/2307.03172; https://arxiv.org/abs/2404.06654] A second, structurally distinct contradiction-resolution mechanism persists when context length is held constant: Large Language Models (LLMs) systematically violate the Inclusion and Preservation postulates of Alchourron-Gardenfors-Makinson (AGM) rational belief revision, producing belief inertia and unrelated collateral retraction when contradictory evidence is introduced. [inference; source: https://www.cs.huji.ac.il/w~lehmann/nonmon/AGM_JSL.pdf; https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html] Reranking, context compression, and source-aware prompting each operate within the flat-chunk representation and narrow, rather than close, this second gap, while the one method shown to measurably improve multi-hop reasoning coherence does so specifically by introducing an explicit relational scaffold. [inference; source: https://arxiv.org/abs/2410.07176; https://arxiv.org/abs/2601.11255] Flat-vector RAG remains adequate for tasks that are neither contradiction-heavy nor relationally dense, and the structural failure becomes binding specifically where both conditions hold together. [inference; source: https://arxiv.org/abs/2501.01880; https://github.com/GraphRAG-Bench/GraphRAG-Benchmark]
+
+### Key Findings
+
+1. Knowledge conflicts affecting Large Language Models (LLMs) divide into three categories by origin, context-memory, inter-context, and intra-memory conflict, and this item's "context collision" scope corresponds specifically to inter-context conflict, contradictory or overlapping content within the same retrieved set. ([fact]; medium confidence; source: https://arxiv.org/abs/2403.08319; https://aclanthology.org/2024.emnlp-main.486/)
+2. A Retrieval-Augmented Generation (RAG)-specific taxonomy further splits inter-context conflict into five behavioral categories, no conflict, complementary information, subjective disagreement, freshness, and direct factual contradiction, each requiring a different model response rather than one uniform resolution routine. ([fact]; medium confidence; source: https://arxiv.org/abs/2506.08500)
+3. Top-k similarity retrieval has no ranking step that evaluates mutual agreement between selected chunks, and two independent research groups studying different benchmarks, a RAG-conflict taxonomy project and a retrieval-robustness project, both conclude that resulting conflicting or imperfect retrieval is inevitable and common under realistic conditions rather than a rare adversarial edge case. ([inference]; high confidence; source: https://arxiv.org/abs/2506.08500; https://arxiv.org/abs/2410.07176)
+4. Context-window position and effective length alone degrade reasoning even absent any factual contradiction, since the Lost in the Middle study measured a U-shaped accuracy curve and the RULER benchmark measured substantial degradation on multi-hop aggregation tasks before advertised context limits were reached. ([fact]; high confidence; source: https://arxiv.org/abs/2307.03172; https://arxiv.org/abs/2404.06654)
+5. A separate contradiction-driven failure persists when context length is not the limiting factor, evidenced by systematic violation of the Inclusion and Preservation postulates within Alchourron-Gardenfors-Makinson (AGM) rational belief-revision theory, a framework originating in Alchourron, Gardenfors, and Makinson's 1985 paper on partial meet contraction and revision functions, producing measured belief inertia and collateral retraction of unrelated correct facts. ([inference]; medium confidence; source: https://www.cs.huji.ac.il/w~lehmann/nonmon/AGM_JSL.pdf; https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html)
+6. The peer-reviewed Belief-R dataset corroborates the belief-revision failure directionally, finding that models both fail to retract conclusions that contradicting evidence should invalidate and, in other cases, over-revise when no contradiction was actually present. ([fact]; medium confidence; source: https://arxiv.org/abs/2406.19764)
+7. Reranking, context compression (LLMLingua-2, RAPTOR), and source-aware prompting all operate within the flat-chunk representation without introducing an explicit relation structure between entities or claims, so none directly targets mutual-consistency evaluation between retained chunks. ([inference]; medium confidence; source: https://arxiv.org/abs/2403.08319; https://davidamitchell.github.io/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html)
+8. Astute RAG's source-aware consolidation method is the one flat-vector-compatible mitigation with direct evidence of narrowing the conflict-resolution gap, matching or exceeding parametric-knowledge-only performance under worst-case retrieval conditions, but its authors frame this as resilience rather than as general contradiction resolution. ([fact]; medium confidence; source: https://arxiv.org/abs/2410.07176)
+9. Reasoning Tree Guided RAG (RT-RAG) improved multi-hop question-answering F1 score by 7.0 percentage points and Exact Match (EM, the fraction of answers matching the reference exactly) by 6.0 percentage points over prior state-of-the-art by decomposing questions into an explicit reasoning tree of known entities, unknown entities, and core sub-queries before retrieval, directly attributing prior coherence failures to inaccurate decomposition and error propagation rather than to context length. ([fact]; medium confidence; source: https://arxiv.org/abs/2601.11255)
+10. Microsoft's GraphRAG resolves a related but distinct failure, the absence of a coherent evidence-selection basis for corpus-wide "global sensemaking" questions, by traversing pre-built hierarchical community summaries instead of a single similarity-anchored lookup. ([fact]; medium confidence; source: https://arxiv.org/abs/2404.16130)
+11. The graph-retrieval advantage is bounded rather than universal: a dedicated cross-task benchmark project finds graph-augmented retrieval frequently underperforms plain vector retrieval on tasks lacking dense relational structure, corroborating a prior completed item's finding that graph structure earns its cost specifically on relationally dense corpora. ([inference]; medium confidence; source: https://github.com/GraphRAG-Bench/GraphRAG-Benchmark; https://davidamitchell.github.io/Research/research/2026-07-05-vector-rag-to-ontology-kg-rag-migration.html)
+12. Extending the context window generally outperforms retrieval-augmented generation on straightforward question-answering once retrieval quality and answerable-without-context items are controlled for, indicating flat-vector approaches remain competitive specifically for tasks that are neither contradiction-heavy nor relationally dense. ([fact]; medium confidence; source: https://arxiv.org/abs/2501.01880)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Knowledge conflicts split into context-memory, inter-context, and intra-memory categories. | https://arxiv.org/abs/2403.08319 ; https://aclanthology.org/2024.emnlp-main.486/ | medium | Foundational taxonomy (single paper, preprint + published versions); item scoped to inter-context |
+| [fact] A finer RAG-specific taxonomy splits inter-context conflict into five behavioral categories. | https://arxiv.org/abs/2506.08500 | medium | CONFLICTS benchmark, expert-annotated; single source |
+| [inference] Top-k retrieval has no built-in mutual-consistency check; conflicting retrieval is common, not rare. | https://arxiv.org/abs/2506.08500 ; https://arxiv.org/abs/2410.07176 | high | Two independent benchmark projects agree |
+| [fact] Position and length alone degrade reasoning absent contradiction. | https://arxiv.org/abs/2307.03172 ; https://arxiv.org/abs/2404.06654 | high | Lost in the Middle, RULER |
+| [inference] A distinct contradiction-driven failure (AGM postulate violation, belief inertia) persists when length is not the limiting factor. | https://www.cs.huji.ac.il/w~lehmann/nonmon/AGM_JSL.pdf ; https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html | medium | Postulates from the primary 1985 AGM paper; empirical violation from an unreviewed 2026 ICLR submission |
+| [fact] Belief-R corroborates under-retraction and over-revision failure directionally. | https://arxiv.org/abs/2406.19764 ; https://aclanthology.org/2024.emnlp-main.586/ | medium | Peer-reviewed, EMNLP 2024 |
+| [inference] Reranking, compression, and source-aware prompting operate within the flat-chunk representation without adding relation structure. | https://arxiv.org/abs/2403.08319 ; https://davidamitchell.github.io/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html | medium | No source describes these methods evaluating mutual consistency |
+| [fact] Astute RAG's source-aware consolidation narrows, not closes, the conflict-resolution gap. | https://arxiv.org/abs/2410.07176 | medium | Framed as resilience, not general resolution |
+| [fact] RT-RAG's explicit reasoning tree improves multi-hop F1 by 7.0pp and EM by 6.0pp. | https://arxiv.org/abs/2601.11255 | medium | Single benchmark study |
+| [fact] GraphRAG resolves global-sensemaking failure via hierarchical community traversal. | https://arxiv.org/abs/2404.16130 | medium | Distinct mechanism from direct contradiction resolution; single source |
+| [inference] Graph-retrieval advantage is bounded to relationally dense tasks, not universal. | https://github.com/GraphRAG-Bench/GraphRAG-Benchmark ; https://davidamitchell.github.io/Research/research/2026-07-05-vector-rag-to-ontology-kg-rag-migration.html | medium | Corroborates prior completed item |
+| [fact] Long context generally outperforms RAG on straightforward QA once controlled for retrieval quality. | https://arxiv.org/abs/2501.01880 | medium | Bounds where flat-vector RAG remains sufficient |
+
+### Assumptions
+
+This item scopes "context collision" to inter-context conflict rather than context-memory or intra-memory conflict, because the research question's Scope explicitly defines it as contradictory or overlapping chunks within the same top-k set. [assumption; source: https://arxiv.org/abs/2403.08319] The AGM-Bench belief-inertia finding is treated as medium rather than high confidence because its only located source is an unreviewed 2026 International Conference on Learning Representations (ICLR) submission, and the item relies on the peer-reviewed Belief-R dataset for directional corroboration rather than full independent replication. [assumption; source: https://arxiv.org/abs/2406.19764] RT-RAG's reasoning tree is treated as evidence for "relational memory layer" in the research question's sense even though it is a query-time scaffold rather than a persisted graph store, because the research question does not specify persistence as a requirement, only that a relation structure exists. [assumption; source: https://arxiv.org/abs/2601.11255]
+
+### Analysis
+
+The evidence supports treating context collision as two mechanisms rather than one, because one set of studies manipulates position and length while holding contradiction constant and a second set manipulates contradiction while context length is not the reported limiting factor. [inference; source: https://arxiv.org/abs/2307.03172; https://arxiv.org/abs/2506.08500] The context-window mechanism is well established by Lost in the Middle and RULER, both of which manipulate position and length while holding factual consistency constant, so this mechanism cannot be attributed to contradiction. [inference; source: https://arxiv.org/abs/2307.03172; https://arxiv.org/abs/2404.06654] The contradiction mechanism is established by evidence that manipulates disagreement while context length is not the reported limiting factor, most directly the AGM postulate violations and Cattan et al.'s finding that an explicit conflict-type label, not reordering or shortening, is what improves resolution quality. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html; https://arxiv.org/abs/2506.08500] A plausible rival explanation is that apparent contradiction-resolution failures are actually disguised position effects, meaning the contradicting passage simply happened to be poorly positioned in the tested benchmarks. [assumption; source: https://arxiv.org/abs/2307.03172] This rival is weakened by the belief-revision evidence, which manipulates contradiction directly in short evaluation prompts rather than long retrieved contexts, so the AGM postulate violations cannot be fully explained by positional bias alone. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html] A second rival explanation is that the RT-RAG improvement reflects better retrieval recall generally rather than relational structure specifically; this is only partly addressed because the RT-RAG source attributes the gain to reduced decomposition error and reduced error propagation, but the underlying investigation did not run a controlled ablation isolating relational structure from retrieval recall improvements, which is recorded as a gap below. [inference; source: https://arxiv.org/abs/2601.11255] Confidence in the graph-backed mitigation is tempered by the GraphRAG-Bench finding that graph structure is not a universal fix, so the practical implication is conditional: adopt relational structure when relational density and contradiction frequency are both high, and rely on flat-vector RAG with context-window mitigations otherwise. [inference; source: https://github.com/GraphRAG-Bench/GraphRAG-Benchmark; https://arxiv.org/abs/2501.01880]
+
+### Risks, Gaps, and Uncertainties
+
+The AGM-Bench belief-inertia measurement rests on an unreviewed 2026 conference submission, so its specific numeric findings should be treated as provisional pending peer review. [assumption; source: https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html]
+
+No source located in this investigation runs a controlled experiment that isolates relational structure from retrieval-recall improvement in RT-RAG's reported gain, so the causal attribution to relational structure specifically, rather than to reduced decomposition error alone, cannot be fully separated with the evidence gathered. [assumption; source: https://arxiv.org/abs/2601.11255]
+
+No benchmark located in this investigation directly measures inter-context conflict resolution accuracy on a matched pair of flat-vector and graph-backed systems using the identical corpus and identical contradiction-injection method, so the comparison in Finding 11 rests on separately conducted benchmark projects (GraphRAG-Bench versus the vector-to-graph migration item's sources) rather than a single head-to-head study. [assumption; source: https://github.com/GraphRAG-Bench/GraphRAG-Benchmark]
+
+### Open Questions
+
+Would a controlled benchmark that holds context length and position constant while varying only the presence and type of inter-context contradiction (using Cattan et al.'s five-category taxonomy) directly quantify the contradiction-specific reasoning-degradation effect, separated from the position and length effects RULER and Lost in the Middle already measure?
+
+Does a peer-reviewed replication of AGM-Bench exist or is one planned, and would it confirm the belief-inertia and collateral-retraction findings this item relies on at medium confidence?
+
+Would an ablation of RT-RAG that holds retrieval recall constant while removing only the explicit reasoning-tree structure isolate the relational-structure contribution from the decomposition-accuracy contribution to its reported F1 and EM gains?
+
+### Output
+
+- Type: knowledge
+- Description: Establishes that flat-vector RAG's context-collision failure under contradictory top-k retrieval is a compound failure, not a single context-window limit, separating a documented position/length mechanism from a distinct AGM-postulate-violating contradiction-resolution mechanism, and bounds when flat-vector mitigations suffice versus when relational structure is required. [inference; source: https://arxiv.org/abs/2307.03172; https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html]
+- Links: https://arxiv.org/abs/2506.08500, https://arxiv.org/abs/2601.11255, https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html
 
 ---
 
