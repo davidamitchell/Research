@@ -2,13 +2,13 @@
 review_count: 2
 title: "Context collision and relational blindness in flat-vector RAG"
 added: 2026-08-20T07:13:11+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [rag-retrieval, memory-context, llm-reasoning, knowledge-graphs, benchmarks-eval]
 started: 2026-08-21T07:50:29+00:00
-completed: ~
-output: []
+completed: 2026-08-21T08:16:58+00:00
+output: [knowledge]
 cites: [2026-07-05-vector-rag-to-ontology-kg-rag-migration, 2026-03-15-context-compression-rag-enterprise-knowledge, 2026-05-12-rag-document-drift-agent-behavior, 2026-07-20-autonomous-knowledge-curation-truth-maintenance, 2026-07-20-hybrid-memory-integration-ontology-llm-weights, 2026-05-20-information-density-filtering-financial-rag]
 related: [2026-03-03-knowledge-representation-agent-context]
 superseded_by: ~

@@ -1738,3 +1738,24 @@ Tests cover: phrase bonus applies on all surfaces, alias expansion consistent ac
 ### Context
 
 Identified 2026-05-29 during search consistency audit. A user searching for `"artificial intelligence"` on Browse gets results (alias expands `ai` to match); the same search on the full search page gets zero results unless the literal string `"artificial intelligence"` appears in the title or question excerpt. The phrase bonus means Browse rewards exact phrase matches with a much higher score threshold than the full search page. The stem-form gap (`ing`, `ed`) means `"governing"` matches on Browse but not on the full search page.
+
+---
+
+## W-0085
+
+status: open
+created: 2026-08-21
+updated: 2026-08-21
+
+### Outcome
+
+`Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md` and the corresponding `learnings.md` Thread 26 (prior to this session's fix) mis-cite the Belief-R dataset's venue as "EACL 2023." The actual publication is Wilie et al., "Belief Revision: The Adaptability of Large Language Models Reasoning," published at EMNLP 2024 (https://aclanthology.org/2024.emnlp-main.586/, https://arxiv.org/abs/2406.19764). This session (`2026-08-20-flat-vector-rag-context-collision`) independently verified the correct venue via direct ACL Anthology and arXiv lookups and corrected the citation in the new item and in `learnings.md` Thread 26, but did **not** edit the older completed item itself, because doing so requires a `versions:` frontmatter entry, a new `progress/` session log, and a populated `sha` field per ADR-0013, which is out of scope for a single-item research-loop session.
+
+The fix requires:
+  - Opening `Research/completed/2026-07-20-autonomous-knowledge-curation-truth-maintenance.md`, locating every citation of the Belief-R dataset, and correcting "EACL 2023" to "EMNLP 2024" with the ACL Anthology URL added alongside the existing arXiv citation.
+  - Adding a `versions:` frontmatter entry (`version`, `sha`, `changed`, `progress`, `summary: "Corrected Belief-R venue citation from EACL 2023 to EMNLP 2024"`).
+  - Creating a `progress/YYYY-MM-DD-{slug}.md` session log documenting the correction.
+
+### Context
+
+Identified 2026-08-21 while researching `2026-08-20-flat-vector-rag-context-collision`, which cites the same Belief-R paper and needed to verify its venue directly against the ACL Anthology and arXiv pages before use.

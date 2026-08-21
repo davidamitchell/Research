@@ -399,6 +399,30 @@ easily-detectable issues.
     `grep -nE "BM25|Leiden|Louvain|HNSW|Okapi|PageRank" <item>` and confirm each
     named method carries a definition link at first use.
 
+1ab. **Historical/founding-claim primary-source check.** Any claim that names a
+    specific person or group, a year, and a framework or method they originated
+    (for example "X's 1985 framework," "Y et al.'s 2019 method," "the postulates
+    Alchourron, Gardenfors, and Makinson proposed") must cite the primary
+    publication establishing that framework, not only a secondary source that
+    discusses or applies it. A well-sourced secondary item (even a prior
+    completed repository item) does not substitute for the primary citation on
+    a historical/founding claim. Before triggering the first review, grep for
+    possessive-attribution patterns (`'s 19\d\d`, `'s 20\d\d`, `et al\.'s`,
+    `originat`, `propose[ds]`) and confirm each match has a primary-source
+    citation, adding one if only a secondary source is currently bound to the
+    claim.
+
+1ac. **Frontmatter cross-reference engagement check.** Every slug listed in
+    frontmatter `cites:` or `related:` must appear in a substantive, URL-cited
+    body-prose sentence somewhere in `## Research Skill Output` or `## Findings`
+    -- not only in the `## Sources` list or the frontmatter array itself. Before
+    triggering the first review, grep each slug's topic keywords across the
+    whole document and confirm a genuine citation, not just a consultation mark
+    or a list mention. If a listed item is not engaged with, either add a
+    substantive cited discussion or move it out of `cites:`/`related:`
+    entirely. This check has failed review repeatedly; see the Known Recurring
+    Failure Patterns table in `.github/copilot-instructions.md`.
+
 2. **Claim labels** -- every factual or inferential claim in
     `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
     `[assumption]` label. Headings and question decomposition sub-headings are
