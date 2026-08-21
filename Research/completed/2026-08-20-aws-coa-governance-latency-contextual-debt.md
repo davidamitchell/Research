@@ -2,12 +2,12 @@
 review_count: 2
 title: "Governance latency and contextual debt in AWS Context Ontology Accelerator pipelines"
 added: 2026-08-20T07:13:11+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, governance-policy, knowledge-graphs, memory-context, tools-infrastructure]
 started: 2026-08-21T07:18:10+00:00
-completed: ~
+completed: 2026-08-21T07:48:00+00:00
 output: []
 cites: [2026-07-20-aws-agentcore-knowledge-context-layer, 2026-07-20-tbox-abox-graphrag, 2026-07-20-hybrid-memory-integration-ontology-llm-weights, 2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-05-15-ontology-landscape-for-curated-enterprise-context]
 related: []
