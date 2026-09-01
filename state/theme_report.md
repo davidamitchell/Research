@@ -1,8 +1,8 @@
 # Theme Report
 
 **Canonical themes in vocabulary:** 22  
-**Items scanned:** 445  
-**Items with themes:** 443  
+**Items scanned:** 454  
+**Items with themes:** 452  
 **Uncovered items (no themes:):** 2  
 **Near-duplicate vocabulary candidates:** 0  
 **Stray (non-vocabulary) themes in corpus:** 38  
@@ -51,23 +51,23 @@ _All canonical themes are in use._
 
 | Theme | Item count |
 |---|---|
-| `agentic-ai` | 235 |
-| `tools-infrastructure` | 215 |
-| `governance-policy` | 212 |
+| `agentic-ai` | 239 |
+| `tools-infrastructure` | 218 |
+| `governance-policy` | 217 |
 | `ai-architecture` | 158 |
-| `security-risk` | 118 |
+| `security-risk` | 119 |
 | `knowledge-management` | 104 |
-| `benchmarks-eval` | 89 |
-| `organisational-design` | 87 |
+| `benchmarks-eval` | 93 |
+| `organisational-design` | 90 |
 | `workforce-skills` | 73 |
-| `cost-performance` | 58 |
-| `llm-reasoning` | 50 |
-| `mlops-deployment` | 49 |
-| `memory-context` | 46 |
-| `rag-retrieval` | 43 |
-| `software-engineering` | 42 |
-| `knowledge-graphs` | 39 |
-| `enterprise-adoption` | 27 |
+| `cost-performance` | 60 |
+| `llm-reasoning` | 53 |
+| `mlops-deployment` | 51 |
+| `memory-context` | 50 |
+| `rag-retrieval` | 45 |
+| `knowledge-graphs` | 43 |
+| `software-engineering` | 43 |
+| `enterprise-adoption` | 31 |
 | `consciousness-cognition` | 25 |
 | `formal-methods` | 24 |
 | `regulatory-compliance` | 19 |
