@@ -1,6 +1,99 @@
 {
-  "extracted_at": "2026-08-21T09:05:23Z",
+  "extracted_at": "2026-09-01T07:18:08Z",
   "items": {
+    "2026-08-20-neuro-symbolic-nuance-loss-explainability": {
+      "named_concepts": [
+        "description logic",
+        "fuzzy description",
+        "classical description",
+        "class membership",
+        "explainability gain",
+        "user study",
+        "neuro-symbolic pipeline",
+        "executive summary",
+        "represents class",
+        "extraction step",
+        "ambiguous input",
+        "symbolic class",
+        "class boundaries",
+        "escalation path",
+        "web ontology",
+        "systems bridge",
+        "symbolic layers",
+        "latent embedding",
+        "ontology-grounded neuro-symbolic",
+        "community rules"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-07-20-hybrid-memory-integration-ontology-llm-weights.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-15-ontology-landscape-for-curated-enterprise-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-agentic-explainability-vs-traditional.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-explainable-ai-xai-regulation-governance.html",
+        "https://arxiv.org/abs/2411.04383",
+        "https://ieeexplore.ieee.org/document/10731866",
+        "https://arxiv.org/abs/1009.3391",
+        "https://arxiv.org/abs/2309.14517",
+        "https://www.nimh.nih.gov/research/research-funded-by-nimh/rdoc",
+        "https://yalebooks.yale.edu/9780300078152/seeing-like-a-state/",
+        "https://www.russellsage.org/publications/book/street-level-bureaucracy",
+        "https://en.wikipedia.org/wiki/Description_logic",
+        "https://en.wikipedia.org/wiki/Closed-world_assumption",
+        "https://davidamitchell.github.io/Research/research/2026-05-25-ontology-world-model-llm-prediction-forcing-functions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-governance-policy-determinism-vs-stochastic-llm.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Classical Description Logic, the logical foundation of the Web Ontology Language that underlies most production ontologies, represents class membership as a binary in-or-out judgment with no native mechanism for partial or graded membership",
+          "sources": [
+            "https://arxiv.org/abs/1009.3391",
+            "https://en.wikipedia.org/wiki/Description_logic"
+          ]
+        },
+        {
+          "text": "Fuzzy Description Logic and fuzzy Web Ontology Language extensions close the graded-membership gap by attaching a truth degree to class and role assertions, with reasoners such as fuzzyDL supporting inference under Gödel and Łukasiewicz semantics",
+          "sources": [
+            "https://arxiv.org/abs/1009.3391"
+          ]
+        },
+        {
+          "text": "A systematic review of neuro-symbolic architectures found that most reviewed systems bridge the neural and symbolic layers through a latent embedding that is not directly human-readable, so the process that assigns ambiguous input to a symbolic class often remains opaque even when the ontology itself is fully auditable",
+          "sources": [
+            "https://arxiv.org/abs/2411.04383"
+          ]
+        },
+        {
+          "text": "An open-world assumption, the default in Web Ontology Language-based ontologies, avoids treating unmodeled facts as false but does not remove the requirement that any admitted fact conform to the ontology's fixed class and property vocabulary",
+          "sources": [
+            "https://en.wikipedia.org/wiki/Closed-world_assumption",
+            "https://arxiv.org/abs/1009.3391"
+          ]
+        },
+        {
+          "text": "Ontology-grounded neuro-symbolic explanations measurably improve prediction quality and human understandability in a controlled user study, indicating the explainability gain from symbolic structure is real rather than only cosmetic",
+          "sources": [
+            "https://ieeexplore.ieee.org/document/10731866"
+          ]
+        },
+        {
+          "text": "Large Language Models used as rule-based content moderators achieved only a median accuracy of 64% and a median precision of 83% against explicit community rules, showing that explicit auditable rules alone do not guarantee correct handling of ambiguous or contested cases",
+          "sources": [
+            "https://arxiv.org/abs/2309.14517"
+          ]
+        },
+        {
+          "text": "The Diagnostic and Statistical Manual of Mental Disorders' categorical diagnostic model has driven the field toward dimensional alternatives such as the Research Domain Criteria framework and the Hierarchical Taxonomy of Psychopathology, because symptom overlap, high comorbidity, and weak biological mapping showed the categorical model losing clinically relevant nuance",
+          "sources": [
+            "https://www.nimh.nih.gov/research/research-funded-by-nimh/rdoc"
+          ]
+        },
+        {
+          "text": "Michael Lipsky's analysis of street-level bureaucracy found that discretionary, non-deterministic rule application by frontline case workers produces documented inconsistency, bias, and inequity across superficially similar cases, showing that removing deterministic bounds to preserve nuance carries its own measurable harm",
+          "sources": [
+            "https://www.russellsage.org/publications/book/street-level-bureaucracy"
+          ]
+        }
+      ]
+    },
     "2026-08-20-graphrag-macro-level-hallucination": {
       "named_concepts": [
         "community detection",
