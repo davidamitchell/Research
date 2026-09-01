@@ -2,12 +2,12 @@
 review_count: 2
 title: "Nuance collapse in deterministic neuro-symbolic ontology pipelines"
 added: 2026-08-20T07:13:11+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, llm-reasoning, governance-policy, knowledge-graphs, memory-context]
 started: 2026-08-21T08:52:58+00:00
-completed: ~
+completed: 2026-09-01T07:15:07+00:00
 output: []
 cites: [2026-07-20-hybrid-memory-integration-ontology-llm-weights, 2026-05-15-ontology-landscape-for-curated-enterprise-context, 2026-05-18-agentic-explainability-vs-traditional]
 related: [2026-05-25-ontology-world-model-llm-prediction-forcing-functions, 2026-04-30-explainable-ai-xai-regulation-governance, 2026-05-09-governance-policy-determinism-vs-stochastic-llm]
