@@ -2,13 +2,13 @@
 review_count: 2
 title: "Noise thresholds and topology drift in planar memory graphs"
 added: 2026-08-20T07:13:11+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, memory-context, knowledge-graphs, llm-reasoning, benchmarks-eval]
 started: 2026-09-01T07:17:18+00:00
-completed: ~
-output: []
+completed: 2026-09-01T08:06:35+00:00
+output: [knowledge]
 cites: [2026-07-20-tbox-abox-graphrag, 2026-03-03-knowledge-representation-agent-context, 2026-07-20-agent-memory-evaluation-framework, 2026-08-20-graphrag-macro-level-hallucination]
 related: [2026-05-27-semantic-domain-emergence-enterprise-ontology]
 superseded_by: ~
