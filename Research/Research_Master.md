@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-09-01 07:16 UTC
+Generated on: 2026-09-01 08:09 UTC
 
 ## Table of Contents
 
+* [Noise thresholds and topology drift in planar memory graphs](#2026-08-20-planar-memory-graph-topology-drift-md)
 * [Nuance collapse in deterministic neuro-symbolic ontology pipelines](#2026-08-20-neuro-symbolic-nuance-loss-explainability-md)
 * [Macro-level hallucination risk in schema-free GraphRAG clustering](#2026-08-20-graphrag-macro-level-hallucination-md)
 * [Context collision and relational blindness in flat-vector RAG](#2026-08-20-flat-vector-rag-context-collision-md)
@@ -455,6 +456,85 @@ Generated on: 2026-09-01 07:16 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-08-20-planar-memory-graph-topology-drift-md"></a>
+
+## Noise thresholds and topology drift in planar memory graphs
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-20-planar-memory-graph-topology-drift.md
+
+## Research Question
+
+In a two-dimensional (2D) planar memory graph, what threshold of contextual noise causes a bounded entity-extraction schema to stop suppressing Large Language Model (LLM)-driven predicate hallucinations, and how does the resulting topological drift affect the agent's ability to perform spatial-relational reasoning over the graph?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+No source in the 2023-2026 GraphRAG, agent-memory, or spatial-reasoning literature reports a numeric contextual-noise threshold at which a bounded entity-extraction schema stops suppressing Large Language Model (LLM)-driven predicate hallucinations in a planar memory graph. No source uses "planar memory graph" as an established architecture at all. [inference; source: https://arxiv.org/abs/2602.05665; https://arxiv.org/abs/2603.14828] The evidence instead supports two usable proxy-metric families for detecting the drift the research question describes. A structural-stability family is built on community-detection modularity, where a value below roughly Q equals 0.3 signals eroding community boundaries. A task-outcome family is built on multi-hop path-query accuracy and community-report factual distortion under injected noise. [inference; source: https://www.pnas.org/doi/10.1073/pnas.0601602103; https://arxiv.org/abs/2603.14828] A bounded extraction schema suppresses out-of-vocabulary predicate hallucinations but does not verify whether an in-vocabulary predicate instance is actually supported by source text. Schema boundedness alone therefore cannot suppress all hallucination-driven drift regardless of how tightly the schema is drawn. [inference; source: https://arxiv.org/abs/2603.14828; https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html] Every system in the evidence base shown to remain usable under noise achieves that robustness through an active, post-extraction repair mechanism rather than through extraction-schema rigidity alone. This indicates that a planar memory graph needs a repair loop to remain a stable long-horizon substrate. [inference; source: https://arxiv.org/abs/2603.14828; https://arxiv.org/abs/2407.10793; https://aclanthology.org/2026.acl-long.2222/] Spatial path-finding degradation under uncorrected structural inconsistency is directly evidenced in an incrementally-constructed topological navigation graph, where a version-controlled repair framework significantly improved map correctness in scenarios with entangled or chained inconsistencies. [fact; source: https://aclanthology.org/2026.acl-long.2222/]
+
+### Key Findings
+
+1. No paper in the reviewed 2023-2026 literature uses "planar memory graph" as a named agent-memory architecture, and a 2026 survey of graph-based agent memory does not identify layout planarity as a distinct architectural category, so no planarity-specific robustness claim exists in the surveyed literature. ([fact]; medium confidence; source: https://arxiv.org/abs/2602.05665)
+2. Standard Graph Retrieval-Augmented Generation's default entity-merge step performs no semantic entity resolution and matches only identical title-and-type strings, so alias duplication is structurally expected to survive into any graph built with the default pipeline. ([fact]; medium confidence; source: https://microsoft.github.io/graphrag/index/default_dataflow/)
+3. Schema-free extraction is documented to fragment entity and relation labelling for the same underlying concept into inconsistent representations, establishing one concrete mechanism by which unbounded extraction generates topology drift. ([inference]; medium confidence; source: https://arxiv.org/abs/2404.03868)
+4. LLM-constructed knowledge graphs exhibit two recurring issue modes, spurious noise that induces retrieval drift toward plausible but unsupported triples, and incomplete information that forces continuation through under-supported structure, and a constraint-based retriever addressing both remains measurably more stable under controlled knowledge-graph issue injection across three multi-hop benchmarks than retrievers that assume a structurally sound graph. ([fact]; medium confidence; source: https://arxiv.org/abs/2603.14828)
+5. A bounded, schema-constrained extraction pipeline suppresses predicate types outside its defined vocabulary but provides no mechanism to verify that an in-vocabulary predicate instance is actually supported by the underlying source text, so schema boundedness alone leaves an evidentiary gap that a query-time sufficiency check is needed to close. ([inference]; medium confidence; source: https://arxiv.org/abs/2603.14828; https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html)
+6. A production agent-memory system's entity-resolution merge cutoff, a weighted score of name similarity, co-occurrence overlap, and temporal recency with a merge threshold at 0.6, is the only concrete numeric duplicate-suppression proxy located in the evidence base for this specific error class. ([assumption]; low confidence; source: https://hindsight.vectorize.io/blog/2026/06/29/entity-resolution-agent-memory)
+7. Community-detection modularity above a value of roughly Q equals 0.3 is an established proxy for stable graph community structure, but the Leiden algorithm used in reference GraphRAG pipelines guarantees only internal connectivity of a community, not the semantic correctness of the nodes and edges inside it, so high modularity can coexist with undetected noise-driven topology drift. ([fact]; medium confidence; source: https://www.pnas.org/doi/10.1073/pnas.0601602103; https://www.nature.com/articles/s41598-019-41695-z)
+8. A companion repository item on macro-level hallucination in standard GraphRAG independently concludes that no located study measures how community-report distortion scales with injected duplicate or falsely-associated node counts, corroborating this item's own finding that the structural-stability and task-outcome proxy-metric families remain uncalibrated against one another. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-08-20-graphrag-macro-level-hallucination.html)
+9. GraphRAG-Bench was constructed specifically because GraphRAG frequently underperforms plain Retrieval-Augmented Generation on real-world tasks, and its four-level difficulty gradient isolates the point at which multi-hop graph traversal begins to fail under structural degradation, a task treated here as the closest available proxy for spatial path-finding. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-evaluation-framework.html)
+10. A version-controlled repair framework for incrementally-constructed topological navigation graphs, using an Edge Impact Score to prioritise repairs by structural reachability, path usage, and conflict propagation, significantly improves map correctness and robustness in scenarios with entangled or chained inconsistencies, directly evidencing that active repair rather than extraction-time schema rigidity restores spatial path-finding capability after drift. ([fact]; medium confidence; source: https://aclanthology.org/2026.acl-long.2222/)
+
+Source URLs above match the `## Sources` section for site citation rendering.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] No paper names a "planar memory graph" architecture; planarity is absent from a 2026 graph-agent-memory taxonomy. | https://arxiv.org/abs/2602.05665 | medium | [x] consulted |
+| [fact] Standard GraphRAG's default entity-merge matches only identical title/type strings. | https://microsoft.github.io/graphrag/index/default_dataflow/ | medium | [x] consulted |
+| [inference] Schema-free extraction fragments entity/relation labelling for the same concept into inconsistent representations. | https://arxiv.org/abs/2404.03868 | medium | [x] consulted |
+| [fact] LLM-built knowledge graphs show spurious-noise and incomplete-information issue modes; constraint-based retrieval is more stable under injected knowledge-graph issues. | https://arxiv.org/abs/2603.14828 | medium | [x] consulted |
+| [inference] Bounded schema suppresses out-of-vocabulary but not in-vocabulary predicate hallucination. | https://arxiv.org/abs/2603.14828; https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html | medium | [x] both consulted |
+| [assumption] Entity-resolution merge cutoff (0.6, weighted score) is a usable proxy threshold. | https://hindsight.vectorize.io/blog/2026/06/29/entity-resolution-agent-memory | low | [x] consulted; single vendor source |
+| [fact] Modularity above roughly Q=0.3 signals stable community structure; Leiden guarantees only internal connectivity, not semantic correctness. | https://www.pnas.org/doi/10.1073/pnas.0601602103; https://www.nature.com/articles/s41598-019-41695-z | medium | [x] both consulted |
+| [inference] Structural-stability and task-outcome proxy families remain uncalibrated against each other. | https://davidamitchell.github.io/Research/research/2026-08-20-graphrag-macro-level-hallucination.html | medium | [x] consulted |
+| [fact] GraphRAG-Bench's difficulty gradient isolates when graph traversal fails. | https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-evaluation-framework.html | medium | [x] consulted |
+| [fact] Version-controlled Edge Impact Score repair improves spatial-navigation-graph correctness under chained inconsistencies. | https://aclanthology.org/2026.acl-long.2222/ | medium | [x] consulted |
+| [fact] Knowledge-graph-based hallucination evaluation enables post-hoc triple correction. | https://arxiv.org/abs/2407.10793 | medium | [x] consulted |
+
+**Identified but not consulted:** none; every source reachable during this session was fetched and read.
+
+### Assumptions
+
+The item's own architecture, a two-dimensional planar memory graph, is treated as functionally equivalent to an incrementally-constructed topological navigation graph for the purpose of this investigation. [assumption; source: https://aclanthology.org/2026.acl-long.2222/] This assumption is justified because no closer published match was located, and the nearest evidence-backed system shares the defining property of building spatial structure from stepwise observations. [assumption; source: https://aclanthology.org/2026.acl-long.2222/]
+
+A production entity-resolution merge cutoff (0.6, on a weighted name-similarity/co-occurrence/recency score) is treated as a workable proxy for a duplicate-suppression threshold rather than as a validated information-theoretic optimum. [assumption; source: https://hindsight.vectorize.io/blog/2026/06/29/entity-resolution-agent-memory] This assumption is justified because it is the only concrete, numeric merge criterion located in the evidence base for this specific error class. [assumption; source: https://hindsight.vectorize.io/blog/2026/06/29/entity-resolution-agent-memory]
+
+A modularity value below roughly Q equals 0.3 is treated as a usable proxy signal for the onset of topology drift, rather than as a measured drift threshold. [assumption; source: https://www.pnas.org/doi/10.1073/pnas.0601602103] This assumption is justified because the Q equals 0.3 figure is validated for general community-structure stability, not for extraction-noise-driven drift specifically, so its application here is an extrapolation across domains. [assumption; source: https://www.pnas.org/doi/10.1073/pnas.0601602103]
+
+### Analysis
+
+The research question asks for a numeric threshold, but the strongest-supported conclusion is that no such single number exists in the current evidence base. The item's own Scope constraint anticipated this outcome by directing that proxy metrics and threshold-estimation methods substitute for an invented figure. [inference; source: https://arxiv.org/abs/2603.14828] A plausible rival position holds that a sufficiently narrow bounded schema alone could suppress hallucination-driven drift without any repair mechanism. This position is addressed and rejected by the evidence. The TBox-versus-ABox comparison shows a narrow, predefined schema losing accuracy faster than a schema-free approach as corpus noise rises, and the constraint-based retriever paper explicitly targets the residual in-vocabulary gap that a schema cannot close on its own. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html; https://arxiv.org/abs/2603.14828] The structural-stability proxy (modularity) and the task-outcome proxy (path-query accuracy, community-report distortion) measure different things. Neither is shown anywhere in the evidence base to move together with the other, so a system could pass one and fail the other. This is treated as a genuine uncalibrated gap rather than resolved in either direction. [inference; source: https://www.pnas.org/doi/10.1073/pnas.0601602103; https://arxiv.org/abs/2603.14828] The clearest single piece of direct evidence for the second half of the research question, the effect of uncorrected topology drift on spatial-relational reasoning, comes from the graph-rectification paper's finding that a version-controlled repair mechanism specifically improved correctness in scenarios with entangled or chained inconsistencies. This is the closest available direct test of drift's effect on path-finding in a spatially-laid-out graph. [fact; source: https://aclanthology.org/2026.acl-long.2222/]
+
+### Risks, Gaps, and Uncertainties
+
+- No source directly measures topology drift in a graph memory system that is explicitly planar or 2D-laid-out as opposed to a general-purpose knowledge graph; every quantitative finding in this item is extrapolated from general GraphRAG or spatial-navigation-graph research rather than from a study of planar memory graphs specifically. [assumption; source: https://aclanthology.org/2026.acl-long.2222/]
+- No source calibrates the modularity-based structural-stability proxy against the task-outcome proxy (path-query accuracy or community-report distortion) in a single experiment, so it is unknown whether the two proxies would agree on where a real system's drift threshold lies. [fact; source: https://davidamitchell.github.io/Research/research/2026-08-20-graphrag-macro-level-hallucination.html]
+- The entity-resolution merge-cutoff figure (0.6) comes from a single vendor engineering blog post rather than a peer-reviewed or independently replicated source, so it should not be read as a validated threshold for any system beyond the one it describes. [assumption; source: https://hindsight.vectorize.io/blog/2026/06/29/entity-resolution-agent-memory]
+- The Edge Impact Score repair framework's reported improvement is stated qualitatively in its own abstract ("significantly improves map correctness and robustness") without a specific effect-size figure independently verified in this investigation, so the magnitude of the improvement, as opposed to its direction, remains unconfirmed here. [fact; source: https://aclanthology.org/2026.acl-long.2222/]
+
+### Open Questions
+
+- Would a controlled noise-injection experiment run directly on a planar or explicitly 2D-laid-out agent-memory graph reproduce the same repair-versus-prevention pattern found in general GraphRAG and spatial-navigation-graph research, or does planarity introduce a distinct failure mode not captured by non-planar studies?
+- Can the structural-stability (modularity) and task-outcome (path-query accuracy, community-report distortion) proxy-metric families be calibrated against one another in a single experiment to produce a joint, empirically-grounded drift threshold?
+
+---
 
 ---
 
