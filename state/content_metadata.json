@@ -1,6 +1,100 @@
 {
-  "extracted_at": "2026-09-01T07:35:47Z",
+  "extracted_at": "2026-09-01T08:10:52Z",
   "items": {
+    "2026-08-20-planar-memory-graph-topology-drift": {
+      "named_concepts": [
+        "planar memory",
+        "memory graph",
+        "topology drift",
+        "path-query accuracy",
+        "chained inconsistencies",
+        "community-report distortion",
+        "proxy-metric families",
+        "in-vocabulary predicate",
+        "repair mechanism",
+        "spatial path-finding",
+        "incrementally-constructed topological",
+        "topological navigation",
+        "version-controlled repair",
+        "repair framework",
+        "map correctness",
+        "entity-resolution merge",
+        "merge cutoff",
+        "edge impact",
+        "impact score",
+        "task-outcome proxy"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-27-semantic-domain-emergence-enterprise-ontology.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-evaluation-framework.html",
+        "https://arxiv.org/abs/2602.05665",
+        "https://arxiv.org/abs/2404.16130",
+        "https://arxiv.org/abs/2404.03868",
+        "https://arxiv.org/abs/2603.14828",
+        "https://arxiv.org/abs/2407.10793",
+        "https://aclanthology.org/2026.acl-long.2222/",
+        "https://microsoft.github.io/graphrag/index/default_dataflow/",
+        "https://hindsight.vectorize.io/blog/2026/06/29/entity-resolution-agent-memory",
+        "https://www.pnas.org/doi/10.1073/pnas.0601602103",
+        "https://www.nature.com/articles/s41598-019-41695-z",
+        "https://davidamitchell.github.io/Research/research/2026-08-20-graphrag-macro-level-hallucination.html",
+        "https://doi.org/10.1038/35019019"
+      ],
+      "key_claims": [
+        {
+          "text": "No paper in the reviewed 2023-2026 literature uses \"planar memory graph\" as a named agent-memory architecture, and a 2026 survey of graph-based agent memory does not identify layout planarity as a distinct architectural category, so no planarity-specific robustness claim exists in the surveyed literature",
+          "sources": [
+            "https://arxiv.org/abs/2602.05665"
+          ]
+        },
+        {
+          "text": "Standard Graph Retrieval-Augmented Generation's default entity-merge step performs no semantic entity resolution and matches only identical title-and-type strings, so alias duplication is structurally expected to survive into any graph built with the default pipeline",
+          "sources": [
+            "https://microsoft.github.io/graphrag/index/default_dataflow/"
+          ]
+        },
+        {
+          "text": "Schema-free extraction is documented to fragment entity and relation labelling for the same underlying concept into inconsistent representations, establishing one concrete mechanism by which unbounded extraction generates topology drift",
+          "sources": [
+            "https://arxiv.org/abs/2404.03868"
+          ]
+        },
+        {
+          "text": "LLM-constructed knowledge graphs exhibit two recurring issue modes, spurious noise that induces retrieval drift toward plausible but unsupported triples, and incomplete information that forces continuation through under-supported structure, and a constraint-based retriever addressing both remains measurably more stable under controlled knowledge-graph issue injection across three multi-hop benchmarks than retrievers that assume a structurally sound graph",
+          "sources": [
+            "https://arxiv.org/abs/2603.14828"
+          ]
+        },
+        {
+          "text": "A bounded, schema-constrained extraction pipeline suppresses predicate types outside its defined vocabulary but provides no mechanism to verify that an in-vocabulary predicate instance is actually supported by the underlying source text, so schema boundedness alone leaves an evidentiary gap that a query-time sufficiency check is needed to close",
+          "sources": [
+            "https://arxiv.org/abs/2603.14828",
+            "https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html"
+          ]
+        },
+        {
+          "text": "A production agent-memory system's entity-resolution merge cutoff, a weighted score of name similarity, co-occurrence overlap, and temporal recency with a merge threshold at 0.6, is the only concrete numeric duplicate-suppression proxy located in the evidence base for this specific error class",
+          "sources": [
+            "https://hindsight.vectorize.io/blog/2026/06/29/entity-resolution-agent-memory"
+          ]
+        },
+        {
+          "text": "Community-detection modularity above a value of roughly Q equals 0.3 is an established proxy for stable graph community structure, but the Leiden algorithm used in reference GraphRAG pipelines guarantees only internal connectivity of a community, not the semantic correctness of the nodes and edges inside it, so high modularity can coexist with undetected noise-driven topology drift",
+          "sources": [
+            "https://www.pnas.org/doi/10.1073/pnas.0601602103",
+            "https://www.nature.com/articles/s41598-019-41695-z"
+          ]
+        },
+        {
+          "text": "A companion repository item on macro-level hallucination in standard GraphRAG independently concludes that no located study measures how community-report distortion scales with injected duplicate or falsely-associated node counts, corroborating this item's own finding that the structural-stability and task-outcome proxy-metric families remain uncalibrated against one another",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-08-20-graphrag-macro-level-hallucination.html"
+          ]
+        }
+      ]
+    },
     "2026-08-20-neuro-symbolic-nuance-loss-explainability": {
       "named_concepts": [
         "description logic",
