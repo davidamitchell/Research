@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-09-01 08:09 UTC
+Generated on: 2026-09-14 19:53 UTC
 
 ## Table of Contents
 
@@ -8,6 +8,7 @@ Generated on: 2026-09-01 08:09 UTC
 * [Nuance collapse in deterministic neuro-symbolic ontology pipelines](#2026-08-20-neuro-symbolic-nuance-loss-explainability-md)
 * [Macro-level hallucination risk in schema-free GraphRAG clustering](#2026-08-20-graphrag-macro-level-hallucination-md)
 * [Context collision and relational blindness in flat-vector RAG](#2026-08-20-flat-vector-rag-context-collision-md)
+* [Closed-loop performance techniques for mediated execution harnesses](#2026-08-20-execution-harness-closed-loop-performance-md)
 * [Governance latency and contextual debt in AWS Context Ontology Accelerator pipelines](#2026-08-20-aws-coa-governance-latency-contextual-debt-md)
 * [Decision governance for decentralized execution](#2026-08-17-decision-governance-md)
 * [What constitutes cohesive and coherent organisational governance for aligned, high-velocity, low-risk decentralised decision-making in large organisations facing Artificial Intelligence (AI)-driven change?](#2026-08-17-cohesive-coherent-organisational-governance-md)
@@ -784,6 +785,92 @@ Would an ablation of RT-RAG that holds retrieval recall constant while removing 
 - Type: knowledge
 - Description: Establishes that flat-vector RAG's context-collision failure under contradictory top-k retrieval is a compound failure, not a single context-window limit, separating a documented position/length mechanism from a distinct AGM-postulate-violating contradiction-resolution mechanism, and bounds when flat-vector mitigations suffice versus when relational structure is required. [inference; source: https://arxiv.org/abs/2307.03172; https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html]
 - Links: https://arxiv.org/abs/2506.08500, https://arxiv.org/abs/2601.11255, https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html
+
+---
+
+<a id="2026-08-20-execution-harness-closed-loop-performance-md"></a>
+
+## Closed-loop performance techniques for mediated execution harnesses
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-20-execution-harness-closed-loop-performance.md
+
+## Research Question
+
+What measurable techniques from closed-loop control, working-memory management, adaptive procedural systems, and real-time feedback design improve the performance of an active execution harness that consumes a fixed mediation layer, and which indicators best demonstrate that those techniques remain effective across different underlying content pools?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+The single best-supported harness-performance lever identified in this investigation is discarding or masking stale context rather than compressing it through summarisation, because a controlled comparison on the Software Engineering Benchmark (SWE-bench) Verified dataset found observation masking cheaper and at least as effective as large language model (LLM) summarisation across multiple model configurations. [inference; source: https://arxiv.org/abs/2508.21433] The evidence that effective context capacity is smaller than nominal context-window size is strong and independently replicated across at least three separate evaluations spanning 18 models, positional recall tests, and semantic-match retrieval tests. [fact; source: https://www.trychroma.com/research/context-rot; https://arxiv.org/abs/2307.03172; https://arxiv.org/abs/2502.05167] Execution-feedback loops that let a harness verbally reflect on a specific failed attempt and consult that reflection on the next attempt produce a measured accuracy gain (80% to 91% pass@1 on HumanEval) without any change to model weights or the content pool. [fact; source: https://arxiv.org/abs/2303.11366] Classical control-theory stability metrics such as gain margin and phase margin have no demonstrated harness-level measurement in the literature surveyed and remain a structural analogy rather than a transferable indicator today. [assumption; source: https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Introduction_to_Control_Systems_(Iqbal)/06%3A_Compensator_Design_with_Frequency_Response_Methods/6.02%3A_Measures_of_Performance] Four cross-pool-transferable indicator families emerge from the evidence: token-normalised working-set utilisation, positional/semantic recall degradation rate, feedback-attribution granularity, and cost-adjusted recovery rate, none of which were demonstrated as a single unified benchmark in any one source. [inference; source: https://doi.org/10.1145/363095.363141; https://www.trychroma.com/research/context-rot; https://arxiv.org/abs/2201.09305; https://dora.dev/guides/dora-metrics/]
+
+### Key Findings
+
+1. A controlled comparison inside the SWE-agent scaffold against the SWE-bench Verified benchmark found that observation masking, simply hiding older raw tool outputs, matched or exceeded the task solve rate of LLM-generated summarisation while roughly halving token cost across five model configurations. ([fact]; medium confidence; source: https://arxiv.org/abs/2508.21433; https://blog.jetbrains.com/research/2025/12/efficient-context-management/)
+2. Model recall degrades non-uniformly as input length increases even when task difficulty is held constant, evidenced across an 18-model evaluation that intentionally isolated input length from task complexity. ([fact]; medium confidence; source: https://www.trychroma.com/research/context-rot)
+3. Large language models retrieve information placed in the middle of a long context substantially worse than information placed at the beginning or end, a positional degradation pattern distinct from and additive to raw length effects. ([fact]; medium confidence; source: https://arxiv.org/abs/2307.03172)
+4. Retrieval accuracy collapses far more steeply with context length when the match between a query and the needed information is semantic rather than lexical, showing that Needle in a Haystack (NIAH)-style lexical benchmarks overstate real long-context capability. ([fact]; medium confidence; source: https://arxiv.org/abs/2502.05167)
+5. A verbal self-reflection loop that stores natural-language feedback about a specific failed attempt and consults it on the next attempt raised HumanEval pass@1 accuracy from a baseline in the low-to-mid 80s percent to 91% without any update to model weights. ([fact]; medium confidence; source: https://arxiv.org/abs/2303.11366)
+6. Both major symbolic cognitive architectures, Adaptive Control of Thought-Rational (ACT-R) and Soar, separate a small bounded working memory that holds only currently active information from an unbounded long-term procedural store that is updated incrementally from problem-solving outcomes, a structural pattern that MemGPT's fast/slow memory tiers and Reflexion's episodic-reflection store independently reproduce in software agents. ([inference]; medium confidence; source: https://arxiv.org/abs/2201.09305; https://arxiv.org/abs/2310.08560; https://arxiv.org/abs/2303.11366)
+7. Denning's working-set model defines a system as thrashing, meaning throughput collapses, once the sum of active processes' referenced-page sets exceeds available memory, giving a directly adaptable definition for a harness "working-set utilisation" metric as the fraction of active context budget occupied by content the model actually references for its next decision. ([inference]; medium confidence; source: https://doi.org/10.1145/363095.363141)
+8. Feedback-latency thresholds established for human perception of a directly operated interface (roughly instantaneous below 0.1 seconds, uninterrupted flow up to 1 second, attention loss beyond 10 seconds without explicit progress feedback) have not been directly measured against harness-internal tool-call or diagnostic latency in any source reviewed for this item. ([assumption]; low confidence; source: https://www.nngroup.com/articles/response-times-3-important-limits/)
+9. The Observe-Orient-Decide-Act (OODA) decision-cycle model implies that reducing a harness's cycle time, independent of the accuracy of any single cycle, is itself a distinct performance lever, reframing "adaptation rate" as cycle frequency rather than per-cycle correctness. ([inference]; low confidence; source: https://scholarlypublications.universiteitleiden.nl/handle/1887/4211793)
+10. Industry-consensus software-delivery metrics measure failed-change recovery time as a validated throughput/stability indicator, corroborating "error-recovery speed" as a transferable, already-standardised measurement category outside the AI-agent literature. ([fact]; medium confidence; source: https://dora.dev/guides/dora-metrics/)
+11. Cognitive-architecture adaptation (Soar's chunking, Reflexion's per-attempt reflection) is tied to attribution granularity, learning a specific rule from a specific subgoal or failed attempt rather than treating an entire episode as one undifferentiated signal, which suggests harness adaptation rate should be measured jointly with feedback specificity rather than cycle frequency alone. ([inference]; medium confidence; source: https://arxiv.org/abs/2201.09305; https://arxiv.org/abs/2303.11366)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Observation masking matches or beats LLM summarisation at roughly half the token cost on SWE-bench Verified | https://arxiv.org/abs/2508.21433; https://blog.jetbrains.com/research/2025/12/efficient-context-management/ | medium | Single research group's benchmark design; JetBrains source is a derivative summary of the same study, not an independent one |
+| [fact] Model recall degrades non-uniformly as input length grows at fixed task difficulty | https://www.trychroma.com/research/context-rot | medium | 18-model evaluation, isolates length from complexity; single-source study |
+| [fact] Middle-of-context information retrieved worse than beginning/end | https://arxiv.org/abs/2307.03172 | medium | Positional effect; single-source study, not independently corroborated by a second paper |
+| [fact] Semantic-match retrieval collapses faster than lexical-match retrieval as length grows | https://arxiv.org/abs/2502.05167 | medium | Single benchmark paper; corroborates but does not duplicate Chroma/Liu et al. |
+| [fact] Verbal self-reflection loop raises HumanEval pass@1 from ~80% to 91% | https://arxiv.org/abs/2303.11366 | medium | Ablated, ties gain specifically to the reflection mechanism; single-source study |
+| [inference] ACT-R/Soar/MemGPT/Reflexion share a bounded-working-memory-plus-unbounded-procedure-store pattern | https://arxiv.org/abs/2201.09305; https://arxiv.org/abs/2310.08560; https://arxiv.org/abs/2303.11366 | medium | Structural analogy across four independently developed systems, not a single unified study |
+| [inference] Denning's working-set threshold is adaptable to a harness context-utilisation metric | https://doi.org/10.1145/363095.363141 | medium | Primary 1968 source; no harness has been instrumented this way in the literature reviewed |
+| [assumption] Nielsen's HCI response-time thresholds transfer to harness internal-loop latency | https://www.nngroup.com/articles/response-times-3-important-limits/ | low | Thresholds derived for human-operated interfaces, not agent-internal signalling |
+| [inference] OODA cycle-time reduction is a distinct performance lever from per-cycle accuracy | https://scholarlypublications.universiteitleiden.nl/handle/1887/4211793 | low | Conceptual mapping from a military/strategic decision theory, not software-measured |
+| [fact] Failed-change recovery time is a validated, industry-consensus throughput/stability metric | https://dora.dev/guides/dora-metrics/ | medium | Established for software delivery generally, not agent-harness-specific |
+| [assumption] Gain margin and phase margin have a harness-level equivalent | https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Introduction_to_Control_Systems_(Iqbal)/06%3A_Compensator_Design_with_Frequency_Response_Methods/6.02%3A_Measures_of_Performance | low | No source located measuring these on an AI harness; search returned nothing |
+
+### Assumptions
+
+Classical control-theory stability metrics (gain margin, phase margin) are assumed to have a conceptual harness-level equivalent even though no cited source measures them on an AI agent harness. [assumption; source: https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Introduction_to_Control_Systems_(Iqbal)/06%3A_Compensator_Design_with_Frequency_Response_Methods/6.02%3A_Measures_of_Performance] The justification is that feedback latency's effect on phase margin is well established in general control engineering, and the sensor/setpoint/actuator structure maps cleanly onto harness components, even without a direct harness-level measurement. [assumption; source: https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Introduction_to_Control_Systems_(Iqbal)/06%3A_Compensator_Design_with_Frequency_Response_Methods/6.02%3A_Measures_of_Performance]
+
+Nielsen's human-computer interaction response-time thresholds are assumed to be a reasonable starting reference for harness-internal feedback latency even though they were derived for direct human perception rather than agent-internal signalling. [assumption; source: https://www.nngroup.com/articles/response-times-3-important-limits/] Both settings serve the same underlying purpose, keeping an actor's model of task state from going stale, which supports carrying the thresholds over even though the actor differs, a human user versus a harness's own control loop. [assumption; source: https://www.nngroup.com/articles/response-times-3-important-limits/]
+
+The Denning working-set threshold is assumed to be directly adaptable to a harness's context budget without modification, even though the original model was built for discrete memory pages rather than continuous token streams. [assumption; source: https://doi.org/10.1145/363095.363141] Both systems share the same defining property, a bounded active resource whose useful fraction can be measured against a recent reference window, which supports the transfer despite tokens and pages differing in granularity and cost structure. [assumption; source: https://doi.org/10.1145/363095.363141]
+
+### Analysis
+
+The strongest evidence in this item clusters around context-window management because it is the only sub-question with a direct, controlled, multi-model comparison of competing techniques (masking versus summarisation versus no management) rather than a single demonstration or an architectural analogy. [inference; source: https://arxiv.org/abs/2508.21433] Weighing this against the MemGPT paging architecture required distinguishing what each source actually evaluated: Lindenbauer et al. tested single-session coding tasks where stale tool outputs lose value quickly, while Packer et al. tested document analysis and multi-session chat where information must remain recoverable indefinitely, so the two findings support complementary rather than competing recommendations depending on whether a harness's task class tolerates losing stale context outright. [inference; source: https://arxiv.org/abs/2508.21433; https://arxiv.org/abs/2310.08560] Reflexion's execution-feedback finding was weighed as strong because it is a controlled ablation with a specific mechanism isolated (the reflection step) and a measured before/after benchmark score, rather than a correlational or anecdotal claim. [inference; source: https://arxiv.org/abs/2303.11366] The control-theory and OODA mappings were deliberately weighed as the weakest tier of evidence in this item, retained as structural analogies because they supply useful vocabulary and hypotheses (settling time as convergence iterations, cycle time as a distinct lever from per-cycle accuracy) but downgraded to inference or assumption throughout because no cited source measures them directly on an AI execution harness. [inference; source: https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Introduction_to_Control_Systems_(Iqbal)/06%3A_Compensator_Design_with_Frequency_Response_Methods/6.02%3A_Measures_of_Performance; https://scholarlypublications.universiteitleiden.nl/handle/1887/4211793] Rival explanations for the observation-masking result were considered: it is possible that masking's advantage is specific to SWE-bench Verified's task structure rather than a general property, but the JetBrains summary reports the effect generalising from the SWE-agent scaffold to the OpenHands scaffold, which weighs against a narrow, single-scaffold explanation without fully ruling out a benchmark-specific effect. [inference; source: https://blog.jetbrains.com/research/2025/12/efficient-context-management/]
+
+### Risks, Gaps, and Uncertainties
+
+No source consulted for this item directly instruments an AI coding or research harness with control-theory-style stability metrics (gain margin, phase margin, settling time in a formally measured sense); the mapping in this item is structural and unverified by direct measurement, and a targeted search for such a study found none. [assumption; source: https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Introduction_to_Control_Systems_(Iqbal)/06%3A_Compensator_Design_with_Frequency_Response_Methods/6.02%3A_Measures_of_Performance]
+
+```text
+search_query: "gain margin" OR "phase margin" AI agent harness benchmark evaluation
+outcome: no matching paper or benchmark located
+```
+
+No source directly compares the observation-masking/summarisation result against the MemGPT paging architecture on a shared benchmark, so which approach generalises further across content-pool types (bounded coding sessions versus unbounded document/conversation analysis) remains an open empirical gap rather than a resolved finding. [inference; source: https://arxiv.org/abs/2508.21433; https://arxiv.org/abs/2310.08560]
+
+Nielsen's response-time thresholds and Boyd's OODA tempo model were both developed outside the AI-agent domain decades before LLM-based harnesses existed, and this item's mapping of them onto harness internal loops has not itself been empirically validated against harness telemetry; readers should treat findings 8 and 9 as hypotheses for future measurement rather than established indicators. [assumption; source: https://www.nngroup.com/articles/response-times-3-important-limits/; https://scholarlypublications.universiteitleiden.nl/handle/1887/4211793]
+
+The item relies on a single controlled study (Lindenbauer et al.) for its strongest, highest-confidence claim about context-management technique comparison; while that study spans five model configurations and two scaffolds, it is still one research group's benchmark design, and independent replication by a different team has not been located. [inference; source: https://arxiv.org/abs/2508.21433]
+
+This item treats error-recovery speed as a cost/latency metric without addressing the governance question of when a harness should be trusted to recover autonomously versus escalate to a human; the repository's prior item on agent process reliability architecture found that inference from behavioural traces should be limited to suggestion and exception handling rather than unreviewed execution authority, which implies a fast harness-internal recovery loop still needs an escalation boundary this item does not itself define. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-13-agent-process-reliability-architecture.html]
+
+### Open Questions
+
+- What would a harness-level instrumentation of gain margin, phase margin, or settling time actually look like in practice, and could such a metric be constructed and validated against existing agent benchmarks?
+- Does the observation-masking advantage over summarisation hold on task families outside software engineering, for example long-document research or multi-step web navigation?
+- Can Denning's working-set utilisation metric be operationalised and measured directly inside an existing harness (for example this repository's own Copilot CLI sessions) rather than only proposed by analogy?
+- Does feedback-attribution granularity (Soar's chunking, Reflexion's per-attempt reflection) predict adaptation-rate differences better than raw cycle time (the OODA framing), and could both be measured on the same benchmark to test which matters more?
 
 ---
 
