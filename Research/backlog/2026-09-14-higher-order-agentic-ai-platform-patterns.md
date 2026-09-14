@@ -1,5 +1,5 @@
 ---
-title: "Higher-order operational design patterns for production agentic AI across low-code, pro-code, and Integrated Development Environment (IDE)-based runtimes"
+title: "Higher-order operational patterns in production agentic AI"
 added: 2026-09-14
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: high  # low | medium | high
@@ -17,36 +17,38 @@ confidence: medium # high | medium | low
 versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
-# Higher-order operational design patterns for production agentic AI across low-code, pro-code, and Integrated Development Environment (IDE)-based runtimes
+# Higher-order operational patterns in production agentic AI
 
 ## Research Question
 
-What higher-order operational design patterns recur when organisations run agentic Artificial Intelligence (AI) workloads in production across low-code, pro-code, and Integrated Development Environment (IDE)-based execution environments, and how are those patterns abstracted into reusable enterprise platform capabilities rather than left as application-specific logic?
+What higher-order operational patterns recur across production agentic Artificial Intelligence (AI) systems, what underlying operational problems do they address, and which patterns generalise across applications and execution environments?
 
 ## Scope
 
 **In scope:**
-- Recurrent macro-level operational patterns observed across production agentic systems, including ingestion, orchestration, validation, recovery, governance, auditability, and output-contract management.
-- Comparative evidence from low-code, pro-code, and IDE-based execution environments, including cases from regulated and operationally complex domains such as finance, healthcare, software engineering, and customer operations.
-- Architectural criteria used to separate reusable platform capabilities from domain-specific application logic.
-- The composition of higher-order patterns from lower-level primitives such as tools, memory/state, control planes, policies, execution harnesses, and communication substrates.
-- Cross-runtime invariants and trade-offs involving reuse, security, observability, reliability, cost, and ownership.
+- Recurrent higher-order operational patterns observed across production agentic systems, including patterns that span state, validation, recovery, governance, integration, auditability, and output contracts.
+- The underlying operational problems those patterns address, including business failure modes, reliability issues, integration constraints, and organisational frictions.
+- Comparative evidence across industries, applications, and execution environments, including low-code, pro-code, and Integrated Development Environment (IDE)-based runtimes.
+- The composition of higher-order patterns from lower-level mechanisms such as prompting, tool use, planning, memory, retrieval, multi-agent coordination, workflow orchestration, state management, policies, and communication substrates.
+- Criteria that distinguish broadly generalisable operational patterns from context-specific implementations.
+- Conditions under which recurring patterns are abstracted into reusable enterprise platform capabilities rather than kept inside applications.
 
 **Out of scope:**
 - Evaluating individual foundation models or prompt techniques in isolation from production operating context.
-- Vendor feature-by-feature product comparisons below the level needed to identify reusable platform patterns.
+- Vendor feature-by-feature product comparisons below the level needed to identify operational patterns or their generalisation boundaries.
 - Greenfield reference-architecture design for a single named organisation.
-- Research on isolated single-agent mechanics that do not surface shared operational concerns at production scale.
+- Research on isolated lower-level agent mechanics except where they are needed to explain how higher-order patterns are composed.
 
 **Constraints:** (time, source types, access)
 - Prioritise public sources with empirical or architectural signal: peer-reviewed papers, systematic reviews, standards or protocol documentation, vendor architecture material, and published enterprise case studies.
 - Use the seeded links as anchors, but allow discovery of adjacent sources where they add better evidence on production patterns.
-- Focus on evidence that distinguishes runtime-specific implementation details from cross-runtime platform abstractions.
+- Focus on evidence that distinguishes recurring operational patterns from runtime-specific implementation details and from lower-level agent mechanics.
+- Distinguish cross-context generalisations from patterns that remain industry-, application-, or runtime-specific.
 - All sources must include URLs.
 
 ## Context
 
-This item informs enterprise platform design by identifying which operational concerns repeatedly become shared capabilities once agentic systems move from isolated experiments into production across multiple execution environments.
+This item informs enterprise platform design by identifying which recurring operational problems and solution patterns actually persist across production agentic systems, and which of those patterns are general enough to justify shared platform abstraction.
 
 Cross-references:
 - `2026-04-22-enterprise-ai-platform-operating-models` — adjacent operating-model work on how enterprises assign ownership and structure shared AI platform capabilities.
@@ -56,12 +58,12 @@ Cross-references:
 
 ## Approach
 
-1. Identify the higher-order operational patterns that appear consistently across published production examples of agentic AI in low-code, pro-code, and IDE-based environments.
-2. For each pattern, determine the concrete failure modes, delivery frictions, governance gaps, or integration bottlenecks that motivate its emergence beyond lower-level agent mechanics alone.
-3. Analyse where enterprises draw the boundary between reusable platform capability and domain-specific application logic, and what criteria drive that boundary.
-4. Decompose each observed pattern into its lower-level building blocks, including state mechanisms, policy or control planes, execution harnesses, and communication or eventing substrates.
-5. Compare how the same pattern is realised across low-code, pro-code, and IDE-based runtimes, noting which invariants persist and which trade-offs vary by runtime.
-6. Synthesize the results into a reusable enterprise capability taxonomy that names the platform-level abstractions most worth standardising.
+1. Identify recurring operational problems across published production examples of agentic AI and the higher-order operational patterns that emerge in response.
+2. For each pattern, compare how it differs from, extends, or composes lower-level agent mechanics such as prompting, tool use, planning, memory, retrieval, and multi-agent coordination.
+3. Analyse the business, operational, integration, reliability, and organisational frictions that motivate these patterns and persist beyond lower-level mechanisms alone.
+4. Compare the observed patterns across industries, applications, and low-code, pro-code, and IDE-based execution environments to determine which characteristics support generalisation and which remain context-specific.
+5. Decompose each higher-order pattern into its lower-level workflow, state, policy, integration, and communication mechanisms, identifying invariants, dependencies, and trade-offs.
+6. Analyse when recurrent patterns are abstracted into reusable enterprise platform capabilities and what distinguishes platform-level capability from application-specific implementation.
 
 ## Sources
 
