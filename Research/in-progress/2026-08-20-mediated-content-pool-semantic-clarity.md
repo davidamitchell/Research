@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Semantic clarity and conflict resolvability in mediated content pools"
 added: 2026-08-20T11:01:29+00:00
 status: reviewing
