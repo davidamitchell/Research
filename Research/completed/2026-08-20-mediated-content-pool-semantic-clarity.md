@@ -2,12 +2,12 @@
 review_count: 2
 title: "Semantic clarity and conflict resolvability in mediated content pools"
 added: 2026-08-20T11:01:29+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [knowledge-graphs, knowledge-management, benchmarks-eval, governance-policy, tools-infrastructure]
 started: 2026-09-14T20:19:21+00:00
-completed: ~
+completed: 2026-09-14T20:47:22+00:00
 output: []
 cites: [2026-07-20-autonomous-knowledge-curation-truth-maintenance, 2026-05-02-knowledge-graph-schema-cross-session-research-mcp, 2026-05-15-ontology-landscape-for-curated-enterprise-context]
 related: [2026-04-22-knowledge-curation-governance-for-regulated-ai, 2026-05-23-similarity-algorithms-controlled-vocabulary, 2026-03-03-knowledge-representation-agent-context]
