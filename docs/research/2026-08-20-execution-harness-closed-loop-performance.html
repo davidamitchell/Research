@@ -1,0 +1,1113 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Closed-loop performance techniques for mediated execution harnesses — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
+
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+</style>
+          <style>
+#mini-graph-section { margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border); }
+#mini-graph-section h2 { font-size: var(--text-base); color: var(--text-muted);
+  font-weight: 500; margin: 0 0 0.25rem; }
+.mini-graph-meta { font-size: var(--text-xs); color: var(--text-muted); margin: 0 0 0.5rem; }
+.mini-graph-wrap { width: 100%; }
+#mini-graph-canvas { width: 100%; display: block; background: #0a0f18;
+  border: 1px solid var(--border); border-radius: 6px;
+  cursor: grab; touch-action: none;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+  aspect-ratio: 16/9; max-height: 280px; }
+#mini-graph-canvas:active { cursor: grabbing; }
+.view-full-graph { display: inline-block; margin-top: 0.5rem;
+  font-size: var(--text-xs); color: var(--text-muted); text-decoration: none; }
+.view-full-graph:hover { color: var(--text); }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/knowledge/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Synthesis</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/themes/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Themes</a>
+      <a href="/Research/synthesis-candidates.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Candidates</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="/Research/graph.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Graph</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Closed-loop performance techniques for mediated execution harnesses</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Closed-loop performance techniques for mediated execution harnesses</h1>
+    <div class="meta-bar">
+    <span>2026-08-20</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/themes/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/themes/memory-context.html">memory-context</a> <a class="tag" href="/Research/themes/cost-performance.html">cost-performance</a> <a class="tag" href="/Research/themes/benchmarks-eval.html">benchmarks-eval</a> <a class="tag" href="/Research/themes/tools-infrastructure.html">tools-infrastructure</a> 
+    <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-20-execution-harness-closed-loop-performance.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-08-20-execution-harness-closed-loop-performance" target="_blank" rel="noopener">wiki →</a>
+  </div>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>A controlled comparison inside the SWE-agent scaffold against the SWE-bench Verified benchmark found that observation masking, simply hiding older raw tool outputs, matched or exceeded the task solve rate of LLM-generated summarisation while roughly halving token cost across five model configurations<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2508.21433" target="_blank" rel="noopener" title="https://arxiv.org/abs/2508.21433">Lindenbauer (2025)</a><a class="claim-source-link" href="https://blog.jetbrains.com/research/2025/12/efficient-context-management/" target="_blank" rel="noopener" title="https://blog.jetbrains.com/research/2025/12/efficient-context-management/">Research (2025)</a></span></li>
+<li>Model recall degrades non-uniformly as input length increases even when task difficulty is held constant, evidenced across an 18-model evaluation that intentionally isolated input length from task complexity<span class="claim-sources"><a class="claim-source-link" href="https://www.trychroma.com/research/context-rot" target="_blank" rel="noopener" title="https://www.trychroma.com/research/context-rot">Research (2025)</a></span></li>
+<li>Large language models retrieve information placed in the middle of a long context substantially worse than information placed at the beginning or end, a positional degradation pattern distinct from and additive to raw length effects<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener" title="https://arxiv.org/abs/2307.03172">Arxiv (n.d.)</a></span></li>
+<li>Retrieval accuracy collapses far more steeply with context length when the match between a query and the needed information is semantic rather than lexical, showing that Needle in a Haystack (NIAH)-style lexical benchmarks overstate real long-context capability<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2502.05167" target="_blank" rel="noopener" title="https://arxiv.org/abs/2502.05167">Modarressi (2025)</a></span></li>
+<li>A verbal self-reflection loop that stores natural-language feedback about a specific failed attempt and consults it on the next attempt raised HumanEval pass@1 accuracy from a baseline in the low-to-mid 80s percent to 91% without any update to model weights<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noopener" title="https://arxiv.org/abs/2303.11366">Shinn (2023)</a></span></li>
+<li>Both major symbolic cognitive architectures, Adaptive Control of Thought-Rational (ACT-R) and Soar, separate a small bounded working memory that holds only currently active information from an unbounded long-term procedural store that is updated incrementally from problem-solving outcomes, a structural pattern that MemGPT&#39;s fast/slow memory tiers and Reflexion&#39;s episodic-reflection store independently reproduce in software agents<span class="claim-sources"><a class="claim-source-link" href="https://arxiv.org/abs/2201.09305" target="_blank" rel="noopener" title="https://arxiv.org/abs/2201.09305">Jones (2022)</a><a class="claim-source-link" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noopener" title="https://arxiv.org/abs/2310.08560">Packer, Fang, et al. (2023) MemGPT (2023)</a><a class="claim-source-link" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noopener" title="https://arxiv.org/abs/2303.11366">Shinn (2023)</a></span></li>
+<li>Denning&#39;s working-set model defines a system as thrashing, meaning throughput collapses, once the sum of active processes&#39; referenced-page sets exceeds available memory, giving a directly adaptable definition for a harness &quot;working-set utilisation&quot; metric as the fraction of active context budget occupied by content the model actually references for its next decision<span class="claim-sources"><a class="claim-source-link" href="https://doi.org/10.1145/363095.363141" target="_blank" rel="noopener" title="https://doi.org/10.1145/363095.363141">Denning (1968)</a></span></li>
+<li>Feedback-latency thresholds established for human perception of a directly operated interface (roughly instantaneous below 0.1 seconds, uninterrupted flow up to 1 second, attention loss beyond 10 seconds without explicit progress feedback) have not been directly measured against harness-internal tool-call or diagnostic latency in any source reviewed for this item<span class="claim-sources"><a class="claim-source-link" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank" rel="noopener" title="https://www.nngroup.com/articles/response-times-3-important-limits/">Nielsen (1993)</a></span></li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What measurable techniques from closed-loop control, working-memory management, adaptive procedural systems, and real-time feedback design improve the performance of an active execution harness that consumes a fixed mediation layer, and which indicators best demonstrate that those techniques remain effective across different underlying content pools?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>The single best-supported harness-performance lever identified in this investigation is discarding or masking stale context rather than compressing it through summarisation, because a controlled comparison on the Software Engineering Benchmark (SWE-bench) Verified dataset found observation masking cheaper and at least as effective as large language model (LLM) summarisation across multiple model configurations. The evidence that effective context capacity is smaller than nominal context-window size is strong and independently replicated across at least three separate evaluations spanning 18 models, positional recall tests, and semantic-match retrieval tests. Execution-feedback loops that let a harness verbally reflect on a specific failed attempt and consult that reflection on the next attempt produce a measured accuracy gain (80% to 91% pass@1 on HumanEval) without any change to model weights or the content pool. Classical control-theory stability metrics such as gain margin and phase margin have no demonstrated harness-level measurement in the literature surveyed and remain a structural analogy rather than a transferable indicator today. Four cross-pool-transferable indicator families emerge from the evidence: token-normalised working-set utilisation, positional/semantic recall degradation rate, feedback-attribution granularity, and cost-adjusted recovery rate, none of which were demonstrated as a single unified benchmark in any one source.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>A controlled comparison inside the SWE-agent scaffold against the SWE-bench Verified benchmark found that observation masking, simply hiding older raw tool outputs, matched or exceeded the task solve rate of LLM-generated summarisation while roughly halving token cost across five model configurations.</li>
+<li>Model recall degrades non-uniformly as input length increases even when task difficulty is held constant, evidenced across an 18-model evaluation that intentionally isolated input length from task complexity.</li>
+<li>Large language models retrieve information placed in the middle of a long context substantially worse than information placed at the beginning or end, a positional degradation pattern distinct from and additive to raw length effects.</li>
+<li>Retrieval accuracy collapses far more steeply with context length when the match between a query and the needed information is semantic rather than lexical, showing that Needle in a Haystack (NIAH)-style lexical benchmarks overstate real long-context capability.</li>
+<li>A verbal self-reflection loop that stores natural-language feedback about a specific failed attempt and consults it on the next attempt raised HumanEval pass@1 accuracy from a baseline in the low-to-mid 80s percent to 91% without any update to model weights.</li>
+<li>Both major symbolic cognitive architectures, Adaptive Control of Thought-Rational (ACT-R) and Soar, separate a small bounded working memory that holds only currently active information from an unbounded long-term procedural store that is updated incrementally from problem-solving outcomes, a structural pattern that MemGPT's fast/slow memory tiers and Reflexion's episodic-reflection store independently reproduce in software agents.</li>
+<li>Denning's working-set model defines a system as thrashing, meaning throughput collapses, once the sum of active processes' referenced-page sets exceeds available memory, giving a directly adaptable definition for a harness &quot;working-set utilisation&quot; metric as the fraction of active context budget occupied by content the model actually references for its next decision.</li>
+<li>Feedback-latency thresholds established for human perception of a directly operated interface (roughly instantaneous below 0.1 seconds, uninterrupted flow up to 1 second, attention loss beyond 10 seconds without explicit progress feedback) have not been directly measured against harness-internal tool-call or diagnostic latency in any source reviewed for this item.</li>
+<li>The Observe-Orient-Decide-Act (OODA) decision-cycle model implies that reducing a harness's cycle time, independent of the accuracy of any single cycle, is itself a distinct performance lever, reframing &quot;adaptation rate&quot; as cycle frequency rather than per-cycle correctness.</li>
+<li>Industry-consensus software-delivery metrics measure failed-change recovery time as a validated throughput/stability indicator, corroborating &quot;error-recovery speed&quot; as a transferable, already-standardised measurement category outside the AI-agent literature.</li>
+<li>Cognitive-architecture adaptation (Soar's chunking, Reflexion's per-attempt reflection) is tied to attribution granularity, learning a specific rule from a specific subgoal or failed attempt rather than treating an entire episode as one undifferentiated signal, which suggests harness adaptation rate should be measured jointly with feedback specificity rather than cycle frequency alone.</li>
+</ol>
+<h3>Assumptions</h3>
+<p>Classical control-theory stability metrics (gain margin, phase margin) are assumed to have a conceptual harness-level equivalent even though no cited source measures them on an AI agent harness. The justification is that feedback latency's effect on phase margin is well established in general control engineering, and the sensor/setpoint/actuator structure maps cleanly onto harness components, even without a direct harness-level measurement.</p>
+<p>Nielsen's human-computer interaction response-time thresholds are assumed to be a reasonable starting reference for harness-internal feedback latency even though they were derived for direct human perception rather than agent-internal signalling. Both settings serve the same underlying purpose, keeping an actor's model of task state from going stale, which supports carrying the thresholds over even though the actor differs, a human user versus a harness's own control loop.</p>
+<p>The Denning working-set threshold is assumed to be directly adaptable to a harness's context budget without modification, even though the original model was built for discrete memory pages rather than continuous token streams. Both systems share the same defining property, a bounded active resource whose useful fraction can be measured against a recent reference window, which supports the transfer despite tokens and pages differing in granularity and cost structure.</p>
+<h3>Analysis</h3>
+<p>The strongest evidence in this item clusters around context-window management because it is the only sub-question with a direct, controlled, multi-model comparison of competing techniques (masking versus summarisation versus no management) rather than a single demonstration or an architectural analogy. Weighing this against the MemGPT paging architecture required distinguishing what each source actually evaluated: Lindenbauer et al. tested single-session coding tasks where stale tool outputs lose value quickly, while Packer et al. tested document analysis and multi-session chat where information must remain recoverable indefinitely, so the two findings support complementary rather than competing recommendations depending on whether a harness's task class tolerates losing stale context outright. Reflexion's execution-feedback finding was weighed as strong because it is a controlled ablation with a specific mechanism isolated (the reflection step) and a measured before/after benchmark score, rather than a correlational or anecdotal claim. The control-theory and OODA mappings were deliberately weighed as the weakest tier of evidence in this item, retained as structural analogies because they supply useful vocabulary and hypotheses (settling time as convergence iterations, cycle time as a distinct lever from per-cycle accuracy) but downgraded to inference or assumption throughout because no cited source measures them directly on an AI execution harness. Rival explanations for the observation-masking result were considered: it is possible that masking's advantage is specific to SWE-bench Verified's task structure rather than a general property, but the JetBrains summary reports the effect generalising from the SWE-agent scaffold to the OpenHands scaffold, which weighs against a narrow, single-scaffold explanation without fully ruling out a benchmark-specific effect.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<p>No source consulted for this item directly instruments an AI coding or research harness with control-theory-style stability metrics (gain margin, phase margin, settling time in a formally measured sense); the mapping in this item is structural and unverified by direct measurement, and a targeted search for such a study found none.</p>
+<pre><code class="language-text">search_query: &quot;gain margin&quot; OR &quot;phase margin&quot; AI agent harness benchmark evaluation
+outcome: no matching paper or benchmark located
+</code></pre>
+<p>No source directly compares the observation-masking/summarisation result against the MemGPT paging architecture on a shared benchmark, so which approach generalises further across content-pool types (bounded coding sessions versus unbounded document/conversation analysis) remains an open empirical gap rather than a resolved finding.</p>
+<p>Nielsen's response-time thresholds and Boyd's OODA tempo model were both developed outside the AI-agent domain decades before LLM-based harnesses existed, and this item's mapping of them onto harness internal loops has not itself been empirically validated against harness telemetry; readers should treat findings 8 and 9 as hypotheses for future measurement rather than established indicators.</p>
+<p>The item relies on a single controlled study (Lindenbauer et al.) for its strongest, highest-confidence claim about context-management technique comparison; while that study spans five model configurations and two scaffolds, it is still one research group's benchmark design, and independent replication by a different team has not been located.</p>
+<p>This item treats error-recovery speed as a cost/latency metric without addressing the governance question of when a harness should be trusted to recover autonomously versus escalate to a human; the repository's prior item on agent process reliability architecture found that inference from behavioural traces should be limited to suggestion and exception handling rather than unreviewed execution authority, which implies a fast harness-internal recovery loop still needs an escalation boundary this item does not itself define.</p>
+<h3>Open Questions</h3>
+<ul>
+<li>What would a harness-level instrumentation of gain margin, phase margin, or settling time actually look like in practice, and could such a metric be constructed and validated against existing agent benchmarks?</li>
+<li>Does the observation-masking advantage over summarisation hold on task families outside software engineering, for example long-document research or multi-step web navigation?</li>
+<li>Can Denning's working-set utilisation metric be operationalised and measured directly inside an existing harness (for example this repository's own Copilot CLI sessions) rather than only proposed by analogy?</li>
+<li>Does feedback-attribution granularity (Soar's chunking, Reflexion's per-attempt reflection) predict adaptation-rate differences better than raw cycle time (the OODA framing), and could both be measured on the same benchmark to test which matters more?</li>
+</ul>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://github.com/davidamitchell/Research/issues/653">GitHub issue #653: Four research questions</a>: canonical statement of the research request and the harness-zone boundaries</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and instruction files</a>: prior repository item on harness design choices and boundaries</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-01-ai-coding-harness-quality-benchmarks.html">Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?</a>: prior repository item on measurable harness performance indicators</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-01-context-mode-llm-context-compression.html">Context Mode: Model Context Protocol (MCP) tool output compression and the large language model (LLM) context window management problem</a>: prior repository item on working-set and context-window constraints</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html">Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction</a>: prior repository item on fast feedback as a measurable self-correction mechanism</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html">How human brains store, compress, retrieve, and dynamically layer contextual knowledge, and what this implies for Artificial Intelligence context management</a>: prior repository item on chunking and hippocampal-prefrontal schema reuse as a biological adaptation analogue</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-05-13-agent-process-reliability-architecture.html">What integrated architectural configuration most reliably enables agent systems to identify, select, and consistently execute organizational processes</a>: prior repository item on bounding autonomous recovery/inference with escalation and governance mechanisms</li>
+<li>[x] <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic (2025) Effective context engineering for AI agents</a>: attention budget, context rot, minimal-token curation principles</li>
+<li>[x] <a href="https://www.trychroma.com/research/context-rot">Chroma Research (2025) Context Rot: How Increasing Input Tokens Impacts LLM Performance</a>: empirical evidence that model recall degrades non-uniformly as input length grows</li>
+<li>[x] <a href="https://arxiv.org/abs/2508.21433">Lindenbauer, Aleithe, et al. (2025) The Complexity Trap: Simple Observation Masking Is as Efficient as LLM Summarization for Agent Context Management (arXiv:2508.21433)</a>: controlled Software Engineering Benchmark (SWE-bench) Verified comparison of context-management strategies</li>
+<li>[x] <a href="https://blog.jetbrains.com/research/2025/12/efficient-context-management/">JetBrains Research (2025) Cutting Through the Noise: Smarter Context Management for LLM-Powered Agents</a>: practitioner summary of the observation-masking/summarization study and hybrid design</li>
+<li>[x] <a href="https://arxiv.org/abs/2303.11366">Shinn, Cassano, et al. (2023) Reflexion: Language Agents with Verbal Reinforcement Learning (arXiv:2303.11366)</a>: verbal self-reflection as an adaptation mechanism without weight updates</li>
+<li>[x] <a href="https://arxiv.org/abs/2201.09305">Jones, Laird (2022) An Analysis and Comparison of Adaptive Control of Thought-Rational (ACT-R) and Soar (arXiv:2201.09305)</a>: procedural memory, buffer-based working memory, and chunking/utility-based adaptation in the two dominant symbolic cognitive architectures</li>
+<li>[x] <a href="https://arxiv.org/abs/2310.08560">Packer, Fang, et al. (2023) MemGPT: Towards LLMs as Operating Systems (arXiv:2310.08560)</a>: operating-system-style paging between a fixed in-window tier and an external tier to manage a fixed context budget</li>
+<li>[x] <a href="https://arxiv.org/abs/2107.03374">Chen, M. et al. (2021) Evaluating Large Language Models Trained on Code (arXiv:2107.03374)</a>: defines the HumanEval benchmark and its pass@k evaluation metric, used as the accuracy measure in the Reflexion feedback-loop result</li>
+<li>[x] <a href="https://doi.org/10.1145/363095.363141">Denning, P. J. (1968) The Working Set Model for Program Behavior, Communications of the ACM 11(5), 323-333</a>: the working-set concept and thrashing threshold from operating-system memory management</li>
+<li>[x] <a href="https://www.nngroup.com/articles/response-times-3-important-limits/">Nielsen, J. (1993, republished 2024) Response Times: The 3 Important Limits</a>: the 0.1s / 1s / 10s human perceptual thresholds for feedback latency</li>
+<li>[x] <a href="https://scholarlypublications.universiteitleiden.nl/handle/1887/4211793">Osinga, F. (2005) Science, Strategy and War: The Strategic Theory of John Boyd, Leiden University dissertation</a>: scholarly account of Boyd's Observe-Orient-Decide-Act loop and tempo-based adaptation</li>
+<li>[x] <a href="https://arxiv.org/abs/2307.03172">Liu, Lin, et al. (2023) Lost in the Middle: How Language Models Use Long Contexts (arXiv:2307.03172)</a>: positional recall degradation inside a nominally available context window</li>
+<li>[x] <a href="https://arxiv.org/abs/2502.05167">Modarressi, Köksal, et al. (2025) NoLiMa: Long-Context Evaluation Beyond Literal Matching (arXiv:2502.05167)</a>: semantic-match retrieval collapse at long context lengths absent lexical overlap</li>
+<li>[x] <a href="https://dora.dev/guides/dora-metrics/">DevOps Research and Assessment (DORA) (2025) DORA Metrics</a>: failed-change recovery time as a validated throughput/stability indicator transferable to harness error-recovery measurement</li>
+<li>[x] <a href="https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Introduction_to_Control_Systems_(Iqbal)/06%3A_Compensator_Design_with_Frequency_Response_Methods/6.02%3A_Measures_of_Performance">Engineering LibreTexts (Iqbal) Introduction to Control Systems, 6.2: Measures of Performance</a>: closed-loop feedback control definitions, gain/phase margin, settling time, and disturbance rejection</li>
+<li>[x] <a href="https://ionia-automation.com/en/wp-latency">Ionia Automation Latency in Closed-Loop Motor Control white paper</a>: feedback latency's effect on phase margin and loop stability</li>
+</ul>
+<hr />
+
+
+  </div>
+  
+  <div class="cites-section"><div class="cites-group-label">cites</div><div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and instruction files</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-05-01-ai-coding-harness-quality-benchmarks.html">Artificial Intelligence coding harness quality benchmarks: what measures are used to evaluate Artificial Intelligence coding tools and who scores highest?</a></div>
+<div class="cites-entry"><span class="rel-pill">cites</span> <a href="/Research/research/2026-03-01-context-mode-llm-context-compression.html">Context Mode: MCP tool output compression and the LLM context window management problem</a></div>
+</div>
+<div class="cites-section"><div class="cites-group-label">related (frontmatter)</div><div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html">Test-Driven Development (TDD) and fast feedback loops in Artificial Intelligence (AI)-augmented development: quality, stability, and self-correction</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-05-13-agent-process-reliability-architecture.html">Architectural patterns for reliable organizational process identification, selection, and execution in Artificial Intelligence (AI) agent systems</a></div>
+<div class="cites-entry"><span class="rel-pill">related</span> <a href="/Research/research/2026-03-15-neurological-context-management.html">Working memory architecture, prefrontal cortex contextual gating, and predictive processing as neurological design principles for Artificial Intelligence (AI) context management</a></div>
+</div>
+
+  
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-08-20-planar-memory-graph-topology-drift.html">Noise thresholds and topology drift in planar memory graphs</a></div>
+  </div>
+</main>
+<section id="mini-graph-section">
+<h2>Connected items</h2>
+<p class="mini-graph-meta" id="mini-graph-count">Loading…</p>
+<div class="mini-graph-wrap">
+<canvas id="mini-graph-canvas"></canvas>
+</div>
+<a class="view-full-graph" href="/Research/graph.html">View full knowledge graph →</a>
+</section>
+<script>window.GRAPH_FOCAL_SLUG = "2026-08-20-execution-harness-closed-loop-performance";</script>
+<script>
+(function () {
+  var FOCAL = window.GRAPH_FOCAL_SLUG;
+  var canvas = document.getElementById('mini-graph-canvas');
+  if (!canvas || !FOCAL) return;
+  var ctx = canvas.getContext('2d');
+  var nodes = [], edges = [], nodeMap = {};
+  var transform = {x: 0, y: 0, scale: 1};
+  var dragging = false, lastMX = 0, lastMY = 0, clickX = 0, clickY = 0;
+  var activePointers = {};
+  var REST = 80;
+  var ticks = 0, MAX_TICKS = 200, animRunning = false;
+
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 640;
+    var cssH = canvas.clientHeight || 280;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  function toWorld(cx, cy) {
+    return {
+      x: (cx - transform.x) / transform.scale,
+      y: (cy - transform.y) / transform.scale
+    };
+  }
+
+  function initNodes(data) {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    REST = Math.max(40, Math.min(W, H) / 5);
+    var neighborSlugs = {};
+    neighborSlugs[FOCAL] = true;
+    var localEdges = [], seen = {};
+    data.edges.forEach(function(e) {
+      if (e.source === FOCAL || e.target === FOCAL) {
+        neighborSlugs[e.source] = true;
+        neighborSlugs[e.target] = true;
+        seen[e.source + '|' + e.target] = true;
+        localEdges.push(e);
+      }
+    });
+    data.edges.forEach(function(e) {
+      if (neighborSlugs[e.source] && neighborSlugs[e.target] &&
+          !seen[e.source + '|' + e.target]) {
+        localEdges.push(e);
+      }
+    });
+    var localNodes = data.nodes.filter(function(n) { return neighborSlugs[n.slug]; });
+    var n = localNodes.length;
+    var r = Math.min(W, H) * 0.40;
+    nodes = localNodes.map(function(nd, i) {
+      var isFocal = nd.slug === FOCAL;
+      var angle = (2 * Math.PI * i) / n;
+      return Object.assign({}, nd, {
+        x: isFocal ? W / 2 : W / 2 + r * Math.cos(angle) + (Math.random() - 0.5) * 20,
+        y: isFocal ? H / 2 : H / 2 + r * Math.sin(angle) + (Math.random() - 0.5) * 20,
+        vx: 0, vy: 0, isFocal: isFocal
+      });
+    });
+    nodeMap = {};
+    nodes.forEach(function(nd) { nodeMap[nd.slug] = nd; });
+    edges = localEdges.map(function(e) {
+      return Object.assign({}, e, {
+        sourceNode: nodeMap[e.source],
+        targetNode: nodeMap[e.target]
+      });
+    }).filter(function(e) { return e.sourceNode && e.targetNode; });
+    var countEl = document.getElementById('mini-graph-count');
+    if (countEl) {
+      var c = n - 1;
+      countEl.textContent = c + ' direct connection' + (c !== 1 ? 's' : '');
+    }
+  }
+
+  function tick() {
+    var progress = ticks / MAX_TICKS;
+    var REPULSION = 3000, DIST_MAX = 200;
+    var SPRING = 0.005 + 0.020 * progress;
+    var DAMP = 0.50 + 0.35 * progress;
+    var i, j, a, b, dx, dy, d2, f, d, fx, fy, e, s, t;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        a = nodes[i]; b = nodes[j];
+        dx = b.x - a.x; dy = b.y - a.y;
+        d2 = dx * dx + dy * dy + 1;
+        if (d2 > DIST_MAX * DIST_MAX) continue;
+        f = REPULSION / d2;
+        if (!a.isFocal) { a.vx -= dx * f; a.vy -= dy * f; }
+        if (!b.isFocal) { b.vx += dx * f; b.vy += dy * f; }
+      }
+    }
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      dx = t.x - s.x; dy = t.y - s.y;
+      d = Math.sqrt(dx * dx + dy * dy) || 1;
+      f = (d - REST) * SPRING;
+      fx = dx / d * f; fy = dy / d * f;
+      if (!s.isFocal) { s.vx += fx; s.vy += fy; }
+      if (!t.isFocal) { t.vx -= fx; t.vy -= fy; }
+    }
+    for (i = 0; i < nodes.length; i++) {
+      if (!nodes[i].isFocal) {
+        nodes[i].vx *= DAMP; nodes[i].vy *= DAMP;
+        nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+      }
+    }
+  }
+
+  var REL_COLORS = {'cites': '#2dd4bf', 'related': '#a78bfa', 'tag-overlap': '#475569', 'theme-overlap': '#f59e0b'};
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.translate(transform.x, transform.y);
+    ctx.scale(transform.scale, transform.scale);
+    var R = 7 / transform.scale;
+    var i, e, s, t, n;
+    for (i = 0; i < edges.length; i++) {
+      e = edges[i]; s = e.sourceNode; t = e.targetNode;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y); ctx.lineTo(t.x, t.y);
+      ctx.strokeStyle = REL_COLORS[e.rel] || '#475569';
+      ctx.lineWidth = Math.max(0.5, e.weight * 0.4) / transform.scale;
+      ctx.globalAlpha = 0.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i];
+      var nr = n.isFocal ? R * 2.2 : R;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, nr, 0, Math.PI * 2);
+      ctx.fillStyle = n.isFocal ? '#f59e0b' : (n.type === 'synthesis' ? '#a78bfa' : '#2dd4bf');
+      ctx.fill();
+      ctx.fillStyle = n.isFocal ? '#fbbf24' : '#94a3b8';
+      ctx.font = ((n.isFocal ? 10 : 9) / transform.scale) + 'px sans-serif';
+      var label = n.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').slice(0, 26);
+      ctx.fillText(label, n.x + nr + 3 / transform.scale, n.y + 3 / transform.scale);
+    }
+    ctx.restore();
+  }
+
+  function startAnim() {
+    if (animRunning) return;
+    animRunning = true;
+    requestAnimationFrame(animStep);
+  }
+
+  function animStep() {
+    if (ticks < MAX_TICKS) {
+      tick(); ticks++;
+      draw();
+      requestAnimationFrame(animStep);
+    } else {
+      fitToView();
+      animRunning = false;
+    }
+  }
+
+  function fitToView() {
+    if (!nodes.length) return;
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach(function(nd) {
+      if (nd.x < minX) minX = nd.x; if (nd.y < minY) minY = nd.y;
+      if (nd.x > maxX) maxX = nd.x; if (nd.y > maxY) maxY = nd.y;
+    });
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvas.width / dpr, H = canvas.height / dpr, pad = 56;
+    var scale = Math.min(W / (maxX - minX + pad * 2), H / (maxY - minY + pad * 2), 4);
+    transform.scale = Math.max(scale, 0.1);
+    transform.x = W / 2 - ((minX + maxX) / 2) * transform.scale;
+    transform.y = H / 2 - ((minY + maxY) / 2) * transform.scale;
+    draw();
+  }
+
+  function hitNode(wx, wy) {
+    var R = 22 / transform.scale;
+    var i, nd, dx, dy;
+    for (i = nodes.length - 1; i >= 0; i--) {
+      nd = nodes[i]; dx = wx - nd.x; dy = wy - nd.y;
+      if (dx * dx + dy * dy <= R * R) return nd;
+    }
+    return null;
+  }
+
+  function redraw() { if (!animRunning) draw(); }
+
+  canvas.addEventListener('pointerdown', function(e) {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    if (Object.keys(activePointers).length === 1) {
+      dragging = true;
+      lastMX = e.clientX; lastMY = e.clientY;
+      clickX = e.clientX; clickY = e.clientY;
+    } else {
+      dragging = false;
+    }
+  });
+
+  canvas.addEventListener('pointermove', function(e) {
+    e.preventDefault();
+    var ids = Object.keys(activePointers);
+    if (ids.length === 0) {
+      if (e.pointerType === 'mouse') {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        canvas.style.cursor = (nd && !nd.isFocal) ? 'pointer' : 'grab';
+      }
+      return;
+    }
+    var prev = activePointers[e.pointerId] || {x: e.clientX, y: e.clientY};
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    ids = Object.keys(activePointers);
+    if (ids.length === 1) {
+      transform.x += e.clientX - prev.x;
+      transform.y += e.clientY - prev.y;
+      lastMX = e.clientX; lastMY = e.clientY;
+      redraw();
+    } else {
+      var id0 = ids[0], id1 = ids[1];
+      var p0old = (id0 === String(e.pointerId)) ? prev : activePointers[id0];
+      var p1old = (id1 === String(e.pointerId)) ? prev : activePointers[id1];
+      var p0new = activePointers[id0], p1new = activePointers[id1];
+      var oldDist = Math.hypot(p1old.x - p0old.x, p1old.y - p0old.y);
+      var newDist = Math.hypot(p1new.x - p0new.x, p1new.y - p0new.y);
+      if (oldDist > 0) {
+        var mx = (p0new.x + p1new.x) / 2 - canvas.getBoundingClientRect().left;
+        var my = (p0new.y + p1new.y) / 2 - canvas.getBoundingClientRect().top;
+        var factor = newDist / oldDist;
+        transform.x = mx - (mx - transform.x) * factor;
+        transform.y = my - (my - transform.y) * factor;
+        transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+        redraw();
+      }
+    }
+  });
+
+  canvas.addEventListener('pointerup', function(e) {
+    e.preventDefault();
+    var moved = Math.abs(e.clientX - clickX) + Math.abs(e.clientY - clickY);
+    var prevCount = Object.keys(activePointers).length;
+    delete activePointers[e.pointerId];
+    var remaining = Object.keys(activePointers).length;
+    if (remaining === 0) {
+      dragging = false;
+      canvas.style.cursor = 'grab';
+      if (prevCount === 1 && moved < 8) {
+        var rect = canvas.getBoundingClientRect();
+        var w = toWorld(e.clientX - rect.left, e.clientY - rect.top);
+        var nd = hitNode(w.x, w.y);
+        if (nd && !nd.isFocal) window.location.href = nd.url;
+      }
+    } else if (remaining === 1) {
+      dragging = true;
+      var rem = activePointers[Object.keys(activePointers)[0]];
+      lastMX = rem.x; lastMY = rem.y;
+    }
+  });
+
+  canvas.addEventListener('pointercancel', function(e) {
+    delete activePointers[e.pointerId];
+    if (Object.keys(activePointers).length === 0) dragging = false;
+  });
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    var factor = e.deltaY < 0 ? 1.18 : 0.847;
+    transform.x = mx - (mx - transform.x) * factor;
+    transform.y = my - (my - transform.y) * factor;
+    transform.scale = Math.max(0.1, Math.min(10, transform.scale * factor));
+    if (!animRunning) draw();
+  }, {passive: false});
+
+  window.addEventListener('resize', function() { resize(); redraw(); });
+
+  resize();
+  fetch('/Research/data/graph.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      initNodes(data);
+      if (nodes.length > 1) {
+        startAnim();
+      } else {
+        var sect = document.getElementById('mini-graph-section');
+        if (sect) sect.style.display = 'none';
+      }
+    })
+    .catch(function() {
+      var sect = document.getElementById('mini-graph-section');
+      if (sect) sect.style.display = 'none';
+    });
+})();
+
+</script>
+</body>
+</html>

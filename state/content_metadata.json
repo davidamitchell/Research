@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-09-14T19:36:07Z",
+  "extracted_at": "2026-09-14T19:55:08Z",
   "items": {
     "2026-08-20-planar-memory-graph-topology-drift": {
       "named_concepts": [
@@ -374,6 +374,107 @@
           "text": "Astute RAG's source-aware consolidation method is the one flat-vector-compatible mitigation with direct evidence of narrowing the conflict-resolution gap, matching or exceeding parametric-knowledge-only performance under worst-case retrieval conditions, but its authors frame this as resilience rather than as general contradiction resolution",
           "sources": [
             "https://arxiv.org/abs/2410.07176"
+          ]
+        }
+      ]
+    },
+    "2026-08-20-execution-harness-closed-loop-performance": {
+      "named_concepts": [
+        "phase margin",
+        "gain margin",
+        "swe-bench verified",
+        "et al",
+        "observation masking",
+        "model configurations",
+        "failed attempt",
+        "stability metrics",
+        "working-set utilisation",
+        "input length",
+        "cycle time",
+        "single-source study",
+        "response-time thresholds",
+        "settling time",
+        "stale context",
+        "controlled comparison",
+        "software engineering",
+        "llm summarisation",
+        "semantic-match retrieval",
+        "next attempt"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-01-ai-coding-harness-quality-benchmarks.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-01-context-mode-llm-context-compression.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-30-tdd-feedback-loops-ai-augmented-dev.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-13-agent-process-reliability-architecture.html",
+        "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+        "https://www.trychroma.com/research/context-rot",
+        "https://arxiv.org/abs/2508.21433",
+        "https://blog.jetbrains.com/research/2025/12/efficient-context-management/",
+        "https://arxiv.org/abs/2303.11366",
+        "https://arxiv.org/abs/2201.09305",
+        "https://arxiv.org/abs/2310.08560",
+        "https://arxiv.org/abs/2107.03374",
+        "https://doi.org/10.1145/363095.363141",
+        "https://www.nngroup.com/articles/response-times-3-important-limits/",
+        "https://scholarlypublications.universiteitleiden.nl/handle/1887/4211793",
+        "https://arxiv.org/abs/2307.03172",
+        "https://arxiv.org/abs/2502.05167",
+        "https://dora.dev/guides/dora-metrics/",
+        "https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Introduction_to_Control_Systems_(Iqbal",
+        "https://ionia-automation.com/en/wp-latency"
+      ],
+      "key_claims": [
+        {
+          "text": "A controlled comparison inside the SWE-agent scaffold against the SWE-bench Verified benchmark found that observation masking, simply hiding older raw tool outputs, matched or exceeded the task solve rate of LLM-generated summarisation while roughly halving token cost across five model configurations",
+          "sources": [
+            "https://arxiv.org/abs/2508.21433",
+            "https://blog.jetbrains.com/research/2025/12/efficient-context-management/"
+          ]
+        },
+        {
+          "text": "Model recall degrades non-uniformly as input length increases even when task difficulty is held constant, evidenced across an 18-model evaluation that intentionally isolated input length from task complexity",
+          "sources": [
+            "https://www.trychroma.com/research/context-rot"
+          ]
+        },
+        {
+          "text": "Large language models retrieve information placed in the middle of a long context substantially worse than information placed at the beginning or end, a positional degradation pattern distinct from and additive to raw length effects",
+          "sources": [
+            "https://arxiv.org/abs/2307.03172"
+          ]
+        },
+        {
+          "text": "Retrieval accuracy collapses far more steeply with context length when the match between a query and the needed information is semantic rather than lexical, showing that Needle in a Haystack (NIAH)-style lexical benchmarks overstate real long-context capability",
+          "sources": [
+            "https://arxiv.org/abs/2502.05167"
+          ]
+        },
+        {
+          "text": "A verbal self-reflection loop that stores natural-language feedback about a specific failed attempt and consults it on the next attempt raised HumanEval pass@1 accuracy from a baseline in the low-to-mid 80s percent to 91% without any update to model weights",
+          "sources": [
+            "https://arxiv.org/abs/2303.11366"
+          ]
+        },
+        {
+          "text": "Both major symbolic cognitive architectures, Adaptive Control of Thought-Rational (ACT-R) and Soar, separate a small bounded working memory that holds only currently active information from an unbounded long-term procedural store that is updated incrementally from problem-solving outcomes, a structural pattern that MemGPT's fast/slow memory tiers and Reflexion's episodic-reflection store independently reproduce in software agents",
+          "sources": [
+            "https://arxiv.org/abs/2201.09305",
+            "https://arxiv.org/abs/2310.08560",
+            "https://arxiv.org/abs/2303.11366"
+          ]
+        },
+        {
+          "text": "Denning's working-set model defines a system as thrashing, meaning throughput collapses, once the sum of active processes' referenced-page sets exceeds available memory, giving a directly adaptable definition for a harness \"working-set utilisation\" metric as the fraction of active context budget occupied by content the model actually references for its next decision",
+          "sources": [
+            "https://doi.org/10.1145/363095.363141"
+          ]
+        },
+        {
+          "text": "Feedback-latency thresholds established for human perception of a directly operated interface (roughly instantaneous below 0.1 seconds, uninterrupted flow up to 1 second, attention loss beyond 10 seconds without explicit progress feedback) have not been directly measured against harness-internal tool-call or diagnostic latency in any source reviewed for this item",
+          "sources": [
+            "https://www.nngroup.com/articles/response-times-3-important-limits/"
           ]
         }
       ]
