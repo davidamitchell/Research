@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-09-14T20:30:37Z",
+  "extracted_at": "2026-09-14T20:50:29Z",
   "items": {
     "2026-08-20-planar-memory-graph-topology-drift": {
       "named_concepts": [
@@ -184,6 +184,101 @@
           "text": "Michael Lipsky's analysis of street-level bureaucracy found that discretionary, non-deterministic rule application by frontline case workers produces documented inconsistency, bias, and inequity across superficially similar cases, showing that removing deterministic bounds to preserve nuance carries its own measurable harm",
           "sources": [
             "https://www.russellsage.org/publications/book/street-level-bureaucracy"
+          ]
+        }
+      ]
+    },
+    "2026-08-20-mediated-content-pool-semantic-clarity": {
+      "named_concepts": [
+        "content pool",
+        "mediated content",
+        "ontology alignment",
+        "description logic",
+        "logic dl",
+        "dl justification-finding",
+        "minimal axiom",
+        "consuming application",
+        "minimal justification",
+        "overlay curation",
+        "provenance-annotation quality",
+        "durable harness-independent",
+        "shapes constraint",
+        "constraint language",
+        "language shacl",
+        "resolvability structure",
+        "later resolver",
+        "alignment evaluation",
+        "evaluation initiative",
+        "initiative oaei"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-07-20-autonomous-knowledge-curation-truth-maintenance.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-15-ontology-landscape-for-curated-enterprise-context.html",
+        "https://www.w3.org/TR/prov-o/",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-23-similarity-algorithms-controlled-vocabulary.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-03-knowledge-representation-agent-context.html",
+        "https://link.springer.com/book/10.1007/978-3-642-31164-2",
+        "https://github.com/OlivierBinette/Awesome-Entity-Resolution",
+        "https://dedupe.dev/guides/entity-resolution",
+        "https://www.cs.ox.ac.uk/isg/tools/LogMap/",
+        "https://www.ijcai.org/Proceedings/03/Papers/053.pdf",
+        "https://link.springer.com/article/10.1007/s10817-007-9076-z",
+        "https://www.w3.org/TR/shacl/",
+        "https://www.cs.huji.ac.il/~lehmann/nonmon/AGM_JSL.pdf",
+        "https://www.w3.org/TR/rdf12-concepts/",
+        "https://ceur-ws.org/Vol-4144/om2025-oaei-paper0.pdf",
+        "https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition"
+      ],
+      "key_claims": [
+        {
+          "text": "A Minimal Axiom set (MinA), computed by Description Logic (DL) pinpointing algorithms, is both a conflict-detection and a resolvability mechanism because it identifies the smallest set of axioms responsible for a contradiction, giving a later resolver an exact, minimal target rather than the whole pool to search",
+          "sources": [
+            "https://www.ijcai.org/Proceedings/03/Papers/053.pdf",
+            "https://link.springer.com/article/10.1007/s10817-007-9076-z"
+          ]
+        },
+        {
+          "text": "LogMap demonstrates that ontology alignment tools can perform on-the-fly unsatisfiability detection and automatic repair during pool construction itself, moving conflict detection upstream of any downstream query rather than leaving it to be discovered by a consuming application",
+          "sources": [
+            "https://www.cs.ox.ac.uk/isg/tools/LogMap/"
+          ]
+        },
+        {
+          "text": "The World Wide Web Consortium (W3C) Provenance Ontology (PROV-O) provides a domain-independent, standardised schema for attaching a queryable derivation chain to any pool entry, giving one concrete resolvability strategy, provenance-weighted selection, that requires no application-specific logic to implement",
+          "sources": [
+            "https://www.w3.org/TR/prov-o/"
+          ]
+        },
+        {
+          "text": "RDF-star, incorporated into the RDF 1.2 Candidate Recommendation, allows conflict-status, confidence, and provenance metadata to be attached directly to a single statement rather than requiring four-triple reification, keeping resolvability annotation lightweight enough to apply pool-wide rather than selectively",
+          "sources": [
+            "https://www.w3.org/TR/rdf12-concepts/"
+          ]
+        },
+        {
+          "text": "Shapes Constraint Language (SHACL) formalises structural clarity requirements (required fields, cardinality, value ranges) as declarative, machine-checkable shapes, but it validates structure rather than detecting semantic contradictions between two well-formed statements, so it must be paired with a justification-finding or alignment method rather than substituted for one",
+          "sources": [
+            "https://www.w3.org/TR/shacl/"
+          ]
+        },
+        {
+          "text": "The Alchourrón-Gärdenfors-Makinson (AGM) belief revision postulates define minimal change as the formal criterion a resolvability structure should satisfy, giving pool-level conflict resolution a theoretical target that predates and underlies the practical MinA and hitting-set repair mechanisms found in the Description Logic (DL) literature",
+          "sources": [
+            "https://www.cs.huji.ac.il/~lehmann/nonmon/AGM_JSL.pdf"
+          ]
+        },
+        {
+          "text": "The Ontology Alignment Evaluation Initiative (OAEI) has run an annual, standardised benchmark since 2004 that measures alignment precision, recall, and F1 score independent of any consuming application, demonstrating that durable, harness-independent evaluation of a pool-level method is achievable and has a two-decade precedent",
+          "sources": [
+            "https://ceur-ws.org/Vol-4144/om2025-oaei-paper0.pdf"
+          ]
+        },
+        {
+          "text": "Archival science's General International Standard Archival Description (ISAD(G)) requires provenance and original-order preservation performed once by the archive rather than reconstructed by each researcher, offering a decades-old, non-computational precedent for the same consumer-independent durability this item's Research Question targets for a mediated content pool",
+          "sources": [
+            "https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition"
           ]
         }
       ]
