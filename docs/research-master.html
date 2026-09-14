@@ -669,7 +669,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-09-14 19:53 UTC</p>
+<p>Generated on: 2026-09-14 20:18 UTC</p>
 <p><a id="2026-08-20-planar-memory-graph-topology-drift-md"></a></p>
 <h2>Noise thresholds and topology drift in planar memory graphs</h2>
 <p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-20-planar-memory-graph-topology-drift.md</p>
@@ -921,6 +921,138 @@ main {
 <li>Can the extraction step that maps raw input onto a symbolic class be made to expose its own confidence or ambiguity, rather than emitting a single discrete class label, without abandoning the auditability benefit of the symbolic layer?</li>
 <li>What governance controls (logging, review sampling, override-rate monitoring) would make an overrideable or escalation-based symbolic layer safer than Lipsky's documented street-level discretion problem, in an automated rather than human-staffed context?</li>
 <li>Would a fuzzy or probabilistic ontology layer, evaluated head-to-head against a crisp ontology layer on the same edge-case dataset, show a measurable reduction in nuance-collapse harm, and at what cost to auditability or reasoning tractability?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-08-20-independent-goal-attainment-verification-md"></a></p>
+<h2>Independent verification and durable evidence for goal attainment</h2>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-20-independent-goal-attainment-verification.md</p>
+<h2>Research Question</h2>
+<p>What reusable verification, assurance, logging, and audit mechanisms can determine whether a stated goal has been attained while remaining independent of any specific content pool or execution environment, and how should their reliability, evidence durability, and non-interference be evaluated?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>A reusable, domain-independent goal-attainment checking zone can be assembled from four already-proven primitives: a digest-bound attestation that states what was checked, a tamper-evident transparency log that makes that assertion durable and independently re-verifiable, a domain-agnostic provenance schema that lets the assertion travel across content pools, and either runtime verification or zero-knowledge proof as the mechanism that actually decides whether the goal state was reached. [inference; source: https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md; https://github.com/sigstore/architecture-docs/blob/main/rekor-spec.md; https://www.w3.org/TR/prov-dm/] Runtime verification checks a live execution trace against a formal specification of the intended outcome and is cheap to deploy but degrades when the trace is incomplete, while zero-knowledge succinct proof cryptographically certifies that a claimed result follows from correct execution without needing to observe or re-run the environment, at the cost of proving effort proportional to the checked computation. [inference; source: https://doi.org/10.1016/j.jlap.2008.08.004; https://eprint.iacr.org/2013/879] None of the surveyed mechanisms achieves the formal non-interference property defined by Goguen and Meseguer in an absolute sense, because every determination step still requires some instrumentation or telemetry contact with the checked system, so independence should be treated as a graded, evidence-backed property rather than an assumed guarantee. [inference; source: https://doi.org/10.1109/SP.1982.10014] Reliability of a candidate mechanism should be evaluated against a four-part rubric: replayability from durable evidence alone, cryptographic tamper resistance, organisational separation of audit generation from the audited system, and a bounded interference footprint. [inference; source: https://github.com/sigstore/architecture-docs/blob/main/rekor-spec.md; https://csrc.nist.gov/pubs/sp/800/53/r5/final]</p>
+<h3>Key Findings</h3>
+<ol>
+<li>The in-toto attestation Statement layer binds a predicate describing how or whether a goal was reached to a set of artifacts identified purely by cryptographic digest, so the claim cannot later be silently redirected to a different artifact or execution instance. ([fact]; medium confidence; source: https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md)</li>
+<li>The Supply-chain Levels for Software Artifacts Provenance predicate requires that all external, untrusted inputs to a build be captured as explicit parameters that a downstream verifier must independently check, giving a template for representing a goal-attainment claim without trusting the build platform itself. ([fact]; medium confidence; source: https://slsa.dev/spec/v1.1/provenance)</li>
+<li>Sigstore's Rekor transparency log uses a Merkle tree structure to support independently recomputable inclusion and consistency proofs, so any third party can verify that a goal-attainment record exists and that the log has not been retroactively altered, without needing write access or trust in the log operator. ([fact]; medium confidence; source: https://github.com/sigstore/architecture-docs/blob/main/rekor-spec.md; https://docs.sigstore.dev/logging/overview/)</li>
+<li>The World Wide Web Consortium Provenance Data Model defines a domain-agnostic vocabulary of entities, activities, and agents that a checking zone can reuse to represent what was checked and by what process, regardless of whether the underlying goal belongs to a software pipeline, a research task, or an autonomous agent action sequence. ([fact]; medium confidence; source: https://www.w3.org/TR/prov-dm/)</li>
+<li>Runtime verification synthesises a monitor from a formal specification and evaluates only the trace of events a system emits, positioning it to check goal attainment without altering the checked system's internal logic, but its verdict quality depends entirely on how complete and unambiguous the collected trace is. ([inference]; medium confidence; source: https://doi.org/10.1016/j.jlap.2008.08.004)</li>
+<li>Zero-knowledge succinct non-interactive arguments of knowledge let a verifier confirm that a claimed computational result followed from correct execution of an arbitrary program, without re-executing the computation or observing the private inputs, making them the strongest available mechanism for verifier independence from the execution environment among the mechanisms reviewed. ([inference]; medium confidence; source: https://eprint.iacr.org/2013/879)</li>
+<li>The formal non-interference property requires that a checking channel's presence and activity have no observable effect on the system being checked, and applying this standard shows that every mechanism surveyed here achieves only a bounded rather than absolute version of independence, because instrumentation or telemetry collection for the goal-determination step necessarily touches the checked environment. ([inference]; medium confidence; source: https://doi.org/10.1109/SP.1982.10014)</li>
+<li>The NIST SP 800-53 Audit and Accountability control family requires that audit record generation, protection, retention, and review be separated from the system generating the audited events, which extends the reliability rubric beyond cryptographic tamper evidence to organisational independence that none of the technical mechanisms address on their own. ([fact]; medium confidence; source: https://csrc.nist.gov/pubs/sp/800/53/r5/final)</li>
+<li>Current large language model agent evaluation practice separates trajectory evaluation, whether the agent's steps were sensible, from task-completion evaluation, whether the goal was reached regardless of process, and external time-horizon measurement methodologies apply an outcome-only success criterion without granting the evaluated agent any role in judging its own result. ([fact]; medium confidence; source: https://arxiv.org/abs/2507.21504; https://arxiv.org/abs/2503.14499)</li>
+<li>This item extends the repository's prior governance-assurance finding that a durable audit trail needs both a provenance-evidence channel and a policy-decision-evidence channel by adding a tamper-evident transparency-log layer and a domain-agnostic provenance schema that the earlier item did not examine. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html; https://github.com/sigstore/architecture-docs/blob/main/rekor-spec.md)</li>
+<li>A goal-attainment checking mechanism should apply the same downgrade discipline the repository's claim-verification item established for source-matching, retaining a positive attainment verdict only when the runtime-verification monitor or zero-knowledge proof returns a definitive result, and downgrading to an unresolved or inferential status on any inconclusive, incomplete, or unmatched outcome rather than defaulting to pass. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-02-automated-claim-verification-academic-literature.html)</li>
+<li>A goal-attainment checking mechanism is only meaningful if the stated goal it checks against is itself tamper-evident, which requires the append-only, digest-referencing amendment chain already established in the repository's cryptographic intent preservation item rather than an in-place-editable goal declaration. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.html)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[fact] in-toto Statement binds a predicate to digest-identified subjects, preventing silent artifact substitution.</td>
+<td>https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md</td>
+<td>medium</td>
+<td>Single primary specification source; capability claim, not a comparative judgment.</td>
+</tr>
+<tr>
+<td>[fact] SLSA Provenance requires external parameters to be captured and independently verified downstream.</td>
+<td>https://slsa.dev/spec/v1.1/provenance</td>
+<td>medium</td>
+<td>Single primary specification source.</td>
+</tr>
+<tr>
+<td>[fact] Rekor's Merkle tree supports independently recomputable inclusion and consistency proofs.</td>
+<td>https://github.com/sigstore/architecture-docs/blob/main/rekor-spec.md; https://docs.sigstore.dev/logging/overview/</td>
+<td>medium</td>
+<td>Two documents from the same project; not independent organisations, so held at medium despite being primary sources.</td>
+</tr>
+<tr>
+<td>[fact] The PROV Data Model defines a domain-agnostic entity/activity/agent vocabulary.</td>
+<td>https://www.w3.org/TR/prov-dm/</td>
+<td>medium</td>
+<td>Single primary W3C Recommendation.</td>
+</tr>
+<tr>
+<td>[inference] Runtime verification checks traces without altering system logic, but degrades with incomplete traces.</td>
+<td>https://doi.org/10.1016/j.jlap.2008.08.004</td>
+<td>medium</td>
+<td>Single foundational survey; the incompleteness caveat is this item's own extrapolation from the monitor-synthesis description.</td>
+</tr>
+<tr>
+<td>[inference] Zero-knowledge succinct proofs give the strongest environment independence among reviewed mechanisms.</td>
+<td>https://eprint.iacr.org/2013/879</td>
+<td>medium</td>
+<td>Single primary cryptography paper; comparative ranking is this item's synthesis.</td>
+</tr>
+<tr>
+<td>[inference] No surveyed mechanism achieves absolute non-interference; independence is bounded, not absolute.</td>
+<td>https://doi.org/10.1109/SP.1982.10014</td>
+<td>medium</td>
+<td>Applies a 1982 formal security definition to mechanisms it was not written to evaluate.</td>
+</tr>
+<tr>
+<td>[fact] NIST SP 800-53 Audit and Accountability requires organisational separation of audit functions from audited systems.</td>
+<td>https://csrc.nist.gov/pubs/sp/800/53/r5/final</td>
+<td>medium</td>
+<td>Single primary standard; abstract-level statement of the control family's intent.</td>
+</tr>
+<tr>
+<td>[fact] Agent benchmarks separate trajectory evaluation from outcome-only task-completion checking.</td>
+<td>https://arxiv.org/abs/2507.21504; https://arxiv.org/abs/2503.14499</td>
+<td>medium</td>
+<td>Two independent research groups (survey authors and METR), supporting the same structural observation.</td>
+</tr>
+<tr>
+<td>[inference] This item extends the prior governance-assurance evidence-channel finding with transparency logs and a provenance schema.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html</td>
+<td>medium</td>
+<td>Same-repository synthesis extension, not new external evidence.</td>
+</tr>
+<tr>
+<td>[inference] Goal-attainment verdicts should downgrade on inconclusive results rather than default to pass.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-05-02-automated-claim-verification-academic-literature.html</td>
+<td>medium</td>
+<td>Same-repository pattern transfer from claim verification to attainment verification.</td>
+</tr>
+<tr>
+<td>[inference] The checked goal declaration itself must be tamper-evident via an append-only amendment chain.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.html</td>
+<td>medium</td>
+<td>Same-repository dependency; not independently re-verified here.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<p>This item assumes that the three cited prior repository items already establish the adjacent evidence-channel, claim-labelling, and durable-intent patterns without needing re-derivation here. [assumption; source: https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html] This is reasonable because all three were produced under the same repository research-skill and evidence-discipline rules that govern this item, so their conclusions are treated as design context rather than as external claims requiring fresh verification. [assumption; source: https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html]</p>
+<p>The instrumentation needed to collect an execution trace for runtime verification or a witness for a zero-knowledge proof is assumed to be lightweight enough not to materially change the checked system's behaviour in most deployments. [assumption; source: https://doi.org/10.1016/j.jlap.2008.08.004; https://eprint.iacr.org/2013/879] Neither primary source measures the instrumentation overhead directly, so this assumption is carried forward from the general framing of runtime verification and zero-knowledge proof as external-observation techniques rather than from a measured overhead figure. [assumption; source: https://doi.org/10.1016/j.jlap.2008.08.004; https://eprint.iacr.org/2013/879]</p>
+<p>A goal-attainment checking zone is assumed to be able to receive a machine-readable statement of the goal it must check against, rather than only free-text human intent. [assumption; source: https://davidamitchell.github.io/Research/research/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.html] This follows from the repository's cryptographic intent preservation item, which found that typed, bounded declarations are required for machine evaluability, but no source in this item's own evidence set independently re-confirms that assumption for the specific goal-attainment use case. [assumption; source: https://davidamitchell.github.io/Research/research/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.html]</p>
+<h3>Analysis</h3>
+<p>The evidence splits into two layers that answer different parts of the research question: attestation, transparency logging, and the provenance schema answer how a goal-attainment claim can be made durable, portable, and independently re-checkable, while runtime verification and zero-knowledge proof answer how the claim is actually determined in the first place. [inference; source: https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md; https://doi.org/10.1016/j.jlap.2008.08.004] Runtime verification and zero-knowledge proof were weighed as complementary rather than competing options, because the trade-off is not which is universally better but which interference bound and cost profile a given content pool can tolerate: runtime verification accepts a weaker independence bound in exchange for low deployment cost and broad applicability, while zero-knowledge proof accepts a higher proving cost in exchange for a cryptographically sound, environment-independent verdict. [inference; source: https://doi.org/10.1016/j.jlap.2008.08.004; https://eprint.iacr.org/2013/879] A competing interpretation, that non-interference should be treated as binary and any mechanism touching the checked system should be disqualified, was rejected, because the Goguen-Meseguer formalisation itself was designed for information-flow channels in a shared machine and does not have an established variant that certifies zero-contact external verification of arbitrary computation; treating independence as graded is the more defensible reading of evidence that only measures degrees of separation, not an achieved absolute. [inference; source: https://doi.org/10.1109/SP.1982.10014] The NIST control-family evidence was weighted as a complementary organisational lens rather than a substitute for the cryptographic mechanisms; this weighting is this item's own analytical decision, not a claim the NIST source itself makes. [inference; source: https://csrc.nist.gov/pubs/sp/800/53/r5/final] SP 800-53 defines what separation of duties should exist without specifying how any specific cryptographic or logging mechanism should implement it. [fact; source: https://csrc.nist.gov/pubs/sp/800/53/r5/final]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The proving cost of zero-knowledge succinct proofs scales with the complexity of the checked computation, so the strongest independence guarantee reviewed here may be impractical for goal-attainment claims that involve long-running or resource-intensive execution, and no source in this item's evidence set measures that cost for a goal-attainment-sized workload specifically. [inference; source: https://eprint.iacr.org/2013/879]</li>
+<li>Runtime verification's reliance on trace completeness means its reliability for a specific content pool cannot be assessed from the general literature alone; it depends on the instrumentation access that pool actually grants, which this item did not test against a concrete deployment. [inference; source: https://doi.org/10.1016/j.jlap.2008.08.004]</li>
+<li>A secondary claim about a 2023 survey specifically addressing uncertainty in runtime verification traces could not be independently confirmed against a primary source in this session; search query &quot;uncertainty in runtime verification survey Computer Science Review 2023&quot; returned only secondary summaries without a verifiable primary bibliographic record, so no claim in this item rests on that unconfirmed lead. [assumption; source: https://doi.org/10.1016/j.jlap.2008.08.004]</li>
+<li>The Rekor transparency-log evidence in this item comes from two documents produced by the same project, so the tamper-resistance claim, while backed by primary specification text, does not meet the two-independent-organisation bar for high confidence and is held at medium throughout. [inference; source: https://github.com/sigstore/architecture-docs/blob/main/rekor-spec.md; https://docs.sigstore.dev/logging/overview/]</li>
+<li>This item did not evaluate how the four-primitive composition would perform against an adversary who controls both the content pool and the instrumentation layer simultaneously, which is the scenario the non-interference formalism was originally built to reason about and remains the most direct threat model to test in a follow-up item. [inference; source: https://doi.org/10.1109/SP.1982.10014]</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What machine-readable schema should a goal-attainment predicate use inside an in-toto Statement so that verifiers across different content pools can compare goal-state claims without a shared execution vocabulary? [inference; source: https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md; https://www.w3.org/TR/prov-dm/]</li>
+<li>At what computation size does zero-knowledge succinct proof become impractical for goal-attainment checking relative to runtime verification, and is there a hybrid pattern that uses runtime verification for routine checks and zero-knowledge proof only for disputed or high-stakes attainment claims? [inference; source: https://doi.org/10.1016/j.jlap.2008.08.004; https://eprint.iacr.org/2013/879]</li>
+<li>Can a lighter-weight formal test than full non-interference certify that a specific instrumentation approach stays within an acceptable interference bound, rather than only being able to say the bound is nonzero? [inference; source: https://doi.org/10.1109/SP.1982.10014]</li>
+<li>How should the checking zone's own transparency-log infrastructure be kept independent of the organisation that also controls the content pool, so that the NIST-style organisational separation requirement is met in practice rather than only on paper? [inference; source: https://csrc.nist.gov/pubs/sp/800/53/r5/final; https://github.com/sigstore/architecture-docs/blob/main/rekor-spec.md]</li>
 </ul>
 <hr />
 <hr />
