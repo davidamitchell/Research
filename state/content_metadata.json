@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-09-14T20:05:13Z",
+  "extracted_at": "2026-09-14T20:20:08Z",
   "items": {
     "2026-08-20-planar-memory-graph-topology-drift": {
       "named_concepts": [
@@ -184,6 +184,99 @@
           "text": "Michael Lipsky's analysis of street-level bureaucracy found that discretionary, non-deterministic rule application by frontline case workers produces documented inconsistency, bias, and inequity across superficially similar cases, showing that removing deterministic bounds to preserve nuance carries its own measurable harm",
           "sources": [
             "https://www.russellsage.org/publications/book/street-level-bureaucracy"
+          ]
+        }
+      ]
+    },
+    "2026-08-20-independent-goal-attainment-verification": {
+      "named_concepts": [
+        "runtime verification",
+        "zero-knowledge proof",
+        "goal-attainment checking",
+        "zero-knowledge succinct",
+        "checking zone",
+        "provenance schema",
+        "checked system",
+        "content pool",
+        "organisational separation",
+        "transparency log",
+        "domain-agnostic provenance",
+        "content pools",
+        "verification checks",
+        "execution trace",
+        "formal specification",
+        "succinct proof",
+        "correct execution",
+        "checked computation",
+        "formal non-interference",
+        "non-interference property"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-02-automated-claim-verification-academic-literature.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.html",
+        "https://slsa.dev/spec/v1.1/provenance",
+        "https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md",
+        "https://docs.sigstore.dev/logging/overview/",
+        "https://github.com/sigstore/architecture-docs/blob/main/rekor-spec.md",
+        "https://www.w3.org/TR/prov-dm/",
+        "https://doi.org/10.1016/j.jlap.2008.08.004",
+        "https://doi.org/10.1109/SP.1982.10014",
+        "https://eprint.iacr.org/2013/879",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/final",
+        "https://arxiv.org/abs/2503.14499",
+        "https://arxiv.org/abs/2507.21504",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.html",
+        "https://en.wikipedia.org/wiki/Non-interference_(security"
+      ],
+      "key_claims": [
+        {
+          "text": "The in-toto attestation Statement layer binds a predicate describing how or whether a goal was reached to a set of artifacts identified purely by cryptographic digest, so the claim cannot later be silently redirected to a different artifact or execution instance",
+          "sources": [
+            "https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md"
+          ]
+        },
+        {
+          "text": "The Supply-chain Levels for Software Artifacts Provenance predicate requires that all external, untrusted inputs to a build be captured as explicit parameters that a downstream verifier must independently check, giving a template for representing a goal-attainment claim without trusting the build platform itself",
+          "sources": [
+            "https://slsa.dev/spec/v1.1/provenance"
+          ]
+        },
+        {
+          "text": "Sigstore's Rekor transparency log uses a Merkle tree structure to support independently recomputable inclusion and consistency proofs, so any third party can verify that a goal-attainment record exists and that the log has not been retroactively altered, without needing write access or trust in the log operator",
+          "sources": [
+            "https://github.com/sigstore/architecture-docs/blob/main/rekor-spec.md",
+            "https://docs.sigstore.dev/logging/overview/"
+          ]
+        },
+        {
+          "text": "The World Wide Web Consortium Provenance Data Model defines a domain-agnostic vocabulary of entities, activities, and agents that a checking zone can reuse to represent what was checked and by what process, regardless of whether the underlying goal belongs to a software pipeline, a research task, or an autonomous agent action sequence",
+          "sources": [
+            "https://www.w3.org/TR/prov-dm/"
+          ]
+        },
+        {
+          "text": "Runtime verification synthesises a monitor from a formal specification and evaluates only the trace of events a system emits, positioning it to check goal attainment without altering the checked system's internal logic, but its verdict quality depends entirely on how complete and unambiguous the collected trace is",
+          "sources": [
+            "https://doi.org/10.1016/j.jlap.2008.08.004"
+          ]
+        },
+        {
+          "text": "Zero-knowledge succinct non-interactive arguments of knowledge let a verifier confirm that a claimed computational result followed from correct execution of an arbitrary program, without re-executing the computation or observing the private inputs, making them the strongest available mechanism for verifier independence from the execution environment among the mechanisms reviewed",
+          "sources": [
+            "https://eprint.iacr.org/2013/879"
+          ]
+        },
+        {
+          "text": "The formal non-interference property requires that a checking channel's presence and activity have no observable effect on the system being checked, and applying this standard shows that every mechanism surveyed here achieves only a bounded rather than absolute version of independence, because instrumentation or telemetry collection for the goal-determination step necessarily touches the checked environment",
+          "sources": [
+            "https://doi.org/10.1109/SP.1982.10014"
+          ]
+        },
+        {
+          "text": "The NIST SP 800-53 Audit and Accountability control family requires that audit record generation, protection, retention, and review be separated from the system generating the audited events, which extends the reliability rubric beyond cryptographic tamper evidence to organisational independence that none of the technical mechanisms address on their own",
+          "sources": [
+            "https://csrc.nist.gov/pubs/sp/800/53/r5/final"
           ]
         }
       ]
