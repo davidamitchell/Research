@@ -24,7 +24,7 @@ versions: []
 
 ## Research Question
 
-How can the concept of a modern technology platform be derived from first principles of enablement, modular composition, interface standardization, and multi-party value creation, and what necessary architectural and organisational properties distinguish production-grade software, data, infrastructure, and Internal Developer Platforms (IDPs) from tools, products, services, and foundational infrastructure?
+How can the concept of a modern technology platform be derived from first principles of enablement, modular composition, interface standardization, and multi-party value creation, and what necessary architectural and organisational properties distinguish production-grade software, data, infrastructure, and internal developer platforms from tools, products, services, and foundational infrastructure?
 
 ## Scope
 
@@ -41,7 +41,7 @@ How can the concept of a modern technology platform be derived from first princi
 - Consumer marketplace and social-media platform case studies except where needed to ground multi-sided platform economics
 - Exhaustive evaluation of every adjacent domain term beyond the specific comparison set in the issue
 
-**Constraints:** Prefer publicly accessible primary or standards-aligned sources. Use the seeded academic references plus targeted audits of Cloud Native Computing Foundation platforms material, Martin Fowler, Thoughtworks, major cloud-provider platform guidance, and 42010 architecture-description material published by the International Organization for Standardization, International Electrotechnical Commission, and Institute of Electrical and Electronics Engineers. Output type defaults to `knowledge`.
+**Constraints:** Prefer publicly accessible primary or standards-aligned sources. Use the seeded academic references plus targeted audits of Cloud Native Computing Foundation platforms material, Martin Fowler, Thoughtworks, major cloud-provider platform guidance, and Software, systems and enterprise — Architecture description (ISO/IEC/IEEE 42010) material published by the International Organization for Standardization, International Electrotechnical Commission, and Institute of Electrical and Electronics Engineers. Output type defaults to `knowledge`.
 
 ## Context
 
