@@ -1,6 +1,6 @@
 ---
 title: "First-principles taxonomy of modern technology platforms"
-added: 2026-09-14T10:34:05+00:00
+added: 2026-09-14
 status: backlog
 priority: high
 blocks: []
