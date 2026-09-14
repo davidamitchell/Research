@@ -1,11 +1,12 @@
 # Research Master Document
 
-Generated on: 2026-09-14 20:18 UTC
+Generated on: 2026-09-14 20:48 UTC
 
 ## Table of Contents
 
 * [Noise thresholds and topology drift in planar memory graphs](#2026-08-20-planar-memory-graph-topology-drift-md)
 * [Nuance collapse in deterministic neuro-symbolic ontology pipelines](#2026-08-20-neuro-symbolic-nuance-loss-explainability-md)
+* [Semantic clarity and conflict resolvability in mediated content pools](#2026-08-20-mediated-content-pool-semantic-clarity-md)
 * [Independent verification and durable evidence for goal attainment](#2026-08-20-independent-goal-attainment-verification-md)
 * [Macro-level hallucination risk in schema-free GraphRAG clustering](#2026-08-20-graphrag-macro-level-hallucination-md)
 * [Context collision and relational blindness in flat-vector RAG](#2026-08-20-flat-vector-rag-context-collision-md)
@@ -622,6 +623,86 @@ No consulted source has evaluated the three-tier architectural recommendation in
 - Can the extraction step that maps raw input onto a symbolic class be made to expose its own confidence or ambiguity, rather than emitting a single discrete class label, without abandoning the auditability benefit of the symbolic layer?
 - What governance controls (logging, review sampling, override-rate monitoring) would make an overrideable or escalation-based symbolic layer safer than Lipsky's documented street-level discretion problem, in an automated rather than human-staffed context?
 - Would a fuzzy or probabilistic ontology layer, evaluated head-to-head against a crisp ontology layer on the same edge-case dataset, show a measurable reduction in nuance-collapse harm, and at what cost to auditability or reasoning tractability?
+
+---
+
+---
+
+<a id="2026-08-20-mediated-content-pool-semantic-clarity-md"></a>
+
+## Semantic clarity and conflict resolvability in mediated content pools
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-20-mediated-content-pool-semantic-clarity.md
+
+## Research Question
+
+What domain-independent methods from knowledge engineering, ontology alignment, inconsistency management, and structured knowledge curation can be applied at the level of a mediated content pool to improve semantic clarity, make latent conflicts easier to surface, and attach explicit resolvability structures that remain useful across downstream execution environments?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+A mediated content pool gains durable, harness-independent semantic clarity and resolvability by pairing conflict-detection methods (semantic normalisation, ontology alignment with built-in reasoning, Description Logic (DL) justification-finding, and Shapes Constraint Language (SHACL) structural validation) with resolvability-annotation methods (provenance chains, statement-level RDF-star annotation, and minimal-axiom-set justifications) rather than adopting either layer alone. [inference; source: https://www.cs.ox.ac.uk/isg/tools/LogMap/; https://www.w3.org/TR/prov-o/] The strongest, most transferable single mechanism identified is the Minimal Axiom set (MinA), because it simultaneously detects a conflict's minimal cause and produces the exact resolvability structure a later resolver needs, requiring no domain-specific rules to compute. [inference; source: https://www.ijcai.org/Proceedings/03/Papers/053.pdf; https://link.springer.com/article/10.1007/s10817-007-9076-z] Durable cross-use leverage is demonstrably achievable and independently measurable, evidenced by the two-decade-old Ontology Alignment Evaluation Initiative (OAEI) benchmark campaign for alignment quality, but no cited evidence measures the equivalent property for an agent-consumed, non-ontological mediated content pool specifically, leaving pool-scale evaluation as the item's principal open gap. [inference; source: https://ceur-ws.org/Vol-4144/om2025-oaei-paper0.pdf]
+
+### Key Findings
+
+1. A Minimal Axiom set (MinA), computed by Description Logic (DL) pinpointing algorithms, is both a conflict-detection and a resolvability mechanism because it identifies the smallest set of axioms responsible for a contradiction, giving a later resolver an exact, minimal target rather than the whole pool to search. ([inference]; medium confidence; source: https://www.ijcai.org/Proceedings/03/Papers/053.pdf; https://link.springer.com/article/10.1007/s10817-007-9076-z)
+2. LogMap demonstrates that ontology alignment tools can perform on-the-fly unsatisfiability detection and automatic repair during pool construction itself, moving conflict detection upstream of any downstream query rather than leaving it to be discovered by a consuming application. ([fact]; medium confidence; source: https://www.cs.ox.ac.uk/isg/tools/LogMap/)
+3. The World Wide Web Consortium (W3C) Provenance Ontology (PROV-O) provides a domain-independent, standardised schema for attaching a queryable derivation chain to any pool entry, giving one concrete resolvability strategy, provenance-weighted selection, that requires no application-specific logic to implement. ([fact]; medium confidence; source: https://www.w3.org/TR/prov-o/)
+4. RDF-star, incorporated into the RDF 1.2 Candidate Recommendation, allows conflict-status, confidence, and provenance metadata to be attached directly to a single statement rather than requiring four-triple reification, keeping resolvability annotation lightweight enough to apply pool-wide rather than selectively. ([fact]; medium confidence; source: https://www.w3.org/TR/rdf12-concepts/)
+5. Shapes Constraint Language (SHACL) formalises structural clarity requirements (required fields, cardinality, value ranges) as declarative, machine-checkable shapes, but it validates structure rather than detecting semantic contradictions between two well-formed statements, so it must be paired with a justification-finding or alignment method rather than substituted for one. ([fact]; medium confidence; source: https://www.w3.org/TR/shacl/)
+6. The Alchourrón-Gärdenfors-Makinson (AGM) belief revision postulates define minimal change as the formal criterion a resolvability structure should satisfy, giving pool-level conflict resolution a theoretical target that predates and underlies the practical MinA and hitting-set repair mechanisms found in the Description Logic (DL) literature. ([fact]; medium confidence; source: https://www.cs.huji.ac.il/~lehmann/nonmon/AGM_JSL.pdf)
+7. The Ontology Alignment Evaluation Initiative (OAEI) has run an annual, standardised benchmark since 2004 that measures alignment precision, recall, and F1 score independent of any consuming application, demonstrating that durable, harness-independent evaluation of a pool-level method is achievable and has a two-decade precedent. ([fact]; medium confidence; source: https://ceur-ws.org/Vol-4144/om2025-oaei-paper0.pdf)
+8. Archival science's General International Standard Archival Description (ISAD(G)) requires provenance and original-order preservation performed once by the archive rather than reconstructed by each researcher, offering a decades-old, non-computational precedent for the same consumer-independent durability this item's Research Question targets for a mediated content pool. ([inference]; medium confidence; source: https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition)
+9. This repository's prior item on cross-session provenance schema found that explicit `derived_from` and `superseded_by` edges, rather than retrieval-time inference of relationships, are what let an agent reconstruct why a concept exists across sessions, and this generalises to a specific application of the PROV-O `wasDerivedFrom` relationship at pool scale. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html; https://www.w3.org/TR/prov-o/)
+10. No cited source evaluates Description Logic (DL) justification-finding or minimal-repair tooling deployed inside an autonomous-agent-consumed mediated content pool specifically, so the strength of evidence for this item's central recommendation rests on general ontology-engineering studies rather than on an agent-pool deployment study. ([assumption]; low confidence; source: https://link.springer.com/article/10.1007/s10817-007-9076-z)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] MinA computation is both a detection and a resolvability mechanism | [Schlobach and Cornet (2003)](https://www.ijcai.org/Proceedings/03/Papers/053.pdf); [Schlobach et al. (2007)](https://link.springer.com/article/10.1007/s10817-007-9076-z) | medium | Both publications share overlapping authorship from the same research programme, so they are not fully independent corroboration |
+| [fact] LogMap performs on-the-fly unsatisfiability detection and repair during alignment | [LogMap tool page](https://www.cs.ox.ac.uk/isg/tools/LogMap/) | medium | Single-source tool documentation; not independently benchmarked in this item beyond OAEI aggregate results |
+| [fact] PROV-O standardises Entity/Activity/Agent provenance in RDF | [W3C PROV-O](https://www.w3.org/TR/prov-o/) | medium | Single primary standards-body source; no independent second corroborating source cited |
+| [fact] RDF-star/RDF 1.2 supports statement-level triple annotation | [W3C RDF 1.2 Concepts](https://www.w3.org/TR/rdf12-concepts/) | medium | Candidate Recommendation as of the access date, not yet a final Recommendation |
+| [fact] SHACL validates RDF graph structure via declarative shapes | [W3C SHACL Recommendation](https://www.w3.org/TR/shacl/) | medium | Single primary standards-body source; W3C Recommendation since 2017 and stable, but no independent second corroborating source cited |
+| [fact] AGM postulates define minimal-change belief revision | [Alchourrón, Gärdenfors, and Makinson (1985)](https://www.cs.huji.ac.il/~lehmann/nonmon/AGM_JSL.pdf) | medium | Single primary source; foundational and peer-reviewed but no independent second corroborating source cited |
+| [fact] OAEI provides an annual cross-application alignment benchmark since 2004 | [OAEI 2025 results](https://ceur-ws.org/Vol-4144/om2025-oaei-paper0.pdf) | medium | Single benchmark-report source cited; multi-year, multi-participant campaign but no independent second source |
+| [inference] ISAD(G) is a non-computational precedent for consumer-independent pool durability | [ICA ISAD(G), second edition](https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition) | medium | Analogy across domains (archival science to AI content pools); no direct empirical bridge cited |
+| [inference] Explicit derivation edges generalise PROV-O's wasDerivedFrom at repository scale | [Knowledge graph schema for cross-session research provenance](https://davidamitchell.github.io/Research/research/2026-05-02-knowledge-graph-schema-cross-session-research-mcp.html); [W3C PROV-O](https://www.w3.org/TR/prov-o/) | medium | Cross-item synthesis; the repository item is a single implementation instance, not an independent empirical study |
+| [assumption] No cited study evaluates DL justification tooling inside an agent-consumed content pool | [Schlobach et al. (2007)](https://link.springer.com/article/10.1007/s10817-007-9076-z) | low | Explicit evidence gap; recorded as a Risk below |
+
+### Assumptions
+
+Archival original-order and provenance principles are treated as transferable to a digital mediated content pool without material loss of applicability. [assumption; source: https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition] The justification is that both settings share the same structural problem of heterogeneous material accumulated from multiple originating contexts that must remain individually traceable, though no cited source directly tests this transfer for an AI-consumed content pool. [assumption; source: https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition]
+
+The write-once, read-many cost trade-off documented for archival description is assumed to also hold for an AI-mediated content pool. [assumption; source: https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition] A pool consulted across many independent agent sessions is assumed to face the same amortisation structure as an archive consulted by many independent researchers, though no cited source measures this trade-off quantitatively for an AI-consumed pool. [assumption; source: https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition]
+
+A curator reviewing a flagged conflict is assumed to resolve it faster and more accurately when given a minimal justification rather than the full contradictory pool. [assumption; source: https://link.springer.com/article/10.1007/s10817-007-9076-z] Minimality is assumed to reduce the search space the curator must inspect, though the cited Description Logic (DL) debugging literature demonstrates minimality only as a computational property, not as a measured curator-performance outcome. [assumption; source: https://link.springer.com/article/10.1007/s10817-007-9076-z]
+
+### Analysis
+
+The evidence separates into two complementary functional layers rather than one continuous method class: detection methods that surface a latent conflict and resolvability methods that attach durable metadata for later resolution. [inference; source: https://link.springer.com/article/10.1007/s10817-007-9076-z] Structural curation, exemplified by LogMap's automatic mapping repair and by AGM-style contraction, changes what the pool asserts; overlay curation, exemplified by PROV-O provenance and RDF-star statement annotation, changes what is knowable about what the pool asserts without altering the underlying assertions. [inference; source: https://www.cs.ox.ac.uk/isg/tools/LogMap/; https://www.w3.org/TR/prov-o/] Overlay curation is the lower-risk default for a pool that must remain usable by multiple, independently evolving downstream harnesses, because it preserves raw material for any consumer that needs it while still making conflicts and their justifications discoverable, whereas structural curation risks silently removing material a different downstream consumer still needed. [inference; source: https://www.cs.ox.ac.uk/isg/tools/LogMap/]
+
+A competing interpretation holds that overlay curation alone is insufficient because an unresolved but well-annotated contradiction still returns to every downstream consumer as an open problem, so pools that can tolerate the risk of premature commitment should prefer structural resolution (LogMap-style repair, AGM-style contraction) at write time rather than deferring resolution indefinitely. [inference; source: https://www.cs.huji.ac.il/~lehmann/nonmon/AGM_JSL.pdf] This item resolves the tension by treating the two as sequential rather than alternative: overlay annotation should run first and by default, since it is reversible and preserves information, while structural resolution should be applied only once a MinA or equivalent minimal-cause structure has been computed and a resolution policy (a Zone 3 or Zone 2 concern under GitHub issue #653, out of scope here) authorises acting on it. [inference; source: https://link.springer.com/article/10.1007/s10817-007-9076-z]
+
+The strongest evaluation-criteria evidence, the OAEI benchmark campaign, applies specifically to ontology alignment and has no directly analogous campaign for provenance-annotation quality or for MinA-style justification quality at pool scale, which weakens this item's confidence that "durable leverage across repeated downstream uses" (the Research Question's evaluation requirement) is measurable for every method class identified rather than only for alignment. [inference; source: https://ceur-ws.org/Vol-4144/om2025-oaei-paper0.pdf]
+
+### Risks, Gaps, and Uncertainties
+
+- No cited source evaluates Description Logic (DL) justification-finding or minimal-repair tooling deployed specifically inside an autonomous-agent-consumed mediated content pool; all direct evidence for the MinA mechanism comes from general ontology-engineering debugging studies. [assumption; source: https://link.springer.com/article/10.1007/s10817-007-9076-z] This is treated as the item's largest evidence gap and the first target for any follow-on empirical study. [assumption; source: https://link.springer.com/article/10.1007/s10817-007-9076-z]
+- RDF-star and the broader RDF 1.2 specification were at Candidate Recommendation status, not final Recommendation status, at the time this item was researched, so statement-level annotation as a pool-level mechanism rests on a standard still subject to change before ratification. [fact; source: https://www.w3.org/TR/rdf12-concepts/]
+- [assumption] The archival-science analogy is not empirically tested for AI-consumed content pools. [assumption; source: https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition] It is offered as a structural precedent rather than as transferred evidence, and should be validated or falsified by a dedicated future study before being treated as load-bearing. [assumption; source: https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition]
+- [fact] No benchmark equivalent to OAEI exists in the cited evidence for measuring provenance-annotation quality or MinA-style justification quality independent of a consuming application. [fact; source: https://ceur-ws.org/Vol-4144/om2025-oaei-paper0.pdf] This leaves the item unable to fully answer its own evaluation-criteria sub-question for method classes other than ontology alignment. [inference; source: https://ceur-ws.org/Vol-4144/om2025-oaei-paper0.pdf]
+- A search for "minimal justification curator decision time ontology debugging user study" returned no directly relevant peer-reviewed result, so no primary source was located measuring curator decision speed or accuracy when given a minimal justification versus a full contradictory pool. [assumption; source: https://link.springer.com/article/10.1007/s10817-007-9076-z] The corresponding claim above is carried as an explicit assumption for this reason. [assumption; source: https://link.springer.com/article/10.1007/s10817-007-9076-z]
+
+### Open Questions
+
+- What benchmark methodology would let a mediated content pool's provenance-annotation quality be measured on the same cross-application, cross-year basis that OAEI provides for ontology alignment?
+- Does Minimal Axiom set (MinA) computation remain tractable at the scale of a continuously growing, multi-source agent-consumed content pool, or does it require approximation once the pool exceeds the class sizes studied in the classical Description Logic (DL) debugging literature?
+- What quantitative evidence would establish or falsify the archival write-once, read-many cost trade-off assumption for an AI-mediated content pool specifically?
 
 ---
 
