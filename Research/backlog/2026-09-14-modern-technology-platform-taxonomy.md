@@ -41,7 +41,7 @@ How can the concept of a modern technology platform be derived from first princi
 - Consumer marketplace and social-media platform case studies except where needed to ground multi-sided platform economics
 - Exhaustive evaluation of every adjacent domain term beyond the specific comparison set in the issue
 
-**Constraints:** Prefer publicly accessible primary or standards-aligned sources. Use the seeded academic references plus targeted audits of the Cloud Native Computing Foundation (CNCF), Martin Fowler, Thoughtworks, major cloud-provider platform guidance, and International Organization for Standardization/International Electrotechnical Commission/Institute of Electrical and Electronics Engineers (ISO/IEC/IEEE) 42010 material. Output type defaults to `knowledge`.
+**Constraints:** Prefer publicly accessible primary or standards-aligned sources. Use the seeded academic references plus targeted audits of Cloud Native Computing Foundation platforms material, Martin Fowler, Thoughtworks, major cloud-provider platform guidance, and 42010 architecture-description material published by the International Organization for Standardization, International Electrotechnical Commission, and Institute of Electrical and Electronics Engineers. Output type defaults to `knowledge`.
 
 ## Context
 
@@ -49,7 +49,7 @@ This item informs how to decide whether an internal capability is truly a platfo
 
 ## Approach
 
-1. Derive the minimal axioms of a platform from modularity, interface-standardization, and multi-sided value-creation literature.
+1. Derive the minimal axioms of a platform from modularity, interface standardization, and multi-sided value-creation literature.
 2. Test those axioms against neighbouring constructs to identify the necessary and sufficient conditions that separate platforms from tools, products, services, and foundational infrastructure.
 3. Map the resulting platform properties across software, data, infrastructure, and Internal Developer Platform (IDP) domains, noting where the same core logic persists and where each domain introduces constraints.
 4. Identify the production-grade enabling properties required for reliable downstream acceleration, including self-service interfaces, governance guardrails, abstraction layers, reliability expectations, and evolutionary capacity.
