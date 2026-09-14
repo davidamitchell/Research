@@ -2,12 +2,12 @@
 review_count: 2
 title: "Independent verification and durable evidence for goal attainment"
 added: 2026-08-20T11:01:29+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [formal-methods, governance-policy, benchmarks-eval, tools-infrastructure, regulatory-compliance]
 started: 2026-09-14T19:54:31+00:00
-completed: ~
+completed: 2026-09-14T20:17:24+00:00
 output: []
 cites: [2026-04-22-ai-governance-assurance-change-control-verification, 2026-05-02-automated-claim-verification-academic-literature, 2026-04-27-cryptographic-intent-preservation-runtime-evaluation]
 related: [2026-05-17-policy-enforcement-formal-verification-energy-functions, 2026-04-28-llm-as-judge-pipeline-validation-checkpoints, 2026-03-22-cross-scanner-compliance-evidence-normalisation]
