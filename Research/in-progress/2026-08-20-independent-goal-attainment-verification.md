@@ -45,7 +45,7 @@ This item informs how a third-zone validation layer can provide durable, domain-
 
 ## Related
 
-- [Automated governance assurance and change control verification patterns for AI-assisted delivery](https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html)
+- [Automated governance assurance and change control verification patterns for Artificial Intelligence (AI)-assisted delivery](https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html)
 - [What automated claim verification approaches against scientific literature (arXiv) are used in research synthesis systems, and what is the minimum-viable verification workflow for an Artificial Intelligence (AI) research agent that must distinguish verified facts from inferences?](https://davidamitchell.github.io/Research/research/2026-05-02-automated-claim-verification-academic-literature.html)
 - [Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle](https://davidamitchell.github.io/Research/research/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.html)
 
