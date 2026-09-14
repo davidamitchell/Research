@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Independent verification and durable evidence for goal attainment"
 added: 2026-08-20T11:01:29+00:00
 status: reviewing
