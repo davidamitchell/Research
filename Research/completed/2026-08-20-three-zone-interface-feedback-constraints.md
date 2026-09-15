@@ -2,12 +2,12 @@
 review_count: 2
 title: "Zone-specific interface constraints in three-zone architectures"
 added: 2026-08-20T11:01:29+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, organisational-design, governance-policy, tools-infrastructure, knowledge-management]
 started: 2026-09-15T07:08:54+00:00
-completed: ~
+completed: 2026-09-15T07:36:03+00:00
 output: []
 cites: [2026-03-15-context-layers-aligned-decisions-synthesis, 2026-05-17-layered-reasoning-state-abstraction-interfaces, 2026-04-26-ai-agent-control-plane-architecture-enterprise, 2026-04-27-uelgf-runtime-feedback-loop]
 related: [2026-04-27-uelgf-policy-architecture-8-layer-context, 2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance]
