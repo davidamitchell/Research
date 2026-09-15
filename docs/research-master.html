@@ -669,7 +669,127 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-09-15 07:37 UTC</p>
+<p>Generated on: 2026-09-15 08:07 UTC</p>
+<p><a id="2026-09-14-higher-order-agentic-ai-platform-patterns-md"></a></p>
+<h2>Higher-order operational patterns in production agentic AI</h2>
+<p><strong>Tags:</strong> [agentic-ai, tools-infrastructure, mlops-deployment, governance-policy, enterprise-adoption]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-09-14-higher-order-agentic-ai-platform-patterns.md</p>
+<h2>Research Question</h2>
+<p>What higher-order operational patterns recur across production agentic Artificial Intelligence (AI) systems, what underlying operational problems do they address, and which patterns generalise across applications and execution environments?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Three higher-order operational patterns recur across production agentic Artificial Intelligence (AI) systems in the evidence gathered for this item: a mandatory, cross-cutting governance-and-observability layer that gates every tool call through policy enforcement and typed, versioned contracts; an event-driven, asynchronous coordination substrate that replaces point-to-point orchestration among multiple agents; and a shift from per-application, episodic evaluation toward continuous, production-traffic evaluation. [inference; source: https://arxiv.org/html/2602.10479v1; https://www.confluent.io/blog/event-driven-multi-agent-systems/; https://arxiv.org/html/2605.01604] These patterns exist because lower-level agent mechanics such as prompting, tool use, planning, and multi-agent collaboration solve individual-agent capability problems but do not by themselves solve cross-subsystem or cross-agent coordination, integrity, and accountability problems. [inference; source: https://arxiv.org/html/2601.19752v1] The governance-and-tool-registry pattern generalises most strongly across the evidence gathered because it is independently motivated by operational-governance, cryptographic-integrity, and security-operations sources, whereas the event-driven coordination substrate generalises only at the level of its underlying property (decoupled, asynchronous, replayable messaging) since its concrete implementation remains tied to specific streaming-platform runtimes. [inference; source: https://arxiv.org/html/2602.10479v1; https://econpapers.repec.org/RePEc:gam:jftint:v:18:y:2026:i:5:p:243-:d:1935157; https://www.confluent.io/blog/event-driven-multi-agent-systems/] Human-in-the-loop (HITL) bypass is documented as the single most consistently exploited weakness across a year of red-team engagements against deployed agentic systems, which is consistent with governance patterns aimed at machine-to-machine integrity currently outpacing governance patterns aimed at the human-machine consent boundary, though a plausible rival explanation is that red-team engagements preferentially select for human-consent-boundary weaknesses because they are behaviourally easier to elicit than cryptographic or supply-chain attacks, which would produce the same exploitation-frequency result without reflecting a genuine governance-maturity gap; the evidence gathered does not rule out this testing-selection-bias explanation. [inference; source: https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/]</p>
+<h3>Key Findings</h3>
+<ol>
+<li>Production agentic AI reference architectures separate the Large Language Model (LLM) reasoning component from a control layer, memory layer, and tooling layer, with governance and observability treated as cross-cutting concerns spanning all four rather than a bolt-on feature. ([fact]; medium confidence; source: https://arxiv.org/html/2602.10479v1)</li>
+<li>Production architecture specifications increasingly encode this separation as enforceable invariants rather than descriptive diagrams, requiring that all side-effecting actions be mediated by a policy enforcement gateway and that every tool invocation be strongly typed, versioned, and recorded in execution metadata. ([fact]; medium confidence; source: https://arxiv.org/html/2602.10479v1)</li>
+<li>Tool registries that expose typed schemas, versioning, and access control function as the agentic-system analogue of Application Programming Interface (API) gateways in microservices architectures, replacing the unstructured, fragile prompt-based tool invocation used in early integrations. ([fact]; medium confidence; source: https://arxiv.org/html/2602.10479v1)</li>
+<li>The Model Context Protocol (MCP) registry ecosystem's current unverified-pointer design exposes agent tool definitions to supply-chain poisoning and dynamic capability mutation (&quot;Rug Pull&quot;) attacks, and 99 Common Vulnerabilities and Exposures (CVEs) were published for MCP-related software in 2025 as tool poisoning moved from theoretical risk to live attack surface. ([fact]; high confidence; source: https://econpapers.repec.org/RePEc:gam:jftint:v:18:y:2026:i:5:p:243-:d:1935157; https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/)</li>
+<li>Event-driven, asynchronous coordination substrates replace point-to-point request/response orchestration among multiple agents in four recurring topologies: orchestrator-worker, hierarchical agent, blackboard, and market-based, each trading centralised simplicity against bottleneck risk, conflict-resolution capability, or new single points of failure. ([fact]; medium confidence; source: https://www.confluent.io/blog/event-driven-multi-agent-systems/)</li>
+<li>Human-in-the-loop bypass was the most consistently exploited failure mode across twelve months of red-team engagements against deployed agentic systems, achieved through consent fatigue, manipulation of probabilistic invocation, and incremental escalation chains in which no single step warranted review but the compound outcome did. ([fact]; medium confidence; source: https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/)</li>
+<li>Standard evaluation metrics such as ROUGE, BERTScore, accuracy/Area Under the Curve (AUC), and existing agentic benchmarks fail to detect four of seven documented production failure modes entirely and detect three others only after a lag of multiple evaluation cycles, motivating a shift toward continuous evaluation on production traffic rather than episodic benchmark runs. ([fact]; medium confidence; source: https://arxiv.org/html/2605.01604)</li>
+<li>Inter-agent trust escalation, in which a compromised or misrepresenting sub-agent asserts false identity or inflated permissions to an orchestrator that does not independently verify them, is a documented failure mode specific to delegated multi-agent coordination and mirrors the confused-deputy problem, a classic software-security failure mode in which a privileged program is tricked into misusing its own authority, induced here through natural language rather than system calls. ([fact]; medium confidence; source: https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/; http://www.cap-lore.com/CapTheory/ConfusedDeputy.html)</li>
+<li>Strategy-level pattern catalogues such as Reflection, Tool Use, Planning, and Multi-Agent Collaboration are treated in recent architectural literature as generalised but structurally under-specified building blocks, distinct from Gang of Four (GoF)-style structural patterns that solve recurring interaction problems between subsystems. ([fact]; medium confidence; source: https://arxiv.org/html/2601.19752v1)</li>
+<li>Planner-Executor-Reviewer specialisation dominates current production architectures for software-engineering agents specifically, with the most mature industrial adoption occurring in later phases of the software development life cycle (SDLC) where agent outputs can be objectively verified. ([fact]; low confidence; source: https://arxiv.org/html/2605.15245v1)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[fact] Layered reference architecture separates cognition, control, memory, tooling with cross-cutting governance/observability</td>
+<td><a href="https://arxiv.org/html/2602.10479v1">Evolution of Agentic AI Software Architecture (2026)</a></td>
+<td>medium</td>
+<td>Single paper; vendor material synthesis within it (TrueFoundry, Kore.ai, LangChain, ZenML) treated as grey literature per the paper's own methodology</td>
+</tr>
+<tr>
+<td>[fact] Policy enforcement gateway, typed/versioned tool contracts, and bounded autonomy specified as mandatory invariants</td>
+<td><a href="https://arxiv.org/html/2602.10479v1">Evolution of Agentic AI Software Architecture (2026)</a></td>
+<td>medium</td>
+<td>Normative proposal from one paper, not yet corroborated by an independent standards body</td>
+</tr>
+<tr>
+<td>[fact] Tool registries are the agentic analogue of API gateways</td>
+<td><a href="https://arxiv.org/html/2602.10479v1">Evolution of Agentic AI Software Architecture (2026)</a></td>
+<td>medium</td>
+<td>Direct paper claim</td>
+</tr>
+<tr>
+<td>[fact] MCP registry unverified-pointer architecture exposes supply-chain poisoning and Rug Pull risk; 99 MCP CVEs in 2025</td>
+<td><a href="https://econpapers.repec.org/RePEc:gam:jftint:v:18:y:2026:i:5:p:243-:d:1935157">Trustworthy MCP Registry (2026)</a>; <a href="https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/">Microsoft AI Red Team taxonomy v2.0 (2026)</a></td>
+<td>high</td>
+<td>Two independent organisations (academic + Microsoft security operations) corroborate the same underlying protocol-level risk</td>
+</tr>
+<tr>
+<td>[fact] Four event-driven multi-agent coordination topologies with distinct trade-offs</td>
+<td><a href="https://www.confluent.io/blog/event-driven-multi-agent-systems/">Event-Driven Multi-Agent Systems (Confluent, 2025)</a></td>
+<td>medium</td>
+<td>Single vendor engineering source; Kafka-specific implementation detail, generalisable property only</td>
+</tr>
+<tr>
+<td>[fact] HITL bypass most consistently exploited failure mode across a year of red-team engagements</td>
+<td><a href="https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/">Microsoft AI Red Team taxonomy v2.0 (2026)</a></td>
+<td>medium</td>
+<td>Direct operational finding from twelve months of engagements against deployed systems, but single organisation and no independent corroborating source, so capped at medium confidence</td>
+</tr>
+<tr>
+<td>[fact] Standard metrics miss most production failure modes; PAEF proposed as continuous-evaluation response</td>
+<td><a href="https://arxiv.org/html/2605.01604">Production Agentic Evaluation Framework (PAEF), arXiv:2605.01604 (2026)</a></td>
+<td>medium</td>
+<td>Single paper with open-source reference implementation; not yet corroborated by independent adoption evidence</td>
+</tr>
+<tr>
+<td>[fact] Inter-agent trust escalation mirrors confused-deputy problem in delegated coordination</td>
+<td><a href="https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/">Microsoft AI Red Team taxonomy v2.0 (2026)</a>; <a href="http://www.cap-lore.com/CapTheory/ConfusedDeputy.html">Hardy (1988) The Confused Deputy</a></td>
+<td>medium</td>
+<td>Single source for the agentic-system claim; the confused-deputy concept itself is grounded in Hardy's original 1988 paper, not independently confirmed against a second agentic-system source</td>
+</tr>
+<tr>
+<td>[fact] Ng's strategy-level patterns distinct from GoF-style structural interaction patterns</td>
+<td><a href="https://arxiv.org/html/2601.19752v1">Agentic Design Patterns: A System-Theoretic Framework (2026)</a></td>
+<td>medium</td>
+<td>Single paper's literature classification; framing choice, not an independently replicated taxonomy</td>
+</tr>
+<tr>
+<td>[fact] Planner-Executor-Reviewer dominance in SDLC agent architectures</td>
+<td><a href="https://arxiv.org/html/2605.15245v1">Assistance to Autonomy: SLR of Agentic AI across the SDLC, arXiv:2605.15245 (2026)</a></td>
+<td>low</td>
+<td>Single systematic literature review; scoped to software-engineering agents only, not generalised across domains</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<p>The MCP registry paper's reported 0.61 millisecond (ms) per-operation cryptographic overhead and 100/100 simulated attack rejection rate are assumed to be indicative rather than production-representative, because the evaluation ran in a controlled, synthetic environment rather than against a field deployment with adversarial, non-simulated attackers. [assumption; source: https://econpapers.repec.org/RePEc:gam:jftint:v:18:y:2026:i:5:p:243-:d:1935157]</p>
+<p>No cost data comparable in granularity to the MCP paper's per-operation figure is available for the event-driven coordination substrate or the continuous-evaluation pattern, so a full cross-pattern cost comparison is assumed to be out of reach from currently published evidence rather than a gap specific to this item's search effort. [assumption; source: https://arxiv.org/html/2605.01604]</p>
+<p>The descriptive overlap between the recurring governance triad (Role-Based Access Control (RBAC)/audit logs, tracing, policy enforcement) and generic AI risk-management framework requirements is assumed to be suggestive rather than confirmed, because no source in this investigation is itself a regulatory or standards document; a dedicated cross-reference against a named regulatory text was out of scope for this item. [assumption; source: https://arxiv.org/html/2602.10479v1]</p>
+<h3>Analysis</h3>
+<p>The governance-and-tool-registry pattern has the broadest independent corroboration of the three patterns examined here: it is documented from three independent methodological angles (an architecture-review paper synthesising four vendor platforms, a dedicated cryptographic-security paper, and a year of red-team operational data from Microsoft), and each angle converges on the same underlying primitive set of typed contracts, provenance verification, and policy gating. [inference; source: https://arxiv.org/html/2602.10479v1; https://econpapers.repec.org/RePEc:gam:jftint:v:18:y:2026:i:5:p:243-:d:1935157; https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/] The event-driven coordination pattern is well documented for the coordination problem it solves but the evidence base is a single vendor engineering source rather than an independently corroborated architectural review, so its generalisation claim is narrower: the underlying property (decoupled, asynchronous, replayable agent communication) generalises, while the specific implementation (partitioned, replayable event logs with consumer-group rebalancing) is runtime-specific to streaming platforms of that class. [inference; source: https://www.confluent.io/blog/event-driven-multi-agent-systems/]</p>
+<p>A plausible rival explanation for the recurrence of the governance-and-tool-registry pattern is that it reflects convergent vendor marketing language rather than genuine architectural necessity, since three of the four platforms cited in the evolution paper (TrueFoundry, Kore.ai, and LangChain) are commercial agent-platform vendors with an incentive to describe their products in terms that match emerging buyer expectations. [inference; source: https://arxiv.org/html/2602.10479v1] This rival explanation is only partly rebutted by the evidence gathered: the Microsoft red-team source is independent of vendor marketing incentives and documents the same underlying primitives (SBOM generation, provenance verification, cryptographic inter-agent identity) as concrete post-incident mitigations rather than product features, which weighs against a pure-marketing explanation but does not eliminate the possibility that vendor language shaped which mitigations Microsoft chose to describe using similar terminology. [inference; source: https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/]</p>
+<p>A second rival explanation applies specifically to the HITL-bypass finding: rather than reflecting a genuine gap between machine-to-machine governance maturity and human-consent-boundary governance maturity, the finding could instead reflect testing-selection bias, since red-team engagements may simply choose to probe human-consent bypass more often, or find it easier to elicit, than cryptographic supply-chain or provenance-verification attacks. [inference; source: https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/] The evidence gathered cannot fully distinguish between these two explanations because the source reports exploitation frequency across engagements rather than a controlled comparison of attacker effort or engagement scope across the two governance domains; both a genuine maturity gap and a testing-selection artefact remain consistent with the reported data, so the HITL-bypass finding is treated here as a documented exploitation pattern rather than as confirmed evidence of a comparative governance-maturity deficit. [inference; source: https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/]</p>
+<p>The relationship between lower-level agent mechanics and higher-order operational patterns is best explained by treating the two as different levels of a composition hierarchy rather than as competing classification schemes: Reflection, Tool Use, Planning, and Multi-Agent Collaboration are the mechanisms an individual agent or agent pair executes, while the governance layer, tool registry, and coordination substrate are structural solutions to problems that only appear once multiple such mechanisms, multiple agents, or multiple execution sessions interact over time. [inference; source: https://arxiv.org/html/2601.19752v1; https://arxiv.org/html/2602.10479v1] The continuous-evaluation pattern's motivating evidence (standard metrics missing most production failure modes) is strong, but the proposed solution (PAEF) is a single research artifact rather than a pattern already observed recurring across multiple independent production deployments, so it is analysed here as a well-evidenced problem with an emerging, not yet generalised, solution pattern. [inference; source: https://arxiv.org/html/2605.01604]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<p>The MCP registry provenance mechanism has been validated only in a controlled, synthetic attack simulation; whether the reported 0.61 ms overhead and 100 percent attack-rejection rate hold under real adversarial conditions with unknown attack strategies at production scale is not established by the evidence gathered. [fact; source: https://econpapers.repec.org/RePEc:gam:jftint:v:18:y:2026:i:5:p:243-:d:1935157]</p>
+<p>The event-driven coordination substrate's generalisability claim rests on a single vendor engineering article rather than an independently peer-reviewed architectural study; whether the four documented topologies (orchestrator-worker, hierarchical, blackboard, market-based) exhaust the space of production coordination patterns, or whether additional topologies exist that this source did not cover, is unknown from the evidence gathered. [assumption; source: https://www.confluent.io/blog/event-driven-multi-agent-systems/]</p>
+<p>The Planner-Executor-Reviewer specialisation finding is scoped to a single systematic literature review of software-engineering agents; whether an analogous dominant specialisation pattern exists in other application domains such as customer support, finance, or healthcare agentic systems was outside this item's evidence base and is not established here. [fact; source: https://arxiv.org/html/2605.15245v1]</p>
+<p>The Planner-Executor-Reviewer finding rests on a substitute source (arXiv:2605.15245v1) selected because the originally seeded review was inaccessible in this session; whether the substitute's conclusions fully represent the original seed's scope is not established, so the finding's generalisability is bounded by the single substitute review's own methodology rather than by the union of both reviews. [assumption; source: https://arxiv.org/html/2605.15245v1]</p>
+<p>No source in this item quantifies the operational or engineering cost of adopting the event-driven coordination pattern or the continuous-evaluation pattern at a level comparable to the MCP paper's per-operation cryptographic overhead figure, so a cross-pattern cost-benefit comparison could not be constructed from currently available evidence. [assumption; source: https://econpapers.repec.org/RePEc:gam:jftint:v:18:y:2026:i:5:p:243-:d:1935157]</p>
+<h3>Open Questions</h3>
+<ul>
+<li>Does an analogous dominant agent-specialisation pattern (comparable to Planner-Executor-Reviewer in software engineering) exist in other agentic application domains such as customer support, finance operations, or healthcare, and if so, does it share the same later-lifecycle-phase maturity concentration?</li>
+<li>What is the field-measured (not synthetic-simulation) overhead and attack-rejection rate of MCP registry cryptographic-provenance mechanisms once deployed against real, adaptive adversaries rather than fixed simulated attack sets?</li>
+<li>Under what conditions, if any, has the PAEF continuous-evaluation framework (or an equivalent) been independently adopted or replicated by a second organisation, and does that adoption change the failure-detection lag reported in the original paper?</li>
+<li>What quantified engineering or operational cost differentiates adopting an event-driven coordination substrate versus a simpler orchestrator-worker topology at a given multi-agent scale threshold?</li>
+</ul>
+<hr />
+<hr />
 <p><a id="2026-08-20-three-zone-interface-feedback-constraints-md"></a></p>
 <h2>Zone-specific interface constraints in three-zone architectures</h2>
 <p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-20-three-zone-interface-feedback-constraints.md</p>
