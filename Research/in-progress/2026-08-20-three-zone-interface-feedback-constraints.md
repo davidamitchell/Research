@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Zone-specific interface constraints in three-zone architectures"
 added: 2026-08-20T11:01:29+00:00
 status: reviewing
