@@ -1,6 +1,91 @@
 {
-  "extracted_at": "2026-09-15T07:51:51Z",
+  "extracted_at": "2026-09-15T08:09:09Z",
   "items": {
+    "2026-09-14-higher-order-agentic-ai-platform-patterns": {
+      "named_concepts": [
+        "coordination substrate",
+        "event-driven coordination",
+        "mcp registry",
+        "policy enforcement",
+        "red-team engagements",
+        "rival explanation",
+        "agentic ai",
+        "production agentic",
+        "typed versioned",
+        "multi-agent collaboration",
+        "governance-and-tool-registry pattern",
+        "engagements against",
+        "against deployed",
+        "agentic systems",
+        "failure mode",
+        "production failure",
+        "failure modes",
+        "continuous-evaluation pattern",
+        "higher-order operational",
+        "operational patterns"
+      ],
+      "source_urls": [
+        "https://arxiv.org/html/2601.19752v1",
+        "https://arxiv.org/html/2602.10479v1",
+        "https://arxiv.org/html/2605.15245v1",
+        "https://www.mdpi.com/1999-5903/18/5/243",
+        "https://www.confluent.io/blog/event-driven-multi-agent-systems/",
+        "https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/",
+        "https://arxiv.org/html/2605.01604"
+      ],
+      "key_claims": [
+        {
+          "text": "Production agentic AI reference architectures separate the Large Language Model (LLM) reasoning component from a control layer, memory layer, and tooling layer, with governance and observability treated as cross-cutting concerns spanning all four rather than a bolt-on feature",
+          "sources": [
+            "https://arxiv.org/html/2602.10479v1"
+          ]
+        },
+        {
+          "text": "Production architecture specifications increasingly encode this separation as enforceable invariants rather than descriptive diagrams, requiring that all side-effecting actions be mediated by a policy enforcement gateway and that every tool invocation be strongly typed, versioned, and recorded in execution metadata",
+          "sources": [
+            "https://arxiv.org/html/2602.10479v1"
+          ]
+        },
+        {
+          "text": "Tool registries that expose typed schemas, versioning, and access control function as the agentic-system analogue of Application Programming Interface (API) gateways in microservices architectures, replacing the unstructured, fragile prompt-based tool invocation used in early integrations",
+          "sources": [
+            "https://arxiv.org/html/2602.10479v1"
+          ]
+        },
+        {
+          "text": "The Model Context Protocol (MCP) registry ecosystem's current unverified-pointer design exposes agent tool definitions to supply-chain poisoning and dynamic capability mutation (\"Rug Pull\") attacks, and 99 Common Vulnerabilities and Exposures (CVEs) were published for MCP-related software in 2025 as tool poisoning moved from theoretical risk to live attack surface",
+          "sources": [
+            "https://econpapers.repec.org/RePEc:gam:jftint:v:18:y:2026:i:5:p:243-:d:1935157",
+            "https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/"
+          ]
+        },
+        {
+          "text": "Event-driven, asynchronous coordination substrates replace point-to-point request/response orchestration among multiple agents in four recurring topologies: orchestrator-worker, hierarchical agent, blackboard, and market-based, each trading centralised simplicity against bottleneck risk, conflict-resolution capability, or new single points of failure",
+          "sources": [
+            "https://www.confluent.io/blog/event-driven-multi-agent-systems/"
+          ]
+        },
+        {
+          "text": "Human-in-the-loop bypass was the most consistently exploited failure mode across twelve months of red-team engagements against deployed agentic systems, achieved through consent fatigue, manipulation of probabilistic invocation, and incremental escalation chains in which no single step warranted review but the compound outcome did",
+          "sources": [
+            "https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/"
+          ]
+        },
+        {
+          "text": "Standard evaluation metrics such as ROUGE, BERTScore, accuracy/Area Under the Curve (AUC), and existing agentic benchmarks fail to detect four of seven documented production failure modes entirely and detect three others only after a lag of multiple evaluation cycles, motivating a shift toward continuous evaluation on production traffic rather than episodic benchmark runs",
+          "sources": [
+            "https://arxiv.org/html/2605.01604"
+          ]
+        },
+        {
+          "text": "Inter-agent trust escalation, in which a compromised or misrepresenting sub-agent asserts false identity or inflated permissions to an orchestrator that does not independently verify them, is a documented failure mode specific to delegated multi-agent coordination and mirrors the confused-deputy problem, a classic software-security failure mode in which a privileged program is tricked into misusing its own authority, induced here through natural language rather than system calls",
+          "sources": [
+            "https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/",
+            "http://www.cap-lore.com/CapTheory/ConfusedDeputy.html"
+          ]
+        }
+      ]
+    },
     "2026-08-20-three-zone-interface-feedback-constraints": {
       "named_concepts": [
         "zero trust",
