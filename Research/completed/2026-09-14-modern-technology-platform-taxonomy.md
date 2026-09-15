@@ -2,12 +2,12 @@
 review_count: 2
 title: "First-principles taxonomy of modern technology platforms"
 added: 2026-09-14
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [tools-infrastructure, organisational-design, software-engineering, enterprise-adoption, knowledge-graphs]
 started: 2026-09-15T08:08:06+00:00
-completed: ~
+completed: 2026-09-15T08:31:33+00:00
 output: []
 cites:
   - 2026-06-13-platform-engineering-innersource-hybrid-standardization
