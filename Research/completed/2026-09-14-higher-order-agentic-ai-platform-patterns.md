@@ -16,7 +16,7 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions: [{version: "1.0", sha: "a97c91e022142dac12113ea5db482c99bbf84254", changed: 2026-09-15, progress: "progress/2026-09-15-higher-order-agentic-ai-platform-patterns.md", summary: "Initial completion"}]       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Higher-order operational patterns in production agentic AI
