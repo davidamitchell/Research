@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "First-principles taxonomy of modern technology platforms"
 added: 2026-09-14
 status: reviewing
