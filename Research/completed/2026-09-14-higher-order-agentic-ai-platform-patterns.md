@@ -2,14 +2,14 @@
 review_count: 2
 title: "Higher-order operational patterns in production agentic AI"
 added: 2026-09-14
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, tools-infrastructure, mlops-deployment, governance-policy, enterprise-adoption]
 themes: [agentic-ai, tools-infrastructure, security-risk, mlops-deployment, multi-agent]
 started: 2026-09-15T07:38:06+00:00
-completed: ~
-output: []  # skill | tool | agent | knowledge | backlog-item
+completed: 2026-09-15T08:05:34+00:00
+output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-22-enterprise-ai-platform-operating-models, 2026-04-22-enterprise-ai-capability-model, 2026-04-24-business-led-low-code-agent-governance, 2026-04-26-ai-lowcode-sdlc-platform-engineering-integration, 2026-04-26-ai-agent-control-plane-architecture-enterprise, 2026-04-26-ai-agent-identity-access-management-enterprise, 2026-05-06-aibom-identity-attribution-multiagent-practice]
 related: []
 superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
