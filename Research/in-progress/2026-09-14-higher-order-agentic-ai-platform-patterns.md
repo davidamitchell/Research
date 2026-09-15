@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Higher-order operational patterns in production agentic AI"
 added: 2026-09-14
 status: reviewing
