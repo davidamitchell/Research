@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: a2e3e9e4c1356139af965a6c86bc5cce019d53fe
+    changed: 2026-09-15
+    progress: progress/2026-09-15-three-zone-interface-feedback-constraints.md
+    summary: "Initial completion"
 ---
 
 # Zone-specific interface constraints in three-zone architectures
