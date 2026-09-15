@@ -1,6 +1,109 @@
 {
-  "extracted_at": "2026-09-15T08:20:14Z",
+  "extracted_at": "2026-09-15T08:34:25Z",
   "items": {
+    "2026-09-14-modern-technology-platform-taxonomy": {
+      "named_concepts": [
+        "four-condition test",
+        "internal developer",
+        "platform adoption",
+        "product governance",
+        "developer platform",
+        "evolutionary capacity",
+        "self-service consumption",
+        "platform idp",
+        "single accountable",
+        "change stability",
+        "developer independence",
+        "cloud native",
+        "native computing",
+        "computing foundation",
+        "foundation cncf",
+        "dora change-stability",
+        "four jointly",
+        "jointly necessary",
+        "sufficient conditions",
+        "modular architecture"
+      ],
+      "source_urls": [
+        "https://direct.mit.edu/books/monograph/1856/Design-Rules-Volume-1The-Power-of-Modularity",
+        "https://academic.oup.com/icc/article/32/1/1/6972656",
+        "https://dspace.mit.edu/entities/publication/23a38af8-5b74-4db0-8a1c-ea78a1e71529",
+        "https://publications.ut-capitole.fr/id/eprint/1019/1/platform.pdf",
+        "https://hbr.org/2006/10/strategies-for-two-sided-markets",
+        "https://www.melconway.com/Home/Conways_Law.html",
+        "https://teamtopologies.com/news-blogs-newsletters/2024/6/10/newsletter-june-2024-how-platform-teams-reduce-cognitive-load",
+        "https://martinfowler.com/bliki/TeamTopologies.html",
+        "https://martinfowler.com/articles/talk-about-platforms.html",
+        "https://github.com/cncf/tag-app-delivery/blob/main/platforms-whitepaper/v1/index.md",
+        "https://learn.microsoft.com/en-us/platform-engineering/overview",
+        "https://dora.dev/research/2024/dora-report/",
+        "https://cloud.google.com/architecture/platform-engineering",
+        "https://www.thoughtworks.com/radar",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-23-software-factory.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html"
+      ],
+      "key_claims": [
+        {
+          "text": "A platform is defined by four jointly necessary and sufficient conditions drawn from three independent literatures: modular architecture with stable, information-hiding interfaces (Baldwin and Clark's modularity theory), self-service consumption without per-use provider mediation (Cloud Native Computing Foundation (CNCF) and Fowler/Bottcher practitioner definitions), simultaneous value creation for at least two distinct parties (Rochet and Tirole's two-sided-market economics), and explicit, accountable product governance (CNCF, Fowler/Bottcher)",
+          "sources": [
+            "https://direct.mit.edu/books/monograph/1856/Design-Rules-Volume-1The-Power-of-Modularity",
+            "https://publications.ut-capitole.fr/id/eprint/1019/1/platform.pdf",
+            "https://martinfowler.com/articles/talk-about-platforms.html",
+            "https://github.com/cncf/tag-app-delivery/blob/main/platforms-whitepaper/v1/index.md"
+          ]
+        },
+        {
+          "text": "What separates a tool from a platform is the absence of a second, distinct value-creating party interacting through a defined interface, so a single-user or single-team utility remains a tool until a genuinely separate party begins building additional value on top of its interface",
+          "sources": [
+            "https://github.com/cncf/tag-app-delivery/blob/main/platforms-whitepaper/v1/index.md",
+            "https://publications.ut-capitole.fr/id/eprint/1019/1/platform.pdf"
+          ]
+        },
+        {
+          "text": "A product falls short of platform status when it lacks a self-service interface through which a distinct third party builds new value, meaning a product can satisfy the modularity and governance conditions while still failing the multi-party and self-service conditions that define a platform",
+          "sources": [
+            "https://onlinelibrary.wiley.com/doi/10.1111/jpim.12105",
+            "https://martinfowler.com/articles/talk-about-platforms.html"
+          ]
+        },
+        {
+          "text": "Foundational infrastructure lacks the curated, self-service, product-governed consumption layer that would make it a platform, since the Cloud Native Computing Foundation (CNCF) white paper itself frames internal platforms as \"the thinnest reasonable layer\" added on top of infrastructure rather than the infrastructure itself",
+          "sources": [
+            "https://github.com/cncf/tag-app-delivery/blob/main/platforms-whitepaper/v1/index.md"
+          ]
+        },
+        {
+          "text": "The Gawer and Cusumano internal-versus-external platform distinction (company-specific asset reuse versus an industry-wide ecosystem foundation for third-party complementors) maps directly onto the internal-versus-external Internal Developer Platform (IDP) distinction used in enterprise platform-engineering practice, indicating the software-platform-economics literature and the internal-platform-engineering literature describe the same underlying structure at different organisational scales",
+          "sources": [
+            "https://dspace.mit.edu/entities/publication/23a38af8-5b74-4db0-8a1c-ea78a1e71529",
+            "https://learn.microsoft.com/en-us/platform-engineering/overview"
+          ]
+        },
+        {
+          "text": "This item maps the four-condition test onto data platforms as data contracts or schemas serving as the interface, data producers and data consumers as the two value-creating parties, and a named data-product owner as the governance condition (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html), and the Data Product Ontology and Relationship Model (DPROD) standard that would formalise this interface has not achieved broad consensus adoption across mainstream metadata platforms as of the evidence gathered (; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html)",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-12-data-product-ontology.html"
+          ]
+        },
+        {
+          "text": "Four production-grade enabling properties recur across the Cloud Native Computing Foundation (CNCF) attribute list, the Microsoft Learn capability model, and Team Topologies' cognitive-load framing: multi-modal self-service interfaces, embedded governance guardrails, encapsulating abstraction boundaries, and an explicit reliability commitment, with evolutionary capacity (safe internal change without breaking consumers) following directly from Baldwin and Clark's information-hiding principle",
+          "sources": [
+            "https://github.com/cncf/tag-app-delivery/blob/main/platforms-whitepaper/v1/index.md",
+            "https://learn.microsoft.com/en-us/platform-engineering/overview",
+            "https://direct.mit.edu/books/monograph/1856/Design-Rules-Volume-1The-Power-of-Modularity"
+          ]
+        },
+        {
+          "text": "Conway's Law predicts that a platform's architectural boundaries mirror the communication structure of the team that builds it, and the \"backlog coupling\" case study of siloed infrastructure sub-teams shows this mechanism producing a fragmented, slow-changing system in practice, consistent with the golden-path finding that a single accountable platform product owner outperforms diffuse specialised sub-teams at preserving both standardisation and local agility",
+          "sources": [
+            "https://www.melconway.com/Home/Conways_Law.html",
+            "https://martinfowler.com/articles/talk-about-platforms.html",
+            "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html"
+          ]
+        }
+      ]
+    },
     "2026-09-14-higher-order-agentic-ai-platform-patterns": {
       "named_concepts": [
         "coordination substrate",
