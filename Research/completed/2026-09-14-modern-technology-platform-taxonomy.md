@@ -8,7 +8,7 @@ blocks: []
 themes: [tools-infrastructure, organisational-design, software-engineering, enterprise-adoption, knowledge-graphs]
 started: 2026-09-15T08:08:06+00:00
 completed: 2026-09-15T08:31:33+00:00
-output: []
+output: [knowledge]
 cites:
   - 2026-06-13-platform-engineering-innersource-hybrid-standardization
   - 2026-05-12-data-product-ontology
