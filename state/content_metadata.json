@@ -1,6 +1,98 @@
 {
-  "extracted_at": "2026-09-15T07:23:09Z",
+  "extracted_at": "2026-09-15T07:48:36Z",
   "items": {
+    "2026-08-20-three-zone-interface-feedback-constraints": {
+      "named_concepts": [
+        "zero trust",
+        "artificial intelligence",
+        "technical architectures",
+        "team topologies",
+        "sociotechnical systems",
+        "systems theory",
+        "reinforcement learning",
+        "write access",
+        "content pool",
+        "interface constraint",
+        "asymmetric write",
+        "five independently",
+        "gitops reconciliation",
+        "execution completes",
+        "write authority",
+        "control shell",
+        "admission-policy loops",
+        "blackboard systems",
+        "three-zone model",
+        "pre-execution gating"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-layered-reasoning-state-abstraction-interfaces.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance.html",
+        "https://www.cs.tufts.edu/comp/250SA/papers/kephart2003.pdf",
+        "https://mas.cs.umass.edu/Documents/Corkill/ai-expert.pdf",
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://www.cncf.io/blog/2024/01/18/gitops-and-mutating-policies-the-tale-of-two-loops/",
+        "https://martinfowler.com/bliki/TeamTopologies.html",
+        "https://open.ncl.ac.uk/theory-library/socio-technical-theory.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "The Monitor, Analyze, Plan, Execute, over shared Knowledge (MAPE-K) autonomic-computing loop specifies that raw monitored data must pass through a distinct Analyze stage before the shared Knowledge base or the Plan stage acts on it, so unfiltered sensor output never directly triggers a corrective action",
+          "sources": [
+            "https://www.cs.tufts.edu/comp/250SA/papers/kephart2003.pdf"
+          ]
+        },
+        {
+          "text": "Blackboard architectures restrict every knowledge source to posting a candidate contribution rather than committing it directly, and a separate control shell component decides which candidate is applied to the shared blackboard",
+          "sources": [
+            "https://mas.cs.umass.edu/Documents/Corkill/ai-expert.pdf"
+          ]
+        },
+        {
+          "text": "The actor-critic reinforcement-learning architecture converts a raw environment transition into a scalar temporal-difference error before that signal is permitted to update the actor's policy parameters, keeping raw experience and consolidated feedback structurally distinct",
+          "sources": [
+            "http://incompleteideas.net/book/the-book-2nd.html"
+          ]
+        },
+        {
+          "text": "The National Institute of Standards and Technology (NIST) Zero Trust Architecture separates the Policy Decision Point that evaluates access from the Policy Administration Point that executes the decision and the Policy Enforcement Point that touches the live connection, so no single component both decides and acts unilaterally on governed traffic",
+          "sources": [
+            "https://csrc.nist.gov/pubs/sp/800/207/final"
+          ]
+        },
+        {
+          "text": "GitOps reconciliation loops and Kubernetes admission-policy loops operate as two independently authoritative control loops over the same live cluster objects, with the policy loop able to veto or mutate any change regardless of whether it originated from the reconciler or another actor",
+          "sources": [
+            "https://www.cncf.io/blog/2024/01/18/gitops-and-mutating-policies-the-tale-of-two-loops/"
+          ]
+        },
+        {
+          "text": "Team Topologies formalises cross-team interface constraints through three named interaction modes, collaboration, X-as-a-Service, and facilitating, so that a platform team's internal work is never directly editable by a stream-aligned team and an enabling team's guidance is explicitly temporary rather than a standing control relationship",
+          "sources": [
+            "https://martinfowler.com/bliki/TeamTopologies.html"
+          ]
+        },
+        {
+          "text": "Sociotechnical systems theory establishes that a technical subsystem and a social subsystem must be jointly optimised rather than independently optimised, because improving one subsystem in isolation was empirically found to degrade the combined system's performance in the coal-mining case studies that originated the theory",
+          "sources": [
+            "https://open.ncl.ac.uk/theory-library/socio-technical-theory.pdf"
+          ]
+        },
+        {
+          "text": "Across five independently sourced technical architectures, MAPE-K, blackboard systems, actor-critic reinforcement learning, Zero Trust, and GitOps/admission-policy loops, the recurring structural pattern is that a distinct resolution or decision component, not the execution environment and not the verification mechanism directly, holds sole write authority over the shared content pool",
+          "sources": [
+            "https://www.cs.tufts.edu/comp/250SA/papers/kephart2003.pdf",
+            "https://mas.cs.umass.edu/Documents/Corkill/ai-expert.pdf",
+            "http://incompleteideas.net/book/the-book-2nd.html",
+            "https://csrc.nist.gov/pubs/sp/800/207/final",
+            "https://www.cncf.io/blog/2024/01/18/gitops-and-mutating-policies-the-tale-of-two-loops/"
+          ]
+        }
+      ]
+    },
     "2026-08-20-planar-memory-graph-topology-drift": {
       "named_concepts": [
         "planar memory",
