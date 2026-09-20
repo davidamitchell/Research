@@ -1,15 +1,15 @@
 ---
 title: "Alignment limits from missing shared background"
-added: 2026-09-20T08:20:39+00:00
+added: 2026-09-20
 status: backlog
 priority: high
 blocks: []
-themes: [agentic-ai, governance-policy, consciousness-cognition, human-ai-interaction, llm-reasoning]
+tags: [agentic-ai, governance-policy, consciousness-cognition, human-ai-interaction]
 started: ~
 completed: ~
 output: []
-cites: [2026-04-30-orthogonality-thesis-ai-alignment-interpretability, 2026-02-28-interoception-and-the-predictive-self]
-related: [2026-05-25-llm-math-programming-reasoning-substrate, 2026-04-30-human-bias-ai-trust-rlhf-sycophancy, 2026-05-19-human-ai-cognitive-divergence-risk]
+cites: [2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk]
+related: [2026-05-25-llm-math-programming-reasoning-substrate, 2026-05-19-human-ai-cognitive-divergence-risk]
 superseded_by: ~
 supersedes: ~
 item_type: primary
@@ -47,7 +47,7 @@ To what extent are artificial-agent alignment strategies constitutively limited 
 
 ## Context
 
-This question informs whether alignment should be framed mainly as a better-specification engineering problem or as a deeper medium-and-substrate problem in which human goals cannot be stably transmitted to systems that do not share the historical, embodied background that makes human communication barely workable even among humans.
+This question informs whether alignment should be framed mainly as a better-specification engineering problem or as a deeper medium-and-substrate problem in which human goals cannot be stably transmitted to systems that do not share the historical, embodied background that makes human communication barely workable even among humans. It directly builds on three prior repository threads: the orthogonality item sharpens the risk that capable systems can pursue goals without sharing human value structure, the mathematics-and-programming substrate item sharpens the counter-hypothesis that formal symbolic domains may partially reduce this problem, and the Human-Artificial Intelligence (AI) Cognitive Divergence Risk synthesis sharpens the embodied-mismatch hypothesis that useful intelligence and grounded human understanding are not the same thing.
 
 ## Approach
 
@@ -60,22 +60,22 @@ This question informs whether alignment should be framed mainly as a better-spec
 
 ## Sources
 
-- [ ] [Yudkowsky (2004) The Hidden Complexity of Wishes](https://www.lesswrong.com/posts/4ARaTpNX62uaL86j6/the-hidden-complexity-of-wishes) — classic alignment argument that human values contain far more implicit structure than short explicit directives can capture.
-- [ ] [Bostrom (2012) The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents](https://nickbostrom.com/superintelligentwill.pdf) — canonical statement of the orthogonality thesis and instrumental convergence.
-- [ ] [Searle (1983) Intentionality: An Essay in the Philosophy of Mind](https://philpapers.org/rec/SEAIAE-4) — foundational source for Searle's account of the Background behind intentional content.
-- [ ] [Shanahan (2004) The Frame Problem](https://plato.stanford.edu/archives/sum2004/entries/frame-problem/) — Stanford Encyclopedia of Philosophy overview of explicit-representation limits in Artificial Intelligence.
-- [ ] [Wittgenstein entry -- form of life section](https://plato.stanford.edu/entries/wittgenstein/#ForLife) — accessible source on shared practices and backgrounds required for meaning.
-- [ ] [Dreyfus (2007) Why Heideggerian AI Failed and How Fixing it Would Require Making it More Heideggerian](https://philpapers.org/rec/DREWHA) — critique of disembodied symbolic Artificial Intelligence from a phenomenological background perspective.
-- [ ] [Jaynes (1976) The Origin of Consciousness in the Breakdown of the Bicameral Mind](https://www.julianjaynes.org/book/ooc/) — starting point for the bicameral-mind and externalised-command line of inquiry.
-- [ ] [Mitchell (2026) Orthogonality thesis under modern Large Language Model training and post-training](https://davidamitchell.github.io/Research/research/2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk.html) — prior repository item on orthogonality, alignment, and post-training constraints.
-- [ ] [Mitchell (2026) LLM reasoning in mathematics and programming tasks](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-25-llm-math-programming-reasoning-substrate.md) — prior repository item on formal-symbolic language as a potentially privileged substrate.
-- [ ] [Mitchell (2026) Human-AI Cognitive Divergence Risk](https://github.com/davidamitchell/Research/blob/main/Knowledge/2026-05-19-human-ai-cognitive-divergence-risk.md) — prior synthesis item on embodied human cognition, trust, and mismatch with language-model behavior.
+- [Yudkowsky (2004) The Hidden Complexity of Wishes](https://www.lesswrong.com/posts/4ARaTpNX62uaL86j6/the-hidden-complexity-of-wishes) — classic alignment argument that human values contain far more implicit structure than short explicit directives can capture.
+- [Bostrom (2012) The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents](https://nickbostrom.com/superintelligentwill.pdf) — canonical statement of the orthogonality thesis and instrumental convergence.
+- [Searle (1983) Intentionality: An Essay in the Philosophy of Mind](https://www.cambridge.org/highereducation/books/intentionality/A60A70F85DFE700B5FD4BAEFE1E80E82#overview) — foundational source for Searle's account of the Background behind intentional content.
+- [Shanahan (2016) The Frame Problem -- Stanford Encyclopedia of Philosophy (SEP)](https://plato.stanford.edu/entries/frame-problem/) — encyclopedia overview of explicit-representation limits in Artificial Intelligence.
+- [Stanford Encyclopedia of Philosophy (2026) Wittgenstein -- form of life section](https://plato.stanford.edu/entries/wittgenstein/#ForLife) — accessible source on shared practices and backgrounds required for meaning.
+- [Dreyfus (2007) Why Heideggerian AI Failed and How Fixing it Would Require Making it More Heideggerian](https://doi.org/10.1080/09515080701239510) — critique of disembodied symbolic Artificial Intelligence from a phenomenological background perspective.
+- [Jaynes (1976) The Origin of Consciousness in the Breakdown of the Bicameral Mind](https://archive.org/details/originofconsciou00jaynrich) — starting point for the bicameral-mind and externalised-command line of inquiry.
+- [Mitchell (2026) Orthogonality thesis under modern Large Language Model training and post-training](https://davidamitchell.github.io/Research/research/2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk.html) — prior repository item on orthogonality, alignment, and post-training constraints.
+- [Mitchell (2026) Large Language Model (LLM) reasoning in mathematics and programming tasks](https://davidamitchell.github.io/Research/research/2026-05-25-llm-math-programming-reasoning-substrate.html) — prior repository item on formal-symbolic language as a potentially privileged substrate.
+- [Mitchell (2026) Human-AI Cognitive Divergence Risk](https://davidamitchell.github.io/Research/knowledge/2026-05-19-human-ai-cognitive-divergence-risk.html) — prior synthesis item on embodied human cognition, trust, and mismatch with language-model behavior.
 
 ## Related
 
 - [Orthogonality thesis under modern Large Language Model training and post-training](https://davidamitchell.github.io/Research/research/2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk.html)
-- [LLM reasoning in mathematics and programming tasks](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-25-llm-math-programming-reasoning-substrate.md)
-- [Human-AI Cognitive Divergence Risk](https://github.com/davidamitchell/Research/blob/main/Knowledge/2026-05-19-human-ai-cognitive-divergence-risk.md)
+- [Large Language Model (LLM) reasoning in mathematics and programming tasks](https://davidamitchell.github.io/Research/research/2026-05-25-llm-math-programming-reasoning-substrate.html)
+- [Human-AI Cognitive Divergence Risk](https://davidamitchell.github.io/Research/knowledge/2026-05-19-human-ai-cognitive-divergence-risk.html)
 
 ---
 
@@ -137,36 +137,25 @@ This question informs whether alignment should be framed mainly as a better-spec
 
 ### Executive Summary
 
-3–5 sentences. What is the answer to the research question? State the key conclusion directly. Write plain prose — no prefix labels. Bind sources as trailing inline citations: `Claim text. [inference; source: https://url]`
+-
 
 ### Key Findings
 
-Ordered list. Each finding is a specific, evidence-backed claim with confidence and source as a trailing parenthetical. Use **suffix style** — source at the end of the claim, not at the beginning.
-
-1. **Claim text as a complete sentence.** (high confidence; source: https://url)
-2. **Claim text as a complete sentence.** (medium confidence; source: https://url1; https://url2)
-
-Source URLs must exactly match URLs in the `## Sources` section so the generated site can render `Author (Year)` citation links. List the primary source URL(s) from `## Sources` here.
+-
 
 ### Evidence Map
 
-| Claim | Source | Confidence | Notes |
-|---|---|---|---|
-| | | high / medium / low | |
+-
 
 ### Assumptions
 
-Explicit assumptions made during the investigation and the justification for each.
-
-- **Assumption:** ... **Justification:** ...
+-
 
 ### Analysis
 
-How the evidence was weighed, what trade-offs were identified, and how competing interpretations were resolved.
+-
 
 ### Risks, Gaps, and Uncertainties
-
-What is still unknown? Where does the evidence fall short? What could change the conclusion?
 
 -
 
@@ -182,6 +171,6 @@ Questions that surfaced during research but are out of scope for this item. Each
 
 *(Fill in when completing — what was produced as a result of this research?)*
 
-- Type: # skill | tool | agent | knowledge | backlog-item
+- Types: []
 - Description:
 - Links:
