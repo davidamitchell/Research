@@ -2,14 +2,14 @@
 review_count: 2
 title: "Alignment limits from missing shared background"
 added: 2026-09-20
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agentic-ai, governance-policy, consciousness-cognition, human-ai-interaction]
 themes: [agentic-ai, governance-policy, consciousness-cognition, human-ai-interaction]
 started: 2026-09-21T07:19:10+00:00
-completed: ~
-output: []
+completed: 2026-09-21T07:50:32+00:00
+output: [knowledge]
 cites: [2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk]
 related: [2026-05-25-llm-math-programming-reasoning-substrate, 2026-05-19-human-ai-cognitive-divergence-risk]
 superseded_by: ~
