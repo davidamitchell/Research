@@ -16,7 +16,7 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions: [{version: "1.0", sha: "13a3079b3ebd2a4a7cb2bc8d859748f11f1c4256", changed: 2026-09-21, progress: "progress/2026-09-21-alignment-shared-background-limits.md", summary: "Initial completion"}]
 ---
 
 # Alignment limits from missing shared background
