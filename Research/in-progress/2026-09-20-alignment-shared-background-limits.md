@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Alignment limits from missing shared background"
 added: 2026-09-20
 status: reviewing
