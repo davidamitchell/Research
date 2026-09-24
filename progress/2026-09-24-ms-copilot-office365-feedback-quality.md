@@ -1,0 +1,27 @@
+# 2026-09-24 -- Complete research item: ms-copilot-office365-feedback-quality
+
+**Completed:**
+- `Research/completed/2026-09-23-ms-copilot-office365-feedback-quality.md` — moved from `in-progress` to `completed`. Answers: independent evaluations (UK DWP, UK DBT government trials covering 4,500+ staff; CSIRO and Fraunhofer academic preprints) show Microsoft 365 Copilot delivers modest, task-dependent time savings concentrated in routine, structured, text-based work, with an acknowledged and partially self-reported factual-reliability gap (22% hallucination-encounter self-report rate in the DBT trial). Microsoft's own March 2026 introduction of a two-model "Critique"/"Council" review architecture for its Researcher agent — validated against the independently published DRACO benchmark (Zhong et al., arXiv:2602.11685) rather than an internal metric — is treated as vendor-side corroborating evidence that single-model factual reliability was judged insufficient.
+- `learnings.md` Thread 11 extended with the vendor self-correction corollary (Critique/Council as a market signal that generation had outrun single-model verification) and a new Evidence (addendum 2) entry.
+
+## Process notes
+
+This item required three review cycles before the `research-review.yml` workflow's 2-pass cap was reached and the third trigger auto-passed per the workflow's own cap-reached short-circuit (`review_count >= MAX_REVIEWS` → auto-pass, confirmed by the run completing in 17 seconds with no new commit). All violations flagged in the two counted review passes were fixed before relying on the auto-pass; the auto-pass was not used as a way to skip unaddressed findings.
+
+Violations fixed across the cycle: acronym expansion (UI, HTTP), domain-term definitions added at first substantive use ("hallucination" via Ji et al. 2023 arXiv:2202.03629; "Microsoft Graph" via Microsoft Learn), citation realignment in a mis-shifted Executive Summary paragraph, a confidence downgrade for a single-sourced "high confidence" claim (both in Key Findings and mirrored in the Executive Summary), a compound sentence in §3 Reasoning split into separately-labeled `[fact]`/`[inference]` clauses to match the epistemic status used elsewhere for the same sub-claims, and a §0 prior-research cross-reference rewritten to bind full GitHub URLs to each of three cited items individually.
+
+One review pass (the first trigger) did not count toward the 2-pass budget because the review workflow's own commit-and-push step lost a race against a concurrent `docs: rebuild site` commit and never landed on `main` — confirmed by `review_count` staying unset in frontmatter after that pass.
+
+## Mini-Retro
+
+1. **Did the process work?** Yes, but it took three review trigger cycles (one uncounted push-race failure, two counted failures) before the workflow's cap-reached auto-pass allowed completion. Every violation raised was genuinely a defect in the draft, not a false positive — the review caught real epistemic-labeling and citation-binding gaps each time.
+
+2. **What slowed down or went wrong?** A specific, previously-undocumented failure pattern cost an entire review cycle: when two sentences sit adjacent in a paragraph as `Sentence1. [label; source: URL] Sentence2.`, the automated reviewer consistently attributes the bracket to Sentence2 (as if prefix-style), not to Sentence1 (intended suffix-style), even though the repo's own convention is suffix (trailing) labeling. This happened twice on the same Executive Summary paragraph. The only fix that reliably worked was duplicating the label immediately after *each* sentence needing one (`S1. [label1] S2. [label2]`), which had already been used successfully for Assumptions/Analysis/Risks paragraphs in earlier passes but had not yet been applied to this specific Executive Summary paragraph until the second attempt.
+
+3. **What single change would prevent this next time?** Add explicit guidance (done — see below) that whenever a multi-sentence paragraph needs two or more distinct source bindings, the label must be duplicated after every sentence that needs one, never shared between two adjacent sentences via a single bracket — regardless of whether the convention document formally allows a single trailing bracket to serve the preceding sentence.
+
+4. **Is this a pattern?** Yes. It is closely related to several existing rows in the Known Recurring Failure Patterns table (the "closing/summary sentence" and "§5 multi-sentence paragraph" rows) but is more specific: those rows describe a label being *missing* on an adjacent sentence, while this one describes the reviewer *misattributing* a present label to the wrong sentence. Added as a new row to `.github/copilot-instructions.md`'s Known Recurring Failure Patterns table this session.
+
+5. **Does any documentation need updating?** Yes — added the new failure-pattern row to `.github/copilot-instructions.md` (this session). No other user-facing documentation changed.
+
+6. **Do the default instructions need updating?** The new failure-pattern row itself is the instruction update; no further `research-prompt.md` change was made because the existing "duplicate trailing label" fix pattern already appears in practice across three prior passes (Assumptions, Analysis, Risks/Gaps) and is now also documented as a named pattern in the instructions table, which is the intended fix mechanism per this repo's own continuous-improvement rules.

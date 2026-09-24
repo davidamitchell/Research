@@ -2,13 +2,13 @@
 review_count: 2
 title: "Microsoft 365 Copilot quality, usefulness, efficiency, and factual reliability in user evaluations"
 added: 2026-09-23T19:13:29+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [benchmarks-eval, enterprise-adoption, cost-performance, human-ai-interaction]
 started: 2026-09-24T07:10:05+00:00
-completed: ~
-output: []
+completed: 2026-09-24T07:51:40+00:00
+output: [knowledge]
 cites: []
 related: [2026-04-26-ms-copilot-cowork, 2026-04-30-claude-vs-m365-copilot-cowork-comparison, 2026-05-17-ms-copilot-studio-capabilities, 2026-05-10-m365-copilot-sensitive-data-security-governance-risks]
 superseded_by: ~
