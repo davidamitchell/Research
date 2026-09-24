@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Microsoft 365 Copilot quality, usefulness, efficiency, and factual reliability in user evaluations"
 added: 2026-09-23T19:13:29+00:00
 status: reviewing
