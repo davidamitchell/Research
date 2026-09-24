@@ -1,6 +1,100 @@
 {
-  "extracted_at": "2026-09-24T07:32:46Z",
+  "extracted_at": "2026-09-24T07:55:30Z",
   "items": {
+    "2026-09-23-ms-copilot-office365-feedback-quality": {
+      "named_concepts": [
+        "microsoft copilot",
+        "uk government",
+        "government evaluations",
+        "time saving",
+        "time savings",
+        "routine drafting",
+        "hallucination rate",
+        "independent uk",
+        "minutes per",
+        "per day",
+        "three independent",
+        "independent studies",
+        "task structure",
+        "summarisation showing",
+        "showing weaker",
+        "factual reliability",
+        "self-reported encountering",
+        "encountering false",
+        "misleading information",
+        "information presented"
+      ],
+      "source_urls": [
+        "https://www.microsoft.com/en-us/microsoft-365/copilot",
+        "https://www.microsoft.com/en-us/worklab/work-trend-index/copilots-earliest-users-teach-us-about-generative-ai-at-work",
+        "https://www.microsoft.com/en-us/research/blog/",
+        "https://www.gov.uk/government/publications/an-evaluation-of-dwps-microsoft-copilot-365-trial/an-evaluation-of-dwps-microsoft-365-copilot-trial",
+        "https://assets.publishing.service.gov.uk/media/68adbe409e1cebdd2c96a19d/dbt-microsoft-365-copilot-evaluation.pdf",
+        "https://arxiv.org/abs/2503.17661",
+        "https://arxiv.org/abs/2602.18576",
+        "https://repository.ifla.org/items/71e6d63f-d4d4-4336-9d20-a48cdf062857",
+        "https://arxiv.org/abs/2602.11685",
+        "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/introducing-multi-model-intelligence-in-researcher/4506011",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/researcher-agent",
+        "https://techcommunity.microsoft.com/discussions/microsoft-365/will-microsoft-365-copilot-errors-and-hallucinations-eventually-corrupt-the-micr/4273773",
+        "https://www.theseus.fi/handle/10024/884551",
+        "https://arxiv.org/abs/2202.03629",
+        "https://learn.microsoft.com/en-us/graph/overview"
+      ],
+      "key_claims": [
+        {
+          "text": "The UK Department for Work and Pensions' regression-controlled evaluation of 3,549 staff estimated an average time saving of 19 minutes per day from Microsoft 365 Copilot use, with the largest reductions in information search (26 minutes) and email writing (25 minutes)",
+          "sources": [
+            "https://www.gov.uk/government/publications/an-evaluation-of-dwps-microsoft-copilot-365-trial/an-evaluation-of-dwps-microsoft-365-copilot-trial"
+          ]
+        },
+        {
+          "text": "The same evaluation found a statistically estimated medium increase in perceived work quality (0.49 points on a 7-point scale) among Copilot users compared to a non-user comparison group, alongside qualitative reports that outputs still required human editing before being treated as finished work",
+          "sources": [
+            "https://www.gov.uk/government/publications/an-evaluation-of-dwps-microsoft-copilot-365-trial/an-evaluation-of-dwps-microsoft-365-copilot-trial"
+          ]
+        },
+        {
+          "text": "The UK Department for Business and Trade's independent pilot of 1,000 licences explicitly states it did not find evidence that observed time savings led to improved productivity, and its control-group participants did not observe productivity improvements among Copilot-using colleagues",
+          "sources": [
+            "https://assets.publishing.service.gov.uk/media/68adbe409e1cebdd2c96a19d/dbt-microsoft-365-copilot-evaluation.pdf"
+          ]
+        },
+        {
+          "text": "In that same pilot, 22% of diary-study respondents self-reported encountering false or misleading information presented as fact by Microsoft 365 Copilot, while 43% reported no such encounter and the remainder were unsure or did not answer",
+          "sources": [
+            "https://assets.publishing.service.gov.uk/media/68adbe409e1cebdd2c96a19d/dbt-microsoft-365-copilot-evaluation.pdf"
+          ]
+        },
+        {
+          "text": "Three independent studies from three different organisations and two countries, a German applied-research institute, a UK government department, and an Australian scientific research agency, converge on task structure as the dominant moderator of Copilot's realised value, with routine drafting and summarisation showing the strongest and most consistent benefit and complex or research-intensive tasks showing weaker, inconsistent benefit",
+          "sources": [
+            "https://arxiv.org/abs/2602.18576",
+            "https://assets.publishing.service.gov.uk/media/68adbe409e1cebdd2c96a19d/dbt-microsoft-365-copilot-evaluation.pdf",
+            "https://arxiv.org/abs/2503.17661"
+          ]
+        },
+        {
+          "text": "A qualitative study of 27 users at Australia's Commonwealth Scientific and Industrial Research Organisation found Copilot's effectiveness for tasks requiring critical thinking and domain-specific expertise was inconsistent, with users explicitly stating distrust of the tool for such work despite finding it useful for routine drafting and retrieval",
+          "sources": [
+            "https://arxiv.org/abs/2503.17661"
+          ]
+        },
+        {
+          "text": "Microsoft's own March 2026 announcement of a two-model \"Critique\" review architecture for its Researcher agent reports a +7.0 point improvement on the independently published Deep Research Accuracy, Completeness, and Objectivity (DRACO) benchmark, a 13.88% improvement over the best previously reported system on that benchmark, indicating the vendor itself judged single-model factual accuracy insufficient for its highest-stakes agent",
+          "sources": [
+            "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/introducing-multi-model-intelligence-in-researcher/4506011",
+            "https://arxiv.org/abs/2602.11685"
+          ]
+        },
+        {
+          "text": "Microsoft-published productivity studies, including a 297-respondent Early Access Program survey and Office of the Chief Economist lab experiments, report substantially higher satisfaction and self-reported time-savings figures than the independent UK government evaluations, but these studies are designed, run, and published entirely by Microsoft, so their more favourable figures should be weighted as vendor-source evidence rather than independent corroboration",
+          "sources": [
+            "https://www.microsoft.com/en-us/worklab/work-trend-index/copilots-earliest-users-teach-us-about-generative-ai-at-work"
+          ]
+        }
+      ]
+    },
     "2026-09-20-alignment-shared-background-limits": {
       "named_concepts": [
         "interactive value-elicitation",
