@@ -1,8 +1,8 @@
 # Theme Report
 
 **Canonical themes in vocabulary:** 22  
-**Items scanned:** 454  
-**Items with themes:** 452  
+**Items scanned:** 463  
+**Items with themes:** 461  
 **Uncovered items (no themes:):** 2  
 **Near-duplicate vocabulary candidates:** 0  
 **Stray (non-vocabulary) themes in corpus:** 38  
@@ -51,28 +51,28 @@ _All canonical themes are in use._
 
 | Theme | Item count |
 |---|---|
-| `agentic-ai` | 239 |
-| `tools-infrastructure` | 218 |
-| `governance-policy` | 217 |
+| `agentic-ai` | 244 |
+| `tools-infrastructure` | 224 |
+| `governance-policy` | 222 |
 | `ai-architecture` | 158 |
-| `security-risk` | 119 |
-| `knowledge-management` | 104 |
-| `benchmarks-eval` | 93 |
-| `organisational-design` | 90 |
+| `security-risk` | 120 |
+| `knowledge-management` | 106 |
+| `benchmarks-eval` | 97 |
+| `organisational-design` | 92 |
 | `workforce-skills` | 73 |
-| `cost-performance` | 60 |
-| `llm-reasoning` | 53 |
-| `mlops-deployment` | 51 |
-| `memory-context` | 50 |
+| `cost-performance` | 62 |
+| `llm-reasoning` | 54 |
+| `memory-context` | 52 |
+| `mlops-deployment` | 52 |
+| `knowledge-graphs` | 46 |
 | `rag-retrieval` | 45 |
-| `knowledge-graphs` | 43 |
-| `software-engineering` | 43 |
-| `enterprise-adoption` | 31 |
-| `consciousness-cognition` | 25 |
-| `formal-methods` | 24 |
-| `regulatory-compliance` | 19 |
-| `multi-agent` | 12 |
-| `human-ai-interaction` | 11 |
+| `software-engineering` | 44 |
+| `enterprise-adoption` | 33 |
+| `consciousness-cognition` | 26 |
+| `formal-methods` | 25 |
+| `regulatory-compliance` | 20 |
+| `human-ai-interaction` | 13 |
+| `multi-agent` | 13 |
 | `organisational-learning` | 4 |
 | `causal-inference` | 2 |
 | `causal-modeling` | 2 |
