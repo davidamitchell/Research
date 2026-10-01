@@ -19,3 +19,9 @@ The candidate passed the research-question skill's Specific, Answerable, Scoped,
 4. **Is this a pattern?** The submodule setup is already documented; the validation blockers predate and are outside this intake change.
 5. **Does any documentation need updating?** No. This intake adds a backlog item, not research findings or a change to repository behavior.
 6. **Do the default instructions need updating?** No new convention or constraint emerged.
+
+## Related
+
+- [First-principles taxonomy of modern technology platforms](https://davidamitchell.github.io/Research/research/2026-09-14-modern-technology-platform-taxonomy.html)
+- [Platform engineering, InnerSource, and standard-core plus local-extension operating models](https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html)
+- [Local optimisation of team- and role-level tooling in knowledge work](https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html)
