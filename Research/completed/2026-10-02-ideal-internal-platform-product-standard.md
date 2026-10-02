@@ -2,12 +2,12 @@
 review_count: 2
 title: "Ideal internal platforms as products: an assessable operating standard"
 added: 2026-10-02T09:00:56+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [tools-infrastructure, software-engineering, organisational-design, enterprise-adoption, benchmarks-eval]
 started: 2026-10-02T21:41:39+00:00
-completed: ~
+completed: 2026-10-02T22:20:19+00:00
 output: []
 cites:
   - 2026-10-01-thinnest-viable-internal-platform-standard
