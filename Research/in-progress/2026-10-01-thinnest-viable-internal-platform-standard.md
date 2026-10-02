@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Satisfiable internal platforms: a practical standard for platform teams"
 added: 2026-10-01T07:56:40+00:00
 status: reviewing
