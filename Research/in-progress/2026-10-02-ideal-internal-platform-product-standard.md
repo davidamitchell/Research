@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Ideal internal platforms as products: an assessable operating standard"
 added: 2026-10-02T09:00:56+00:00
 status: reviewing
