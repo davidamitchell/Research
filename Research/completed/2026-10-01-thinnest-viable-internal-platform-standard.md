@@ -2,13 +2,13 @@
 review_count: 2
 title: "Satisfiable internal platforms: a practical standard for platform teams"
 added: 2026-10-01T07:56:40+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [tools-infrastructure, software-engineering, organisational-design, enterprise-adoption, benchmarks-eval]
 started: 2026-10-01T23:55:16+00:00
-completed: ~
-output: []
+completed: 2026-10-02T00:31:35+00:00
+output: [knowledge]
 cites:
   - 2026-09-14-modern-technology-platform-taxonomy
   - 2026-06-13-platform-engineering-innersource-hybrid-standardization
