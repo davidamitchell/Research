@@ -1,6 +1,100 @@
 {
-  "extracted_at": "2026-10-02T22:05:20Z",
+  "extracted_at": "2026-10-02T22:24:07Z",
   "items": {
+    "2026-10-02-ideal-internal-platform-product-standard": {
+      "named_concepts": [
+        "tvp floor",
+        "platform team",
+        "capability dimensions",
+        "now-next-later roadmap",
+        "six capability",
+        "logs-based delivery",
+        "delivery metrics",
+        "self-reported developer-experience",
+        "voluntary adoption",
+        "platform teams",
+        "reach impact",
+        "impact confidence",
+        "effort rice",
+        "rice scoring",
+        "dreams fallacy",
+        "magpie platform",
+        "independently corroborated",
+        "net feature",
+        "feature removal",
+        "cloud native"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-10-01-thinnest-viable-internal-platform-standard.html",
+        "https://learn.microsoft.com/en-us/platform-engineering/platform-engineering-capability-model",
+        "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/",
+        "https://dora.dev/capabilities/platform-engineering/",
+        "https://dora.dev/research/2025/measurement-frameworks/",
+        "https://queue.acm.org/detail.cfm?id=3454124",
+        "https://backstage.spotify.com/docs/plugins/soundcheck/",
+        "https://oneuptime.com/blog/post/2026-07-30-voluntary-platform-adoption/view",
+        "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/",
+        "https://www.prodpad.com/blog/invented-now-next-later-roadmap/",
+        "https://teamtopologies.com/key-concepts-content/groupings",
+        "https://jellyfish.co/library/platform-engineering/anti-patterns/",
+        "https://www.infoworld.com/article/4064273/8-platform-engineering-anti-patterns.html",
+        "https://dev.to/savi_saluwadana/why-your-platform-team-became-the-bottleneck-and-how-to-fix-it-4ok9",
+        "https://www.theregister.com/software/2026/02/11/a-platform-engineers-guide-to-proving-value/4939395"
+      ],
+      "key_claims": [
+        {
+          "text": "The Microsoft Learn platform-engineering capability model specifies six scoreable capability dimensions, investment, adoption, governance, provisioning and management, interfaces, and measurement and feedback, and states this structure is explicitly aligned with the Cloud Native Computing Foundation's own maturity model",
+          "sources": [
+            "https://learn.microsoft.com/en-us/platform-engineering/platform-engineering-capability-model",
+            "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/"
+          ]
+        },
+        {
+          "text": "A platform's adoption must be classified into five mutually exclusive modes, voluntary, defaulted, mandated, migrated, and inherited, and measured against an eligibility denominator before any usage figure can support a claim about genuine developer preference",
+          "sources": [
+            "https://oneuptime.com/blog/post/2026-07-30-voluntary-platform-adoption/view"
+          ]
+        },
+        {
+          "text": "Reach, Impact, Confidence, and Effort (RICE) scoring ranks competing backlog work by estimating how many consumers it reaches, how much it moves a targeted outcome, how confident the estimate is, and how much effort it requires, replacing argument by seniority with a comparable number",
+          "sources": [
+            "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/"
+          ]
+        },
+        {
+          "text": "The Now-Next-Later roadmap, created by ProdPad co-founder Janna Bastow, organises work into three sequential horizons rather than fixed delivery dates, keeping a roadmap legible to stakeholders without manufacturing false certainty about ship dates",
+          "sources": [
+            "https://www.prodpad.com/blog/invented-now-next-later-roadmap/"
+          ]
+        },
+        {
+          "text": "Once an organisation runs more than one platform team at a time, Team Topologies describes a fractal \"platform grouping\" pattern in which platform teams coordinate using the same interaction modes that otherwise apply between a stream-aligned team and a single platform team",
+          "sources": [
+            "https://teamtopologies.com/key-concepts-content/groupings"
+          ]
+        },
+        {
+          "text": "A platform team that centralises all delivery work and fails to design for extensibility becomes the organisation's own blocking dependency, a finding stated independently by both DevOps Research and Assessment's (DORA) 2025 platform-engineering guidance and a separate practitioner account of a platform team's transition away from centralised delivery",
+          "sources": [
+            "https://dora.dev/capabilities/platform-engineering/",
+            "https://dev.to/savi_saluwadana/why-your-platform-team-became-the-bottleneck-and-how-to-fix-it-4ok9"
+          ]
+        },
+        {
+          "text": "DORA's 2025 research measured a 5% productivity improvement at both team and individual level attributable to developer independence, defined as the ability to complete a task without depending on another enabling team, directly linking self-service capability to a quantified outcome",
+          "sources": [
+            "https://dora.dev/capabilities/platform-engineering/"
+          ]
+        },
+        {
+          "text": "Two independently published platform-engineering sources separately describe the same anti-pattern, an organisation renaming an existing operations team \"platform engineering\" without changing its ticket-driven way of working, which corroborates it as a recurring failure rather than a single author's framing",
+          "sources": [
+            "https://jellyfish.co/library/platform-engineering/anti-patterns/",
+            "https://www.infoworld.com/article/4064273/8-platform-engineering-anti-patterns.html"
+          ]
+        }
+      ]
+    },
     "2026-10-01-thinnest-viable-internal-platform-standard": {
       "named_concepts": [
         "cognitive load",
