@@ -21,7 +21,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 691ab1f
+    changed: 2026-10-02
+    progress: progress/2026-10-01-thinnest-viable-internal-platform-standard.md
+    summary: "Initial completion"
 ---
 
 # Satisfiable internal platforms: a practical standard for platform teams
