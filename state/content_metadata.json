@@ -1,6 +1,113 @@
 {
-  "extracted_at": "2026-10-02T00:17:40Z",
+  "extracted_at": "2026-10-02T00:35:03Z",
   "items": {
+    "2026-10-01-thinnest-viable-internal-platform-standard": {
+      "named_concepts": [
+        "cognitive load",
+        "cloud native",
+        "native computing",
+        "computing foundation",
+        "cncf maturity",
+        "maturity model",
+        "team topologies",
+        "change stability",
+        "abstraction debt",
+        "failure mode",
+        "foundation cncf",
+        "platform team",
+        "every claim",
+        "load reduction",
+        "measured directly",
+        "platform teams",
+        "platform capability",
+        "voluntary adoption",
+        "relocation-versus-transfer failure",
+        "flow metrics"
+      ],
+      "source_urls": [
+        "https://teamtopologies.com/book",
+        "https://thenewstack.io/mvp-or-tvp-why-your-internal-developer-platform-needs-both/",
+        "https://doi.org/10.1207/s15516709cog1202_4",
+        "https://teamtopologies.com/key-concepts",
+        "https://teamtopologies.com/key-concepts-content/what-is-a-thinnest-viable-platform-tvp",
+        "https://martinfowler.com/bliki/TeamTopologies.html",
+        "https://svpg.com/inspired/",
+        "https://www.svpg.com/continuous-discovery/",
+        "https://www.producttalk.org/product-trio/",
+        "https://www.oreilly.com/library/view/escaping-the-build/9781491973783/ch15.html",
+        "https://projecttoproduct.org/",
+        "https://platformcon.com/",
+        "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/",
+        "https://learn.microsoft.com/en-us/platform-engineering/overview/",
+        "https://learn.microsoft.com/en-us/platform-engineering/about/product-mindset",
+        "https://learn.microsoft.com/en-us/platform-engineering/adoption",
+        "https://learn.microsoft.com/en-us/platform-engineering/about/self-service",
+        "https://learn.microsoft.com/en-us/platform-engineering/governance",
+        "https://dora.dev/research/2024/dora-report/",
+        "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full",
+        "https://dev.to/savi_saluwadana/why-your-platform-team-became-the-bottleneck-and-how-to-fix-it-4ok9",
+        "https://platformengineering.org/blog/golden-cage-syndrome-why-internal-developer-platforms-fail",
+        "https://davidamitchell.github.io/Research/research/2026-09-14-modern-technology-platform-taxonomy.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html",
+        "https://flowframework.org/ffc-discover/",
+        "https://www.tocinstitute.org/theory-of-constraints.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The Thinnest Viable Platform (TVP), as originally defined in Team Topologies and corroborated directly by its co-author, is the smallest set of shared components that still accelerates and simplifies delivery for consuming teams, with a wiki page of approved services as its minimal legitimate form",
+          "sources": [
+            "https://thenewstack.io/mvp-or-tvp-why-your-internal-developer-platform-needs-both/",
+            "https://teamtopologies.com/key-concepts-content/what-is-a-thinnest-viable-platform-tvp"
+          ]
+        },
+        {
+          "text": "The primary benefit a platform must deliver to pass the thinnest-viable test is a reduction in cognitive load on stream-aligned teams rather than cost savings, standardisation, or control, according to Martin Fowler's synthesis of Team Topologies",
+          "sources": [
+            "https://martinfowler.com/bliki/TeamTopologies.html"
+          ]
+        },
+        {
+          "text": "Voluntary, unmandated adoption functions as the primary outcome-level diagnostic that a platform has actually reduced rather than merely relocated or added to consumer workload, according to both the Cloud Native Computing Foundation (CNCF) maturity model and Microsoft's platform-engineering guidance",
+          "sources": [
+            "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/",
+            "https://learn.microsoft.com/en-us/platform-engineering/about/product-mindset"
+          ]
+        },
+        {
+          "text": "Cognitive Load Theory (CLT), as originally formulated by Sweller and corroborated by a peer-reviewed 2021 methodology study, decomposes mental workload into intrinsic, extraneous, and germane components driven by element interactivity, giving platform teams a vocabulary for which burdens are worth absorbing",
+          "sources": [
+            "https://doi.org/10.1207/s15516709cog1202_4",
+            "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full"
+          ]
+        },
+        {
+          "text": "No validated, software-engineering-specific instrument for measuring platform-induced cognitive load was located in this investigation, and the originating field's own subjective self-report scales have debated reliability and validity according to the same 2021 methodology study",
+          "sources": [
+            "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full"
+          ]
+        },
+        {
+          "text": "The DevOps Research and Assessment (DORA) 2024 report found that Internal Developer Platform (IDP) adoption improves individual productivity, team performance, and organisational performance, while also identifying a risk of decreased change stability and throughput that requires implementation focused on developer independence",
+          "sources": [
+            "https://dora.dev/research/2024/dora-report/"
+          ]
+        },
+        {
+          "text": "The Cloud Native Computing Foundation (CNCF) maturity model locates the transition to product-style platform operation at a specific, observable organisational funding change, from central cost-centre funding with unmeasured value-stream impact to funding tied to data-driven performance indicators with dedicated product-management and user-experience staffing",
+          "sources": [
+            "https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/"
+          ]
+        },
+        {
+          "text": "Self-service with guardrails, implemented as policy-as-code rather than manual gatekeeping, is the evidenced mechanism by which platform teams convert recurring per-change compliance negotiation into a one-time, stakeholder-agreed policy encoding exercise",
+          "sources": [
+            "https://learn.microsoft.com/en-us/platform-engineering/about/self-service",
+            "https://learn.microsoft.com/en-us/platform-engineering/governance"
+          ]
+        }
+      ]
+    },
     "2026-09-23-ms-copilot-office365-feedback-quality": {
       "named_concepts": [
         "microsoft copilot",
