@@ -669,7 +669,130 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-09-24 07:53 UTC</p>
+<p>Generated on: 2026-10-02 00:33 UTC</p>
+<p><a id="2026-10-01-thinnest-viable-internal-platform-standard-md"></a></p>
+<h2>Satisfiable internal platforms: a practical standard for platform teams</h2>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-01-thinnest-viable-internal-platform-standard.md</p>
+<h2>Research Question</h2>
+<p>From cognitive load theory, abstraction boundaries, and continuous value flow, what observable criteria define a satisfiable (thinnest viable) internal platform built and managed as a product under Team Topologies, and what product-management practices enable it to move technical and operational concerns off its consumers while remaining voluntarily adoptable, evolvable, and non-blocking? How can these criteria be synthesized into a practical standard of expectation for platform teams?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>A platform is satisfiable, meeting the Thinnest Viable Platform (TVP) standard, when it removes a verified, previously-shared cognitive burden from consuming teams at a cost smaller than the burden removed. [inference; source: https://martinfowler.com/bliki/TeamTopologies.html; https://thenewstack.io/mvp-or-tvp-why-your-internal-developer-platform-needs-both/] It remains satisfiable only by continuously re-testing that inequality through direct customer discovery, active feature removal, and policy-encoded change control as the burden and the available commodity alternatives change over time. [inference; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/; https://learn.microsoft.com/en-us/platform-engineering/about/self-service] The most reliable observable signal separating a satisfiable platform from an overbuilt or under-governed one is net feature-removal activity combined with voluntary, unmandated adoption, not feature count, roadmap length, or engineering polish. [inference; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/; https://learn.microsoft.com/en-us/platform-engineering/about/product-mindset] The Cloud Native Computing Foundation (CNCF) maturity model identifies a specific funding and staffing prerequisite for this standard to be achievable: a platform team funded against downstream value-stream impact rather than as a pure cost centre, with product-management and user-experience capacity, not purely engineering capacity. [fact; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/] The main unresolved uncertainty is that no software-engineering-specific, validated instrument exists to measure cognitive load directly, so every claim of load reduction in this item is inferred from adoption, throughput, and feature-removal proxies rather than measured directly against a developer population. [inference; source: https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full]</p>
+<h3>Key Findings</h3>
+<ol>
+<li>The Thinnest Viable Platform (TVP), as originally defined in Team Topologies and corroborated directly by its co-author, is the smallest set of shared components that still accelerates and simplifies delivery for consuming teams, with a wiki page of approved services as its minimal legitimate form. ([fact]; high confidence; source: https://thenewstack.io/mvp-or-tvp-why-your-internal-developer-platform-needs-both/; https://teamtopologies.com/key-concepts-content/what-is-a-thinnest-viable-platform-tvp)</li>
+<li>The primary benefit a platform must deliver to pass the thinnest-viable test is a reduction in cognitive load on stream-aligned teams rather than cost savings, standardisation, or control, according to Martin Fowler's synthesis of Team Topologies. ([fact]; medium confidence; source: https://martinfowler.com/bliki/TeamTopologies.html)</li>
+<li>Voluntary, unmandated adoption functions as the primary outcome-level diagnostic that a platform has actually reduced rather than merely relocated or added to consumer workload, according to both the Cloud Native Computing Foundation (CNCF) maturity model and Microsoft's platform-engineering guidance. ([fact]; medium confidence; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/; https://learn.microsoft.com/en-us/platform-engineering/about/product-mindset)</li>
+<li>Cognitive Load Theory (CLT), as originally formulated by Sweller and corroborated by a peer-reviewed 2021 methodology study, decomposes mental workload into intrinsic, extraneous, and germane components driven by element interactivity, giving platform teams a vocabulary for which burdens are worth absorbing. ([fact]; medium confidence; source: https://doi.org/10.1207/s15516709cog1202_4; https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full)</li>
+<li>No validated, software-engineering-specific instrument for measuring platform-induced cognitive load was located in this investigation, and the originating field's own subjective self-report scales have debated reliability and validity according to the same 2021 methodology study. ([fact]; medium confidence; source: https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full)</li>
+<li>The DevOps Research and Assessment (DORA) 2024 report found that Internal Developer Platform (IDP) adoption improves individual productivity, team performance, and organisational performance, while also identifying a risk of decreased change stability and throughput that requires implementation focused on developer independence. ([fact]; medium confidence; source: https://dora.dev/research/2024/dora-report/)</li>
+<li>The Cloud Native Computing Foundation (CNCF) maturity model locates the transition to product-style platform operation at a specific, observable organisational funding change, from central cost-centre funding with unmeasured value-stream impact to funding tied to data-driven performance indicators with dedicated product-management and user-experience staffing. ([fact]; medium confidence; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/)</li>
+<li>Self-service with guardrails, implemented as policy-as-code rather than manual gatekeeping, is the evidenced mechanism by which platform teams convert recurring per-change compliance negotiation into a one-time, stakeholder-agreed policy encoding exercise. ([fact]; medium confidence; source: https://learn.microsoft.com/en-us/platform-engineering/about/self-service; https://learn.microsoft.com/en-us/platform-engineering/governance)</li>
+<li>Platforms become blocking dependencies rather than accelerants when a capability's throughput is gated by a fixed-capacity shared resource, such as an approval queue or a single team's support bandwidth, rather than by self-service automation that scales with demand. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html; https://dev.to/savi_saluwadana/why-your-platform-team-became-the-bottleneck-and-how-to-fix-it-4ok9)</li>
+<li>A platform capability's interaction mode shifts over its lifecycle from an intensive, temporary collaboration mode toward a self-service, X-as-a-Service mode once the platform team has built sufficient understanding and maturity, according to Martin Fowler's direct synthesis of Team Topologies. ([fact]; medium confidence; source: https://martinfowler.com/bliki/TeamTopologies.html)</li>
+<li>What counts as &quot;thin enough&quot; for a given platform capability changes as the surrounding industry matures and previously bespoke capabilities, such as data-centre operation before widespread public-cloud adoption, become externally available commodities. ([fact]; medium confidence; source: https://thenewstack.io/mvp-or-tvp-why-your-internal-developer-platform-needs-both/)</li>
+<li>Larger organisations extend the thinnest-viable test across a grouping of multiple platform teams operating at different layers, such as infrastructure and developer-experience layers, rather than applying a single thinness budget to one undifferentiated platform estate. ([inference]; medium confidence; source: https://martinfowler.com/bliki/TeamTopologies.html; https://davidamitchell.github.io/Research/research/2026-09-14-modern-technology-platform-taxonomy.html)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[fact] TVP is the smallest shared component set that still accelerates delivery; wiki page is minimal legitimate form</td>
+<td>https://thenewstack.io/mvp-or-tvp-why-your-internal-developer-platform-needs-both/; https://teamtopologies.com/key-concepts-content/what-is-a-thinnest-viable-platform-tvp</td>
+<td>high</td>
+<td>Direct book quote and co-author video transcript</td>
+</tr>
+<tr>
+<td>[fact] Platform's primary benefit is cognitive-load reduction on stream-aligned teams</td>
+<td>https://martinfowler.com/bliki/TeamTopologies.html</td>
+<td>medium</td>
+<td>Single secondary-synthesis source</td>
+</tr>
+<tr>
+<td>[fact] Voluntary adoption is the outcome-level diagnostic of true load reduction</td>
+<td>https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/; https://learn.microsoft.com/en-us/platform-engineering/about/product-mindset</td>
+<td>medium</td>
+<td>Two independent organisations (CNCF, Microsoft) converge</td>
+</tr>
+<tr>
+<td>[fact] Cognitive Load Theory decomposes load into intrinsic/extraneous/germane, driven by element interactivity</td>
+<td>https://doi.org/10.1207/s15516709cog1202_4; https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full</td>
+<td>medium</td>
+<td>Primary source (Sweller 1988) inaccessible full-text; corroborated via peer-reviewed secondary source</td>
+</tr>
+<tr>
+<td>[fact] No validated software-engineering-specific cognitive-load instrument located; originating field's self-report scales have debated validity</td>
+<td>https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full</td>
+<td>medium</td>
+<td>Single peer-reviewed source; absence claim is a search-coverage finding, not an exhaustive proof</td>
+</tr>
+<tr>
+<td>[fact] IDP adoption improves productivity/performance but risks decreased change stability without developer-independence focus</td>
+<td>https://dora.dev/research/2024/dora-report/</td>
+<td>medium</td>
+<td>Single primary research report; no independent second source located</td>
+</tr>
+<tr>
+<td>[fact] Transition to product-style operation tracks a funding-model change (cost centre to value-stream-linked) with dedicated product and user-experience staffing</td>
+<td>https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/</td>
+<td>medium</td>
+<td>Single-source CNCF maturity whitepaper, Level 2 vs Level 3 definitions</td>
+</tr>
+<tr>
+<td>[fact] Self-service with guardrails (policy-as-code) converts recurring manual compliance review into one-time policy encoding</td>
+<td>https://learn.microsoft.com/en-us/platform-engineering/about/self-service; https://learn.microsoft.com/en-us/platform-engineering/governance</td>
+<td>medium</td>
+<td>Single organisation (Microsoft) across two of its own pages</td>
+</tr>
+<tr>
+<td>[inference] Platforms become blocking when throughput is gated by fixed-capacity shared resources rather than self-service automation</td>
+<td>https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html; https://dev.to/savi_saluwadana/why-your-platform-team-became-the-bottleneck-and-how-to-fix-it-4ok9</td>
+<td>medium</td>
+<td>Independent sources converge on the same mechanism from demand and supply sides</td>
+</tr>
+<tr>
+<td>[fact] Interaction mode shifts from collaboration to X-as-a-Service as platform capability matures</td>
+<td>https://martinfowler.com/bliki/TeamTopologies.html</td>
+<td>medium</td>
+<td>Single secondary-synthesis source</td>
+</tr>
+<tr>
+<td>[fact] Thinness budget shifts as industry commodity availability matures (e.g., data-centre operations)</td>
+<td>https://thenewstack.io/mvp-or-tvp-why-your-internal-developer-platform-needs-both/</td>
+<td>medium</td>
+<td>Single practitioner-synthesis source with a concrete historical example</td>
+</tr>
+<tr>
+<td>[inference] Larger organisations apply the thinness test per platform layer within a grouping, not to one undifferentiated estate</td>
+<td>https://martinfowler.com/bliki/TeamTopologies.html; https://davidamitchell.github.io/Research/research/2026-09-14-modern-technology-platform-taxonomy.html</td>
+<td>medium</td>
+<td>Extrapolated from platform-grouping and layered-taxonomy sources, not directly stated by either alone</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<p>&quot;Abstraction debt&quot; is treated in this item as a descriptive label for the already-evidenced failure mode of a platform increasing rather than reducing consumer work, not as an independently defined construct. [assumption; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/] No primary or authoritative secondary source using &quot;abstraction debt&quot; with a stable definition was located during this investigation, so adopting it as a synonym for the evidenced relocation-versus-transfer failure mode is the most defensible way to use the term without presenting an invented definition as settled. [assumption; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/]</p>
+<p>Improvements in delivery flow metrics such as lead time and deployment frequency are treated as consistent with, rather than proof of, reduced cognitive load as the specific causal mechanism. [assumption; source: https://dora.dev/research/2024/dora-report/] This assumption is necessary because no source in this investigation measures cognitive load and flow metrics in the same study population, so inferring a causal link between the two requires bridging two separate evidence bases rather than citing a single study that establishes it directly. [assumption; source: https://dora.dev/research/2024/dora-report/]</p>
+<h3>Analysis</h3>
+<p>The strongest evidence in this item converges from independent organisations on a single mechanism: platform value is diagnosed by voluntary adoption and net feature removal, not by feature count or engineering sophistication. [inference; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/; https://martinfowler.com/bliki/TeamTopologies.html] This convergence, with Team Topologies' originators, the Cloud Native Computing Foundation, Microsoft, and the DevOps Research and Assessment program each describing the same pattern from different vantage points, is the item's highest-confidence conclusion. [inference; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/; https://learn.microsoft.com/en-us/platform-engineering/about/product-mindset; https://dora.dev/research/2024/dora-report/] The weakest evidence concerns measurement: cognitive load itself is never measured directly in a software-engineering population in any source located in this investigation. [inference; source: https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full] Every claim connecting a platform decision to reduced cognitive load is therefore an inference bridging an educational-psychology construct to a proxy observed in adoption or flow data, a gap this item treats as a genuine limitation rather than papering over with borrowed precision. [inference; source: https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full] A plausible rival explanation to the voluntary-adoption-reflects-true-value thesis is that some platforms are legitimately mandated for security or regulatory reasons regardless of consumer preference, and mandated adoption there does not by itself indicate platform failure. [assumption; source: https://learn.microsoft.com/en-us/platform-engineering/governance] This item resolves that tension using the self-service-with-guardrails evidence in Key Finding 8: mandated rules, policy encoded once, are compatible with voluntary platform usage, because the guardrail constrains what consumers may do within the platform rather than forcing them to use the platform's thicker, discretionary features, so a well-designed platform can carry mandatory compliance obligations without failing the voluntary-adoption test for its non-mandatory capabilities. [inference; source: https://learn.microsoft.com/en-us/platform-engineering/about/self-service; https://learn.microsoft.com/en-us/platform-engineering/governance] A second rival explanation holds that the DevOps Research and Assessment (DORA) 2024 report's observed change-stability risk reflects an inherent property of platforms generally rather than a solvable implementation defect. [assumption; source: https://dora.dev/research/2024/dora-report/] This item addresses that explanation using DORA's own mitigation framing, developer independence, which is the same mechanism this item's synthesis treats as the self-service, voluntary-adoption signal, rather than evidence that platforms are structurally destabilising. [inference; source: https://dora.dev/research/2024/dora-report/]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<p>No validated instrument exists for measuring cognitive load in a software-engineering population specifically; every claim in this item connecting platform design decisions to load reduction is inferred from adjacent evidence (adoption behaviour, flow metrics, maturity-model staffing) rather than measured directly. ([fact]; medium confidence; source: https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full) The three-component load construct that this item relies on is corroborated through a single independent peer-reviewed secondary source rather than multiple independent primary-literature citations, because Sweller's foundational 1988 paper was not retrievable as full text in this session. ([assumption]; medium confidence; source: https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2021.702616/full) The &quot;golden cage syndrome&quot; case evidence for mandated-platform failure is corroborated only by one independently-authored practitioner account rather than a controlled comparative study, because the primary article returned minimal extractable body text in this session. ([inference]; low confidence; source: https://dev.to/savi_saluwadana/why-your-platform-team-became-the-bottleneck-and-how-to-fix-it-4ok9) The link between voluntary adoption and stability specifically is an inference rather than a directly measured result, because no source located in this investigation directly compares matched organisations under voluntary-adoption versus mandated-adoption platform regimes and the DORA 2024 finding on change stability does not disaggregate by adoption mode. ([inference]; medium confidence; source: https://dora.dev/research/2024/dora-report/) This item's treatment of &quot;abstraction debt&quot; as synonymous with the evidenced relocation-versus-transfer failure mode is an interpretive choice rather than a sourced fact, because the term as named in this item's own Approach section has no located authoritative definition. ([assumption]; low confidence; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/) The apparent compatibility between the Cloud Native Computing Foundation and Microsoft capability models described in Key Finding 3 and Evidence Map row 3 is this item's own extrapolation, because no source locates a direct cross-validation of the two models against each other. ([inference]; low confidence; source: https://tag-app-delivery.cncf.io/whitepapers/platform-eng-maturity-model/; https://learn.microsoft.com/en-us/platform-engineering/overview/)</p>
+<h3>Open Questions</h3>
+<p>Does a validated, developer-population-specific cognitive-load measurement instrument exist in literature not surfaced by this investigation's search terms, and if not, is one in active development anywhere in the platform-engineering or developer-experience research community?</p>
+<p>What would a controlled or quasi-experimental study comparing matched organisations under voluntary-adoption versus mandated-adoption platform regimes show about change stability, developer satisfaction, and shadow-tooling prevalence?</p>
+<p>Is &quot;abstraction debt&quot; a term with an authoritative definition in literature not surfaced by this investigation, and if so, how does it differ from or relate to the relocation-versus-transfer failure mode evidenced here?</p>
+<p>Do the Cloud Native Computing Foundation's four-level maturity model and Microsoft's six-dimension capability model produce consistent maturity classifications when applied to the same real platform team, or do they diverge in practice?</p>
+<hr />
+<hr />
 <p><a id="2026-09-23-ms-copilot-office365-feedback-quality-md"></a></p>
 <h2>Microsoft 365 Copilot quality, usefulness, efficiency, and factual reliability in user evaluations</h2>
 <p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-09-23-ms-copilot-office365-feedback-quality.md</p>
