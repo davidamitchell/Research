@@ -2,7 +2,7 @@
 title: "Cross-effects among three-zone agent interventions"
 added: 2026-10-03T08:39:00+00:00
 status: backlog
-priority: high
+priority: medium
 blocks: []
 themes: [agentic-ai, tools-infrastructure, knowledge-management, governance-policy]
 started: ~
@@ -26,7 +26,7 @@ Under what conditions do the measured benefits of pool-level annotations, harnes
 ## Scope
 
 **In scope:**
-- Test whether provenance and justification overlays—including the Provenance Ontology (PROV-O), Resource Description Framework-star (RDF-star), and minimal justification sets—change large language model (LLM) consumer outputs on the conflict categories identified in retrieval-augmented generation (RAG) context-collision work; vary consumer model.
+- Test whether provenance and justification overlays—including the Provenance Ontology (PROV-O), Resource Description Framework-star (RDF-star), and minimal justification sets—change large language model (LLM) consumer outputs on the conflict categories identified in retrieval-augmented generation (RAG) context-collision work, including reported violations of the Alchourrón–Gärdenfors–Makinson (AGM) Inclusion and Preservation postulates; vary consumer model.
 - Compare observation masking with summarisation across model configurations and non-coding task families, varying pool structure such as the terminological box (TBox), assertional box (ABox), noise, and ambiguity.
 - Measure verifier accuracy against independent evidence while varying verifier/harness model-family alignment and shared context; retain the prior reliability rubric's graded notion of independence.
 - Vary one zone at a time, report interaction effects, and determine when each measured improvement can be treated as independent. Explain the supplied counter-cases rather than rediscovering them.
@@ -36,7 +36,7 @@ Under what conditions do the measured benefits of pool-level annotations, harnes
 - Assigning ownership of the resolver step, which the three-zone interface item defers to issue #653.
 - Re-evaluating the earlier studies without testing cross-zone effects.
 
-**Constraints:** Use controlled comparisons where available; distinguish measured results from hypotheses when direct experiments or suitable benchmarks are absent. Report consumer model, task family, pool properties, verifier family, and interaction effects so the conditions for any claimed independence are explicit.
+**Constraints:** Use controlled comparisons where available; treat the context-collision item's unreviewed benchmark figures as provisional, and distinguish measured results from hypotheses when direct experiments or suitable benchmarks are absent. Report consumer model, task family, pool properties, verifier family, and interaction effects so the conditions for any claimed independence are explicit.
 
 ## Context
 
