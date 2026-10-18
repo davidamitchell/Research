@@ -27,7 +27,7 @@ Under what conditions do the measured benefits of pool-level annotations, harnes
 ## Scope
 
 **In scope:**
-- Test whether provenance and justification overlays—including the Provenance Ontology (PROV-O), Resource Description Framework-star (RDF-star), and minimal justification sets—change large language model (LLM) consumer outputs on the conflict categories identified in retrieval-augmented generation (RAG) context-collision work, including reported violations of the Alchourrón–Gärdenfors–Makinson (AGM) Inclusion and Preservation postulates; vary consumer model.
+- Test whether provenance and justification overlays, including the Provenance Ontology (PROV-O), Resource Description Framework-star (RDF-star), and minimal justification sets, change large language model (LLM) consumer outputs on the conflict categories identified in retrieval-augmented generation (RAG) context-collision work, including reported violations of the Alchourrón–Gärdenfors–Makinson (AGM) Inclusion and Preservation postulates; vary consumer model.
 - Compare observation masking with summarisation across model configurations and non-coding task families, varying pool structure such as the terminological box (TBox), assertional box (ABox), noise, and ambiguity.
 - Measure verifier accuracy against independent evidence while varying verifier/harness model-family alignment and shared context; retain the prior reliability rubric's graded notion of independence.
 - Vary one zone at a time, report interaction effects, and determine when each measured improvement can be treated as independent. Explain the supplied counter-cases rather than rediscovering them.
@@ -60,50 +60,50 @@ This research informs whether the three proposed interventions can be adopted in
 
 Starting points from issue #669 and its cited work, followed by external sources added during investigation.
 
-- [ ] [GitHub issue #669: Cross-effects among three-zone agent interventions](https://github.com/davidamitchell/Research/issues/669) — question, scope, evidence standard, and counter-cases.
-- [ ] [Semantic clarity and conflict resolvability in mediated content pools](https://davidamitchell.github.io/Research/research/2026-08-20-mediated-content-pool-semantic-clarity.html) — proposed pool-level provenance and justification annotations.
-- [ ] [Context collision and relational blindness in flat-vector retrieval-augmented generation](https://davidamitchell.github.io/Research/research/2026-08-20-flat-vector-rag-context-collision.html) — conflict categories and reported conflict-label intervention.
-- [ ] [Closed-loop performance techniques for mediated execution harnesses](https://davidamitchell.github.io/Research/research/2026-08-20-execution-harness-closed-loop-performance.html) — observation masking and summarisation comparison.
-- [ ] [Independent verification and durable evidence for goal attainment](https://davidamitchell.github.io/Research/research/2026-08-20-independent-goal-attainment-verification.html) — reliability rubric and graded independence.
-- [ ] [Zone-specific interface constraints in three-zone architectures](https://davidamitchell.github.io/Research/research/2026-08-20-three-zone-interface-feedback-constraints.html) — interfaces, selection-artefact caveat, and resolver deferral.
-- [ ] [Evaluation frameworks for agentic memory quality, relevance, and retrieval accuracy](https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-evaluation-framework.html) — provenance-fidelity evaluation gap.
-- [ ] [Adversarial input propagation through multi-step tool-using systems](https://davidamitchell.github.io/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html) — verifier and strategy-selection error propagation.
-- [ ] [Adversarial agents with shared goals: multi-perspective coverage](https://davidamitchell.github.io/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html) — evidence on agent independence and shared perspectives.
-- [ ] [Large Language Model-as-judge pipeline validation checkpoints](https://davidamitchell.github.io/Research/research/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.html) — verifier placement and pipeline validation.
-- [ ] [Policy ambiguity and feedback-loop homogenisation risk](https://davidamitchell.github.io/Research/research/2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk.html) — model-family alignment risk.
-- [ ] [Failure mode taxonomy: empirical frequency and causal mechanisms](https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html) — co-located monitor case identified as unquantified.
-- [ ] [Schema-led versus instance-emergent ontology approaches in graph-based retrieval](https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html) — ontology gain and noisy-corpus reversal.
-- [ ] [Context engineering: first principles of steering large language model output](https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html) — model-specific context-rot curves.
-- [ ] [Behavioral change after retrieval-augmented generation source-document edits](https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html) — corpus edits changing behaviour with weights and prompts fixed.
-- [ ] [Minimal coding-agent benchmark results across model families](https://davidamitchell.github.io/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html) — leaderboard counter-case to minimal-harness superiority.
-- [ ] [Nuance collapse in deterministic neuro-symbolic ontology pipelines](https://davidamitchell.github.io/Research/research/2026-08-20-neuro-symbolic-nuance-loss-explainability.html) — ambiguity lost through normalisation.
-- [x] [Chiang and Lee (2024) Do Metadata and Appearance of the Retrieved Webpages Affect LLM's Reasoning in Retrieval-Augmented Generation?](https://aclanthology.org/2024.blackboxnlp-1.24/) — publication time, source, and appearance metadata change consumer answers by model.
-- [x] [Ge et al. (2025) Resolving Conflicting Evidence in Automated Fact-Checking](https://arxiv.org/abs/2505.17762) — source-credibility information in retrieval and generation improves conflict resolution.
-- [x] [Tan et al. (2024) Blinded by Generated Contexts](https://arxiv.org/abs/2401.11911) — consumer bias toward generated contexts when knowledge conflicts.
-- [x] [Wang et al. (2025) Retrieval-Augmented Generation with Conflicting Evidence](https://arxiv.org/abs/2504.13079) — joint ambiguity, misinformation, and noise dataset; prior work studied factors in isolation.
-- [x] [Lindenbauer et al. (2025) The Complexity Trap](https://arxiv.org/abs/2508.21433) — masking versus summarisation on coding tasks.
-- [x] [Sun et al. (2025) Scaling Long-Horizon LLM Agent via Context-Folding](https://arxiv.org/abs/2510.11967) — context management on deep-research and software tasks.
-- [x] [Panickssery et al. (2024) LLM Evaluators Recognize and Favor Their Own Generations](https://arxiv.org/abs/2404.13076) — self-recognition tracks self-preference.
-- [x] [Wataoka et al. (2024) Self-Preference Bias in LLM-as-a-Judge](https://arxiv.org/abs/2410.21819) — self-preference metric and familiarity hypothesis.
-- [x] [Kim et al. (2025) Correlated Errors in Large Language Models](https://arxiv.org/abs/2506.07962) — error correlation across more than 350 models.
-- [x] [Zheng et al. (2023) Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685) — documented judge bias modes.
-- [x] [Chroma Research (2025) Context Rot](https://www.trychroma.com/research/context-rot) — model-specific degradation with input length.
-- [x] [Terminal-Bench 2.0 leaderboard](https://www.tbench.ai/leaderboard/terminal-bench/2.0) — leaderboard rows used as counter-case.
-- [x] [graphrag-comparison repository](https://github.com/kartikeyamandhar/graphrag-comparison) — noisy-corpus fixed-ontology comparison.
-- [x] [Alchourron, Gardenfors and Makinson (1985) On the Logic of Theory Change](https://www.cs.huji.ac.il/~lehmann/nonmon/AGM_JSL.pdf) — primary source for the AGM postulates.
-- [x] [Lebo et al. (2013) PROV-O: The PROV Ontology](https://www.w3.org/TR/prov-o/) — provenance vocabulary.
-- [x] [NIST SP 800-53 Revision 5](https://csrc.nist.gov/pubs/sp/800/53/r5/final) — separation-of-duties control reference.
-- [x] [Goguen and Meseguer (1982) Security Policies and Security Models](https://doi.org/10.1109/SP.1982.10014) — non-interference and independence reference.
-- [x] [arXiv 2506.08500](https://arxiv.org/abs/2506.08500) — consumer-side conflict handling reference.
-- [x] [arXiv 1009.3391](https://arxiv.org/abs/1009.3391) — referenced background.
-- [x] [arXiv 2310.01798](https://arxiv.org/abs/2310.01798) — referenced background on self-correction.
-- [x] [Socio-technical theory (Newcastle)](https://open.ncl.ac.uk/theory-library/socio-technical-theory.pdf) — behavioural lens reference.
+- [ ] [GitHub issue #669: Cross-effects among three-zone agent interventions](https://github.com/davidamitchell/Research/issues/669): question, scope, evidence standard, and counter-cases.
+- [ ] [Semantic clarity and conflict resolvability in mediated content pools](https://davidamitchell.github.io/Research/research/2026-08-20-mediated-content-pool-semantic-clarity.html): proposed pool-level provenance and justification annotations.
+- [ ] [Context collision and relational blindness in flat-vector retrieval-augmented generation](https://davidamitchell.github.io/Research/research/2026-08-20-flat-vector-rag-context-collision.html): conflict categories and reported conflict-label intervention.
+- [ ] [Closed-loop performance techniques for mediated execution harnesses](https://davidamitchell.github.io/Research/research/2026-08-20-execution-harness-closed-loop-performance.html): observation masking and summarisation comparison.
+- [ ] [Independent verification and durable evidence for goal attainment](https://davidamitchell.github.io/Research/research/2026-08-20-independent-goal-attainment-verification.html): reliability rubric and graded independence.
+- [ ] [Zone-specific interface constraints in three-zone architectures](https://davidamitchell.github.io/Research/research/2026-08-20-three-zone-interface-feedback-constraints.html): interfaces, selection-artefact caveat, and resolver deferral.
+- [ ] [Evaluation frameworks for agentic memory quality, relevance, and retrieval accuracy](https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-evaluation-framework.html): provenance-fidelity evaluation gap.
+- [ ] [Adversarial input propagation through multi-step tool-using systems](https://davidamitchell.github.io/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html): verifier and strategy-selection error propagation.
+- [ ] [Adversarial agents with shared goals: multi-perspective coverage](https://davidamitchell.github.io/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html): evidence on agent independence and shared perspectives.
+- [ ] [Large Language Model-as-judge pipeline validation checkpoints](https://davidamitchell.github.io/Research/research/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.html): verifier placement and pipeline validation.
+- [ ] [Policy ambiguity and feedback-loop homogenisation risk](https://davidamitchell.github.io/Research/research/2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk.html): model-family alignment risk.
+- [ ] [Failure mode taxonomy: empirical frequency and causal mechanisms](https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html): co-located monitor case identified as unquantified.
+- [ ] [Schema-led versus instance-emergent ontology approaches in graph-based retrieval](https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html): ontology gain and noisy-corpus reversal.
+- [ ] [Context engineering: first principles of steering large language model output](https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html): model-specific context-rot curves.
+- [ ] [Behavioral change after retrieval-augmented generation source-document edits](https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html): corpus edits changing behaviour with weights and prompts fixed.
+- [ ] [Minimal coding-agent benchmark results across model families](https://davidamitchell.github.io/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html): leaderboard counter-case to minimal-harness superiority.
+- [ ] [Nuance collapse in deterministic neuro-symbolic ontology pipelines](https://davidamitchell.github.io/Research/research/2026-08-20-neuro-symbolic-nuance-loss-explainability.html): ambiguity lost through normalisation.
+- [x] [Chiang and Lee (2024) Do Metadata and Appearance of the Retrieved Webpages Affect LLM's Reasoning in Retrieval-Augmented Generation?](https://aclanthology.org/2024.blackboxnlp-1.24/): publication time, source, and appearance metadata change consumer answers by model.
+- [x] [Ge et al. (2025) Resolving Conflicting Evidence in Automated Fact-Checking](https://arxiv.org/abs/2505.17762): source-credibility information in retrieval and generation improves conflict resolution.
+- [x] [Tan et al. (2024) Blinded by Generated Contexts](https://arxiv.org/abs/2401.11911): consumer bias toward generated contexts when knowledge conflicts.
+- [x] [Wang et al. (2025) Retrieval-Augmented Generation with Conflicting Evidence](https://arxiv.org/abs/2504.13079): joint ambiguity, misinformation, and noise dataset; prior work studied factors in isolation.
+- [x] [Lindenbauer et al. (2025) The Complexity Trap](https://arxiv.org/abs/2508.21433): masking versus summarisation on coding tasks.
+- [x] [Sun et al. (2025) Scaling Long-Horizon LLM Agent via Context-Folding](https://arxiv.org/abs/2510.11967): context management on deep-research and software tasks.
+- [x] [Panickssery et al. (2024) LLM Evaluators Recognize and Favor Their Own Generations](https://arxiv.org/abs/2404.13076): self-recognition tracks self-preference.
+- [x] [Wataoka et al. (2024) Self-Preference Bias in LLM-as-a-Judge](https://arxiv.org/abs/2410.21819): self-preference metric and familiarity hypothesis.
+- [x] [Kim et al. (2025) Correlated Errors in Large Language Models](https://arxiv.org/abs/2506.07962): error correlation across more than 350 models.
+- [x] [Zheng et al. (2023) Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685): documented judge bias modes.
+- [x] [Chroma Research (2025) Context Rot](https://www.trychroma.com/research/context-rot): model-specific degradation with input length.
+- [x] [Terminal-Bench 2.0 leaderboard](https://www.tbench.ai/leaderboard/terminal-bench/2.0): leaderboard rows used as counter-case.
+- [x] [graphrag-comparison repository](https://github.com/kartikeyamandhar/graphrag-comparison): noisy-corpus fixed-ontology comparison.
+- [x] [Alchourron, Gardenfors and Makinson (1985) On the Logic of Theory Change](https://www.cs.huji.ac.il/~lehmann/nonmon/AGM_JSL.pdf): primary source for the AGM postulates.
+- [x] [Lebo et al. (2013) PROV-O: The PROV Ontology](https://www.w3.org/TR/prov-o/): provenance vocabulary.
+- [x] [NIST SP 800-53 Revision 5](https://csrc.nist.gov/pubs/sp/800/53/r5/final): separation-of-duties control reference.
+- [x] [Goguen and Meseguer (1982) Security Policies and Security Models](https://doi.org/10.1109/SP.1982.10014): non-interference and independence reference.
+- [x] [arXiv 2506.08500](https://arxiv.org/abs/2506.08500): consumer-side conflict handling reference.
+- [x] [arXiv 1009.3391](https://arxiv.org/abs/1009.3391): referenced background.
+- [x] [arXiv 2310.01798](https://arxiv.org/abs/2310.01798): referenced background on self-correction.
+- [x] [Socio-technical theory (Newcastle)](https://open.ncl.ac.uk/theory-library/socio-technical-theory.pdf): behavioural lens reference.
 
 ---
 
 ## Research Skill Output
 
-*(Full output from running the research skill — retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
+*(Full output from running the research skill: retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
 
 ### §0 Initialise
 
