@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-10-18 03:36 UTC
+Generated on: 2026-10-18 03:45 UTC
 
 ## Table of Contents
 
 * [Runtime placement criteria for software-engineering agents in regulated organisations](#2026-10-17-agent-runtime-placement-criteria-md)
+* [Cross-effects among three-zone agent interventions](#2026-10-03-zone-intervention-cross-effects-md)
 * [Ideal internal platforms as products: an assessable operating standard](#2026-10-02-ideal-internal-platform-product-standard-md)
 * [Satisfiable internal platforms: a practical standard for platform teams](#2026-10-01-thinnest-viable-internal-platform-standard-md)
 * [Microsoft 365 Copilot quality, usefulness, efficiency, and factual reliability in user evaluations](#2026-09-23-ms-copilot-office365-feedback-quality-md)
@@ -578,6 +579,92 @@ The proposed matrix thresholds are untested against real workloads. [assumption;
 - Which controlled comparison could isolate scaffolding and validation effects from model capability for unattended coding agents across stages? [assumption; source: https://arxiv.org/abs/2407.01489]
 - What are the documented lifetime and revocation properties of the credentials that vendor-hosted agents use, and can an administrator revoke them mid-session? [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations]
 - How should the credential-exchange hop be recorded for vendor-hosted agents so the linked audit chain in the identity item is complete? [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-identity-access-management-enterprise.md]
+
+---
+
+---
+
+<a id="2026-10-03-zone-intervention-cross-effects-md"></a>
+
+## Cross-effects among three-zone agent interventions
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-03-zone-intervention-cross-effects.md
+
+## Research Question
+
+Under what conditions do the measured benefits of pool-level annotations, harness context management, and goal-attainment verification hold, shrink, or reverse as the consumer model, task family, content-pool properties, and verifier model family vary, and which properties predict those changes?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+No study located varies more than one zone at a time, so the three gains cannot be certified as independent: the best-supported statement is that each gain is conditional on the consumer model, task family, pool noise, and verifier-harness dependence, and that independence should be assumed only where each condition is separately met. [inference; source: https://arxiv.org/abs/2504.13079; https://arxiv.org/abs/2506.07962] Pool-level source and time metadata changes consumer answers in a model-dependent way, and a credibility signal improved conflict resolution on one fact-checking dataset. [fact; source: https://aclanthology.org/2024.blackboxnlp-1.24/; https://arxiv.org/abs/2505.17762] The observation-masking advantage over summarisation is measured only on coding tasks, and structure-dependent pool gains have one low-confidence report of reversal on a noisy corpus. [fact; source: https://arxiv.org/abs/2508.21433; https://github.com/kartikeyamandhar/graphrag-comparison] Verifier accuracy depends on at least three dependence channels with the harness, family self-preference, cross-provider error correlation, and shared context, and the evidence supports treating independence as a graded property. [inference; source: https://arxiv.org/abs/2404.13076; https://arxiv.org/abs/2506.07962; https://davidamitchell.github.io/Research/research/2026-08-20-independent-goal-attainment-verification.html] The primary uncertainty is that every cross-zone condition stated here is an inference from single-zone studies and needs a factorial experiment. [inference; source: https://arxiv.org/abs/2504.13079]
+
+### Key Findings
+
+1. Consumer models differ in how retrieved-document metadata changes their answers, since swapping publication time changed the answer for most models tested while changing the source mostly did not and appearance strongly affected one model family. ([fact]; medium confidence; source: https://aclanthology.org/2024.blackboxnlp-1.24/)
+2. Adding source-credibility background information at retrieval and generation stages significantly improved conflict resolution on a fact-checking dataset, which is direct evidence for a pool-level credibility annotation benefit in that single task family. ([fact]; medium confidence; source: https://arxiv.org/abs/2505.17762)
+3. Models can favour generated over retrieved context because of similarity to the question and segmentation damage, so a provenance annotation is not guaranteed to override a consumer's similarity-driven preference. ([inference]; medium confidence; source: https://arxiv.org/abs/2401.11911; https://aclanthology.org/2024.blackboxnlp-1.24/)
+4. No study located serialises Provenance Ontology, Resource Description Framework-star, or minimal-justification overlays into consumer prompts and measures conflict resolution, so the proposed overlay effect on the context-collision categories remains an untested hypothesis. ([inference]; low confidence; source: https://davidamitchell.github.io/Research/research/2026-08-20-mediated-content-pool-semantic-clarity.html; https://davidamitchell.github.io/Research/research/2026-08-20-flat-vector-rag-context-collision.html)
+5. The measured masking advantage over summarisation comes from coding tasks, and the one non-coding result located compares context folding with summarisation, so the masking advantage on non-coding tasks is untested. ([inference]; medium confidence; source: https://arxiv.org/abs/2508.21433; https://arxiv.org/abs/2510.11967)
+6. Context-rot curves are model-specific and recall degrades non-uniformly with input length, so a mask depth tuned on one consumer model is not expected to transfer to another. ([inference]; medium confidence; source: https://www.trychroma.com/research/context-rot; https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html)
+7. An ontology-guided extraction gain of 3.17 percentage points on a clean benchmark is paired with a low-confidence report that a fixed-ontology pipeline lost 21.0 percentage points on a noisy corpus against 10.5 for a schema-free pipeline, and pool noise is a candidate predictor of reversal that remains a hypothesis. ([inference]; low confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html; https://github.com/kartikeyamandhar/graphrag-comparison)
+8. Language-model judges favour their own outputs and recognise them with non-trivial accuracy, reported independently by two groups on single-family judging tasks, and extension to agent verifiers is untested. ([fact]; medium confidence; source: https://arxiv.org/abs/2404.13076; https://arxiv.org/abs/2410.21819)
+9. Across more than 350 models, errors are substantially correlated, with 60 percent agreement when both err on one leaderboard, and larger models have correlated errors even across distinct providers, so a different model family reduces but does not remove shared-error exposure. ([fact]; medium confidence; source: https://arxiv.org/abs/2506.07962)
+10. Shared context is a dependence channel separate from model family, because a same-class verifier inspects the same contaminated context and a co-located monitor can be compromised by the same injection, with the monitor-compromise rate unquantified. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html; https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html)
+11. Prior work on conflicting evidence reports that earlier studies treated ambiguity, misinformation, and noise one at a time, and no factorial study of the three zone interventions was located, so independence cannot be certified from existing evidence. ([inference]; medium confidence; source: https://arxiv.org/abs/2504.13079; https://davidamitchell.github.io/Research/research/2026-08-20-three-zone-interface-feedback-constraints.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Swapping publication time changes most models' answers; source swaps mostly do not; appearance affects Claude-3 | https://aclanthology.org/2024.blackboxnlp-1.24/ | medium | single study |
+| [fact] Credibility information improves conflict resolution on a fact-checking dataset | https://arxiv.org/abs/2505.17762 | medium | fact-checking only |
+| [inference] Similarity-driven consumer preference can override provenance | https://arxiv.org/abs/2401.11911; https://aclanthology.org/2024.blackboxnlp-1.24/ | medium | generated versus retrieved context |
+| [inference] No overlay-on-consumer test located | https://davidamitchell.github.io/Research/research/2026-08-20-mediated-content-pool-semantic-clarity.html; https://davidamitchell.github.io/Research/research/2026-08-20-flat-vector-rag-context-collision.html | low | absence of evidence |
+| [inference] Masking advantage untested outside coding | https://arxiv.org/abs/2508.21433; https://arxiv.org/abs/2510.11967 | medium | folding is a different comparison |
+| [inference] Mask depth is consumer-specific | https://www.trychroma.com/research/context-rot; https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html | medium | 18-model evaluation |
+| [fact] Ontology gain 3.17 points clean; 21.0 versus 10.5 point loss noisy | https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html; https://github.com/kartikeyamandhar/graphrag-comparison | low | non-peer-reviewed |
+| [fact] Judges favour and recognise own outputs | https://arxiv.org/abs/2404.13076; https://arxiv.org/abs/2410.21819 | medium | two independent groups |
+| [fact] Errors correlated across 350+ models | https://arxiv.org/abs/2506.07962 | medium | single study |
+| [inference] Shared context is a separate dependence channel | https://davidamitchell.github.io/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html; https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html | medium | rate unquantified |
+| [inference] Independence cannot be certified from single-zone studies | https://arxiv.org/abs/2504.13079; https://davidamitchell.github.io/Research/research/2026-08-20-three-zone-interface-feedback-constraints.html | medium | no factorial study |
+
+### Assumptions
+
+Metadata sensitivity measured on webpage and fact-checking tasks is assumed to be informative for agent content pools. [assumption; source: https://aclanthology.org/2024.blackboxnlp-1.24/] The justification is that both involve a consumer model choosing between conflicting retrieved claims with metadata present. [assumption; source: https://arxiv.org/abs/2505.17762]
+
+The coding-task masking result is assumed to be a usable baseline for non-coding harnesses. [assumption; source: https://arxiv.org/abs/2508.21433] The justification is that the context-folding study spans deep-research tasks and reports context-size effects of the same kind, although it tests a different comparison. [assumption; source: https://arxiv.org/abs/2510.11967]
+
+### Analysis
+
+The strongest design point is that the three zones share objects, and so an intervention in one zone alters the inputs of another. [inference; source: https://davidamitchell.github.io/Research/research/2026-08-20-three-zone-interface-feedback-constraints.html] The table below states each gain's independence conditions as inferences so a future experiment can falsify each. [inference; source: https://arxiv.org/abs/2504.13079]
+
+| Gain | Treat as independent when | Shrinks or reverses when | Label and sources |
+|---|---|---|---|
+| Pool annotation (PROV-O, RDF-star, minimal justification) | Conflicts are freshness or credibility conflicts, the consumer is shown to attend to the metadata, and annotations sit outside any masked or summarised window. | The consumer prefers similarity or fluency over metadata, conflicts are complementary, or the harness drops annotation-bearing text. | [inference; source: https://aclanthology.org/2024.blackboxnlp-1.24/; https://arxiv.org/abs/2401.11911; https://arxiv.org/abs/2506.08500] |
+| Harness masking over summarisation | The task has disposable raw observations, as in the measured coding tasks, and the consumer's recall curve is characterised. | Pool noise is high, annotations live inside older observations, or the consumer's context-rot curve differs. | [inference; source: https://arxiv.org/abs/2508.21433; https://www.trychroma.com/research/context-rot] |
+| Verifier accuracy | The verifier reads evidence not derived from the harness context, differs in provider family, and uses deterministic checks where possible. | The verifier shares family, provider, or context with the harness, or the monitor reads the same external data. | [inference; source: https://arxiv.org/abs/2404.13076; https://arxiv.org/abs/2506.07962; https://davidamitchell.github.io/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html] |
+
+The noisy-corpus ontology reversal is a pool-property condition on a gain, and it does not refute the clean-benchmark result. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html; https://github.com/kartikeyamandhar/graphrag-comparison] Leaderboard rows where richer agents beat minimal ones confound harness context management with other differences, so they do not contradict the controlled masking result. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html; https://arxiv.org/abs/2508.21433] Model-specific context-rot curves explain why a masking window may not transfer between consumers. [inference; source: https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html] The co-located monitor case is a shared-context condition on the verifier gain, and its size remains unquantified. [inference; source: https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html]
+
+The three-zone convergence evidence and the leaderboard rows are selected cases, so they cannot establish how often each condition holds. [inference; source: https://davidamitchell.github.io/Research/research/2026-08-20-three-zone-interface-feedback-constraints.html; https://www.tbench.ai/leaderboard/terminal-bench/2.0] A change in pool content is a rival cause for any apparent harness or verifier effect, because corpus edits alone change behaviour with weights and prompts fixed. [fact; source: https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html] Adversarial collaboration research states that correlated perspectives protect less than their count implies, which supports grading verifier independence rather than counting verifiers. [fact; source: https://davidamitchell.github.io/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html] Judge-based pipeline checkpoints carry documented bias modes, so verifier placement does not by itself restore independence. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.html; https://arxiv.org/abs/2306.05685]
+
+### Risks, Gaps, and Uncertainties
+
+- The Alchourron-Gardenfors-Makinson (AGM) postulate-violation figures from the context-collision item rest on an unreviewed submission and are not used as a quantitative anchor here. [fact; source: https://davidamitchell.github.io/Research/research/2026-08-20-flat-vector-rag-context-collision.html]
+- The only noisy-corpus ontology comparison located is non-peer-reviewed, single-author, and small scale, so the reversal is low confidence. [fact; source: https://github.com/kartikeyamandhar/graphrag-comparison]
+- Searches for overlay-on-consumer tests, non-coding masking comparisons, and agent-verifier factorial studies returned nothing relevant, so the corresponding conclusions rest on absence of located evidence. [inference; source: https://arxiv.org/abs/2504.13079]
+- The agent-memory item found no standard benchmark scoring provenance fidelity at read time, so annotation quality has no agreed metric. [fact; source: https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-evaluation-framework.html]
+- Resolver ownership between pool and consumer is deferred to issue #653 and affects which component applies annotations. [fact; source: https://davidamitchell.github.io/Research/research/2026-08-20-three-zone-interface-feedback-constraints.html]
+
+### Open Questions
+
+- Does a masked or summarised harness window preserve per-statement annotations, and at what depth do annotations drop out for each consumer?
+- What is the monitor-compromise rate when verifier and harness share external data sources?
+- Does a factorial experiment crossing annotation, masking versus summarisation, and verifier family show interaction terms?
 
 ---
 
