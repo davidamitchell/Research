@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: b2dfe9e
+    changed: 2026-10-18
+    progress: progress/2026-10-18-optionality-control-model-stages.md
+    summary: "Initial completion"
 ---
 
 # Optionality and Control Across AI Model Consumption Stages
