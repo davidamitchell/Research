@@ -55,9 +55,9 @@ The cited runtime research established the three execution stages and their secu
 
 ## Sources
 
-- [Secure Runtime Evolution for AI Coding Agents](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-12-ai-coding-agent-runtime-security-evolution.md): cited work establishing the runtime stages and security mechanics.
+- [Secure Runtime Evolution for Artificial Intelligence (AI) Coding Agents](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-12-ai-coding-agent-runtime-security-evolution.md): cited work establishing the runtime stages and security mechanics.
 - [Enterprise Agent Identity and Access Management](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-identity-access-management-enterprise.md): cited work on agent identity, access, and attribution.
-- [AI Coding Harnesses: Execution Model, Memory, and Context](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md): related work on coding-agent execution models.
+- [Artificial Intelligence (AI) Coding Harnesses: Execution Model, Memory, and Context](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md): related work on coding-agent execution models.
 - [arxiv.org 2310.06770](https://arxiv.org/abs/2310.06770)
 - [arxiv.org 2405.15793](https://arxiv.org/abs/2405.15793)
 - [arxiv.org 2407.01489](https://arxiv.org/abs/2407.01489)
@@ -92,15 +92,15 @@ The cited runtime research established the three execution stages and their secu
 
 ## Related
 
-- [Secure Runtime Evolution for AI Coding Agents](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-12-ai-coding-agent-runtime-security-evolution.md)
+- [Secure Runtime Evolution for Artificial Intelligence (AI) Coding Agents](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-12-ai-coding-agent-runtime-security-evolution.md)
 - [Enterprise Agent Identity and Access Management](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-identity-access-management-enterprise.md)
-- [AI Coding Harnesses: Execution Model, Memory, and Context](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md)
+- [Artificial Intelligence (AI) Coding Harnesses: Execution Model, Memory, and Context](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md)
 
 ---
 
 ## Research Skill Output
 
-*(Full output from running the research skill — retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
+*(Full output from running the research skill, retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
 
 ### §0 Initialise
 
