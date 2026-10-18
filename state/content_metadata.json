@@ -1,6 +1,133 @@
 {
-  "extracted_at": "2026-10-18T03:46:43Z",
+  "extracted_at": "2026-10-18T03:59:15Z",
   "items": {
+    "2026-10-17-optionality-control-model-stages": {
+      "named_concepts": [
+        "managed platforms",
+        "stages stack",
+        "financial entities",
+        "exit planning",
+        "vendor services",
+        "every stage",
+        "named regulated",
+        "amazon bedrock",
+        "bedrock microsoft",
+        "microsoft foundry",
+        "google vertex",
+        "vertex ai",
+        "native fine-tuning",
+        "imported weights",
+        "one interface",
+        "self-hosting break-even",
+        "regulated organisation",
+        "serving constraints",
+        "tokens per",
+        "hybrid placement"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-19-layered-org-llm-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-aws-bedrock-capabilities.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-fine-tuning.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/fine-tuning-overview",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/deployments-overview",
+        "https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/import-custom-models",
+        "https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/enable-fireworks-models",
+        "https://cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models",
+        "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-supervised-tuning",
+        "https://cloud.google.com/vertex-ai/docs/predictions/choose-endpoint-type",
+        "https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/deploy-models-with-custom-weights",
+        "https://cloud.google.com/vertex-ai/generative-ai/docs/open-models/use-open-models",
+        "https://arxiv.org/abs/2509.18101",
+        "https://arxiv.org/abs/2601.09527",
+        "https://arxiv.org/abs/2606.20629",
+        "https://arxiv.org/abs/2610.00954",
+        "https://arxiv.org/abs/2305.05176",
+        "https://arxiv.org/abs/2406.18665",
+        "https://github.com/lm-sys/RouteLLM",
+        "https://arxiv.org/abs/2306.05685",
+        "https://arxiv.org/abs/2312.05934",
+        "https://arxiv.org/abs/2403.01432",
+        "https://arxiv.org/abs/2506.02153",
+        "https://www.law.cornell.edu/uscode/text/18/2713",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2554",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2854",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62018CJ0311",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+        "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss",
+        "https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/LICENSE",
+        "https://opensource.org/ai/open-source-ai-definition"
+      ],
+      "key_claims": [
+        {
+          "text": "Amazon Bedrock, Microsoft Foundry, and Google Vertex AI each provide platform-native supervised fine-tuning for selected models, so tuning is available before any self-hosting step",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-fine-tuning.html",
+            "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/fine-tuning-overview",
+            "https://cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models"
+          ]
+        },
+        {
+          "text": "Tuned models stay inside platform serving constraints: Bedrock requires purchased Provisioned Throughput for customised models and Vertex deploys tuned Gemini models only to shared public endpoints",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+            "https://cloud.google.com/vertex-ai/docs/predictions/choose-endpoint-type"
+          ]
+        },
+        {
+          "text": "Each platform documents a path for externally trained weights, through Bedrock Custom Model Import, the Foundry Fireworks integration, and Vertex custom weights in Preview, but regions and data terms differ, including a Foundry exclusion from EU Data Boundary commitments",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html",
+            "https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/import-custom-models",
+            "https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/enable-fireworks-models",
+            "https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/deploy-models-with-custom-weights"
+          ]
+        },
+        {
+          "text": "Imported-weight serving is best classed as managed-platform use with self-hosted-style weight control, and stages stack because one interface can address both catalogue and customer-owned models",
+          "sources": [
+            "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html",
+            "https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html"
+          ]
+        },
+        {
+          "text": "Trusting dynamic routing requires a workload-specific evaluation set, a human-validated judge, and calibrated thresholds, because public-benchmark savings and judge agreement above 80 percent come with documented biases",
+          "sources": [
+            "https://arxiv.org/abs/2306.05685",
+            "https://github.com/lm-sys/RouteLLM",
+            "https://arxiv.org/abs/2305.05176"
+          ]
+        },
+        {
+          "text": "Retrieval and prompting should precede tuning for policy question answering and compliance checking, because two independent studies find retrieval beats fine-tuning for knowledge injection",
+          "sources": [
+            "https://arxiv.org/abs/2312.05934",
+            "https://arxiv.org/abs/2403.01432"
+          ]
+        },
+        {
+          "text": "Self-hosting break-even is set by cost per token at the margin, so halving assumed GPU throughput in an illustrative case moves break-even from near 14 billion to roughly 100 billion tokens per month, using invented inputs",
+          "sources": [
+            "https://arxiv.org/abs/2509.18101",
+            "https://arxiv.org/abs/2601.09527"
+          ]
+        },
+        {
+          "text": "Independent cost evidence ranges from months to about five years to break even, and the optimistic consumer-GPU result excludes staff and redundancy, so no single threshold transfers between organisations",
+          "sources": [
+            "https://arxiv.org/abs/2509.18101",
+            "https://arxiv.org/abs/2601.09527"
+          ]
+        }
+      ]
+    },
     "2026-10-17-agent-runtime-placement-criteria": {
       "named_concepts": [
         "vendor-hosted stage",

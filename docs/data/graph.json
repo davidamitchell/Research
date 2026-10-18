@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-10-18T03:46:48Z",
-  "node_count": 469,
-  "edge_count": 80447,
+  "generated": "2026-10-18T03:59:19Z",
+  "node_count": 470,
+  "edge_count": 80742,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -5620,6 +5620,19 @@
         "security-risk",
         "tools-infrastructure",
         "regulatory-compliance"
+      ]
+    },
+    {
+      "slug": "2026-10-17-optionality-control-model-stages",
+      "title": "Optionality and Control Across AI Model Consumption Stages",
+      "type": "primary",
+      "url": "/Research/research/2026-10-17-optionality-control-model-stages.html",
+      "themes": [
+        "enterprise-adoption",
+        "ai-architecture",
+        "cost-performance",
+        "regulatory-compliance",
+        "benchmarks-eval"
       ]
     }
   ],
@@ -15593,6 +15606,14 @@
       "provenance": "2026-02-27-local-database"
     },
     {
+      "source": "2026-02-27-local-database",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-02-27-local-database"
+    },
+    {
       "source": "2026-02-27-local-index-vs-reference",
       "target": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
       "weight": 1,
@@ -17670,6 +17691,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-02-27-local-index-vs-reference"
+    },
+    {
+      "source": "2026-02-27-local-index-vs-reference",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-02-27-local-index-vs-reference"
     },
     {
@@ -23270,6 +23299,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-02-27-research-output-types"
+    },
+    {
+      "source": "2026-02-27-research-output-types",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-02-27-research-output-types"
     },
     {
@@ -32729,6 +32766,14 @@
       "provenance": "2026-02-28-ai-control-testing-and-assurance"
     },
     {
+      "source": "2026-02-28-ai-control-testing-and-assurance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
+      "provenance": "2026-02-28-ai-control-testing-and-assurance"
+    },
+    {
       "source": "2026-02-28-ai-line-1-line-2-risk-agents",
       "target": "2026-02-28-ai-strategy",
       "weight": 3,
@@ -41353,6 +41398,14 @@
       "provenance": "2026-02-28-ai-strategy-business-efficiency-examples"
     },
     {
+      "source": "2026-02-28-ai-strategy-business-efficiency-examples",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-02-28-ai-strategy-business-efficiency-examples"
+    },
+    {
       "source": "2026-02-28-ai-strategy-risk-reduction-focus",
       "target": "2026-02-28-ai-strategy-security-focus",
       "weight": 2,
@@ -43758,6 +43811,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk",
+      "provenance": "2026-02-28-ai-strategy-risk-reduction-focus"
+    },
+    {
+      "source": "2026-02-28-ai-strategy-risk-reduction-focus",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-02-28-ai-strategy-risk-reduction-focus"
     },
     {
@@ -49985,6 +50046,14 @@
       "provenance": "2026-02-28-controlled-hallucination-perception-as-construction"
     },
     {
+      "source": "2026-02-28-controlled-hallucination-perception-as-construction",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-02-28-controlled-hallucination-perception-as-construction"
+    },
+    {
       "source": "2026-02-28-exploit-explore-ai-portfolio-framework",
       "target": "2026-02-28-jevons-paradox",
       "weight": 1,
@@ -54897,6 +54966,14 @@
       "provenance": "2026-02-28-free-energy-entropy-and-life"
     },
     {
+      "source": "2026-02-28-free-energy-entropy-and-life",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-02-28-free-energy-entropy-and-life"
+    },
+    {
       "source": "2026-02-28-hard-problem-vs-real-problem-consciousness",
       "target": "2026-02-28-interoception-and-the-predictive-self",
       "weight": 1,
@@ -56230,6 +56307,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "consciousness-cognition",
+      "provenance": "2026-02-28-hard-problem-vs-real-problem-consciousness"
+    },
+    {
+      "source": "2026-02-28-hard-problem-vs-real-problem-consciousness",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-02-28-hard-problem-vs-real-problem-consciousness"
     },
     {
@@ -58961,6 +59046,14 @@
       "provenance": "2026-02-28-jevons-paradox"
     },
     {
+      "source": "2026-02-28-jevons-paradox",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-02-28-jevons-paradox"
+    },
+    {
       "source": "2026-02-28-predictive-processing-active-inference",
       "target": "2026-02-28-youtube-video-hyuos0gkgcs-concepts",
       "weight": 2,
@@ -61425,6 +61518,14 @@
       "provenance": "2026-02-28-predictive-processing-active-inference"
     },
     {
+      "source": "2026-02-28-predictive-processing-active-inference",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-02-28-predictive-processing-active-inference"
+    },
+    {
       "source": "2026-02-28-rbnz-ai-supervisory-expectations",
       "target": "2026-03-01-agent-lsp-policy-enforcement",
       "weight": 2,
@@ -63438,6 +63539,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,regulatory-compliance,security-risk",
+      "provenance": "2026-02-28-rbnz-ai-supervisory-expectations"
+    },
+    {
+      "source": "2026-02-28-rbnz-ai-supervisory-expectations",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
       "provenance": "2026-02-28-rbnz-ai-supervisory-expectations"
     },
     {
@@ -71150,6 +71259,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "consciousness-cognition",
+      "provenance": "2026-02-28-youtube-video-hyuos0gkgcs-concepts"
+    },
+    {
+      "source": "2026-02-28-youtube-video-hyuos0gkgcs-concepts",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-02-28-youtube-video-hyuos0gkgcs-concepts"
     },
     {
@@ -74377,6 +74494,14 @@
       "provenance": "2026-03-01-agent-lsp-policy-enforcement"
     },
     {
+      "source": "2026-03-01-agent-lsp-policy-enforcement",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-01-agent-lsp-policy-enforcement"
+    },
+    {
       "source": "2026-03-01-context-mode-llm-context-compression",
       "target": "2026-03-01-github-specify-ralph-loop-lisa-planning",
       "weight": 1,
@@ -76974,6 +77099,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-03-01-context-mode-llm-context-compression"
+    },
+    {
+      "source": "2026-03-01-context-mode-llm-context-compression",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,cost-performance",
       "provenance": "2026-03-01-context-mode-llm-context-compression"
     },
     {
@@ -84617,6 +84750,14 @@
       "provenance": "2026-03-02-agent-memory-management-context-injection"
     },
     {
+      "source": "2026-03-02-agent-memory-management-context-injection",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-02-agent-memory-management-context-injection"
+    },
+    {
       "source": "2026-03-02-ai-not-a-data-problem",
       "target": "2026-03-02-integrative-framework-agent-decision-making",
       "weight": 2,
@@ -87686,6 +87827,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-03-02-ai-not-a-data-problem"
+    },
+    {
+      "source": "2026-03-02-ai-not-a-data-problem",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-02-ai-not-a-data-problem"
     },
     {
@@ -92505,6 +92654,14 @@
       "provenance": "2026-03-02-integrative-framework-agent-decision-making"
     },
     {
+      "source": "2026-03-02-integrative-framework-agent-decision-making",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-02-integrative-framework-agent-decision-making"
+    },
+    {
       "source": "2026-03-02-ios-shortcuts-research",
       "target": "2026-03-02-research-quality-assurance-methodology",
       "weight": 1,
@@ -96110,6 +96267,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-03-02-research-quality-assurance-methodology"
+    },
+    {
+      "source": "2026-03-02-research-quality-assurance-methodology",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-03-02-research-quality-assurance-methodology"
     },
     {
@@ -100486,6 +100651,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-03-02-slack-msteams-research-integration"
+    },
+    {
+      "source": "2026-03-02-slack-msteams-research-integration",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-02-slack-msteams-research-integration"
     },
     {
@@ -111713,6 +111886,14 @@
       "provenance": "2026-03-03-ml-techniques-and-algorithms"
     },
     {
+      "source": "2026-03-03-ml-techniques-and-algorithms",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-03-ml-techniques-and-algorithms"
+    },
+    {
       "source": "2026-03-03-research-agenda-curation-coverage",
       "target": "2026-03-03-research-loop-quality-prompt-engineering",
       "weight": 1,
@@ -113054,6 +113235,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-03-03-research-agenda-curation-coverage"
+    },
+    {
+      "source": "2026-03-03-research-agenda-curation-coverage",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-03-03-research-agenda-curation-coverage"
     },
     {
@@ -115750,6 +115939,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-03-03-research-loop-quality-prompt-engineering"
+    },
+    {
+      "source": "2026-03-03-research-loop-quality-prompt-engineering",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-03-03-research-loop-quality-prompt-engineering"
     },
     {
@@ -121537,6 +121734,14 @@
       "provenance": "2026-03-05-general-agent-optimization-framework"
     },
     {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
       "source": "2026-03-05-h-neuron-over-compliance",
       "target": "2026-03-05-h-neuron-pretraining-origins",
       "weight": 2,
@@ -123270,6 +123475,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "security-risk",
+      "provenance": "2026-03-05-h-neuron-over-compliance"
+    },
+    {
+      "source": "2026-03-05-h-neuron-over-compliance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-05-h-neuron-over-compliance"
     },
     {
@@ -125169,6 +125382,14 @@
       "provenance": "2026-03-05-h-neuron-pretraining-origins"
     },
     {
+      "source": "2026-03-05-h-neuron-pretraining-origins",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-05-h-neuron-pretraining-origins"
+    },
+    {
       "source": "2026-03-05-h-neurons-in-llms",
       "target": "2026-03-05-h-neurons-synthesis",
       "weight": 2,
@@ -126889,6 +127110,14 @@
       "provenance": "2026-03-05-h-neurons-in-llms"
     },
     {
+      "source": "2026-03-05-h-neurons-in-llms",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-05-h-neurons-in-llms"
+    },
+    {
       "source": "2026-03-05-h-neurons-synthesis",
       "target": "2026-03-05-llm-hallucination-mechanisms",
       "weight": 2,
@@ -128598,6 +128827,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "security-risk",
+      "provenance": "2026-03-05-h-neurons-synthesis"
+    },
+    {
+      "source": "2026-03-05-h-neurons-synthesis",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-05-h-neurons-synthesis"
     },
     {
@@ -130801,6 +131038,14 @@
       "provenance": "2026-03-05-llm-hallucination-mechanisms"
     },
     {
+      "source": "2026-03-05-llm-hallucination-mechanisms",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-03-05-llm-hallucination-mechanisms"
+    },
+    {
       "source": "2026-03-05-swarm-pca-genetic-reinforcement-learning",
       "target": "2026-03-07-run-build-it-allocation-implementation-how",
       "weight": 1,
@@ -132982,6 +133227,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-03-05-swarm-pca-genetic-reinforcement-learning"
+    },
+    {
+      "source": "2026-03-05-swarm-pca-genetic-reinforcement-learning",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-05-swarm-pca-genetic-reinforcement-learning"
     },
     {
@@ -135673,6 +135926,14 @@
       "provenance": "2026-03-07-run-build-it-allocation-implementation-how"
     },
     {
+      "source": "2026-03-07-run-build-it-allocation-implementation-how",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-07-run-build-it-allocation-implementation-how"
+    },
+    {
       "source": "2026-03-07-run-vs-build-it-spending-allocation",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 1,
@@ -137686,6 +137947,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-03-07-run-vs-build-it-spending-allocation"
+    },
+    {
+      "source": "2026-03-07-run-vs-build-it-spending-allocation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-03-07-run-vs-build-it-spending-allocation"
     },
     {
@@ -140366,6 +140635,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-03-08-ai-coding-harnesses-agent-philosophy"
+    },
+    {
+      "source": "2026-03-08-ai-coding-harnesses-agent-philosophy",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-08-ai-coding-harnesses-agent-philosophy"
     },
     {
@@ -145289,6 +145566,14 @@
       "provenance": "2026-03-08-chatgpt-actions-memory-integration"
     },
     {
+      "source": "2026-03-08-chatgpt-actions-memory-integration",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-08-chatgpt-actions-memory-integration"
+    },
+    {
       "source": "2026-03-08-claude-ios-mcp-remote-integration",
       "target": "2026-03-08-context-engineering-first-principles",
       "weight": 2,
@@ -149294,6 +149579,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "llm-reasoning,memory-context",
+      "provenance": "2026-03-08-context-engineering-first-principles"
+    },
+    {
+      "source": "2026-03-08-context-engineering-first-principles",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-08-context-engineering-first-principles"
     },
     {
@@ -155265,6 +155558,14 @@
       "provenance": "2026-03-08-lancedb-index-rebuild-from-git"
     },
     {
+      "source": "2026-03-08-lancedb-index-rebuild-from-git",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-08-lancedb-index-rebuild-from-git"
+    },
+    {
       "source": "2026-03-08-self-hosted-mcp-server-options",
       "target": "2026-03-08-servicenow-ai-knowledge-rag-agents",
       "weight": 1,
@@ -157430,6 +157731,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-03-08-self-hosted-mcp-server-options"
+    },
+    {
+      "source": "2026-03-08-self-hosted-mcp-server-options",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-08-self-hosted-mcp-server-options"
     },
     {
@@ -159929,6 +160238,14 @@
       "provenance": "2026-03-08-servicenow-ai-knowledge-rag-agents"
     },
     {
+      "source": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-08-servicenow-ai-knowledge-rag-agents"
+    },
+    {
       "source": "2026-03-08-servicenow-csdm-data-modelling",
       "target": "2026-03-08-servicenow-platform-strategy",
       "weight": 2,
@@ -162254,6 +162571,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-03-08-servicenow-csdm-data-modelling"
+    },
+    {
+      "source": "2026-03-08-servicenow-csdm-data-modelling",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-08-servicenow-csdm-data-modelling"
     },
     {
@@ -165006,6 +165331,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-03-08-servicenow-platform-strategy"
+    },
+    {
+      "source": "2026-03-08-servicenow-platform-strategy",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-08-servicenow-platform-strategy"
     },
     {
@@ -174193,6 +174526,14 @@
       "provenance": "2026-03-10-adversarial-agents-shared-goals-multi-perspective"
     },
     {
+      "source": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-10-adversarial-agents-shared-goals-multi-perspective"
+    },
+    {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-03-10-ai-concept-classification-taxonomy",
       "weight": 2,
@@ -176566,6 +176907,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
       "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
     },
     {
@@ -179366,6 +179715,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-03-10-ai-concept-classification-taxonomy"
+    },
+    {
+      "source": "2026-03-10-ai-concept-classification-taxonomy",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-10-ai-concept-classification-taxonomy"
     },
     {
@@ -185177,6 +185534,14 @@
       "provenance": "2026-03-10-language-for-llm-agent-output"
     },
     {
+      "source": "2026-03-10-language-for-llm-agent-output",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-10-language-for-llm-agent-output"
+    },
+    {
       "source": "2026-03-10-nature-of-the-firm-coase-organisations",
       "target": "2026-03-12-ai-force-multiplier-ambition-expansion",
       "weight": 1,
@@ -187054,6 +187419,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-03-10-nature-of-the-firm-coase-organisations"
+    },
+    {
+      "source": "2026-03-10-nature-of-the-firm-coase-organisations",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-03-10-nature-of-the-firm-coase-organisations"
     },
     {
@@ -189529,6 +189902,14 @@
       "provenance": "2026-03-10-research-loop-evaluation-rubric"
     },
     {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
       "source": "2026-03-12-ai-force-multiplier-ambition-expansion",
       "target": "2026-03-12-ai-team-size-strike-team-thesis",
       "weight": 1,
@@ -190694,6 +191075,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "organisational-design",
+      "provenance": "2026-03-12-ai-force-multiplier-ambition-expansion"
+    },
+    {
+      "source": "2026-03-12-ai-force-multiplier-ambition-expansion",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-03-12-ai-force-multiplier-ambition-expansion"
     },
     {
@@ -198905,6 +199294,14 @@
       "provenance": "2026-03-12-hosting-options-for-the-research-repo"
     },
     {
+      "source": "2026-03-12-hosting-options-for-the-research-repo",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-12-hosting-options-for-the-research-repo"
+    },
+    {
       "source": "2026-03-12-superpowers-integration-analysis",
       "target": "2026-03-12-swat-technique-loop-fresh-context",
       "weight": 2,
@@ -206289,6 +206686,14 @@
       "provenance": "2026-03-12-volume-vs-correctness-ai-era"
     },
     {
+      "source": "2026-03-12-volume-vs-correctness-ai-era",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-12-volume-vs-correctness-ai-era"
+    },
+    {
       "source": "2026-03-13-financial-forecasting-it-run-costs",
       "target": "2026-03-14-organisational-intent-formal-specification",
       "weight": 1,
@@ -208702,6 +209107,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-03-13-financial-forecasting-it-run-costs"
+    },
+    {
+      "source": "2026-03-13-financial-forecasting-it-run-costs",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-03-13-financial-forecasting-it-run-costs"
     },
     {
@@ -219377,6 +219790,14 @@
       "provenance": "2026-03-15-context-compression-rag-enterprise-knowledge"
     },
     {
+      "source": "2026-03-15-context-compression-rag-enterprise-knowledge",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-15-context-compression-rag-enterprise-knowledge"
+    },
+    {
       "source": "2026-03-15-context-layers-aligned-decisions-synthesis",
       "target": "2026-03-15-latent-concept-extraction-confluence",
       "weight": 3,
@@ -221689,6 +222110,14 @@
       "provenance": "2026-03-15-context-layers-aligned-decisions-synthesis"
     },
     {
+      "source": "2026-03-15-context-layers-aligned-decisions-synthesis",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-15-context-layers-aligned-decisions-synthesis"
+    },
+    {
       "source": "2026-03-15-latent-concept-extraction-confluence",
       "target": "2026-03-15-saas-banking-invariants",
       "weight": 1,
@@ -223206,6 +223635,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-03-15-latent-concept-extraction-confluence"
+    },
+    {
+      "source": "2026-03-15-latent-concept-extraction-confluence",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-15-latent-concept-extraction-confluence"
     },
     {
@@ -226449,6 +226886,14 @@
       "provenance": "2026-03-15-prompt-injection-threat-landscape"
     },
     {
+      "source": "2026-03-15-prompt-injection-threat-landscape",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-15-prompt-injection-threat-landscape"
+    },
+    {
       "source": "2026-03-15-saas-banking-invariants",
       "target": "2026-03-16-adaptive-policy-authorization-compliance",
       "weight": 1,
@@ -228702,6 +229147,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-03-15-saas-banking-invariants"
+    },
+    {
+      "source": "2026-03-15-saas-banking-invariants",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,cost-performance",
       "provenance": "2026-03-15-saas-banking-invariants"
     },
     {
@@ -235209,6 +235662,14 @@
       "provenance": "2026-03-16-adaptive-policy-authorization-compliance"
     },
     {
+      "source": "2026-03-16-adaptive-policy-authorization-compliance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
+      "provenance": "2026-03-16-adaptive-policy-authorization-compliance"
+    },
+    {
       "source": "2026-03-16-gitagent-declarative-agent-definition",
       "target": "2026-03-16-intent-driven-development",
       "weight": 3,
@@ -237550,6 +238011,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-03-16-gitagent-declarative-agent-definition"
+    },
+    {
+      "source": "2026-03-16-gitagent-declarative-agent-definition",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-16-gitagent-declarative-agent-definition"
     },
     {
@@ -240017,6 +240486,14 @@
       "provenance": "2026-03-16-intent-driven-development"
     },
     {
+      "source": "2026-03-16-intent-driven-development",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-16-intent-driven-development"
+    },
+    {
       "source": "2026-03-16-vl-jepa-concept-prediction",
       "target": "2026-03-17-ai-memory-systems-rag-neuroscience",
       "weight": 1,
@@ -242345,6 +242822,14 @@
       "provenance": "2026-03-16-vl-jepa-concept-prediction"
     },
     {
+      "source": "2026-03-16-vl-jepa-concept-prediction",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-16-vl-jepa-concept-prediction"
+    },
+    {
       "source": "2026-03-17-ai-memory-systems-rag-neuroscience",
       "target": "2026-03-18-api-context-hubs-rag-mcp",
       "weight": 2,
@@ -243878,6 +244363,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-03-17-ai-memory-systems-rag-neuroscience"
+    },
+    {
+      "source": "2026-03-17-ai-memory-systems-rag-neuroscience",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-17-ai-memory-systems-rag-neuroscience"
     },
     {
@@ -251377,6 +251870,14 @@
       "provenance": "2026-03-18-human-brain-prediction-machines"
     },
     {
+      "source": "2026-03-18-human-brain-prediction-machines",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-18-human-brain-prediction-machines"
+    },
+    {
       "source": "2026-03-18-stateless-agent-assumption-failure",
       "target": "2026-03-19-layered-org-llm-architecture",
       "weight": 1,
@@ -253721,6 +254222,14 @@
       "provenance": "2026-03-18-stateless-agent-assumption-failure"
     },
     {
+      "source": "2026-03-18-stateless-agent-assumption-failure",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-18-stateless-agent-assumption-failure"
+    },
+    {
       "source": "2026-03-19-layered-org-llm-architecture",
       "target": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
       "weight": 1,
@@ -255086,6 +255595,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-03-19-layered-org-llm-architecture"
+    },
+    {
+      "source": "2026-03-19-layered-org-llm-architecture",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-19-layered-org-llm-architecture"
     },
     {
@@ -259561,6 +260078,14 @@
       "provenance": "2026-03-21-technology-capability-models"
     },
     {
+      "source": "2026-03-21-technology-capability-models",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-21-technology-capability-models"
+    },
+    {
       "source": "2026-03-22-agents-as-finishers-and-synthesisers",
       "target": "2026-03-22-applied-context-engineering-agent-workflows",
       "weight": 1,
@@ -263721,6 +264246,14 @@
       "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
     },
     {
+      "source": "2026-03-22-applied-context-engineering-agent-workflows",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
+    },
+    {
       "source": "2026-03-22-code-architecture-inspection",
       "target": "2026-03-22-coding-ai-agent-skills-survey",
       "weight": 2,
@@ -265702,6 +266235,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-03-22-code-architecture-inspection"
+    },
+    {
+      "source": "2026-03-22-code-architecture-inspection",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-22-code-architecture-inspection"
     },
     {
@@ -272513,6 +273054,14 @@
       "provenance": "2026-03-22-cross-scanner-compliance-evidence-normalisation"
     },
     {
+      "source": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
+      "provenance": "2026-03-22-cross-scanner-compliance-evidence-normalisation"
+    },
+    {
       "source": "2026-03-22-using-awesome-copilot-across-repos",
       "target": "2026-03-23-agent-orchestration-anvil-max",
       "weight": 2,
@@ -276969,6 +277518,14 @@
       "provenance": "2026-03-23-agent-orchestration-anvil-max"
     },
     {
+      "source": "2026-03-23-agent-orchestration-anvil-max",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-23-agent-orchestration-anvil-max"
+    },
+    {
       "source": "2026-03-23-software-factory",
       "target": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
       "weight": 2,
@@ -279206,6 +279763,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-03-23-software-factory"
+    },
+    {
+      "source": "2026-03-23-software-factory",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,cost-performance",
       "provenance": "2026-03-23-software-factory"
     },
     {
@@ -287321,6 +287886,14 @@
       "provenance": "2026-03-26-cost-reduction-is-not-strategy"
     },
     {
+      "source": "2026-03-26-cost-reduction-is-not-strategy",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-26-cost-reduction-is-not-strategy"
+    },
+    {
       "source": "2026-03-26-customer-contact-and-delight",
       "target": "2026-03-26-measuring-opportunity-cost",
       "weight": 2,
@@ -290214,6 +290787,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-03-26-measuring-opportunity-cost"
+    },
+    {
+      "source": "2026-03-26-measuring-opportunity-cost",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-03-26-measuring-opportunity-cost"
     },
     {
@@ -294945,6 +295526,14 @@
       "provenance": "2026-03-28-agents-md-role-and-cross-agent-instructions"
     },
     {
+      "source": "2026-03-28-agents-md-role-and-cross-agent-instructions",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-03-28-agents-md-role-and-cross-agent-instructions"
+    },
+    {
       "source": "2026-03-28-environment-setup-consistency",
       "target": "2026-03-29-claude-code-web-submodule-credential",
       "weight": 1,
@@ -296758,6 +297347,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-03-28-environment-setup-consistency"
+    },
+    {
+      "source": "2026-03-28-environment-setup-consistency",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-03-28-environment-setup-consistency"
     },
     {
@@ -305129,6 +305726,14 @@
       "provenance": "2026-04-01-backpressure-theory-of-constraints"
     },
     {
+      "source": "2026-04-01-backpressure-theory-of-constraints",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,cost-performance",
+      "provenance": "2026-04-01-backpressure-theory-of-constraints"
+    },
+    {
       "source": "2026-04-01-timesfm-time-series-foundation-models",
       "target": "2026-04-02-ai-company-hiring-strategies",
       "weight": 1,
@@ -306718,6 +307323,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
+      "provenance": "2026-04-01-timesfm-time-series-foundation-models"
+    },
+    {
+      "source": "2026-04-01-timesfm-time-series-foundation-models",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval,cost-performance",
       "provenance": "2026-04-01-timesfm-time-series-foundation-models"
     },
     {
@@ -308654,6 +309267,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-04-02-ai-company-hiring-strategies"
+    },
+    {
+      "source": "2026-04-02-ai-company-hiring-strategies",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-02-ai-company-hiring-strategies"
     },
     {
@@ -310686,6 +311307,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-04-02-ai-funding-and-capital-investment-landscape"
+    },
+    {
+      "source": "2026-04-02-ai-funding-and-capital-investment-landscape",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-04-02-ai-funding-and-capital-investment-landscape"
     },
     {
@@ -312918,6 +313547,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,security-risk,tools-infrastructure",
+      "provenance": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features"
+    },
+    {
+      "source": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features"
     },
     {
@@ -316417,6 +317054,14 @@
       "provenance": "2026-04-02-claude-mythos"
     },
     {
+      "source": "2026-04-02-claude-mythos",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-02-claude-mythos"
+    },
+    {
       "source": "2026-04-02-org-shape-software-cost-zero",
       "target": "2026-04-03-ai-workflow-todo-digest",
       "weight": 1,
@@ -318398,6 +319043,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-04-02-org-shape-software-cost-zero"
+    },
+    {
+      "source": "2026-04-02-org-shape-software-cost-zero",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-04-02-org-shape-software-cost-zero"
     },
     {
@@ -322457,6 +323110,14 @@
       "provenance": "2026-04-03-oh-my-codex-patterns"
     },
     {
+      "source": "2026-04-03-oh-my-codex-patterns",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-03-oh-my-codex-patterns"
+    },
+    {
       "source": "2026-04-18-latest-developments-trends-forecast",
       "target": "2026-04-18-shopify-ai-strategy-red-queen-memo",
       "weight": 1,
@@ -324409,6 +325070,14 @@
       "provenance": "2026-04-18-latest-developments-trends-forecast"
     },
     {
+      "source": "2026-04-18-latest-developments-trends-forecast",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-18-latest-developments-trends-forecast"
+    },
+    {
       "source": "2026-04-18-shopify-ai-strategy-red-queen-memo",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 1,
@@ -325019,6 +325688,14 @@
     {
       "source": "2026-04-18-shopify-ai-strategy-red-queen-memo",
       "target": "2026-09-23-ms-copilot-office365-feedback-quality",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-18-shopify-ai-strategy-red-queen-memo"
+    },
+    {
+      "source": "2026-04-18-shopify-ai-strategy-red-queen-memo",
+      "target": "2026-10-17-optionality-control-model-stages",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -331297,6 +331974,14 @@
       "provenance": "2026-04-22-enterprise-ai-capability-model"
     },
     {
+      "source": "2026-04-22-enterprise-ai-capability-model",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,enterprise-adoption",
+      "provenance": "2026-04-22-enterprise-ai-capability-model"
+    },
+    {
       "source": "2026-04-22-enterprise-ai-platform-operating-models",
       "target": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
       "weight": 3,
@@ -333385,6 +334070,14 @@
       "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
     },
     {
+      "source": "2026-04-22-enterprise-ai-platform-operating-models",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
+    },
+    {
       "source": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
       "target": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
       "weight": 2,
@@ -335286,6 +335979,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk",
+      "provenance": "2026-04-22-enterprise-ai-use-case-routing-frameworks"
+    },
+    {
+      "source": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-22-enterprise-ai-use-case-routing-frameworks"
     },
     {
@@ -337193,6 +337894,14 @@
       "provenance": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building"
     },
     {
+      "source": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building"
+    },
+    {
       "source": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "target": "2026-04-22-recall-competitive-landscape-and-clone-feasibility",
       "weight": 1,
@@ -339022,6 +339731,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,regulatory-compliance,security-risk",
+      "provenance": "2026-04-22-knowledge-curation-governance-for-regulated-ai"
+    },
+    {
+      "source": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
       "provenance": "2026-04-22-knowledge-curation-governance-for-regulated-ai"
     },
     {
@@ -349153,6 +349870,14 @@
       "provenance": "2026-04-26-agentic-ai-foundational-conditions-dependency-ordering"
     },
     {
+      "source": "2026-04-26-agentic-ai-foundational-conditions-dependency-ordering",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
+      "provenance": "2026-04-26-agentic-ai-foundational-conditions-dependency-ordering"
+    },
+    {
       "source": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
       "target": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
       "weight": 2,
@@ -351182,6 +351907,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,regulatory-compliance,security-risk",
+      "provenance": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment"
+    },
+    {
+      "source": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
       "provenance": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment"
     },
     {
@@ -353281,6 +354014,14 @@
       "provenance": "2026-04-26-ai-agent-control-plane-architecture-enterprise"
     },
     {
+      "source": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-26-ai-agent-control-plane-architecture-enterprise"
+    },
+    {
       "source": "2026-04-26-ai-agent-identity-access-management-enterprise",
       "target": "2026-04-26-ai-governance-cost-performance-delivery-impact",
       "weight": 1,
@@ -355377,6 +356118,14 @@
       "provenance": "2026-04-26-ai-agent-identity-access-management-enterprise"
     },
     {
+      "source": "2026-04-26-ai-agent-identity-access-management-enterprise",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-26-ai-agent-identity-access-management-enterprise"
+    },
+    {
       "source": "2026-04-26-ai-governance-cost-performance-delivery-impact",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 1,
@@ -357342,6 +358091,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-04-26-ai-governance-cost-performance-delivery-impact"
+    },
+    {
+      "source": "2026-04-26-ai-governance-cost-performance-delivery-impact",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-04-26-ai-governance-cost-performance-delivery-impact"
     },
     {
@@ -364089,6 +364846,14 @@
       "provenance": "2026-04-26-ai-lowcode-governance-enforcement-architecture"
     },
     {
+      "source": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-26-ai-lowcode-governance-enforcement-architecture"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-governance-maturity-model",
       "target": "2026-04-26-ai-lowcode-lifecycle-management",
       "weight": 2,
@@ -365849,6 +366614,14 @@
       "provenance": "2026-04-26-ai-lowcode-governance-maturity-model"
     },
     {
+      "source": "2026-04-26-ai-lowcode-governance-maturity-model",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-26-ai-lowcode-governance-maturity-model"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-lifecycle-management",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -367921,6 +368694,14 @@
       "provenance": "2026-04-26-ai-lowcode-lifecycle-management"
     },
     {
+      "source": "2026-04-26-ai-lowcode-lifecycle-management",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-26-ai-lowcode-lifecycle-management"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "target": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
       "weight": 2,
@@ -369982,6 +370763,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-04-26-ai-lowcode-observability-telemetry-governance"
+    },
+    {
+      "source": "2026-04-26-ai-lowcode-observability-telemetry-governance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-26-ai-lowcode-observability-telemetry-governance"
     },
     {
@@ -371897,6 +372686,14 @@
       "provenance": "2026-04-26-ai-lowcode-regulatory-compliance-alignment"
     },
     {
+      "source": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
+      "provenance": "2026-04-26-ai-lowcode-regulatory-compliance-alignment"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
       "target": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
       "weight": 2,
@@ -373622,6 +374419,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk",
+      "provenance": "2026-04-26-ai-lowcode-risk-tier-classification-controls"
+    },
+    {
+      "source": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-26-ai-lowcode-risk-tier-classification-controls"
     },
     {
@@ -375665,6 +376470,14 @@
       "provenance": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration"
     },
     {
+      "source": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration"
+    },
+    {
       "source": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
       "target": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
       "weight": 3,
@@ -377694,6 +378507,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement"
+    },
+    {
+      "source": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement"
     },
     {
@@ -379806,6 +380627,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,tools-infrastructure",
+      "provenance": "2026-04-26-deployment-pipeline-citizen-development-governed-gate"
+    },
+    {
+      "source": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-26-deployment-pipeline-citizen-development-governed-gate"
     },
     {
@@ -385409,6 +386238,14 @@
       "provenance": "2026-04-26-lecun-critique-citizen-development-enterprise-risk"
     },
     {
+      "source": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-26-lecun-critique-citizen-development-enterprise-risk"
+    },
+    {
       "source": "2026-04-26-lecun-llm-critique-primary-sources",
       "target": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
       "weight": 1,
@@ -386998,6 +387835,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-04-26-lecun-llm-critique-primary-sources"
+    },
+    {
+      "source": "2026-04-26-lecun-llm-critique-primary-sources",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-26-lecun-llm-critique-primary-sources"
     },
     {
@@ -390553,6 +391398,14 @@
       "provenance": "2026-04-26-ms-copilot-cowork"
     },
     {
+      "source": "2026-04-26-ms-copilot-cowork",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
+      "provenance": "2026-04-26-ms-copilot-cowork"
+    },
+    {
       "source": "2026-04-26-multi-ai-provider-control-planes",
       "target": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
       "weight": 3,
@@ -392550,6 +393403,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-04-26-multi-ai-provider-control-planes"
+    },
+    {
+      "source": "2026-04-26-multi-ai-provider-control-planes",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,cost-performance",
       "provenance": "2026-04-26-multi-ai-provider-control-planes"
     },
     {
@@ -394590,6 +395451,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-04-26-permission-safe-rag-enterprise-information-architecture"
+    },
+    {
+      "source": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-26-permission-safe-rag-enterprise-information-architecture"
     },
     {
@@ -398569,6 +399438,14 @@
       "provenance": "2026-04-26-software-engineering-investment-case-llm"
     },
     {
+      "source": "2026-04-26-software-engineering-investment-case-llm",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-26-software-engineering-investment-case-llm"
+    },
+    {
       "source": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
       "target": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
       "weight": 4,
@@ -402497,6 +403374,14 @@
       "provenance": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence"
     },
     {
+      "source": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence"
+    },
+    {
       "source": "2026-04-26-vendor-platform-governance-constraints-compensating-controls",
       "target": "2026-04-27-academic-post-publication-amendment-practices",
       "weight": 2,
@@ -404414,6 +405299,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-04-26-vendor-platform-governance-constraints-compensating-controls"
+    },
+    {
+      "source": "2026-04-26-vendor-platform-governance-constraints-compensating-controls",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-26-vendor-platform-governance-constraints-compensating-controls"
     },
     {
@@ -406425,6 +407318,14 @@
       "provenance": "2026-04-27-academic-post-publication-amendment-practices"
     },
     {
+      "source": "2026-04-27-academic-post-publication-amendment-practices",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-04-27-academic-post-publication-amendment-practices"
+    },
+    {
       "source": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation",
       "target": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
       "weight": 2,
@@ -408286,6 +409187,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation"
+    },
+    {
+      "source": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation"
     },
     {
@@ -410206,6 +411115,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks"
+    },
+    {
+      "source": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,enterprise-adoption",
       "provenance": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks"
     },
     {
@@ -412201,6 +413118,14 @@
       "provenance": "2026-04-27-governance-moat-prior-research-implications"
     },
     {
+      "source": "2026-04-27-governance-moat-prior-research-implications",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,enterprise-adoption",
+      "provenance": "2026-04-27-governance-moat-prior-research-implications"
+    },
+    {
       "source": "2026-04-27-out-of-band-policy-invalidation-remediation",
       "target": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
       "weight": 4,
@@ -414049,6 +414974,14 @@
       "provenance": "2026-04-27-out-of-band-policy-invalidation-remediation"
     },
     {
+      "source": "2026-04-27-out-of-band-policy-invalidation-remediation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-27-out-of-band-policy-invalidation-remediation"
+    },
+    {
       "source": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
       "target": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
       "weight": 3,
@@ -415889,6 +416822,14 @@
       "provenance": "2026-04-27-pap-dynamic-policy-profiling-proportionality"
     },
     {
+      "source": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-27-pap-dynamic-policy-profiling-proportionality"
+    },
+    {
       "source": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
       "target": "2026-04-27-pip-invariant-anomaly-detection",
       "weight": 3,
@@ -417833,6 +418774,14 @@
       "provenance": "2026-04-27-pdp-universal-policy-synchronisation-integrity"
     },
     {
+      "source": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-27-pdp-universal-policy-synchronisation-integrity"
+    },
+    {
       "source": "2026-04-27-pip-invariant-anomaly-detection",
       "target": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
       "weight": 3,
@@ -419657,6 +420606,14 @@
       "provenance": "2026-04-27-pip-invariant-anomaly-detection"
     },
     {
+      "source": "2026-04-27-pip-invariant-anomaly-detection",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-27-pip-invariant-anomaly-detection"
+    },
+    {
       "source": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
       "target": "2026-04-27-uelgf-decommission-lifecycle",
       "weight": 3,
@@ -421585,6 +422542,14 @@
       "provenance": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap"
     },
     {
+      "source": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap"
+    },
+    {
       "source": "2026-04-27-uelgf-decommission-lifecycle",
       "target": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
       "weight": 3,
@@ -423422,6 +424387,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-04-27-uelgf-decommission-lifecycle"
+    },
+    {
+      "source": "2026-04-27-uelgf-decommission-lifecycle",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-27-uelgf-decommission-lifecycle"
     },
     {
@@ -427193,6 +428166,14 @@
       "provenance": "2026-04-27-uelgf-foundational-definitions-principles"
     },
     {
+      "source": "2026-04-27-uelgf-foundational-definitions-principles",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-27-uelgf-foundational-definitions-principles"
+    },
+    {
       "source": "2026-04-27-uelgf-governed-golden-rails",
       "target": "2026-04-27-uelgf-policy-architecture-8-layer-context",
       "weight": 3,
@@ -428998,6 +429979,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-04-27-uelgf-governed-golden-rails"
+    },
+    {
+      "source": "2026-04-27-uelgf-governed-golden-rails",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-27-uelgf-governed-golden-rails"
     },
     {
@@ -430809,6 +431798,14 @@
       "provenance": "2026-04-27-uelgf-policy-architecture-8-layer-context"
     },
     {
+      "source": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-27-uelgf-policy-architecture-8-layer-context"
+    },
+    {
       "source": "2026-04-27-uelgf-runtime-feedback-loop",
       "target": "2026-04-27-uelgf-synthesis-complete-framework",
       "weight": 2,
@@ -432294,6 +433291,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-04-27-uelgf-runtime-feedback-loop"
+    },
+    {
+      "source": "2026-04-27-uelgf-runtime-feedback-loop",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-27-uelgf-runtime-feedback-loop"
     },
     {
@@ -434174,6 +435179,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-04-27-uelgf-synthesis-complete-framework"
+    },
+    {
+      "source": "2026-04-27-uelgf-synthesis-complete-framework",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-27-uelgf-synthesis-complete-framework"
     },
     {
@@ -436049,6 +437062,14 @@
       "provenance": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents"
     },
     {
+      "source": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents"
+    },
+    {
       "source": "2026-04-28-llm-as-judge-pipeline-validation-checkpoints",
       "target": "2026-04-28-software-demand-shift-ai-coding-era",
       "weight": 1,
@@ -437598,6 +438619,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-04-28-llm-as-judge-pipeline-validation-checkpoints"
+    },
+    {
+      "source": "2026-04-28-llm-as-judge-pipeline-validation-checkpoints",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
       "provenance": "2026-04-28-llm-as-judge-pipeline-validation-checkpoints"
     },
     {
@@ -439230,6 +440259,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
+    },
+    {
+      "source": "2026-04-28-software-demand-shift-ai-coding-era",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
     },
     {
@@ -444265,6 +445302,14 @@
       "provenance": "2026-04-28-uelgf-tooling-reference-architecture"
     },
     {
+      "source": "2026-04-28-uelgf-tooling-reference-architecture",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-04-28-uelgf-tooling-reference-architecture"
+    },
+    {
       "source": "2026-04-29-knowledge-scaffolding-context-engineering",
       "target": "2026-03-02-agent-memory-management-context-injection",
       "weight": 4,
@@ -447769,6 +448814,14 @@
       "provenance": "2026-04-30-ai-code-entropy-quality-metrics"
     },
     {
+      "source": "2026-04-30-ai-code-entropy-quality-metrics",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-04-30-ai-code-entropy-quality-metrics"
+    },
+    {
       "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
       "target": "2026-04-02-claude-mythos",
       "weight": 3,
@@ -449526,6 +450579,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-04-30-claude-vs-m365-copilot-cowork-comparison"
+    },
+    {
+      "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
       "provenance": "2026-04-30-claude-vs-m365-copilot-cowork-comparison"
     },
     {
@@ -451353,6 +452414,14 @@
       "provenance": "2026-04-30-deep-modules-ai-augmented-codebases"
     },
     {
+      "source": "2026-04-30-deep-modules-ai-augmented-codebases",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-04-30-deep-modules-ai-augmented-codebases"
+    },
+    {
       "source": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
       "target": "2026-02-28-rbnz-ai-supervisory-expectations",
       "weight": 3,
@@ -452774,6 +453843,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,regulatory-compliance,security-risk",
+      "provenance": "2026-04-30-deterministic-crr-mlr2017-risk-scoring"
+    },
+    {
+      "source": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,regulatory-compliance",
       "provenance": "2026-04-30-deterministic-crr-mlr2017-risk-scoring"
     },
     {
@@ -456257,6 +457334,14 @@
       "provenance": "2026-04-30-fundamentals-first-vs-specs-to-code"
     },
     {
+      "source": "2026-04-30-fundamentals-first-vs-specs-to-code",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-04-30-fundamentals-first-vs-specs-to-code"
+    },
+    {
       "source": "2026-04-30-grill-me-ai-alignment-shared-design",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 3,
@@ -457998,6 +459083,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-04-30-grill-me-ai-alignment-shared-design"
+    },
+    {
+      "source": "2026-04-30-grill-me-ai-alignment-shared-design",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-04-30-grill-me-ai-alignment-shared-design"
     },
     {
@@ -459777,6 +460870,14 @@
       "provenance": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy"
     },
     {
+      "source": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy"
+    },
+    {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-03-15-context-layers-aligned-decisions-synthesis",
       "weight": 3,
@@ -461438,6 +462539,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
+    },
+    {
+      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
     },
     {
@@ -463201,6 +464310,14 @@
       "provenance": "2026-04-30-se-fundamentals-ai-code-synthesis"
     },
     {
+      "source": "2026-04-30-se-fundamentals-ai-code-synthesis",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-04-30-se-fundamentals-ai-code-synthesis"
+    },
+    {
       "source": "2026-04-30-strategic-tactical-division-ai-teams",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 3,
@@ -464854,6 +465971,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-04-30-strategic-tactical-division-ai-teams"
+    },
+    {
+      "source": "2026-04-30-strategic-tactical-division-ai-teams",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-04-30-strategic-tactical-division-ai-teams"
     },
     {
@@ -466566,6 +467691,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-04-30-tdd-feedback-loops-ai-augmented-dev"
+    },
+    {
+      "source": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-04-30-tdd-feedback-loops-ai-augmented-dev"
     },
     {
@@ -469825,6 +470958,14 @@
       "provenance": "2026-05-01-ai-coding-harness-quality-benchmarks"
     },
     {
+      "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-01-ai-coding-harness-quality-benchmarks"
+    },
+    {
       "source": "2026-05-01-appropriate-task-selection-coding-agents",
       "target": "2026-03-22-agents-as-finishers-and-synthesisers",
       "weight": 4,
@@ -471622,6 +472763,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-05-01-appropriate-task-selection-coding-agents"
+    },
+    {
+      "source": "2026-05-01-appropriate-task-selection-coding-agents",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-01-appropriate-task-selection-coding-agents"
     },
     {
@@ -474809,6 +475958,14 @@
       "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
     },
     {
+      "source": "2026-05-01-compound-error-accumulation-ai-codebases",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
+    },
+    {
       "source": "2026-05-01-extension-systems-ai-coding-agents",
       "target": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
       "weight": 3,
@@ -476278,6 +477435,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-01-extension-systems-ai-coding-agents"
+    },
+    {
+      "source": "2026-05-01-extension-systems-ai-coding-agents",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-01-extension-systems-ai-coding-agents"
     },
     {
@@ -480846,6 +482011,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-05-01-self-modifying-agent-architectures"
+    },
+    {
+      "source": "2026-05-01-self-modifying-agent-architectures",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-01-self-modifying-agent-architectures"
     },
     {
@@ -485425,6 +486598,14 @@
       "provenance": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks"
     },
     {
+      "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks"
+    },
+    {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
       "target": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
       "weight": 3,
@@ -486990,6 +488171,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,security-risk,tools-infrastructure",
+      "provenance": "2026-05-02-adversarial-review-methods-ai-research-quality"
+    },
+    {
+      "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-02-adversarial-review-methods-ai-research-quality"
     },
     {
@@ -490137,6 +491326,14 @@
       "provenance": "2026-05-02-automated-claim-verification-academic-literature"
     },
     {
+      "source": "2026-05-02-automated-claim-verification-academic-literature",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-02-automated-claim-verification-academic-literature"
+    },
+    {
       "source": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
       "target": "2026-03-12-exploration-synthesis-gap",
       "weight": 4,
@@ -491574,6 +492771,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-02-cross-item-synthesis-knowledge-map-architecture"
+    },
+    {
+      "source": "2026-05-02-cross-item-synthesis-knowledge-map-architecture",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-02-cross-item-synthesis-knowledge-map-architecture"
     },
     {
@@ -498713,6 +499918,14 @@
       "provenance": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model"
     },
     {
+      "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,cost-performance",
+      "provenance": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model"
+    },
+    {
       "source": "2026-05-02-research-item-versioning-amendment-norms",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 4,
@@ -501329,6 +502542,14 @@
       "provenance": "2026-05-02-research-to-publication-authoring-workflow"
     },
     {
+      "source": "2026-05-02-research-to-publication-authoring-workflow",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
+    },
+    {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
       "target": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
       "weight": 4,
@@ -502742,6 +503963,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation"
+    },
+    {
+      "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
       "provenance": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation"
     },
     {
@@ -504270,6 +505499,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-02-systematic-review-methodology-ai-synthesis"
+    },
+    {
+      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
       "provenance": "2026-05-02-systematic-review-methodology-ai-synthesis"
     },
     {
@@ -505881,6 +507118,14 @@
       "provenance": "2026-05-02-vendor-lock-in-portability-multi-platform-ai"
     },
     {
+      "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,cost-performance",
+      "provenance": "2026-05-02-vendor-lock-in-portability-multi-platform-ai"
+    },
+    {
       "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
       "target": "2026-03-12-failure-mode-taxonomy-expansion",
       "weight": 3,
@@ -507222,6 +508467,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability"
+    },
+    {
+      "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability"
     },
     {
@@ -508953,6 +510206,14 @@
       "provenance": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update"
     },
     {
+      "source": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update"
+    },
+    {
       "source": "2026-05-06-aibom-declared-construction-practice",
       "target": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
       "weight": 4,
@@ -510489,6 +511750,14 @@
       "provenance": "2026-05-06-aibom-declared-construction-practice"
     },
     {
+      "source": "2026-05-06-aibom-declared-construction-practice",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-06-aibom-declared-construction-practice"
+    },
+    {
       "source": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
       "target": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
       "weight": 3,
@@ -511934,6 +513203,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-05-06-aibom-effectiveness-risk-mitigation-limits"
+    },
+    {
+      "source": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-06-aibom-effectiveness-risk-mitigation-limits"
     },
     {
@@ -514641,6 +515918,14 @@
       "provenance": "2026-05-06-aibom-identity-delegation-trust-theory"
     },
     {
+      "source": "2026-05-06-aibom-identity-delegation-trust-theory",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-06-aibom-identity-delegation-trust-theory"
+    },
+    {
       "source": "2026-05-06-aibom-platform-observability-control-comparison",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -516153,6 +517438,14 @@
       "provenance": "2026-05-06-aibom-platform-observability-control-comparison"
     },
     {
+      "source": "2026-05-06-aibom-platform-observability-control-comparison",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-06-aibom-platform-observability-control-comparison"
+    },
+    {
       "source": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
       "target": "2026-04-24-ai-agent-regulation-global-financial-services",
       "weight": 4,
@@ -517614,6 +518907,14 @@
       "weight": 5,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,regulatory-compliance,security-risk,tools-infrastructure",
+      "provenance": "2026-05-06-aibom-regulatory-eu-ai-act-intersection"
+    },
+    {
+      "source": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
       "provenance": "2026-05-06-aibom-regulatory-eu-ai-act-intersection"
     },
     {
@@ -520417,6 +521718,14 @@
       "provenance": "2026-05-06-aibom-runtime-generation-divergence-theory"
     },
     {
+      "source": "2026-05-06-aibom-runtime-generation-divergence-theory",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-06-aibom-runtime-generation-divergence-theory"
+    },
+    {
       "source": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
       "target": "2026-04-22-ai-governance-assurance-change-control-verification",
       "weight": 3,
@@ -521862,6 +523171,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-05-06-aibom-sbom-conceptual-gaps-theory"
+    },
+    {
+      "source": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-06-aibom-sbom-conceptual-gaps-theory"
     },
     {
@@ -524009,6 +525326,14 @@
       "provenance": "2026-05-06-barnum-statements-ai-responses-theory-practice"
     },
     {
+      "source": "2026-05-06-barnum-statements-ai-responses-theory-practice",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-06-barnum-statements-ai-responses-theory-practice"
+    },
+    {
       "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
       "target": "2026-03-02-research-quality-assurance-methodology",
       "weight": 3,
@@ -525121,6 +526446,14 @@
       "provenance": "2026-05-06-fact-checking-tools-research-quality-improvement"
     },
     {
+      "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-06-fact-checking-tools-research-quality-improvement"
+    },
+    {
       "source": "2026-05-06-factscore-precision-scoring-atomic-claims",
       "target": "2026-03-05-llm-hallucination-mechanisms",
       "weight": 4,
@@ -525771,6 +527104,14 @@
     {
       "source": "2026-05-06-factscore-precision-scoring-atomic-claims",
       "target": "2026-10-02-ideal-internal-platform-product-standard",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-06-factscore-precision-scoring-atomic-claims"
+    },
+    {
+      "source": "2026-05-06-factscore-precision-scoring-atomic-claims",
+      "target": "2026-10-17-optionality-control-model-stages",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -527345,6 +528686,14 @@
       "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
     },
     {
+      "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
+    },
+    {
       "source": "2026-05-06-it-system-legibility-measurement-frameworks",
       "target": "2026-03-15-tracking-work-across-systems",
       "weight": 3,
@@ -528833,6 +530182,14 @@
       "provenance": "2026-05-06-it-system-legibility-measurement-frameworks"
     },
     {
+      "source": "2026-05-06-it-system-legibility-measurement-frameworks",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-06-it-system-legibility-measurement-frameworks"
+    },
+    {
       "source": "2026-05-06-loki-fact-checking-journalists-moderation",
       "target": "2026-03-05-llm-hallucination-mechanisms",
       "weight": 4,
@@ -529974,6 +531331,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-05-06-loki-fact-checking-journalists-moderation"
+    },
+    {
+      "source": "2026-05-06-loki-fact-checking-journalists-moderation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
       "provenance": "2026-05-06-loki-fact-checking-journalists-moderation"
     },
     {
@@ -531262,6 +532627,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
+    },
+    {
+      "source": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
       "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
     },
     {
@@ -535878,6 +537251,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-05-08-ai-capability-reference-architecture-second-cycle-update"
+    },
+    {
+      "source": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
       "provenance": "2026-05-08-ai-capability-reference-architecture-second-cycle-update"
     },
     {
@@ -540961,6 +542342,14 @@
       "provenance": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai"
     },
     {
+      "source": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai"
+    },
+    {
       "source": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 4,
@@ -545782,6 +547171,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
+    },
+    {
+      "source": "2026-05-09-build-vs-improve-throughput-tradeoff",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
     },
     {
@@ -550705,6 +552102,14 @@
       "provenance": "2026-05-09-data-governance-standards-ai-agentic-applicability"
     },
     {
+      "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
+      "provenance": "2026-05-09-data-governance-standards-ai-agentic-applicability"
+    },
+    {
       "source": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 3,
@@ -551806,6 +553211,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,regulatory-compliance",
+      "provenance": "2026-05-09-governance-policy-determinism-vs-stochastic-llm"
+    },
+    {
+      "source": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
       "provenance": "2026-05-09-governance-policy-determinism-vs-stochastic-llm"
     },
     {
@@ -553150,6 +554563,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,tools-infrastructure",
+      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
+    },
+    {
+      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
     },
     {
@@ -555569,6 +556990,14 @@
       "provenance": "2026-05-09-llm-determinism-limits-temperature-zero"
     },
     {
+      "source": "2026-05-09-llm-determinism-limits-temperature-zero",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-09-llm-determinism-limits-temperature-zero"
+    },
+    {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -557937,6 +559366,14 @@
       "provenance": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk"
     },
     {
+      "source": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,enterprise-adoption",
+      "provenance": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk"
+    },
+    {
       "source": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
       "target": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
       "weight": 3,
@@ -559190,6 +560627,14 @@
       "weight": 5,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,regulatory-compliance,security-risk,tools-infrastructure",
+      "provenance": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance"
+    },
+    {
+      "source": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,regulatory-compliance",
       "provenance": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance"
     },
     {
@@ -567665,6 +569110,14 @@
       "provenance": "2026-05-12-hardware-load-inference-performance"
     },
     {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
       "source": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -568382,6 +569835,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,regulatory-compliance,security-risk",
+      "provenance": "2026-05-12-iso-iec-42001-aims-controls-adoption-history"
+    },
+    {
+      "source": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
       "provenance": "2026-05-12-iso-iec-42001-aims-controls-adoption-history"
     },
     {
@@ -569374,6 +570835,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
+    },
+    {
+      "source": "2026-05-12-knowledge-graph-agentic-runtime-dependency",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-12-knowledge-graph-agentic-runtime-dependency"
     },
     {
@@ -570601,6 +572070,14 @@
       "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
     },
     {
+      "source": "2026-05-12-knowledge-graph-data-product-agentic",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
+    },
+    {
       "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 3,
@@ -571638,6 +573115,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-12-knowledge-graph-lifecycle-management-agentic"
+    },
+    {
+      "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-12-knowledge-graph-lifecycle-management-agentic"
     },
     {
@@ -573945,6 +575430,14 @@
       "provenance": "2026-05-12-rag-document-drift-agent-behavior"
     },
     {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+    },
+    {
       "source": "2026-05-12-regulated-ai-constraint-shift",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 4,
@@ -574878,6 +576371,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
+    },
+    {
+      "source": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-12-web-ontologies-production-knowledge-graph-agentic"
     },
     {
@@ -575822,6 +577323,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
+    },
+    {
+      "source": "2026-05-13-a2a-tool-calling-orchestration-overhead",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-13-a2a-tool-calling-orchestration-overhead"
     },
     {
@@ -577001,6 +578510,14 @@
       "provenance": "2026-05-13-agent-process-reliability-architecture"
     },
     {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-03-02-integrative-framework-agent-decision-making",
       "weight": 3,
@@ -578025,6 +579542,14 @@
       "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
     },
     {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
       "source": "2026-05-13-graph-db-landscape-tco-interoperability",
       "target": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
       "weight": 4,
@@ -578958,6 +580483,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
+      "source": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
     },
     {
@@ -580702,6 +582235,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
     },
     {
@@ -584150,6 +585691,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
     },
     {
@@ -587745,6 +589294,14 @@
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
       "source": "2026-05-15-organisational-failure-modes-structural-fragmentation",
       "target": "2026-05-14-org-failure-modes-accountability-gaps",
       "weight": 4,
@@ -588718,6 +590275,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
     },
     {
@@ -589713,6 +591278,14 @@
       "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
       "weight": 4,
@@ -590686,6 +592259,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
     },
     {
@@ -591745,6 +593326,14 @@
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
     },
     {
+      "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
+    },
+    {
       "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 4,
@@ -592681,6 +594270,14 @@
       "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     },
     {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
       "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -593486,6 +595083,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
+      "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
@@ -594505,6 +596110,14 @@
       "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
     },
     {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
       "source": "2026-05-16-reference-architecture-definition-frameworks-detail",
       "target": "2026-03-21-technology-capability-models",
       "weight": 4,
@@ -595382,6 +596995,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
+    },
+    {
+      "source": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
     },
     {
@@ -596302,6 +597923,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
       "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
     },
     {
@@ -598337,6 +599966,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "target": "2026-03-12-failure-mode-taxonomy-expansion",
       "weight": 3,
@@ -599350,6 +600987,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk"
     },
     {
@@ -600369,6 +602014,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 3,
@@ -601385,6 +603038,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 4,
@@ -602302,6 +603963,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
     },
     {
@@ -603286,6 +604955,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
     },
     {
@@ -605985,6 +607662,14 @@
       "provenance": "2026-05-17-aws-bedrock-capabilities"
     },
     {
+      "source": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-17-aws-bedrock-capabilities"
+    },
+    {
       "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "target": "2026-05-07-ai-production-incidents-deep-dive",
       "weight": 3,
@@ -606726,6 +608411,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
+    },
+    {
+      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
     },
     {
@@ -608153,6 +609846,14 @@
       "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
     },
     {
+      "source": "2026-05-17-kona-aleph-lean-unifying-concepts",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-17-kona-aleph-lean-unifying-concepts"
+    },
+    {
       "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
       "target": "2026-03-10-language-for-llm-agent-output",
       "weight": 4,
@@ -609049,6 +610750,14 @@
       "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
     },
     {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
       "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "target": "2026-03-08-servicenow-process-mapping",
       "weight": 3,
@@ -609921,6 +611630,14 @@
       "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
     },
     {
+      "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
+    },
+    {
       "source": "2026-05-17-ms-azure-ai-foundry-capabilities",
       "target": "2026-04-26-ai-agent-identity-access-management-enterprise",
       "weight": 4,
@@ -610774,6 +612491,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,tools-infrastructure",
+      "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
     },
     {
@@ -612321,6 +614046,14 @@
       "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
     },
     {
+      "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
+    },
+    {
       "source": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "target": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
       "weight": 3,
@@ -613070,6 +614803,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
+    },
+    {
+      "source": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
     },
     {
@@ -613862,6 +615603,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-17-servicenow-ai-control-tower-capabilities"
+    },
+    {
+      "source": "2026-05-17-servicenow-ai-control-tower-capabilities",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-17-servicenow-ai-control-tower-capabilities"
     },
     {
@@ -615545,6 +617294,14 @@
       "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     },
     {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
       "source": "2026-05-18-agentic-production-tradeoffs",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -616433,6 +618190,14 @@
       "provenance": "2026-05-18-agentic-production-tradeoffs"
     },
     {
+      "source": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-agentic-production-tradeoffs"
+    },
+    {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
       "target": "2026-02-27-information-synthesis-entropy",
       "weight": 3,
@@ -616894,6 +618659,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
+    },
+    {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
       "provenance": "2026-05-18-rq1-1-popper-falsifiability"
     },
     {
@@ -617369,6 +619142,14 @@
       "provenance": "2026-05-18-rq1-2-deutsch-hard-to-vary"
     },
     {
+      "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-rq1-2-deutsch-hard-to-vary"
+    },
+    {
       "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -617745,6 +619526,14 @@
       "provenance": "2026-05-18-rq1-3-instrumentalism-failure-modes"
     },
     {
+      "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq1-3-instrumentalism-failure-modes"
+    },
+    {
       "source": "2026-05-18-rq2-1-erm-causal-blindness",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -618113,6 +619902,14 @@
       "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
     },
     {
+      "source": "2026-05-18-rq2-1-erm-causal-blindness",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
+    },
+    {
       "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -618497,6 +620294,14 @@
       "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
     },
     {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+    },
+    {
       "source": "2026-05-18-rq2-3-predictive-model-fragility",
       "target": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "weight": 4,
@@ -618718,6 +620523,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "security-risk",
+      "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
+    },
+    {
+      "source": "2026-05-18-rq2-3-predictive-model-fragility",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-18-rq2-3-predictive-model-fragility"
     },
     {
@@ -618958,6 +620771,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "llm-reasoning",
+      "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
+    },
+    {
+      "source": "2026-05-18-rq2-4-causal-hierarchy-formal-limits",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-18-rq2-4-causal-hierarchy-formal-limits"
     },
     {
@@ -619353,6 +621174,14 @@
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
       "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
       "target": "2026-05-18-rq2-1-erm-causal-blindness",
       "weight": 4,
@@ -619705,6 +621534,14 @@
       "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
     },
     {
+      "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
       "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
       "target": "2026-05-18-rq2-1-erm-causal-blindness",
       "weight": 3,
@@ -620051,6 +621888,14 @@
     {
       "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
       "target": "2026-10-02-ideal-internal-platform-product-standard",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "target": "2026-10-17-optionality-control-model-stages",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -620577,6 +622422,14 @@
       "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
     },
     {
+      "source": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
+    },
+    {
       "source": "2026-05-18-rq4-2-adversarial-error-propagation",
       "target": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
       "weight": 3,
@@ -621046,6 +622899,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-05-18-rq4-2-adversarial-error-propagation"
+    },
+    {
+      "source": "2026-05-18-rq4-2-adversarial-error-propagation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-18-rq4-2-adversarial-error-propagation"
     },
     {
@@ -621977,6 +623838,14 @@
       "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
     },
     {
+      "source": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-18-rq5-1-stochastic-vs-deterministic-failures"
+    },
+    {
       "source": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -622577,6 +624446,14 @@
       "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
     },
     {
+      "source": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
+    },
+    {
       "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -622726,6 +624603,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "security-risk",
+      "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
+    },
+    {
+      "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-18-rq6-1-halting-problem-static-analysis"
     },
     {
@@ -622926,6 +624811,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "security-risk",
+      "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
+    },
+    {
+      "source": "2026-05-18-rq6-2-state-explosion-chaos-theory",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-18-rq6-2-state-explosion-chaos-theory"
     },
     {
@@ -623318,6 +625211,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
+    },
+    {
+      "source": "2026-05-18-rq6-3-complexity-horizon-classical-systems",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-18-rq6-3-complexity-horizon-classical-systems"
     },
     {
@@ -625425,6 +627326,14 @@
       "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
     },
     {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
       "source": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
       "target": "2026-03-12-exploration-synthesis-gap",
       "weight": 3,
@@ -627022,6 +628931,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-05-20-agentic-km-5-pillar-capability-model"
+    },
+    {
+      "source": "2026-05-20-agentic-km-5-pillar-capability-model",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-20-agentic-km-5-pillar-capability-model"
     },
     {
@@ -629609,6 +631526,14 @@
       "provenance": "2026-05-20-information-density-filtering-financial-rag"
     },
     {
+      "source": "2026-05-20-information-density-filtering-financial-rag",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-20-information-density-filtering-financial-rag"
+    },
+    {
       "source": "2026-05-21-agentic-semantic-km-capability-model",
       "target": "2026-03-02-agent-memory-management-context-injection",
       "weight": 3,
@@ -630123,6 +632048,14 @@
     {
       "source": "2026-05-21-contract-theory-statistical-criteria",
       "target": "2026-10-02-ideal-internal-platform-product-standard",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-21-contract-theory-statistical-criteria"
+    },
+    {
+      "source": "2026-05-21-contract-theory-statistical-criteria",
+      "target": "2026-10-17-optionality-control-model-stages",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -630905,6 +632838,14 @@
       "provenance": "2026-05-21-prompt-program-optimization-theory-mechanisms"
     },
     {
+      "source": "2026-05-21-prompt-program-optimization-theory-mechanisms",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-21-prompt-program-optimization-theory-mechanisms"
+    },
+    {
       "source": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split",
       "target": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
       "weight": 3,
@@ -631390,6 +633331,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split"
+    },
+    {
+      "source": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
       "provenance": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split"
     },
     {
@@ -631889,6 +633838,14 @@
       "provenance": "2026-05-23-governance-controls-effectiveness-conditions"
     },
     {
+      "source": "2026-05-23-governance-controls-effectiveness-conditions",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,regulatory-compliance",
+      "provenance": "2026-05-23-governance-controls-effectiveness-conditions"
+    },
+    {
       "source": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention",
       "target": "2026-03-02-transaction-costs",
       "weight": 4,
@@ -632385,6 +634342,14 @@
       "provenance": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention"
     },
     {
+      "source": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,regulatory-compliance",
+      "provenance": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention"
+    },
+    {
       "source": "2026-05-23-governance-reform-leadership-failure",
       "target": "2026-03-02-transaction-costs",
       "weight": 4,
@@ -632841,6 +634806,14 @@
       "provenance": "2026-05-23-governance-reform-leadership-failure"
     },
     {
+      "source": "2026-05-23-governance-reform-leadership-failure",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,regulatory-compliance",
+      "provenance": "2026-05-23-governance-reform-leadership-failure"
+    },
+    {
       "source": "2026-05-23-similarity-algorithms-controlled-vocabulary",
       "target": "2026-05-25-jepa-video-outcome-prediction-physical-action-problem-class",
       "weight": 1,
@@ -633190,6 +635163,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-05-23-similarity-algorithms-controlled-vocabulary"
+    },
+    {
+      "source": "2026-05-23-similarity-algorithms-controlled-vocabulary",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-23-similarity-algorithms-controlled-vocabulary"
     },
     {
@@ -633617,6 +635598,14 @@
       "provenance": "2026-05-25-jepa-video-outcome-prediction-physical-action-problem-class"
     },
     {
+      "source": "2026-05-25-jepa-video-outcome-prediction-physical-action-problem-class",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-25-jepa-video-outcome-prediction-physical-action-problem-class"
+    },
+    {
       "source": "2026-05-25-llm-math-programming-reasoning-substrate",
       "target": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "weight": 4,
@@ -634001,6 +635990,14 @@
       "provenance": "2026-05-25-llm-math-programming-reasoning-substrate"
     },
     {
+      "source": "2026-05-25-llm-math-programming-reasoning-substrate",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-25-llm-math-programming-reasoning-substrate"
+    },
+    {
       "source": "2026-05-25-ontology-world-model-llm-prediction-forcing-functions",
       "target": "2026-02-28-predictive-processing-active-inference",
       "weight": 3,
@@ -634294,6 +636291,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-05-25-ontology-world-model-llm-prediction-forcing-functions"
+    },
+    {
+      "source": "2026-05-25-ontology-world-model-llm-prediction-forcing-functions",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-05-25-ontology-world-model-llm-prediction-forcing-functions"
     },
     {
@@ -634814,6 +636819,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-27-ai-first-software-ecology-developer-ecosystems"
+    },
+    {
+      "source": "2026-05-27-ai-first-software-ecology-developer-ecosystems",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
       "provenance": "2026-05-27-ai-first-software-ecology-developer-ecosystems"
     },
     {
@@ -635449,6 +637462,14 @@
       "provenance": "2026-05-27-semantic-domain-emergence-enterprise-ontology"
     },
     {
+      "source": "2026-05-27-semantic-domain-emergence-enterprise-ontology",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
+      "provenance": "2026-05-27-semantic-domain-emergence-enterprise-ontology"
+    },
+    {
       "source": "2026-05-29-commit-trends-repo-velocity-rework-abandonment",
       "target": "2026-03-12-volume-vs-correctness-ai-era",
       "weight": 4,
@@ -635878,6 +637899,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-05-29-commit-trends-repo-velocity-rework-abandonment"
+    },
+    {
+      "source": "2026-05-29-commit-trends-repo-velocity-rework-abandonment",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
       "provenance": "2026-05-29-commit-trends-repo-velocity-rework-abandonment"
     },
     {
@@ -636361,6 +638390,14 @@
       "provenance": "2026-05-29-split-authority-p1-operating-model-synthesis"
     },
     {
+      "source": "2026-05-29-split-authority-p1-operating-model-synthesis",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-05-29-split-authority-p1-operating-model-synthesis"
+    },
+    {
       "source": "2026-05-29-split-authority-q1-flow-constraint",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -636817,6 +638854,14 @@
       "provenance": "2026-05-29-split-authority-q1-flow-constraint"
     },
     {
+      "source": "2026-05-29-split-authority-q1-flow-constraint",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-29-split-authority-q1-flow-constraint"
+    },
+    {
       "source": "2026-05-29-split-authority-q2-demand-segmentation",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -637257,6 +639302,14 @@
       "provenance": "2026-05-29-split-authority-q2-demand-segmentation"
     },
     {
+      "source": "2026-05-29-split-authority-q2-demand-segmentation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-05-29-split-authority-q2-demand-segmentation"
+    },
+    {
       "source": "2026-05-29-split-authority-q3-routing-exception-isolation",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -637654,6 +639707,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-05-29-split-authority-q3-routing-exception-isolation"
+    },
+    {
+      "source": "2026-05-29-split-authority-q3-routing-exception-isolation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
       "provenance": "2026-05-29-split-authority-q3-routing-exception-isolation"
     },
     {
@@ -638057,6 +640118,14 @@
       "provenance": "2026-05-29-split-authority-q4-decision-rights-placement"
     },
     {
+      "source": "2026-05-29-split-authority-q4-decision-rights-placement",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-05-29-split-authority-q4-decision-rights-placement"
+    },
+    {
       "source": "2026-05-29-split-authority-q5-control-model-tradeoff",
       "target": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
       "weight": 3,
@@ -638454,6 +640523,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,regulatory-compliance",
+      "provenance": "2026-05-29-split-authority-q5-control-model-tradeoff"
+    },
+    {
+      "source": "2026-05-29-split-authority-q5-control-model-tradeoff",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,regulatory-compliance",
       "provenance": "2026-05-29-split-authority-q5-control-model-tradeoff"
     },
     {
@@ -638905,6 +640982,14 @@
       "provenance": "2026-05-29-split-authority-q6-instability-leading-indicators"
     },
     {
+      "source": "2026-05-29-split-authority-q6-instability-leading-indicators",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-29-split-authority-q6-instability-leading-indicators"
+    },
+    {
       "source": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage",
       "target": "2026-05-31-capability-claim-telemetry-conflict-arbitration",
       "weight": 2,
@@ -639214,6 +641299,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage"
+    },
+    {
+      "source": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
       "provenance": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage"
     },
     {
@@ -639577,6 +641670,14 @@
       "provenance": "2026-05-31-capability-claim-telemetry-conflict-arbitration"
     },
     {
+      "source": "2026-05-31-capability-claim-telemetry-conflict-arbitration",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-31-capability-claim-telemetry-conflict-arbitration"
+    },
+    {
       "source": "2026-05-31-formal-methods-interdependent-inputs-feasibility",
       "target": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "weight": 4,
@@ -639806,6 +641907,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption,software-engineering",
+      "provenance": "2026-05-31-formal-methods-interdependent-inputs-feasibility"
+    },
+    {
+      "source": "2026-05-31-formal-methods-interdependent-inputs-feasibility",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
       "provenance": "2026-05-31-formal-methods-interdependent-inputs-feasibility"
     },
     {
@@ -641873,6 +643982,14 @@
       "provenance": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement"
     },
     {
+      "source": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
+      "provenance": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement"
+    },
+    {
       "source": "2026-06-10-ai-productivity-quality-governance-open-questions",
       "target": "2026-04-30-ai-code-entropy-quality-metrics",
       "weight": 4,
@@ -642265,6 +644382,14 @@
       "provenance": "2026-06-10-ai-productivity-quality-governance-open-questions"
     },
     {
+      "source": "2026-06-10-ai-productivity-quality-governance-open-questions",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,enterprise-adoption",
+      "provenance": "2026-06-10-ai-productivity-quality-governance-open-questions"
+    },
+    {
       "source": "2026-06-13-friction-aligned-apprenticeship",
       "target": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
       "weight": 4,
@@ -642558,6 +644683,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-06-13-local-global-optima-knowledge-work-throughput"
+    },
+    {
+      "source": "2026-06-13-local-global-optima-knowledge-work-throughput",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
       "provenance": "2026-06-13-local-global-optima-knowledge-work-throughput"
     },
     {
@@ -642881,6 +645014,14 @@
       "provenance": "2026-06-13-local-tooling-fragmentation-threshold-measurement"
     },
     {
+      "source": "2026-06-13-local-tooling-fragmentation-threshold-measurement",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,enterprise-adoption",
+      "provenance": "2026-06-13-local-tooling-fragmentation-threshold-measurement"
+    },
+    {
       "source": "2026-06-13-platform-engineering-innersource-hybrid-standardization",
       "target": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
       "weight": 4,
@@ -643110,6 +645251,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-06-13-platform-engineering-innersource-hybrid-standardization"
+    },
+    {
+      "source": "2026-06-13-platform-engineering-innersource-hybrid-standardization",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
       "provenance": "2026-06-13-platform-engineering-innersource-hybrid-standardization"
     },
     {
@@ -643382,6 +645531,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-06-13-shadow-it-custom-tooling-governance-transition"
+    },
+    {
+      "source": "2026-06-13-shadow-it-custom-tooling-governance-transition",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
       "provenance": "2026-06-13-shadow-it-custom-tooling-governance-transition"
     },
     {
@@ -643745,6 +645902,14 @@
       "provenance": "2026-06-13-standardization-customization-balance-context-ai"
     },
     {
+      "source": "2026-06-13-standardization-customization-balance-context-ai",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,enterprise-adoption",
+      "provenance": "2026-06-13-standardization-customization-balance-context-ai"
+    },
+    {
       "source": "2026-07-05-vector-rag-to-ontology-kg-rag-migration",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 3,
@@ -644022,6 +646187,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-07-05-vector-rag-to-ontology-kg-rag-migration"
+    },
+    {
+      "source": "2026-07-05-vector-rag-to-ontology-kg-rag-migration",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
       "provenance": "2026-07-05-vector-rag-to-ontology-kg-rag-migration"
     },
     {
@@ -644537,6 +646710,14 @@
       "provenance": "2026-07-20-agent-memory-evaluation-framework"
     },
     {
+      "source": "2026-07-20-agent-memory-evaluation-framework",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-07-20-agent-memory-evaluation-framework"
+    },
+    {
       "source": "2026-07-20-agent-memory-forgetting-information-curation",
       "target": "2026-03-02-agent-memory-management-context-injection",
       "weight": 4,
@@ -644758,6 +646939,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-07-20-agent-memory-forgetting-information-curation"
+    },
+    {
+      "source": "2026-07-20-agent-memory-forgetting-information-curation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-07-20-agent-memory-forgetting-information-curation"
     },
     {
@@ -645577,6 +647766,14 @@
       "provenance": "2026-07-20-episodic-semantic-consolidation-agents"
     },
     {
+      "source": "2026-07-20-episodic-semantic-consolidation-agents",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-07-20-episodic-semantic-consolidation-agents"
+    },
+    {
       "source": "2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation",
       "target": "2026-03-02-agent-memory-management-context-injection",
       "weight": 4,
@@ -645793,6 +647990,14 @@
       "provenance": "2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation"
     },
     {
+      "source": "2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
+      "provenance": "2026-07-20-hybrid-agent-memory-symbolic-connectionist-synchronisation"
+    },
+    {
       "source": "2026-07-20-hybrid-memory-integration-ontology-llm-weights",
       "target": "2026-03-02-agent-memory-management-context-injection",
       "weight": 4,
@@ -645990,6 +648195,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-07-20-hybrid-memory-integration-ontology-llm-weights"
+    },
+    {
+      "source": "2026-07-20-hybrid-memory-integration-ontology-llm-weights",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "ai-architecture",
       "provenance": "2026-07-20-hybrid-memory-integration-ontology-llm-weights"
     },
     {
@@ -646465,6 +648678,14 @@
       "provenance": "2026-07-20-regulated-safe-to-fail-probing-operating-models"
     },
     {
+      "source": "2026-07-20-regulated-safe-to-fail-probing-operating-models",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,enterprise-adoption,regulatory-compliance",
+      "provenance": "2026-07-20-regulated-safe-to-fail-probing-operating-models"
+    },
+    {
       "source": "2026-07-20-tbox-abox-graphrag",
       "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
       "weight": 3,
@@ -646601,6 +648822,14 @@
       "provenance": "2026-07-20-tbox-abox-graphrag"
     },
     {
+      "source": "2026-07-20-tbox-abox-graphrag",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-07-20-tbox-abox-graphrag"
+    },
+    {
       "source": "2026-08-09-what-is-an-enterprise-architect",
       "target": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement",
       "weight": 3,
@@ -646726,6 +648955,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-08-09-what-is-an-enterprise-architect"
+    },
+    {
+      "source": "2026-08-09-what-is-an-enterprise-architect",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
       "provenance": "2026-08-09-what-is-an-enterprise-architect"
     },
     {
@@ -646905,6 +649142,14 @@
       "provenance": "2026-08-12-ai-coding-agent-runtime-security-evolution"
     },
     {
+      "source": "2026-08-12-ai-coding-agent-runtime-security-evolution",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-08-12-ai-coding-agent-runtime-security-evolution"
+    },
+    {
       "source": "2026-08-13-llm-consumption-maturity-ladder",
       "target": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
       "weight": 3,
@@ -647070,6 +649315,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-08-13-llm-consumption-maturity-ladder"
+    },
+    {
+      "source": "2026-08-13-llm-consumption-maturity-ladder",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
       "provenance": "2026-08-13-llm-consumption-maturity-ladder"
     },
     {
@@ -647297,6 +649550,14 @@
       "provenance": "2026-08-17-cohesive-coherent-organisational-governance"
     },
     {
+      "source": "2026-08-17-cohesive-coherent-organisational-governance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,enterprise-adoption",
+      "provenance": "2026-08-17-cohesive-coherent-organisational-governance"
+    },
+    {
       "source": "2026-08-17-decision-governance",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 4,
@@ -647438,6 +649699,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-08-17-decision-governance"
+    },
+    {
+      "source": "2026-08-17-decision-governance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
       "provenance": "2026-08-17-decision-governance"
     },
     {
@@ -647777,6 +650046,14 @@
       "provenance": "2026-08-20-execution-harness-closed-loop-performance"
     },
     {
+      "source": "2026-08-20-execution-harness-closed-loop-performance",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-08-20-execution-harness-closed-loop-performance"
+    },
+    {
       "source": "2026-08-20-flat-vector-rag-context-collision",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 3,
@@ -647905,6 +650182,14 @@
       "provenance": "2026-08-20-flat-vector-rag-context-collision"
     },
     {
+      "source": "2026-08-20-flat-vector-rag-context-collision",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-08-20-flat-vector-rag-context-collision"
+    },
+    {
       "source": "2026-08-20-graphrag-macro-level-hallucination",
       "target": "2026-03-15-context-compression-rag-enterprise-knowledge",
       "weight": 3,
@@ -648011,6 +650296,14 @@
     {
       "source": "2026-08-20-graphrag-macro-level-hallucination",
       "target": "2026-10-02-ideal-internal-platform-product-standard",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-08-20-graphrag-macro-level-hallucination"
+    },
+    {
+      "source": "2026-08-20-graphrag-macro-level-hallucination",
+      "target": "2026-10-17-optionality-control-model-stages",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -648161,6 +650454,14 @@
       "provenance": "2026-08-20-independent-goal-attainment-verification"
     },
     {
+      "source": "2026-08-20-independent-goal-attainment-verification",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,regulatory-compliance",
+      "provenance": "2026-08-20-independent-goal-attainment-verification"
+    },
+    {
       "source": "2026-08-20-mediated-content-pool-semantic-clarity",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 3,
@@ -648294,6 +650595,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-08-20-mediated-content-pool-semantic-clarity"
+    },
+    {
+      "source": "2026-08-20-mediated-content-pool-semantic-clarity",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-08-20-mediated-content-pool-semantic-clarity"
     },
     {
@@ -648510,6 +650819,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-08-20-planar-memory-graph-topology-drift"
+    },
+    {
+      "source": "2026-08-20-planar-memory-graph-topology-drift",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-08-20-planar-memory-graph-topology-drift"
     },
     {
@@ -648809,6 +651126,14 @@
       "provenance": "2026-09-14-modern-technology-platform-taxonomy"
     },
     {
+      "source": "2026-09-14-modern-technology-platform-taxonomy",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
+      "provenance": "2026-09-14-modern-technology-platform-taxonomy"
+    },
+    {
       "source": "2026-09-20-alignment-shared-background-limits",
       "target": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
       "weight": 4,
@@ -648905,6 +651230,14 @@
       "provenance": "2026-09-23-ms-copilot-office365-feedback-quality"
     },
     {
+      "source": "2026-09-23-ms-copilot-office365-feedback-quality",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance,enterprise-adoption",
+      "provenance": "2026-09-23-ms-copilot-office365-feedback-quality"
+    },
+    {
       "source": "2026-10-01-thinnest-viable-internal-platform-standard",
       "target": "2026-06-13-local-global-optima-knowledge-work-throughput",
       "weight": 4,
@@ -648977,6 +651310,14 @@
       "provenance": "2026-10-01-thinnest-viable-internal-platform-standard"
     },
     {
+      "source": "2026-10-01-thinnest-viable-internal-platform-standard",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,enterprise-adoption",
+      "provenance": "2026-10-01-thinnest-viable-internal-platform-standard"
+    },
+    {
       "source": "2026-10-02-ideal-internal-platform-product-standard",
       "target": "2026-06-13-local-global-optima-knowledge-work-throughput",
       "weight": 3,
@@ -649022,6 +651363,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-10-02-ideal-internal-platform-product-standard"
+    },
+    {
+      "source": "2026-10-02-ideal-internal-platform-product-standard",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,enterprise-adoption",
       "provenance": "2026-10-02-ideal-internal-platform-product-standard"
     },
     {
@@ -649199,6 +651548,30 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-10-17-agent-runtime-placement-criteria"
+    },
+    {
+      "source": "2026-10-17-agent-runtime-placement-criteria",
+      "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "regulatory-compliance",
+      "provenance": "2026-10-17-agent-runtime-placement-criteria"
+    },
+    {
+      "source": "2026-10-17-optionality-control-model-stages",
+      "target": "2026-03-19-layered-org-llm-architecture",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-17-optionality-control-model-stages"
+    },
+    {
+      "source": "2026-10-17-optionality-control-model-stages",
+      "target": "2026-08-13-llm-consumption-maturity-ladder",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-17-optionality-control-model-stages"
     }
   ]
 }
