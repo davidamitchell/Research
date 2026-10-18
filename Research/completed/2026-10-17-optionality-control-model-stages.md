@@ -2,12 +2,12 @@
 review_count: 2
 title: "Optionality and Control Across AI Model Consumption Stages"
 added: 2026-10-17T07:35:56+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [enterprise-adoption, ai-architecture, cost-performance, regulatory-compliance, benchmarks-eval]
 started: 2026-10-18T03:45:29+00:00
-completed: ~
+completed: 2026-10-18T03:57:17+00:00
 output: [knowledge]
 cites: [2026-08-13-llm-consumption-maturity-ladder, 2026-03-19-layered-org-llm-architecture]
 related: []
@@ -293,7 +293,7 @@ The cited ladder item reports no named regulated-organisation self-hosting case.
 
 Access note: BNP Paribas press pages on an in-house LLM service and a Mistral partnership, fetch blocked, no named-case claim made [assumption; source: https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html]
 
-Access note: web search for a named bank exit or United States CLOUD Act conflict case, no named case found, anonymous vendor case study not used [assumption; source: https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html]
+Access note: web search for a named bank exit or United States Clarifying Lawful Overseas Use of Data (CLOUD) Act conflict case, no named case found, anonymous vendor case study not used [assumption; source: https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html]
 
 ### §3 Reasoning
 
