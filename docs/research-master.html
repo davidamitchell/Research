@@ -669,7 +669,201 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-10-02 22:22 UTC</p>
+<p>Generated on: 2026-10-18 03:36 UTC</p>
+<p><a id="2026-10-17-agent-runtime-placement-criteria-md"></a></p>
+<h2>Runtime placement criteria for software-engineering agents in regulated organisations</h2>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-17-agent-runtime-placement-criteria.md</p>
+<h2>Research Question</h2>
+<p>For software-engineering agent workloads in a regulated organisation, what evidence-based conditions justify placing a workload in local execution on a developer workstation, a vendor-hosted coding-agent runtime, or an organisation-owned managed agent runtime? How do scaffolding maturity, identity and attribution, raw versus sanctioned reach, model choice, triggering, egress controls, risk, parallelism, and volume affect that placement, and what measurable criteria support moving forward, skipping a stage, or moving back?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>A workload should move from local execution to a vendor-hosted or organisation-owned runtime only when the target stage enforces input and output gates, complete attribution, and egress control that the workload's risk class requires, and the consulted sources support this as a decision rule while publishing no numeric thresholds for it. [inference; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://code.claude.com/docs/en/sandboxing; https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/]
+Vendor-hosted Copilot cloud agent documents write-access gating, single-branch push, human merge, an extra approval for agent-identity pull requests, and audit events with initiator and session identifiers, while leaving credential lifetime and revocation undocumented in the pages consulted. [fact; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://docs.github.com/en/copilot/reference/enterprise-administrators/agentic-audit-log-events]
+Its firewall covers only processes the agent starts through its Bash tool and is incompatible with self-hosted runners, so organisation-owned runners are an intermediate stage whose egress control becomes the organisation's own responsibility. [fact; source: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment]
+The hypothesis that unattended trust tracks scaffolding and validation more than supervision has convergent support from agent research, vendor engineering, and the 2025 DevOps Research and Assessment (DORA) report, but no consulted source isolates that effect from model capability. [inference; source: https://arxiv.org/abs/2407.01489; https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents; https://dora.dev/research/2025/dora-report/]</p>
+<h3>Key Findings</h3>
+<ol>
+<li>Copilot cloud agent attributes commits to Copilot with the requesting developer as co-author, signs them, links each commit to its session log, restricts pushes to one branch, and requires a human to merge, which together give the vendor-hosted stage a documented attribution and merge-gating design. ([fact]; medium confidence; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/review-copilot-prs)</li>
+<li>Agent audit-log events carry the action, an actor_is_agent flag, an agent_session_id, and the initiating user, and the enterprise audit log retains events for 180 days, so initiator and session hops are recorded for the vendor-hosted stage while longer retention needs log streaming. ([fact]; medium confidence; source: https://docs.github.com/en/copilot/reference/enterprise-administrators/agentic-audit-log-events; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs)</li>
+<li>The Copilot cloud agent pages consulted describe its token only behaviourally, as single-branch push without direct Git commands, and state no token lifetime, scope list, or revocation trigger, so credential revocation for the vendor-hosted stage is undocumented in the sources used. ([inference]; medium confidence; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)</li>
+<li>Copilot attributes an unattended automation's pull requests to its human creator and blocks that creator from approving them, which differs from the identity item's recommendation that unattended work run under the agent's own identity and shows vendors choosing creator-attribution plus approval separation. ([inference]; medium confidence; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-identity-access-management-enterprise.md)</li>
+<li>Copilot's firewall can be enabled, disabled, or delegated at organisation level with repository custom rules lockable, yet it covers only processes the agent starts through Bash and not MCP server processes or setup steps, so organisation-level enforceability exists but with documented coverage gaps. ([fact]; medium confidence; source: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall)</li>
+<li>Running Copilot cloud agent on self-hosted or Azure-private-network runners gives an organisation-owned intermediate option with an organisation-wide default runner, but the built-in firewall must be disabled for self-hosted runners and the organisation must supply network controls. ([fact]; medium confidence; source: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent)</li>
+<li>Local agents have opt-in, partial controls from independent vendors: the Claude Code sandbox is off by default and covers shell commands only, and Copilot CLI states that its permission scoping is heuristic and unguaranteed outside trusted directories. ([fact]; medium confidence; source: https://code.claude.com/docs/en/sandboxing; https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli)</li>
+<li>Organisation-deployed managed settings can enforce local Claude Code sandboxing, but only server-managed settings reach cloud sessions, so moving a task to a cloud stage leaves a locally deployed policy behind. ([fact]; medium confidence; source: https://code.claude.com/docs/en/settings; https://code.claude.com/docs/en/sandboxing)</li>
+<li>Model choice widens with each stage, from bring-your-own-key models locally, to a plan-dependent picker or Auto on the vendor-hosted agent, to any framework and foundation model on an organisation-owned runtime, and triggers widen from human start through issue, schedule, and event starts in the vendor-hosted stage. ([fact]; medium confidence; source: https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations)</li>
+<li>The vendor-hosted Copilot agent works in one repository, on one branch, with one pull request per task and a 59-minute session limit documented as non-extendable, so tasks that span repositories or run longer are candidates to skip to an organisation-owned runtime. ([inference]; medium confidence; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent)</li>
+<li>Agent research, vendor engineering, and the 2025 DORA report agree that scaffolding, validation, and surrounding organisational systems change agent outcomes, but no consulted source separates that effect from model capability across stages, so the scaffolding-over-supervision hypothesis remains supported without being tested. ([inference]; medium confidence; source: https://arxiv.org/abs/2405.15793; https://arxiv.org/abs/2407.01489; https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents; https://dora.dev/research/2025/dora-report/)</li>
+<li>No consulted source publishes numeric placement thresholds for scaffolding maturity, risk class, parallelism, or volume, so every threshold in the placement matrix is a proposed decision rule that an organisation must calibrate against its own baselines. ([inference]; medium confidence; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent; https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/; https://code.claude.com/docs/en/claude-code-on-the-web)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[fact] Copilot commits authored by Copilot with co-author, signed, session-linked; one-branch push; human merge</td>
+<td>https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/review-copilot-prs</td>
+<td>medium</td>
+<td>Single vendor family</td>
+</tr>
+<tr>
+<td>[fact] Agent audit events carry actor_is_agent, agent_session_id, user; 180-day retention</td>
+<td>https://docs.github.com/en/copilot/reference/enterprise-administrators/agentic-audit-log-events; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs</td>
+<td>medium</td>
+<td>Single vendor family</td>
+</tr>
+<tr>
+<td>[inference] Token lifetime, scope list, revocation undocumented in pages consulted</td>
+<td>https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment</td>
+<td>medium</td>
+<td>Absence claim limited to pages consulted</td>
+</tr>
+<tr>
+<td>[inference] Automation creator-attribution differs from identity item's own-identity recommendation</td>
+<td>https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-identity-access-management-enterprise.md</td>
+<td>medium</td>
+<td>Cross-source comparison</td>
+</tr>
+<tr>
+<td>[fact] Firewall configurable at organisation level; excludes MCP server processes and setup steps</td>
+<td>https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall</td>
+<td>medium</td>
+<td>Vendor states bypass potential</td>
+</tr>
+<tr>
+<td>[fact] Self-hosted or private-network runners supported; firewall disabled for self-hosted; organisation default runner</td>
+<td>https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment; https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent</td>
+<td>medium</td>
+<td>Single vendor family</td>
+</tr>
+<tr>
+<td>[fact] Claude Code sandbox off by default, shell only; Copilot CLI scoping heuristic</td>
+<td>https://code.claude.com/docs/en/sandboxing; https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli</td>
+<td>medium</td>
+<td>Two vendors, vendor self-description</td>
+</tr>
+<tr>
+<td>[fact] Managed settings enforce local sandbox; only server-managed settings reach cloud sessions</td>
+<td>https://code.claude.com/docs/en/settings; https://code.claude.com/docs/en/sandboxing</td>
+<td>medium</td>
+<td>Single vendor family</td>
+</tr>
+<tr>
+<td>[fact] Model choice and triggers widen by stage</td>
+<td>https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations</td>
+<td>medium</td>
+<td>Model list is a point-in-time snapshot</td>
+</tr>
+<tr>
+<td>[inference] Single-repo, single-branch, 59-minute limits mark skip-forward candidates</td>
+<td>https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent</td>
+<td>medium</td>
+<td>Limits quoted from vendor</td>
+</tr>
+<tr>
+<td>[inference] Scaffolding and validation affect outcomes; effect not isolated from model capability</td>
+<td>https://arxiv.org/abs/2405.15793; https://arxiv.org/abs/2407.01489; https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents; https://dora.dev/research/2025/dora-report/</td>
+<td>medium</td>
+<td>No controlled cross-stage study found</td>
+</tr>
+<tr>
+<td>[inference] No numeric placement thresholds published in consulted sources</td>
+<td>https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent; https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/; https://code.claude.com/docs/en/claude-code-on-the-web</td>
+<td>medium</td>
+<td>Absence claim limited to sources consulted</td>
+</tr>
+</tbody>
+</table>
+<h3>Placement Matrix</h3>
+<p>Each row is a proposed decision rule, not an evidence-derived threshold, and each carries its own label and sources.</p>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Proposed rule</th>
+<th>Label and sources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stay local</td>
+<td>Keep a workload local when a developer watches the session, the task has weak or absent automated checks, and one agent runs per developer, with the sandbox and managed settings enforced where the organisation deploys them.</td>
+<td>[inference; source: https://code.claude.com/docs/en/sandboxing; https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli]</td>
+</tr>
+<tr>
+<td>Move to vendor-hosted</td>
+<td>Move a bounded single-repository task to the vendor-hosted agent when required status checks and a second human approval already gate merges, the firewall is enabled with an organisation allowlist, and the task fits the session limit.</td>
+<td>[inference; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall; https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent]</td>
+</tr>
+<tr>
+<td>Use organisation-owned runners with a vendor harness</td>
+<td>Choose this intermediate stage when the task needs internal network resources or private networking and the organisation already operates egress controls stronger than the built-in allowlist.</td>
+<td>[inference; source: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall]</td>
+</tr>
+<tr>
+<td>Move to an organisation-owned managed runtime</td>
+<td>Choose this stage when the work needs multiple repositories, sessions beyond the vendor limit, identity tied to the organisation's identity provider, invocation records in the organisation's own stack, or a model or harness the vendor stage does not offer.</td>
+<td>[inference; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/; https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent]</td>
+</tr>
+<tr>
+<td>Skip a stage</td>
+<td>Go from local directly to an organisation-owned stage when the vendor-hosted stage is disabled by policy, lacks a required control such as credential-revocation documentation, or cannot meet data-handling constraints.</td>
+<td>[assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/access-management; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment]</td>
+</tr>
+<tr>
+<td>Move back</td>
+<td>Return a workload to a more supervised stage when gate coverage drops below the entry condition, an agent-authored change cannot be traced to initiator and session, egress blocks reveal unsanctioned destinations, or post-merge defects traced to agent changes exceed the human baseline.</td>
+<td>[assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-identity-access-management-enterprise.md; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall]</td>
+</tr>
+</tbody>
+</table>
+<p>Measurable criteria for the matrix, each a metric whose cut-off an organisation sets from its own baseline because no consulted source supplies a number. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent]
+Gate coverage is the share of agent-initiated changes that pass required checks and a second human approval before merge. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations]
+Attribution completeness is the share of agent-authored changes traceable to initiator, machine identity, and session. [assumption; source: https://docs.github.com/en/copilot/reference/enterprise-administrators/agentic-audit-log-events]
+Egress coverage is the share of agent-started processes under an enforced allowlist, together with the count of blocked-request warnings. [assumption; source: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall]
+Validation escape rate is the count of post-merge defects traced to agent changes relative to the human baseline. [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
+Session fit is the share of tasks that hit the session limit or need more than one repository. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent]
+Concurrency collision count is the number of shared-host conflicts (ports, databases, credentials) among parallel local agents. [assumption; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/]</p>
+<h3>Assumptions</h3>
+<p>Organisation-owned runtimes are assumed to start unattended work through the organisation's own scheduling and event services because the consulted AgentCore sources describe no built-in trigger. [assumption; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/]
+That assumption is reasonable because the post presents invocation, identity, and observability as platform services while showing interactive and parallel use only. [assumption; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/]
+The proposed criteria are assumed to be measurable from existing repository, audit-log, and firewall data without new instrumentation. [assumption; source: https://docs.github.com/en/copilot/reference/enterprise-administrators/agentic-audit-log-events]
+The audit-log fields, firewall warnings, and pull request records documented by the vendor make that assumption plausible for the vendor-hosted stage, though it is untested for the other stages. [assumption; source: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall]
+The absence of a numeric threshold in the consulted documentation is assumed to mean none is published, not that none exists in other sources. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent]
+Reading only the pages cited here is the item's stated evidence base, so the claim is scoped to it. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent]</p>
+<h3>Analysis</h3>
+<p>The evidence on scaffolding is consistent in direction across a benchmark paper, an interface-design paper, a vendor harness post, and an industry report, yet each measures a different thing, so the item treats the hypothesis as supported and untested. [inference; source: https://arxiv.org/abs/2405.15793; https://arxiv.org/abs/2407.01489; https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents; https://dora.dev/research/2025/dora-report/]
+The vendor documentation is the strongest source for what each stage does, because it describes controls the vendor ships, and the weakest for how well they work, because it contains no measured outcomes. [inference; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall]
+The documented unattended controls in Copilot are gates and attribution rules rather than live supervision, which supports placing unattended work where those gates are enforced. [inference; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations]
+Moving a workload forward trades local convenience for governed attribution, and the matrix above makes each move conditional on a named control being present in the target stage. [inference; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-12-ai-coding-agent-runtime-security-evolution.md]
+Strengthening scaffolding in place is a rival to changing stage, and the task-selection item's finding that verifier strength is the primary enabling condition supports doing that first. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-01-appropriate-task-selection-coding-agents.md]
+Adding reviewers to keep per-item human review is a second rival, and the documented Copilot controls already require a human merge, so the remaining question is which items need a live watcher in addition. [inference; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations]
+The organisation-owned runner stage is the only documented way to combine the vendor harness with the organisation's own network boundary, and its value depends on the organisation's existing controls. [inference; source: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment]
+The runtime item reports that a 39-paper systematisation found denylist enforcement failing at 69% to 98% in reviewed studies, which argues against relying on any one egress control, which is why the matrix pairs egress with gates and attribution. [inference; source: https://arxiv.org/abs/2607.05743; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-12-ai-coding-agent-runtime-security-evolution.md]
+The access-control item's finding that autonomous triggers can run with maker credentials explains why creator attribution plus approval separation matters for scheduled work. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-access-control-amplification-agentic-operations.md]
+The harness item's observation that local tools favour developer sovereignty and cloud tools favour organisational governance matches the pattern in the matrix. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<p>Credential lifetime, scope list, and revocation behaviour for the vendor-hosted agent are absent from the pages consulted, which leaves a gap in any regulatory attribution argument for that stage. [inference; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment]
+The evidence base is one vendor family per stage, with Copilot for vendor-hosted, Claude Code for local and cloud examples, and AWS for the organisation-owned stage, so conclusions about &quot;the stage&quot; generalise from worked examples. [inference; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent; https://code.claude.com/docs/en/claude-code-on-the-web; https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/]
+No controlled study separates scaffolding effect from model capability or compares unattended reliability across the three stages. [inference; source: https://arxiv.org/abs/2405.15793; https://arxiv.org/abs/2407.01489]
+The consulted AgentCore sources do not document a built-in schedule or event trigger, so the organisation-owned trigger row rests on an assumption. [assumption; source: https://aws.amazon.com/blogs/machine-learning/its-safe-to-close-your-laptop-now-hosting-coding-agents-on-amazon-bedrock-agentcore/]
+Vendor documentation changes quickly, including the model list and automation features, so the findings carry recency risk. [inference; source: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations]
+The proposed matrix thresholds are untested against real workloads. [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent]</p>
+<h3>Open Questions</h3>
+<ul>
+<li>Which controlled comparison could isolate scaffolding and validation effects from model capability for unattended coding agents across stages? [assumption; source: https://arxiv.org/abs/2407.01489]</li>
+<li>What are the documented lifetime and revocation properties of the credentials that vendor-hosted agents use, and can an administrator revoke them mid-session? [assumption; source: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/risks-and-mitigations]</li>
+<li>How should the credential-exchange hop be recorded for vendor-hosted agents so the linked audit chain in the identity item is complete? [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-identity-access-management-enterprise.md]</li>
+</ul>
+<hr />
+<hr />
 <p><a id="2026-10-02-ideal-internal-platform-product-standard-md"></a></p>
 <h2>Ideal internal platforms as products: an assessable operating standard</h2>
 <p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-02-ideal-internal-platform-product-standard.md</p>

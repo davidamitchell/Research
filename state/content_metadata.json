@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-10-18T03:37:46Z",
+  "extracted_at": "2026-10-18T03:46:43Z",
   "items": {
     "2026-10-17-agent-runtime-placement-criteria": {
       "named_concepts": [
@@ -109,6 +109,125 @@
           "sources": [
             "https://code.claude.com/docs/en/settings",
             "https://code.claude.com/docs/en/sandboxing"
+          ]
+        }
+      ]
+    },
+    "2026-10-03-zone-intervention-cross-effects": {
+      "named_concepts": [
+        "conflict resolution",
+        "consumer model",
+        "pool noise",
+        "fact-checking dataset",
+        "coding tasks",
+        "shared context",
+        "model family",
+        "masking advantage",
+        "study located",
+        "one zone",
+        "task family",
+        "metadata changes",
+        "improved conflict",
+        "low-confidence report",
+        "noisy corpus",
+        "verifier accuracy",
+        "single-zone studies",
+        "factorial experiment",
+        "swapping publication",
+        "publication time"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-08-20-mediated-content-pool-semantic-clarity.html",
+        "https://davidamitchell.github.io/Research/research/2026-08-20-flat-vector-rag-context-collision.html",
+        "https://davidamitchell.github.io/Research/research/2026-08-20-execution-harness-closed-loop-performance.html",
+        "https://davidamitchell.github.io/Research/research/2026-08-20-independent-goal-attainment-verification.html",
+        "https://davidamitchell.github.io/Research/research/2026-08-20-three-zone-interface-feedback-constraints.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-agent-memory-evaluation-framework.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-18-rq4-2-adversarial-error-propagation.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-12-rag-document-drift-agent-behavior.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-01-terminal-bench-minimal-coding-agent-benchmarks.html",
+        "https://davidamitchell.github.io/Research/research/2026-08-20-neuro-symbolic-nuance-loss-explainability.html",
+        "https://aclanthology.org/2024.blackboxnlp-1.24/",
+        "https://arxiv.org/abs/2505.17762",
+        "https://arxiv.org/abs/2401.11911",
+        "https://arxiv.org/abs/2504.13079",
+        "https://arxiv.org/abs/2508.21433",
+        "https://arxiv.org/abs/2510.11967",
+        "https://arxiv.org/abs/2404.13076",
+        "https://arxiv.org/abs/2410.21819",
+        "https://arxiv.org/abs/2506.07962",
+        "https://arxiv.org/abs/2306.05685",
+        "https://www.trychroma.com/research/context-rot",
+        "https://www.tbench.ai/leaderboard/terminal-bench/2.0",
+        "https://github.com/kartikeyamandhar/graphrag-comparison",
+        "https://www.cs.huji.ac.il/~lehmann/nonmon/AGM_JSL.pdf",
+        "https://www.w3.org/TR/prov-o/",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/final",
+        "https://doi.org/10.1109/SP.1982.10014",
+        "https://arxiv.org/abs/2506.08500",
+        "https://arxiv.org/abs/1009.3391",
+        "https://arxiv.org/abs/2310.01798",
+        "https://open.ncl.ac.uk/theory-library/socio-technical-theory.pdf"
+      ],
+      "key_claims": [
+        {
+          "text": "Consumer models differ in how retrieved-document metadata changes their answers, since swapping publication time changed the answer for most models tested while changing the source mostly did not and appearance strongly affected one model family",
+          "sources": [
+            "https://aclanthology.org/2024.blackboxnlp-1.24/"
+          ]
+        },
+        {
+          "text": "Adding source-credibility background information at retrieval and generation stages significantly improved conflict resolution on a fact-checking dataset, which is direct evidence for a pool-level credibility annotation benefit in that single task family",
+          "sources": [
+            "https://arxiv.org/abs/2505.17762"
+          ]
+        },
+        {
+          "text": "Models can favour generated over retrieved context because of similarity to the question and segmentation damage, so a provenance annotation is not guaranteed to override a consumer's similarity-driven preference",
+          "sources": [
+            "https://arxiv.org/abs/2401.11911",
+            "https://aclanthology.org/2024.blackboxnlp-1.24/"
+          ]
+        },
+        {
+          "text": "No study located serialises Provenance Ontology, Resource Description Framework-star, or minimal-justification overlays into consumer prompts and measures conflict resolution, so the proposed overlay effect on the context-collision categories remains an untested hypothesis",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-08-20-mediated-content-pool-semantic-clarity.html",
+            "https://davidamitchell.github.io/Research/research/2026-08-20-flat-vector-rag-context-collision.html"
+          ]
+        },
+        {
+          "text": "The measured masking advantage over summarisation comes from coding tasks, and the one non-coding result located compares context folding with summarisation, so the masking advantage on non-coding tasks is untested",
+          "sources": [
+            "https://arxiv.org/abs/2508.21433",
+            "https://arxiv.org/abs/2510.11967"
+          ]
+        },
+        {
+          "text": "Context-rot curves are model-specific and recall degrades non-uniformly with input length, so a mask depth tuned on one consumer model is not expected to transfer to another",
+          "sources": [
+            "https://www.trychroma.com/research/context-rot",
+            "https://davidamitchell.github.io/Research/research/2026-03-08-context-engineering-first-principles.html"
+          ]
+        },
+        {
+          "text": "An ontology-guided extraction gain of 3.17 percentage points on a clean benchmark is paired with a low-confidence report that a fixed-ontology pipeline lost 21.0 percentage points on a noisy corpus against 10.5 for a schema-free pipeline, and pool noise is a candidate predictor of reversal that remains a hypothesis",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-07-20-tbox-abox-graphrag.html",
+            "https://github.com/kartikeyamandhar/graphrag-comparison"
+          ]
+        },
+        {
+          "text": "Language-model judges favour their own outputs and recognise them with non-trivial accuracy, reported independently by two groups on single-family judging tasks, and extension to agent verifiers is untested",
+          "sources": [
+            "https://arxiv.org/abs/2404.13076",
+            "https://arxiv.org/abs/2410.21819"
           ]
         }
       ]
