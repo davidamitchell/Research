@@ -2,12 +2,12 @@
 review_count: 2
 title: "Runtime placement criteria for software-engineering agents in regulated organisations"
 added: 2026-10-17T07:34:52+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 themes: [agentic-ai, governance-policy, security-risk, tools-infrastructure, regulatory-compliance]
 started: 2026-10-18T03:18:13+00:00
-completed: ~
+completed: 2026-10-18T03:35:45+00:00
 output: [knowledge]
 cites: [2026-08-12-ai-coding-agent-runtime-security-evolution, 2026-04-26-ai-agent-identity-access-management-enterprise, 2026-05-01-appropriate-task-selection-coding-agents, 2026-04-26-access-control-amplification-agentic-operations]
 related: [2026-03-08-ai-coding-harnesses-agent-philosophy]
