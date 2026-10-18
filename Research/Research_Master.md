@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-10-18 03:45 UTC
+Generated on: 2026-10-18 03:57 UTC
 
 ## Table of Contents
 
+* [Optionality and Control Across AI Model Consumption Stages](#2026-10-17-optionality-control-model-stages-md)
 * [Runtime placement criteria for software-engineering agents in regulated organisations](#2026-10-17-agent-runtime-placement-criteria-md)
 * [Cross-effects among three-zone agent interventions](#2026-10-03-zone-intervention-cross-effects-md)
 * [Ideal internal platforms as products: an assessable operating standard](#2026-10-02-ideal-internal-platform-product-standard-md)
@@ -468,6 +469,95 @@ Generated on: 2026-10-18 03:45 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-10-17-optionality-control-model-stages-md"></a>
+
+## Optionality and Control Across AI Model Consumption Stages
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-17-optionality-control-model-stages.md
+
+## Research Question
+
+When an organisation progresses from Artificial Intelligence (AI) capabilities embedded in vendor subscriptions, through managed model platforms, to self-hosting model weights on infrastructure it controls, how do model choice, per-request selection, and operational and data controls change? Which capabilities become available at each stage, and does model tuning begin on managed platforms or require self-hosting?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+Model tuning begins on managed platforms, not at self-hosting, because Amazon Bedrock, Microsoft Foundry, and Google Vertex AI each offer native fine-tuning, and self-hosting adds ownership of the weights and serving path rather than the ability to tune. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-fine-tuning.html; https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/fine-tuning-overview; https://cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models]
+The stages stack rather than replace one another, since imported weights can be served beside catalogue models through one interface and routing can bridge them. [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html; https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html]
+Self-hosting break-even is dominated by assumed throughput, utilisation, and price, with published estimates ranging from months to years. [inference; source: https://arxiv.org/abs/2509.18101; https://arxiv.org/abs/2601.09527]
+For banks and other financial entities, exit planning and model-risk validation apply to vendor services at every stage, and extraterritorial-access law raises the control needed over data paths, without mandating self-hosting. [inference; source: https://www.law.cornell.edu/uscode/text/18/2713; https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2554; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf]
+The primary uncertainty is that no named regulated organisation's self-hosting decision was verified. [inference; source: https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html]
+
+### Key Findings
+
+1. Amazon Bedrock, Microsoft Foundry, and Google Vertex AI each provide platform-native supervised fine-tuning for selected models, so tuning is available before any self-hosting step. ([fact]; high confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-fine-tuning.html; https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/fine-tuning-overview; https://cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models)
+2. Tuned models stay inside platform serving constraints: Bedrock requires purchased Provisioned Throughput for customised models and Vertex deploys tuned Gemini models only to shared public endpoints. ([fact]; high confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html; https://cloud.google.com/vertex-ai/docs/predictions/choose-endpoint-type)
+3. Each platform documents a path for externally trained weights, through Bedrock Custom Model Import, the Foundry Fireworks integration, and Vertex custom weights in Preview, but regions and data terms differ, including a Foundry exclusion from EU Data Boundary commitments. ([inference]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html; https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/import-custom-models; https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/enable-fireworks-models; https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/deploy-models-with-custom-weights)
+4. Imported-weight serving is best classed as managed-platform use with self-hosted-style weight control, and stages stack because one interface can address both catalogue and customer-owned models. ([inference]; medium confidence; source: https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html; https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html)
+5. Trusting dynamic routing requires a workload-specific evaluation set, a human-validated judge, and calibrated thresholds, because public-benchmark savings and judge agreement above 80 percent come with documented biases. ([inference]; medium confidence; source: https://arxiv.org/abs/2306.05685; https://github.com/lm-sys/RouteLLM; https://arxiv.org/abs/2305.05176)
+6. Retrieval and prompting should precede tuning for policy question answering and compliance checking, because two independent studies find retrieval beats fine-tuning for knowledge injection. ([inference]; medium confidence; source: https://arxiv.org/abs/2312.05934; https://arxiv.org/abs/2403.01432)
+7. Self-hosting break-even is set by cost per token at the margin, so halving assumed GPU throughput in an illustrative case moves break-even from near 14 billion to roughly 100 billion tokens per month, using invented inputs. ([assumption]; low confidence; source: https://arxiv.org/abs/2509.18101; https://arxiv.org/abs/2601.09527)
+8. Independent cost evidence ranges from months to about five years to break even, and the optimistic consumer-GPU result excludes staff and redundancy, so no single threshold transfers between organisations. ([inference]; medium confidence; source: https://arxiv.org/abs/2509.18101; https://arxiv.org/abs/2601.09527)
+9. Hybrid placement of cheap agent roles on self-hosted models and hard roles on APIs lowered per-task cost by up to 12 times in one study, which suggests partial self-hosting can capture savings before full break-even. ([inference]; medium confidence; source: https://arxiv.org/abs/2606.20629; https://arxiv.org/abs/2610.00954)
+10. For banks and other financial entities in the EU, US, and UK, exit planning under the Digital Operational Resilience Act and vendor-model validation under SR 11-7 and SS1/23 apply to vendor services at every stage, so these duties raise lock-in cost without requiring self-hosting. ([inference]; medium confidence; source: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2554; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss)
+11. Data location alone does not settle jurisdictional exposure, because 18 U.S.C. 2713 reaches provider-held data wherever it is stored, so sovereignty depends on who operates the infrastructure. ([inference]; medium confidence; source: https://www.law.cornell.edu/uscode/text/18/2713; https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2854)
+12. Open-weight licence obligations such as attribution, an acceptable use policy, and a 700 million monthly-user clause travel with the weights across managed import and self-hosting, and bespoke licences do not meet the Open Source Initiative definition. ([inference]; medium confidence; source: https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/LICENSE; https://opensource.org/ai/open-source-ai-definition)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Native fine-tuning exists on all three platforms | https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-fine-tuning.html; https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/fine-tuning-overview; https://cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models | high | vendor docs, retrieved 2026-10-18 |
+| [fact] Tuned-model serving constraints on Bedrock and Vertex | https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html; https://cloud.google.com/vertex-ai/docs/predictions/choose-endpoint-type | high | vendor docs |
+| [inference] Custom-weight import path on all three platforms | https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html; https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/import-custom-models; https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/enable-fireworks-models; https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/deploy-models-with-custom-weights | medium | Vertex in Preview |
+| [inference] Stages stack and imported serving is platform use | https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html; https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html | medium | classification is a judgment |
+| [inference] Routing prerequisites | https://arxiv.org/abs/2306.05685; https://github.com/lm-sys/RouteLLM; https://arxiv.org/abs/2305.05176 | medium | public benchmarks |
+| [inference] Retrieval before tuning for knowledge tasks | https://arxiv.org/abs/2312.05934; https://arxiv.org/abs/2403.01432 | medium | mapped to workloads by inference |
+| [assumption] Break-even sensitivity illustration | https://arxiv.org/abs/2509.18101; https://arxiv.org/abs/2601.09527 | low | inputs are invented |
+| [inference] Cost evidence ranges widely | https://arxiv.org/abs/2509.18101; https://arxiv.org/abs/2601.09527 | medium | differing assumptions |
+| [inference] Hybrid placement lowers per-task cost | https://arxiv.org/abs/2606.20629; https://arxiv.org/abs/2610.00954 | medium | benchmark settings |
+| [inference] Exit and validation duties apply at every stage for financial entities | https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2554; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss | medium | banking texts only |
+| [inference] Location does not settle jurisdiction | https://www.law.cornell.edu/uscode/text/18/2713; https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2854 | medium | legal reading |
+| [inference] Licence obligations travel with weights | https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/LICENSE; https://opensource.org/ai/open-source-ai-definition | medium | one licence examined |
+
+### Assumptions
+
+Classification and extraction workloads are assumed to depend on stable formats rather than injected facts. [assumption; source: https://arxiv.org/abs/2506.02153] That assumption is reasonable because small-model arguments focus on repetitive, scoped subtasks, but no fetched study tests these workloads in regulated settings. [assumption; source: https://arxiv.org/abs/2506.02153]
+
+Break-even inputs of 2 dollars per million tokens, 4 dollars per GPU-hour, 3,000 tokens per second, 40 percent utilisation, and 15,000 dollars monthly operations cost are illustrative values only. [assumption; source: https://arxiv.org/abs/2509.18101] They are chosen to show the formula's sensitivity and are not observed prices from any vendor. [assumption; source: https://arxiv.org/abs/2509.18101]
+
+Subscription-stage selection limits are assumed to match the ladder item's description, because no subscription product documentation was fetched. [assumption; source: https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html] The ladder item is the only prior source in this repository that characterises that stage. [assumption; source: https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html]
+
+### Analysis
+
+Vendor documentation was weighted as definitive for what each platform offers on the retrieval date and as silent on future availability. [inference; source: https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models] Peer-reviewed or preprint cost studies were weighted above vendor total-cost-of-ownership blogs, which were excluded as non-independent. [inference; source: https://arxiv.org/abs/2509.18101]
+The layered organisation item frames adaptation as a spectrum from prompting and retrieval to fine-tuning, and the platform evidence places the early part of that spectrum on managed platforms. [inference; source: https://davidamitchell.github.io/Research/research/2026-03-19-layered-org-llm-architecture.html; https://cloud.google.com/vertex-ai/generative-ai/docs/models/tune-models]
+The rival view that regulated firms should self-host by default is weakened because exit planning and validation duties apply equally to vendor services. [inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2554; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf]
+The rival view that managed platforms always suffice is weakened by the Fireworks data-sharing terms and the EU Data Boundary exclusion for imported weights on Foundry. [inference; source: https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/enable-fireworks-models]
+Whether sovereignty or cost drives self-hosting for a given firm cannot be settled here, because this item verifies the law and not any firm's decision. [inference; source: https://www.law.cornell.edu/uscode/text/18/2713; https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html]
+Competing drivers include latency, the capability gap between open-weight and frontier models, operations-staff capacity, and vendor contract terms, and the evidence gathered covers cost, capability tuning paths, and contract exit duties but not latency or measured capability gaps. [inference; source: https://arxiv.org/abs/2509.18101; https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/fine-tuning-overview; https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2554]
+
+### Risks, Gaps, and Uncertainties
+
+- No named regulated organisation's self-hosting rationale was verified, because primary BNP Paribas pages were not retrievable and searches found no named case. [inference; source: https://davidamitchell.github.io/Research/research/2026-08-13-llm-consumption-maturity-ladder.html]
+- Independent production cost evidence is limited to preprints with benchmark or consumer-hardware settings, and the worked break-even uses assumed inputs. [inference; source: https://arxiv.org/abs/2509.18101; https://arxiv.org/abs/2601.09527]
+- Platform features change quickly and some paths are Preview or classic-documentation only, so regional availability should be rechecked before design decisions. [inference; source: https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/deploy-models-with-custom-weights; https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/deployments-overview]
+- Only one open-weight licence was read, so licensing conclusions may not extend to Apache 2.0 or other terms. [inference; source: https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/LICENSE]
+- Legal readings are engineering interpretations and not legal advice, and UK data-protection law after the 2025 reforms was not analysed. [assumption; source: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679]
+
+### Open Questions
+
+- Which named regulated organisations have disclosed self-hosting for residency or sovereignty reasons?
+- How do tuned small models compare with retrieval on regulated classification and extraction tasks in controlled studies?
+- How do Apache 2.0 and other open-weight licences differ from the Llama licence in obligations on derivatives?
+
+---
 
 ---
 
