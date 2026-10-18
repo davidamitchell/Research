@@ -1,7 +1,7 @@
 ---
 title: "Cross-effects among three-zone agent interventions"
 added: 2026-10-03T08:39:00+00:00
-status: in-progress
+status: reviewing
 priority: medium
 blocks: []
 themes: [agentic-ai, tools-infrastructure, knowledge-management, governance-policy]
