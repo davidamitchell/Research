@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Runtime placement criteria for software-engineering agents in regulated organisations"
 added: 2026-10-17T07:34:52+00:00
 status: reviewing
