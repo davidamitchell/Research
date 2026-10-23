@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-10-23T23:39:48Z",
-  "node_count": 471,
-  "edge_count": 81049,
+  "generated": "2026-10-23T23:43:17Z",
+  "node_count": 472,
+  "edge_count": 81227,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -5646,6 +5646,17 @@
         "governance-policy",
         "enterprise-adoption",
         "cost-performance"
+      ]
+    },
+    {
+      "slug": "2026-10-23-state-mutation-decision-framework",
+      "title": "State mutation decision framework: mapping delivery delay, ownership, and change costs",
+      "type": "primary",
+      "url": "/Research/research/2026-10-23-state-mutation-decision-framework.html",
+      "themes": [
+        "software-engineering",
+        "cost-performance",
+        "benchmarks-eval"
       ]
     }
   ],
@@ -23333,6 +23344,14 @@
     {
       "source": "2026-02-27-research-output-types",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-02-27-research-output-types"
+    },
+    {
+      "source": "2026-02-27-research-output-types",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -41467,6 +41486,14 @@
       "provenance": "2026-02-28-ai-strategy-business-efficiency-examples"
     },
     {
+      "source": "2026-02-28-ai-strategy-business-efficiency-examples",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-02-28-ai-strategy-business-efficiency-examples"
+    },
+    {
       "source": "2026-02-28-ai-strategy-risk-reduction-focus",
       "target": "2026-02-28-ai-strategy-security-focus",
       "weight": 2,
@@ -43888,6 +43915,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-02-28-ai-strategy-risk-reduction-focus"
+    },
+    {
+      "source": "2026-02-28-ai-strategy-risk-reduction-focus",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-02-28-ai-strategy-risk-reduction-focus"
     },
     {
@@ -48773,6 +48808,14 @@
     {
       "source": "2026-02-28-ai-strategy-swe-focus",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-02-28-ai-strategy-swe-focus"
+    },
+    {
+      "source": "2026-02-28-ai-strategy-swe-focus",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "software-engineering",
@@ -59149,6 +59192,14 @@
     {
       "source": "2026-02-28-jevons-paradox",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
+      "provenance": "2026-02-28-jevons-paradox"
+    },
+    {
+      "source": "2026-02-28-jevons-paradox",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,software-engineering",
@@ -77235,6 +77286,14 @@
       "provenance": "2026-03-01-context-mode-llm-context-compression"
     },
     {
+      "source": "2026-03-01-context-mode-llm-context-compression",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-01-context-mode-llm-context-compression"
+    },
+    {
       "source": "2026-03-01-github-specify-ralph-loop-lisa-planning",
       "target": "2026-03-01-github-wiki-research-content",
       "weight": 1,
@@ -80053,6 +80112,14 @@
     {
       "source": "2026-03-01-github-specify-ralph-loop-lisa-planning",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-03-01-github-specify-ralph-loop-lisa-planning"
+    },
+    {
+      "source": "2026-03-01-github-specify-ralph-loop-lisa-planning",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "software-engineering",
@@ -96413,6 +96480,14 @@
     {
       "source": "2026-03-02-research-quality-assurance-methodology",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-02-research-quality-assurance-methodology"
+    },
+    {
+      "source": "2026-03-02-research-quality-assurance-methodology",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -113395,6 +113470,14 @@
       "provenance": "2026-03-03-research-agenda-curation-coverage"
     },
     {
+      "source": "2026-03-03-research-agenda-curation-coverage",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-03-research-agenda-curation-coverage"
+    },
+    {
       "source": "2026-03-03-research-loop-quality-prompt-engineering",
       "target": "2026-03-04-sdlc-ai-prompt-patterns",
       "weight": 3,
@@ -116093,6 +116176,14 @@
     {
       "source": "2026-03-03-research-loop-quality-prompt-engineering",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-03-research-loop-quality-prompt-engineering"
+    },
+    {
+      "source": "2026-03-03-research-loop-quality-prompt-engineering",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -119027,6 +119118,14 @@
       "provenance": "2026-03-04-sdlc-ai-prompt-patterns"
     },
     {
+      "source": "2026-03-04-sdlc-ai-prompt-patterns",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-03-04-sdlc-ai-prompt-patterns"
+    },
+    {
       "source": "2026-03-05-general-agent-optimization-framework",
       "target": "2026-03-05-h-neuron-over-compliance",
       "weight": 1,
@@ -121896,6 +121995,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-03-05-general-agent-optimization-framework"
+    },
+    {
+      "source": "2026-03-05-general-agent-optimization-framework",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-03-05-general-agent-optimization-framework"
     },
     {
@@ -131203,6 +131310,14 @@
       "provenance": "2026-03-05-llm-hallucination-mechanisms"
     },
     {
+      "source": "2026-03-05-llm-hallucination-mechanisms",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-05-llm-hallucination-mechanisms"
+    },
+    {
       "source": "2026-03-05-swarm-pca-genetic-reinforcement-learning",
       "target": "2026-03-07-run-build-it-allocation-implementation-how",
       "weight": 1,
@@ -136099,6 +136214,14 @@
       "provenance": "2026-03-07-run-build-it-allocation-implementation-how"
     },
     {
+      "source": "2026-03-07-run-build-it-allocation-implementation-how",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-07-run-build-it-allocation-implementation-how"
+    },
+    {
       "source": "2026-03-07-run-vs-build-it-spending-allocation",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 1,
@@ -138125,6 +138248,14 @@
     {
       "source": "2026-03-07-run-vs-build-it-spending-allocation",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-07-run-vs-build-it-spending-allocation"
+    },
+    {
+      "source": "2026-03-07-run-vs-build-it-spending-allocation",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -155749,6 +155880,14 @@
     {
       "source": "2026-03-08-lancedb-index-rebuild-from-git",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-08-lancedb-index-rebuild-from-git"
+    },
+    {
+      "source": "2026-03-08-lancedb-index-rebuild-from-git",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -174755,6 +174894,14 @@
       "provenance": "2026-03-10-adversarial-agents-shared-goals-multi-perspective"
     },
     {
+      "source": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-10-adversarial-agents-shared-goals-multi-perspective"
+    },
+    {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-03-10-ai-concept-classification-taxonomy",
       "weight": 2,
@@ -177136,6 +177283,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
+    },
+    {
+      "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-03-10-agent-evaluation-cross-repo-analysis"
     },
     {
@@ -187675,6 +187830,14 @@
       "provenance": "2026-03-10-nature-of-the-firm-coase-organisations"
     },
     {
+      "source": "2026-03-10-nature-of-the-firm-coase-organisations",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-10-nature-of-the-firm-coase-organisations"
+    },
+    {
       "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-03-12-ai-team-size-strike-team-thesis",
       "weight": 1,
@@ -190155,6 +190318,14 @@
       "provenance": "2026-03-10-research-loop-evaluation-rubric"
     },
     {
+      "source": "2026-03-10-research-loop-evaluation-rubric",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-10-research-loop-evaluation-rubric"
+    },
+    {
       "source": "2026-03-12-ai-force-multiplier-ambition-expansion",
       "target": "2026-03-12-ai-team-size-strike-team-thesis",
       "weight": 1,
@@ -191336,6 +191507,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-03-12-ai-force-multiplier-ambition-expansion"
+    },
+    {
+      "source": "2026-03-12-ai-force-multiplier-ambition-expansion",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-03-12-ai-force-multiplier-ambition-expansion"
     },
     {
@@ -199571,6 +199750,14 @@
       "provenance": "2026-03-12-hosting-options-for-the-research-repo"
     },
     {
+      "source": "2026-03-12-hosting-options-for-the-research-repo",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-12-hosting-options-for-the-research-repo"
+    },
+    {
       "source": "2026-03-12-superpowers-integration-analysis",
       "target": "2026-03-12-swat-technique-loop-fresh-context",
       "weight": 2,
@@ -204843,6 +205030,14 @@
       "provenance": "2026-03-12-team-size-limits-brooks-dunbar-network-theory"
     },
     {
+      "source": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-03-12-team-size-limits-brooks-dunbar-network-theory"
+    },
+    {
       "source": "2026-03-12-volume-vs-correctness-ai-era",
       "target": "2026-03-13-financial-forecasting-it-run-costs",
       "weight": 1,
@@ -206973,6 +207168,14 @@
     {
       "source": "2026-03-12-volume-vs-correctness-ai-era",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-12-volume-vs-correctness-ai-era"
+    },
+    {
+      "source": "2026-03-12-volume-vs-correctness-ai-era",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -209408,6 +209611,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-03-13-financial-forecasting-it-run-costs"
+    },
+    {
+      "source": "2026-03-13-financial-forecasting-it-run-costs",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-03-13-financial-forecasting-it-run-costs"
     },
     {
@@ -213445,6 +213656,14 @@
     {
       "source": "2026-03-14-reliable-software-llm-era",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-03-14-reliable-software-llm-era"
+    },
+    {
+      "source": "2026-03-14-reliable-software-llm-era",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "software-engineering",
@@ -227227,6 +227446,14 @@
       "provenance": "2026-03-15-prompt-injection-threat-landscape"
     },
     {
+      "source": "2026-03-15-prompt-injection-threat-landscape",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-15-prompt-injection-threat-landscape"
+    },
+    {
       "source": "2026-03-15-saas-banking-invariants",
       "target": "2026-03-16-adaptive-policy-authorization-compliance",
       "weight": 1,
@@ -229496,6 +229723,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-03-15-saas-banking-invariants"
+    },
+    {
+      "source": "2026-03-15-saas-banking-invariants",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-03-15-saas-banking-invariants"
     },
     {
@@ -240845,6 +241080,14 @@
     {
       "source": "2026-03-16-intent-driven-development",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-03-16-intent-driven-development"
+    },
+    {
+      "source": "2026-03-16-intent-driven-development",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "software-engineering",
@@ -264619,6 +264862,14 @@
       "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
     },
     {
+      "source": "2026-03-22-applied-context-engineering-agent-workflows",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-03-22-applied-context-engineering-agent-workflows"
+    },
+    {
       "source": "2026-03-22-code-architecture-inspection",
       "target": "2026-03-22-coding-ai-agent-skills-survey",
       "weight": 2,
@@ -268949,6 +269200,14 @@
     {
       "source": "2026-03-22-coding-ai-agent-skills-survey",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-03-22-coding-ai-agent-skills-survey"
+    },
+    {
+      "source": "2026-03-22-coding-ai-agent-skills-survey",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "software-engineering",
@@ -280171,6 +280430,14 @@
       "provenance": "2026-03-23-software-factory"
     },
     {
+      "source": "2026-03-23-software-factory",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-23-software-factory"
+    },
+    {
       "source": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
       "target": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
       "weight": 1,
@@ -288323,6 +288590,14 @@
       "provenance": "2026-03-26-cost-reduction-is-not-strategy"
     },
     {
+      "source": "2026-03-26-cost-reduction-is-not-strategy",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-26-cost-reduction-is-not-strategy"
+    },
+    {
       "source": "2026-03-26-customer-contact-and-delight",
       "target": "2026-03-26-measuring-opportunity-cost",
       "weight": 2,
@@ -291229,6 +291504,14 @@
     {
       "source": "2026-03-26-measuring-opportunity-cost",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-26-measuring-opportunity-cost"
+    },
+    {
+      "source": "2026-03-26-measuring-opportunity-cost",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -306179,6 +306462,14 @@
       "provenance": "2026-04-01-backpressure-theory-of-constraints"
     },
     {
+      "source": "2026-04-01-backpressure-theory-of-constraints",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-01-backpressure-theory-of-constraints"
+    },
+    {
       "source": "2026-04-01-timesfm-time-series-foundation-models",
       "target": "2026-04-02-ai-company-hiring-strategies",
       "weight": 1,
@@ -307784,6 +308075,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
+      "provenance": "2026-04-01-timesfm-time-series-foundation-models"
+    },
+    {
+      "source": "2026-04-01-timesfm-time-series-foundation-models",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
       "provenance": "2026-04-01-timesfm-time-series-foundation-models"
     },
     {
@@ -311773,6 +312072,14 @@
     {
       "source": "2026-04-02-ai-funding-and-capital-investment-landscape",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-02-ai-funding-and-capital-investment-landscape"
+    },
+    {
+      "source": "2026-04-02-ai-funding-and-capital-investment-landscape",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -319523,6 +319830,14 @@
       "provenance": "2026-04-02-org-shape-software-cost-zero"
     },
     {
+      "source": "2026-04-02-org-shape-software-cost-zero",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-02-org-shape-software-cost-zero"
+    },
+    {
       "source": "2026-04-03-ai-workflow-todo-digest",
       "target": "2026-04-03-oh-my-codex-patterns",
       "weight": 2,
@@ -326181,6 +326496,14 @@
     {
       "source": "2026-04-18-shopify-ai-strategy-red-queen-memo",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-18-shopify-ai-strategy-red-queen-memo"
+    },
+    {
+      "source": "2026-04-18-shopify-ai-strategy-red-queen-memo",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -358696,6 +359019,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-04-26-ai-governance-cost-performance-delivery-impact"
+    },
+    {
+      "source": "2026-04-26-ai-governance-cost-performance-delivery-impact",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-04-26-ai-governance-cost-performance-delivery-impact"
     },
     {
@@ -394155,6 +394486,14 @@
       "provenance": "2026-04-26-multi-ai-provider-control-planes"
     },
     {
+      "source": "2026-04-26-multi-ai-provider-control-planes",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-26-multi-ai-provider-control-planes"
+    },
+    {
       "source": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
       "target": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
       "weight": 2,
@@ -400208,6 +400547,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-04-26-software-engineering-investment-case-llm"
+    },
+    {
+      "source": "2026-04-26-software-engineering-investment-case-llm",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-04-26-software-engineering-investment-case-llm"
     },
     {
@@ -408120,6 +408467,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-04-27-academic-post-publication-amendment-practices"
+    },
+    {
+      "source": "2026-04-27-academic-post-publication-amendment-practices",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-04-27-academic-post-publication-amendment-practices"
     },
     {
@@ -439555,6 +439910,14 @@
       "provenance": "2026-04-28-llm-as-judge-pipeline-validation-checkpoints"
     },
     {
+      "source": "2026-04-28-llm-as-judge-pipeline-validation-checkpoints",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-04-28-llm-as-judge-pipeline-validation-checkpoints"
+    },
+    {
       "source": "2026-04-28-software-demand-shift-ai-coding-era",
       "target": "2026-02-28-jevons-paradox",
       "weight": 3,
@@ -441197,6 +441560,14 @@
     {
       "source": "2026-04-28-software-demand-shift-ai-coding-era",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
+    },
+    {
+      "source": "2026-04-28-software-demand-shift-ai-coding-era",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -449787,6 +450158,14 @@
       "provenance": "2026-04-30-ai-code-entropy-quality-metrics"
     },
     {
+      "source": "2026-04-30-ai-code-entropy-quality-metrics",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
+      "provenance": "2026-04-30-ai-code-entropy-quality-metrics"
+    },
+    {
       "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
       "target": "2026-04-02-claude-mythos",
       "weight": 3,
@@ -451560,6 +451939,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,governance-policy",
+      "provenance": "2026-04-30-claude-vs-m365-copilot-cowork-comparison"
+    },
+    {
+      "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-04-30-claude-vs-m365-copilot-cowork-comparison"
     },
     {
@@ -453400,6 +453787,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "software-engineering",
+      "provenance": "2026-04-30-deep-modules-ai-augmented-codebases"
+    },
+    {
+      "source": "2026-04-30-deep-modules-ai-augmented-codebases",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
       "provenance": "2026-04-30-deep-modules-ai-augmented-codebases"
     },
     {
@@ -458347,6 +458742,14 @@
       "provenance": "2026-04-30-fundamentals-first-vs-specs-to-code"
     },
     {
+      "source": "2026-04-30-fundamentals-first-vs-specs-to-code",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance,software-engineering",
+      "provenance": "2026-04-30-fundamentals-first-vs-specs-to-code"
+    },
+    {
       "source": "2026-04-30-grill-me-ai-alignment-shared-design",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 3,
@@ -460104,6 +460507,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "software-engineering",
+      "provenance": "2026-04-30-grill-me-ai-alignment-shared-design"
+    },
+    {
+      "source": "2026-04-30-grill-me-ai-alignment-shared-design",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
       "provenance": "2026-04-30-grill-me-ai-alignment-shared-design"
     },
     {
@@ -461896,6 +462307,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy"
+    },
+    {
+      "source": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy"
     },
     {
@@ -465355,6 +465774,14 @@
       "provenance": "2026-04-30-se-fundamentals-ai-code-synthesis"
     },
     {
+      "source": "2026-04-30-se-fundamentals-ai-code-synthesis",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
+      "provenance": "2026-04-30-se-fundamentals-ai-code-synthesis"
+    },
+    {
       "source": "2026-04-30-strategic-tactical-division-ai-teams",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 3,
@@ -467024,6 +467451,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "cost-performance,organisational-design,software-engineering",
+      "provenance": "2026-04-30-strategic-tactical-division-ai-teams"
+    },
+    {
+      "source": "2026-04-30-strategic-tactical-division-ai-teams",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
       "provenance": "2026-04-30-strategic-tactical-division-ai-teams"
     },
     {
@@ -468755,6 +469190,14 @@
       "provenance": "2026-04-30-tdd-feedback-loops-ai-augmented-dev"
     },
     {
+      "source": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
+      "provenance": "2026-04-30-tdd-feedback-loops-ai-augmented-dev"
+    },
+    {
       "source": "2026-04-30-ubiquitous-language-ai-code-consistency",
       "target": "2026-03-16-intent-driven-development",
       "weight": 4,
@@ -470427,6 +470870,14 @@
       "provenance": "2026-04-30-ubiquitous-language-ai-code-consistency"
     },
     {
+      "source": "2026-04-30-ubiquitous-language-ai-code-consistency",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-04-30-ubiquitous-language-ai-code-consistency"
+    },
+    {
       "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 4,
@@ -472021,6 +472472,14 @@
     {
       "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-01-ai-coding-harness-quality-benchmarks"
+    },
+    {
+      "source": "2026-05-01-ai-coding-harness-quality-benchmarks",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -473840,6 +474299,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-05-01-appropriate-task-selection-coding-agents"
+    },
+    {
+      "source": "2026-05-01-appropriate-task-selection-coding-agents",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
       "provenance": "2026-05-01-appropriate-task-selection-coding-agents"
     },
     {
@@ -477043,6 +477510,14 @@
       "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
     },
     {
+      "source": "2026-05-01-compound-error-accumulation-ai-codebases",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
+    },
+    {
       "source": "2026-05-01-extension-systems-ai-coding-agents",
       "target": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
       "weight": 3,
@@ -480123,6 +480598,14 @@
       "provenance": "2026-05-01-human-oversight-ai-software-development"
     },
     {
+      "source": "2026-05-01-human-oversight-ai-software-development",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-05-01-human-oversight-ai-software-development"
+    },
+    {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 4,
@@ -483117,6 +483600,14 @@
     {
       "source": "2026-05-01-self-modifying-agent-architectures",
       "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-05-01-self-modifying-agent-architectures"
+    },
+    {
+      "source": "2026-05-01-self-modifying-agent-architectures",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "software-engineering",
@@ -486219,6 +486710,14 @@
       "provenance": "2026-05-01-sustainable-ai-software-development-synthesis"
     },
     {
+      "source": "2026-05-01-sustainable-ai-software-development-synthesis",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-05-01-sustainable-ai-software-development-synthesis"
+    },
+    {
       "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 3,
@@ -487717,6 +488216,14 @@
     {
       "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks"
+    },
+    {
+      "source": "2026-05-01-terminal-bench-minimal-coding-agent-benchmarks",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -489293,6 +489800,14 @@
     {
       "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-02-adversarial-review-methods-ai-research-quality"
+    },
+    {
+      "source": "2026-05-02-adversarial-review-methods-ai-research-quality",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -492453,6 +492968,14 @@
     {
       "source": "2026-05-02-automated-claim-verification-academic-literature",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-02-automated-claim-verification-academic-literature"
+    },
+    {
+      "source": "2026-05-02-automated-claim-verification-academic-literature",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -501075,6 +501598,14 @@
       "provenance": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model"
     },
     {
+      "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model"
+    },
+    {
       "source": "2026-05-02-research-item-versioning-amendment-norms",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 4,
@@ -503699,6 +504230,14 @@
       "provenance": "2026-05-02-research-to-publication-authoring-workflow"
     },
     {
+      "source": "2026-05-02-research-to-publication-authoring-workflow",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-02-research-to-publication-authoring-workflow"
+    },
+    {
       "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
       "target": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
       "weight": 4,
@@ -505120,6 +505659,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation"
+    },
+    {
+      "source": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-02-storm-perspective-discovery-multi-perspective-question-generation"
     },
     {
@@ -506656,6 +507203,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-02-systematic-review-methodology-ai-synthesis"
+    },
+    {
+      "source": "2026-05-02-systematic-review-methodology-ai-synthesis",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-02-systematic-review-methodology-ai-synthesis"
     },
     {
@@ -508283,6 +508838,14 @@
       "provenance": "2026-05-02-vendor-lock-in-portability-multi-platform-ai"
     },
     {
+      "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-02-vendor-lock-in-portability-multi-platform-ai"
+    },
+    {
       "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
       "target": "2026-03-12-failure-mode-taxonomy-expansion",
       "weight": 3,
@@ -509640,6 +510203,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability"
+    },
+    {
+      "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability"
     },
     {
@@ -511384,6 +511955,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update"
+    },
+    {
+      "source": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update"
     },
     {
@@ -526579,6 +527158,14 @@
       "provenance": "2026-05-06-barnum-statements-ai-responses-theory-practice"
     },
     {
+      "source": "2026-05-06-barnum-statements-ai-responses-theory-practice",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-06-barnum-statements-ai-responses-theory-practice"
+    },
+    {
       "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
       "target": "2026-03-02-research-quality-assurance-methodology",
       "weight": 3,
@@ -527699,6 +528286,14 @@
       "provenance": "2026-05-06-fact-checking-tools-research-quality-improvement"
     },
     {
+      "source": "2026-05-06-fact-checking-tools-research-quality-improvement",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-06-fact-checking-tools-research-quality-improvement"
+    },
+    {
       "source": "2026-05-06-factscore-precision-scoring-atomic-claims",
       "target": "2026-03-05-llm-hallucination-mechanisms",
       "weight": 4,
@@ -528357,6 +528952,14 @@
     {
       "source": "2026-05-06-factscore-precision-scoring-atomic-claims",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-06-factscore-precision-scoring-atomic-claims"
+    },
+    {
+      "source": "2026-05-06-factscore-precision-scoring-atomic-claims",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -529947,6 +530550,14 @@
       "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
     },
     {
+      "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
+    },
+    {
       "source": "2026-05-06-it-system-legibility-measurement-frameworks",
       "target": "2026-03-15-tracking-work-across-systems",
       "weight": 3,
@@ -531451,6 +532062,14 @@
       "provenance": "2026-05-06-it-system-legibility-measurement-frameworks"
     },
     {
+      "source": "2026-05-06-it-system-legibility-measurement-frameworks",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-06-it-system-legibility-measurement-frameworks"
+    },
+    {
       "source": "2026-05-06-loki-fact-checking-journalists-moderation",
       "target": "2026-03-05-llm-hallucination-mechanisms",
       "weight": 4,
@@ -532600,6 +533219,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-06-loki-fact-checking-journalists-moderation"
+    },
+    {
+      "source": "2026-05-06-loki-fact-checking-journalists-moderation",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-06-loki-fact-checking-journalists-moderation"
     },
     {
@@ -533896,6 +534523,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
+    },
+    {
+      "source": "2026-05-06-openfactcheck-ai-fact-checking-pipeline",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-06-openfactcheck-ai-fact-checking-pipeline"
     },
     {
@@ -538552,6 +539187,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-08-ai-capability-reference-architecture-second-cycle-update"
+    },
+    {
+      "source": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-08-ai-capability-reference-architecture-second-cycle-update"
     },
     {
@@ -543675,6 +544318,14 @@
       "provenance": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai"
     },
     {
+      "source": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
+      "provenance": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai"
+    },
+    {
       "source": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 4,
@@ -548536,6 +549187,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "cost-performance,organisational-design,software-engineering",
+      "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
+    },
+    {
+      "source": "2026-05-09-build-vs-improve-throughput-tradeoff",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
       "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
     },
     {
@@ -558416,6 +559075,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-05-09-llm-determinism-limits-temperature-zero"
+    },
+    {
+      "source": "2026-05-09-llm-determinism-limits-temperature-zero",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
       "provenance": "2026-05-09-llm-determinism-limits-temperature-zero"
     },
     {
@@ -570619,6 +571286,14 @@
       "provenance": "2026-05-12-hardware-load-inference-performance"
     },
     {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
       "source": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -576971,6 +577646,14 @@
       "provenance": "2026-05-12-rag-document-drift-agent-behavior"
     },
     {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+    },
+    {
       "source": "2026-05-12-regulated-ai-constraint-shift",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 4,
@@ -580059,6 +580742,14 @@
       "provenance": "2026-05-13-agent-process-reliability-architecture"
     },
     {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-03-02-integrative-framework-agent-decision-making",
       "weight": 3,
@@ -581091,6 +581782,14 @@
       "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
     },
     {
+      "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy"
+    },
+    {
       "source": "2026-05-13-graph-db-landscape-tco-interoperability",
       "target": "2026-05-02-knowledge-graph-schema-cross-session-research-mcp",
       "weight": 4,
@@ -582040,6 +582739,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
+      "source": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
     },
     {
@@ -583797,6 +584504,14 @@
     {
       "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-14-endsley-model-situational-awareness-deep-dive"
+    },
+    {
+      "source": "2026-05-14-endsley-model-situational-awareness-deep-dive",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -587288,6 +588003,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "cost-performance,governance-policy,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
     },
     {
@@ -592915,6 +593638,14 @@
       "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
       "weight": 4,
@@ -594979,6 +595710,14 @@
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
     },
     {
+      "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
+    },
+    {
       "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 4,
@@ -595923,6 +596662,14 @@
       "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
     },
     {
+      "source": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-16-external-dependency-surface-taxonomy-for-production-llm-agents"
+    },
+    {
       "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -596744,6 +597491,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "cost-performance,governance-policy,organisational-design",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
+      "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
@@ -597776,6 +598531,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
       "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
     },
     {
@@ -599608,6 +600371,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
       "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
     },
     {
@@ -601667,6 +602438,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "target": "2026-03-12-failure-mode-taxonomy-expansion",
       "weight": 3,
@@ -602696,6 +603475,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk"
     },
     {
@@ -603731,6 +604518,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 3,
@@ -604763,6 +605558,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 4,
@@ -605696,6 +606499,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
     },
     {
@@ -606696,6 +607507,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
     },
     {
@@ -609427,6 +610246,14 @@
       "provenance": "2026-05-17-aws-bedrock-capabilities"
     },
     {
+      "source": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-aws-bedrock-capabilities"
+    },
+    {
       "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "target": "2026-05-07-ai-production-incidents-deep-dive",
       "weight": 3,
@@ -610184,6 +611011,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "organisational-design",
+      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
+    },
+    {
+      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
     },
     {
@@ -613427,6 +614262,14 @@
       "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
     },
     {
+      "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
+    },
+    {
       "source": "2026-05-17-ms-azure-ai-foundry-capabilities",
       "target": "2026-04-26-ai-agent-identity-access-management-enterprise",
       "weight": 4,
@@ -614296,6 +615139,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
+    },
+    {
+      "source": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
     },
     {
@@ -616632,6 +617483,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
+    },
+    {
+      "source": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
     },
     {
@@ -619147,6 +620006,14 @@
       "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     },
     {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
       "source": "2026-05-18-agentic-production-tradeoffs",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -620051,6 +620918,14 @@
       "provenance": "2026-05-18-agentic-production-tradeoffs"
     },
     {
+      "source": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-agentic-production-tradeoffs"
+    },
+    {
       "source": "2026-05-18-rq1-1-popper-falsifiability",
       "target": "2026-02-27-information-synthesis-entropy",
       "weight": 3,
@@ -620520,6 +621395,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-rq1-1-popper-falsifiability"
+    },
+    {
+      "source": "2026-05-18-rq1-1-popper-falsifiability",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-18-rq1-1-popper-falsifiability"
     },
     {
@@ -621003,6 +621886,14 @@
       "provenance": "2026-05-18-rq1-2-deutsch-hard-to-vary"
     },
     {
+      "source": "2026-05-18-rq1-2-deutsch-hard-to-vary",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq1-2-deutsch-hard-to-vary"
+    },
+    {
       "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -621387,6 +622278,14 @@
       "provenance": "2026-05-18-rq1-3-instrumentalism-failure-modes"
     },
     {
+      "source": "2026-05-18-rq1-3-instrumentalism-failure-modes",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq1-3-instrumentalism-failure-modes"
+    },
+    {
       "source": "2026-05-18-rq2-1-erm-causal-blindness",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -621760,6 +622659,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
+    },
+    {
+      "source": "2026-05-18-rq2-1-erm-causal-blindness",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-18-rq2-1-erm-causal-blindness"
     },
     {
@@ -622152,6 +623059,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
+    },
+    {
+      "source": "2026-05-18-rq2-2-duhem-quine-underdetermination",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-05-18-rq2-2-duhem-quine-underdetermination"
     },
     {
@@ -623035,6 +623950,14 @@
       "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
     },
     {
+      "source": "2026-05-18-rq3-1-llm-statistical-vs-causal",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq3-1-llm-statistical-vs-causal"
+    },
+    {
       "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
       "target": "2026-05-18-rq2-1-erm-causal-blindness",
       "weight": 4,
@@ -623395,6 +624318,14 @@
       "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
     },
     {
+      "source": "2026-05-18-rq3-2-stochastic-parrot-ood",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq3-2-stochastic-parrot-ood"
+    },
+    {
       "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
       "target": "2026-05-18-rq2-1-erm-causal-blindness",
       "weight": 3,
@@ -623749,6 +624680,14 @@
     {
       "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq3-3-cot-counterfactual-limits"
+    },
+    {
+      "source": "2026-05-18-rq3-3-cot-counterfactual-limits",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -624283,6 +625222,14 @@
       "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
     },
     {
+      "source": "2026-05-18-rq4-1-agentic-loop-explanatory-reach",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq4-1-agentic-loop-explanatory-reach"
+    },
+    {
       "source": "2026-05-18-rq4-2-adversarial-error-propagation",
       "target": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
       "weight": 3,
@@ -624757,6 +625704,14 @@
     {
       "source": "2026-05-18-rq4-2-adversarial-error-propagation",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-rq4-2-adversarial-error-propagation"
+    },
+    {
+      "source": "2026-05-18-rq4-2-adversarial-error-propagation",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -629227,6 +630182,14 @@
       "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
     },
     {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
       "source": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
       "target": "2026-03-12-exploration-synthesis-gap",
       "weight": 3,
@@ -633483,6 +634446,14 @@
       "provenance": "2026-05-20-information-density-filtering-financial-rag"
     },
     {
+      "source": "2026-05-20-information-density-filtering-financial-rag",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-20-information-density-filtering-financial-rag"
+    },
+    {
       "source": "2026-05-21-agentic-semantic-km-capability-model",
       "target": "2026-03-02-agent-memory-management-context-injection",
       "weight": 3,
@@ -634005,6 +634976,14 @@
     {
       "source": "2026-05-21-contract-theory-statistical-criteria",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-21-contract-theory-statistical-criteria"
+    },
+    {
+      "source": "2026-05-21-contract-theory-statistical-criteria",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -634803,6 +635782,14 @@
       "provenance": "2026-05-21-prompt-program-optimization-theory-mechanisms"
     },
     {
+      "source": "2026-05-21-prompt-program-optimization-theory-mechanisms",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-21-prompt-program-optimization-theory-mechanisms"
+    },
+    {
       "source": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split",
       "target": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
       "weight": 3,
@@ -635304,6 +636291,14 @@
       "weight": 5,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design,software-engineering",
+      "provenance": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split"
+    },
+    {
+      "source": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
       "provenance": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split"
     },
     {
@@ -635819,6 +636814,14 @@
       "provenance": "2026-05-23-governance-controls-effectiveness-conditions"
     },
     {
+      "source": "2026-05-23-governance-controls-effectiveness-conditions",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-23-governance-controls-effectiveness-conditions"
+    },
+    {
       "source": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention",
       "target": "2026-03-02-transaction-costs",
       "weight": 4,
@@ -636331,6 +637334,14 @@
       "provenance": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention"
     },
     {
+      "source": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention"
+    },
+    {
       "source": "2026-05-23-governance-reform-leadership-failure",
       "target": "2026-03-02-transaction-costs",
       "weight": 4,
@@ -636803,6 +637814,14 @@
       "provenance": "2026-05-23-governance-reform-leadership-failure"
     },
     {
+      "source": "2026-05-23-governance-reform-leadership-failure",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-23-governance-reform-leadership-failure"
+    },
+    {
       "source": "2026-05-23-similarity-algorithms-controlled-vocabulary",
       "target": "2026-05-25-jepa-video-outcome-prediction-physical-action-problem-class",
       "weight": 1,
@@ -637157,6 +638176,14 @@
     {
       "source": "2026-05-23-similarity-algorithms-controlled-vocabulary",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-23-similarity-algorithms-controlled-vocabulary"
+    },
+    {
+      "source": "2026-05-23-similarity-algorithms-controlled-vocabulary",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -637595,6 +638622,14 @@
       "provenance": "2026-05-25-jepa-video-outcome-prediction-physical-action-problem-class"
     },
     {
+      "source": "2026-05-25-jepa-video-outcome-prediction-physical-action-problem-class",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-05-25-jepa-video-outcome-prediction-physical-action-problem-class"
+    },
+    {
       "source": "2026-05-25-llm-math-programming-reasoning-substrate",
       "target": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "weight": 4,
@@ -637992,6 +639027,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "software-engineering",
+      "provenance": "2026-05-25-llm-math-programming-reasoning-substrate"
+    },
+    {
+      "source": "2026-05-25-llm-math-programming-reasoning-substrate",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
       "provenance": "2026-05-25-llm-math-programming-reasoning-substrate"
     },
     {
@@ -638832,6 +639875,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption,organisational-design,software-engineering",
+      "provenance": "2026-05-27-ai-first-software-ecology-developer-ecosystems"
+    },
+    {
+      "source": "2026-05-27-ai-first-software-ecology-developer-ecosystems",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-05-27-ai-first-software-ecology-developer-ecosystems"
     },
     {
@@ -639931,6 +640982,14 @@
       "provenance": "2026-05-29-commit-trends-repo-velocity-rework-abandonment"
     },
     {
+      "source": "2026-05-29-commit-trends-repo-velocity-rework-abandonment",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance,software-engineering",
+      "provenance": "2026-05-29-commit-trends-repo-velocity-rework-abandonment"
+    },
+    {
       "source": "2026-05-29-split-authority-p1-operating-model-synthesis",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -640427,6 +641486,14 @@
       "provenance": "2026-05-29-split-authority-p1-operating-model-synthesis"
     },
     {
+      "source": "2026-05-29-split-authority-p1-operating-model-synthesis",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-29-split-authority-p1-operating-model-synthesis"
+    },
+    {
       "source": "2026-05-29-split-authority-q1-flow-constraint",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -640899,6 +641966,14 @@
       "provenance": "2026-05-29-split-authority-q1-flow-constraint"
     },
     {
+      "source": "2026-05-29-split-authority-q1-flow-constraint",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
+      "provenance": "2026-05-29-split-authority-q1-flow-constraint"
+    },
+    {
       "source": "2026-05-29-split-authority-q2-demand-segmentation",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -641355,6 +642430,14 @@
       "provenance": "2026-05-29-split-authority-q2-demand-segmentation"
     },
     {
+      "source": "2026-05-29-split-authority-q2-demand-segmentation",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-29-split-authority-q2-demand-segmentation"
+    },
+    {
       "source": "2026-05-29-split-authority-q3-routing-exception-isolation",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -641768,6 +642851,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design",
+      "provenance": "2026-05-29-split-authority-q3-routing-exception-isolation"
+    },
+    {
+      "source": "2026-05-29-split-authority-q3-routing-exception-isolation",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-29-split-authority-q3-routing-exception-isolation"
     },
     {
@@ -642187,6 +643278,14 @@
       "provenance": "2026-05-29-split-authority-q4-decision-rights-placement"
     },
     {
+      "source": "2026-05-29-split-authority-q4-decision-rights-placement",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
+      "provenance": "2026-05-29-split-authority-q4-decision-rights-placement"
+    },
+    {
       "source": "2026-05-29-split-authority-q5-control-model-tradeoff",
       "target": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
       "weight": 3,
@@ -642600,6 +643699,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design",
+      "provenance": "2026-05-29-split-authority-q5-control-model-tradeoff"
+    },
+    {
+      "source": "2026-05-29-split-authority-q5-control-model-tradeoff",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-29-split-authority-q5-control-model-tradeoff"
     },
     {
@@ -643067,6 +644174,14 @@
       "provenance": "2026-05-29-split-authority-q6-instability-leading-indicators"
     },
     {
+      "source": "2026-05-29-split-authority-q6-instability-leading-indicators",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-29-split-authority-q6-instability-leading-indicators"
+    },
+    {
       "source": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage",
       "target": "2026-05-31-capability-claim-telemetry-conflict-arbitration",
       "weight": 2,
@@ -643392,6 +644507,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,governance-policy,software-engineering",
+      "provenance": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage"
+    },
+    {
+      "source": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
       "provenance": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage"
     },
     {
@@ -643771,6 +644894,14 @@
       "provenance": "2026-05-31-capability-claim-telemetry-conflict-arbitration"
     },
     {
+      "source": "2026-05-31-capability-claim-telemetry-conflict-arbitration",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
+      "provenance": "2026-05-31-capability-claim-telemetry-conflict-arbitration"
+    },
+    {
       "source": "2026-05-31-formal-methods-interdependent-inputs-feasibility",
       "target": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "weight": 4,
@@ -644019,6 +645150,14 @@
       "provenance": "2026-05-31-formal-methods-interdependent-inputs-feasibility"
     },
     {
+      "source": "2026-05-31-formal-methods-interdependent-inputs-feasibility",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-05-31-formal-methods-interdependent-inputs-feasibility"
+    },
+    {
       "source": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -644243,6 +645382,14 @@
       "provenance": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling"
     },
     {
+      "source": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling"
+    },
+    {
       "source": "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals",
       "target": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling",
       "weight": 3,
@@ -644528,6 +645675,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals"
+    },
+    {
+      "source": "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals"
     },
     {
@@ -644808,6 +645963,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-05-31-goal-scope-change-constraint-propagation"
+    },
+    {
+      "source": "2026-05-31-goal-scope-change-constraint-propagation",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-05-31-goal-scope-change-constraint-propagation"
     },
     {
@@ -645091,6 +646254,14 @@
       "provenance": "2026-05-31-goal-specification-completeness-schema"
     },
     {
+      "source": "2026-05-31-goal-specification-completeness-schema",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-05-31-goal-specification-completeness-schema"
+    },
+    {
       "source": "2026-05-31-gore-strategic-intent-to-delivery-decomposition",
       "target": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling",
       "weight": 3,
@@ -645344,6 +646515,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-05-31-gore-strategic-intent-to-delivery-decomposition"
+    },
+    {
+      "source": "2026-05-31-gore-strategic-intent-to-delivery-decomposition",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-05-31-gore-strategic-intent-to-delivery-decomposition"
     },
     {
@@ -645619,6 +646798,14 @@
       "provenance": "2026-05-31-itil-capacity-baseline-assertion-vs-telemetry"
     },
     {
+      "source": "2026-05-31-itil-capacity-baseline-assertion-vs-telemetry",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-05-31-itil-capacity-baseline-assertion-vs-telemetry"
+    },
+    {
       "source": "2026-05-31-sre-slo-threshold-justification",
       "target": "2026-05-31-capability-claim-telemetry-conflict-arbitration",
       "weight": 4,
@@ -645864,6 +647051,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,organisational-design,software-engineering",
+      "provenance": "2026-05-31-sre-slo-threshold-justification"
+    },
+    {
+      "source": "2026-05-31-sre-slo-threshold-justification",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-05-31-sre-slo-threshold-justification"
     },
     {
@@ -646152,6 +647347,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption,governance-policy,software-engineering",
+      "provenance": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement"
+    },
+    {
+      "source": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement"
     },
     {
@@ -646563,6 +647766,14 @@
       "provenance": "2026-06-10-ai-productivity-quality-governance-open-questions"
     },
     {
+      "source": "2026-06-10-ai-productivity-quality-governance-open-questions",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
+      "provenance": "2026-06-10-ai-productivity-quality-governance-open-questions"
+    },
+    {
       "source": "2026-06-13-friction-aligned-apprenticeship",
       "target": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
       "weight": 4,
@@ -646872,6 +648083,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,organisational-design,software-engineering",
+      "provenance": "2026-06-13-local-global-optima-knowledge-work-throughput"
+    },
+    {
+      "source": "2026-06-13-local-global-optima-knowledge-work-throughput",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
       "provenance": "2026-06-13-local-global-optima-knowledge-work-throughput"
     },
     {
@@ -647211,6 +648430,14 @@
       "provenance": "2026-06-13-local-tooling-fragmentation-threshold-measurement"
     },
     {
+      "source": "2026-06-13-local-tooling-fragmentation-threshold-measurement",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-06-13-local-tooling-fragmentation-threshold-measurement"
+    },
+    {
       "source": "2026-06-13-platform-engineering-innersource-hybrid-standardization",
       "target": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
       "weight": 4,
@@ -647456,6 +648683,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption,organisational-design,software-engineering",
+      "provenance": "2026-06-13-platform-engineering-innersource-hybrid-standardization"
+    },
+    {
+      "source": "2026-06-13-platform-engineering-innersource-hybrid-standardization",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-06-13-platform-engineering-innersource-hybrid-standardization"
     },
     {
@@ -648123,6 +649358,14 @@
       "provenance": "2026-06-13-standardization-customization-balance-context-ai"
     },
     {
+      "source": "2026-06-13-standardization-customization-balance-context-ai",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-06-13-standardization-customization-balance-context-ai"
+    },
+    {
       "source": "2026-07-05-vector-rag-to-ontology-kg-rag-migration",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 3,
@@ -648416,6 +649659,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-07-05-vector-rag-to-ontology-kg-rag-migration"
+    },
+    {
+      "source": "2026-07-05-vector-rag-to-ontology-kg-rag-migration",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-07-05-vector-rag-to-ontology-kg-rag-migration"
     },
     {
@@ -648933,6 +650184,14 @@
     {
       "source": "2026-07-20-agent-memory-evaluation-framework",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-07-20-agent-memory-evaluation-framework"
+    },
+    {
+      "source": "2026-07-20-agent-memory-evaluation-framework",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -650939,6 +652198,14 @@
       "provenance": "2026-07-20-regulated-safe-to-fail-probing-operating-models"
     },
     {
+      "source": "2026-07-20-regulated-safe-to-fail-probing-operating-models",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-07-20-regulated-safe-to-fail-probing-operating-models"
+    },
+    {
       "source": "2026-07-20-tbox-abox-graphrag",
       "target": "2026-05-12-web-ontologies-production-knowledge-graph-agentic",
       "weight": 3,
@@ -651077,6 +652344,14 @@
     {
       "source": "2026-07-20-tbox-abox-graphrag",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-07-20-tbox-abox-graphrag"
+    },
+    {
+      "source": "2026-07-20-tbox-abox-graphrag",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -651224,6 +652499,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption,governance-policy,organisational-design,software-engineering",
+      "provenance": "2026-08-09-what-is-an-enterprise-architect"
+    },
+    {
+      "source": "2026-08-09-what-is-an-enterprise-architect",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-08-09-what-is-an-enterprise-architect"
     },
     {
@@ -651419,6 +652702,14 @@
       "provenance": "2026-08-12-ai-coding-agent-runtime-security-evolution"
     },
     {
+      "source": "2026-08-12-ai-coding-agent-runtime-security-evolution",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-08-12-ai-coding-agent-runtime-security-evolution"
+    },
+    {
       "source": "2026-08-13-llm-consumption-maturity-ladder",
       "target": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
       "weight": 3,
@@ -651600,6 +652891,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,governance-policy",
+      "provenance": "2026-08-13-llm-consumption-maturity-ladder"
+    },
+    {
+      "source": "2026-08-13-llm-consumption-maturity-ladder",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-08-13-llm-consumption-maturity-ladder"
     },
     {
@@ -651840,6 +653139,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption,governance-policy,organisational-design",
+      "provenance": "2026-08-17-cohesive-coherent-organisational-governance"
+    },
+    {
+      "source": "2026-08-17-cohesive-coherent-organisational-governance",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-08-17-cohesive-coherent-organisational-governance"
     },
     {
@@ -652363,6 +653670,14 @@
       "provenance": "2026-08-20-execution-harness-closed-loop-performance"
     },
     {
+      "source": "2026-08-20-execution-harness-closed-loop-performance",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-08-20-execution-harness-closed-loop-performance"
+    },
+    {
       "source": "2026-08-20-flat-vector-rag-context-collision",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 3,
@@ -652499,6 +653814,14 @@
       "provenance": "2026-08-20-flat-vector-rag-context-collision"
     },
     {
+      "source": "2026-08-20-flat-vector-rag-context-collision",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-08-20-flat-vector-rag-context-collision"
+    },
+    {
       "source": "2026-08-20-graphrag-macro-level-hallucination",
       "target": "2026-03-15-context-compression-rag-enterprise-knowledge",
       "weight": 3,
@@ -652613,6 +653936,14 @@
     {
       "source": "2026-08-20-graphrag-macro-level-hallucination",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-08-20-graphrag-macro-level-hallucination"
+    },
+    {
+      "source": "2026-08-20-graphrag-macro-level-hallucination",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -652779,6 +654110,14 @@
       "provenance": "2026-08-20-independent-goal-attainment-verification"
     },
     {
+      "source": "2026-08-20-independent-goal-attainment-verification",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-08-20-independent-goal-attainment-verification"
+    },
+    {
       "source": "2026-08-20-mediated-content-pool-semantic-clarity",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 3,
@@ -652928,6 +654267,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-08-20-mediated-content-pool-semantic-clarity"
+    },
+    {
+      "source": "2026-08-20-mediated-content-pool-semantic-clarity",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
       "provenance": "2026-08-20-mediated-content-pool-semantic-clarity"
     },
     {
@@ -653157,6 +654504,14 @@
     {
       "source": "2026-08-20-planar-memory-graph-topology-drift",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval",
+      "provenance": "2026-08-20-planar-memory-graph-topology-drift"
+    },
+    {
+      "source": "2026-08-20-planar-memory-graph-topology-drift",
+      "target": "2026-10-23-state-mutation-decision-framework",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
@@ -653483,6 +654838,14 @@
       "provenance": "2026-09-14-modern-technology-platform-taxonomy"
     },
     {
+      "source": "2026-09-14-modern-technology-platform-taxonomy",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-09-14-modern-technology-platform-taxonomy"
+    },
+    {
       "source": "2026-09-20-alignment-shared-background-limits",
       "target": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
       "weight": 4,
@@ -653603,6 +654966,14 @@
       "provenance": "2026-09-23-ms-copilot-office365-feedback-quality"
     },
     {
+      "source": "2026-09-23-ms-copilot-office365-feedback-quality",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-09-23-ms-copilot-office365-feedback-quality"
+    },
+    {
       "source": "2026-10-01-thinnest-viable-internal-platform-standard",
       "target": "2026-06-13-local-global-optima-knowledge-work-throughput",
       "weight": 4,
@@ -653691,6 +655062,14 @@
       "provenance": "2026-10-01-thinnest-viable-internal-platform-standard"
     },
     {
+      "source": "2026-10-01-thinnest-viable-internal-platform-standard",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
+      "provenance": "2026-10-01-thinnest-viable-internal-platform-standard"
+    },
+    {
       "source": "2026-10-02-ideal-internal-platform-product-standard",
       "target": "2026-06-13-local-global-optima-knowledge-work-throughput",
       "weight": 3,
@@ -653752,6 +655131,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption,organisational-design,software-engineering",
+      "provenance": "2026-10-02-ideal-internal-platform-product-standard"
+    },
+    {
+      "source": "2026-10-02-ideal-internal-platform-product-standard",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,software-engineering",
       "provenance": "2026-10-02-ideal-internal-platform-product-standard"
     },
     {
@@ -653979,6 +655366,14 @@
       "provenance": "2026-10-17-optionality-control-model-stages"
     },
     {
+      "source": "2026-10-17-optionality-control-model-stages",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-10-17-optionality-control-model-stages"
+    },
+    {
       "source": "2026-10-23-dependency-properties-coordination-mechanisms",
       "target": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
       "weight": 4,
@@ -654041,6 +655436,46 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
+    },
+    {
+      "source": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "target": "2026-10-23-state-mutation-decision-framework",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
+      "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
+    },
+    {
+      "source": "2026-10-23-state-mutation-decision-framework",
+      "target": "2026-04-30-ai-code-entropy-quality-metrics",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-state-mutation-decision-framework"
+    },
+    {
+      "source": "2026-10-23-state-mutation-decision-framework",
+      "target": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-state-mutation-decision-framework"
+    },
+    {
+      "source": "2026-10-23-state-mutation-decision-framework",
+      "target": "2026-05-21-monolith-vs-cohesive-portfolio-tco",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-state-mutation-decision-framework"
+    },
+    {
+      "source": "2026-10-23-state-mutation-decision-framework",
+      "target": "2026-05-29-commit-trends-repo-velocity-rework-abandonment",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-state-mutation-decision-framework"
     }
   ]
 }

@@ -1,6 +1,102 @@
 {
-  "extracted_at": "2026-10-23T23:39:43Z",
+  "extracted_at": "2026-10-23T23:43:12Z",
   "items": {
+    "2026-10-23-state-mutation-decision-framework": {
+      "named_concepts": [
+        "defect-related activity",
+        "change effort",
+        "change friction",
+        "elapsed-time metrics",
+        "file size",
+        "compounding rate",
+        "change lead",
+        "lead time",
+        "recovery time",
+        "two systems",
+        "defect density",
+        "examined study",
+        "future cost",
+        "ownership cost",
+        "change count",
+        "study estimates",
+        "run cost",
+        "low-quality code",
+        "development time",
+        "cross-sectional design"
+      ],
+      "source_urls": [
+        "https://doi.org/10.1109/TSE.1976.233837",
+        "https://ieeexplore.ieee.org/document/295895/",
+        "https://dora.dev/research/2024/dora-report/",
+        "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+        "https://arxiv.org/abs/2203.04374",
+        "https://research.chalmers.se/en/publication/507477",
+        "https://arxiv.org/abs/1902.06282",
+        "https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf",
+        "https://static.isthisit.nz/artifacts/blog/Defining_Measuring_and_Managing_Technical_Debt.pdf",
+        "https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf",
+        "https://ieeexplore.ieee.org/document/1553571",
+        "https://research.tue.nl/en/publications/cost-comparison-of-running-web-applications-in-the-cloud-using-mo/",
+        "https://dora.dev/guides/dora-metrics/",
+        "https://en.wikipedia.org/wiki/Cost_of_delay",
+        "https://quality.arc42.org/standards/iso-25010",
+        "https://quality.arc42.org/standards/iso-5055",
+        "https://msdbok.github.io/content/scope/estimates/cocomo_ii_drivers.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Elapsed-time metrics such as DORA change lead time and failed deployment recovery time measure duration, while Cost of Delay is currency per unit time, so these metrics are inputs to a delay-cost calculation and not CoD itself",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/",
+            "https://en.wikipedia.org/wiki/Cost_of_delay"
+          ]
+        },
+        {
+          "text": "Across 39 proprietary codebases, low-quality code showed 15 times more defects, 124% more development time per issue, and 9 times longer maximum cycle times, measured in a cross-sectional design",
+          "sources": [
+            "https://arxiv.org/abs/2203.04374"
+          ]
+        },
+        {
+          "text": "In a controlled maintenance experiment with six developers, none of 12 code smells was significantly associated with higher effort after adjusting for file size and number of changes, which together explained almost all modelled variation",
+          "sources": [
+            "https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf"
+          ]
+        },
+        {
+          "text": "Tightly coupled core components generated significantly more defect-related activity than peripheral components in two systems of more than 20,000 components each, and refactoring benefits differed between hierarchical and core-periphery designs",
+          "sources": [
+            "https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf"
+          ]
+        },
+        {
+          "text": "Among 117 candidate metrics tested against engineer-reported technical debt at Google, no single metric predicted reports and linear models explained under 1% of variance",
+          "sources": [
+            "https://static.isthisit.nz/artifacts/blog/Defining_Measuring_and_Managing_Technical_Debt.pdf"
+          ]
+        },
+        {
+          "text": "Developers reported wasting 23% of development time on technical debt and being forced to add new debt because of existing debt, and one four-year case showed slower debt growth after microservice extraction, yet neither study estimates a compounding rate",
+          "sources": [
+            "https://research.chalmers.se/en/publication/507477",
+            "https://arxiv.org/abs/1902.06282"
+          ]
+        },
+        {
+          "text": "The one cost comparison across architecture styles reports infrastructure savings of 70% or more for provider-operated services, while the one debt study measures code-level debt, so neither addresses both run-state cost and change friction on the same system",
+          "sources": [
+            "https://research.tue.nl/en/publications/cost-comparison-of-running-web-applications-in-the-cloud-using-mo/",
+            "https://arxiv.org/abs/1902.06282"
+          ]
+        },
+        {
+          "text": "Relative code churn predicted defect density in Windows Server 2003 with 89% discrimination accuracy while absolute churn did not",
+          "sources": [
+            "https://ieeexplore.ieee.org/document/1553571"
+          ]
+        }
+      ]
+    },
     "2026-10-23-dependency-properties-coordination-mechanisms": {
       "named_concepts": [
         "one organisation",
