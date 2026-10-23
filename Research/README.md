@@ -18,7 +18,36 @@ Research/
 
 ## Workflow
 
-### Adding a new item (Quick)
+### Owner intake (Primary)
+
+1. Create a GitHub issue for the research request.
+2. Put the full research question in the issue body, along with any seeds or context that will help scope it.
+3. Assign the issue to Copilot.
+4. Copilot applies the `research-question` skill, creates a structured backlog item under
+   `Research/backlog/`, and opens a PR for review.
+5. After the PR is merged, the `research-loop` workflow processes backlog items on its weekday
+   schedule or when manually triggered from the Actions tab. Merging the PR does not trigger the
+   workflow automatically.
+
+### What makes a good research question
+
+A strong question passes all five checks:
+
+- **Specific:** names the subject, comparison or evaluation, and context.
+- **Answerable:** can be resolved with evidence available in principle, rather than future events or pure opinion.
+- **Scoped:** sets clear in-scope and out-of-scope boundaries and any relevant constraints.
+- **Motivated:** explains what decision or problem the answer should inform.
+- **Decomposable:** can be broken into at least two answerable sub-questions.
+
+If a topic is too broad, rewrite it as a question such as: “What is the most appropriate **[X]**
+for **[purpose]**, given **[constraints]**?” Then divide it into independent, evidence-based
+sub-questions. The owner prefers requests to include seeds—starting points such as related prior
+research items, concrete sources, or examples—when available.
+
+### Agent/tooling path (manual file and CLI workflow)
+
+This path is for agents or tooling that need to create or manage items directly; it is not the
+primary way for the owner to submit a new research question.
 
 ```bash
 cp Research/_template.md Research/backlog/$(date +%Y-%m-%d)-short-title.md
@@ -97,6 +126,15 @@ Research can produce one or more outputs. Record in the `output:` field of the i
 - **`BACKLOG.md`** — *how to improve this repo* (code, tooling, structure)
 
 Never mix these. A research item may *produce* a backlog item (e.g. "after researching SQLite, we decide to use it → add backlog item 3.2"), but the research item itself lives here.
+
+---
+
+## Related
+
+- [Repository README](../README.md) — project overview and owner-facing intake summary
+- [Research item template](./_template.md) — backlog-item structure
+- [Copilot instructions](../.github/copilot-instructions.md#handling-a-new-research-request-issue) — detailed issue-to-PR process
+- [Research prompt](../research-prompt.md) — instructions used by the research loop
 
 ---
 
