@@ -2,12 +2,12 @@
 review_count: 2
 title: "Dependency properties and coordination mechanisms over time"
 added: 2026-10-23T09:20:04+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [organisational-design, software-engineering, governance-policy, enterprise-adoption, cost-performance]
 started: 2026-10-23T09:36:03+00:00
-completed: ~
+completed: 2026-10-23T09:59:05+00:00
 output: []
 cites:
   - 2026-06-13-platform-engineering-innersource-hybrid-standardization
