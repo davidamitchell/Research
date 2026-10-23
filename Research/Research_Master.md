@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-10-18 03:57 UTC
+Generated on: 2026-10-23 09:59 UTC
 
 ## Table of Contents
 
+* [Dependency properties and coordination mechanisms over time](#2026-10-23-dependency-properties-coordination-mechanisms-md)
 * [Optionality and Control Across AI Model Consumption Stages](#2026-10-17-optionality-control-model-stages-md)
 * [Runtime placement criteria for software-engineering agents in regulated organisations](#2026-10-17-agent-runtime-placement-criteria-md)
 * [Cross-effects among three-zone agent interventions](#2026-10-03-zone-intervention-cross-effects-md)
@@ -469,6 +470,91 @@ Generated on: 2026-10-18 03:57 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-10-23-dependency-properties-coordination-mechanisms-md"></a>
+
+## Dependency properties and coordination mechanisms over time
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-23-dependency-properties-coordination-mechanisms.md
+
+## Research Question
+
+When many units of work each need a specialist team to do something for them (for example, many product teams each needing a new rule written by a specialist rules team), which properties of that dependency are most predictive of the coordination mechanism that works best, and how should the mechanism change as the dependency's properties change over time? Are any sets of properties strong enough to prescribe the mechanism without further organisational context, and does the answer transfer from teams to software components and to governed decisions?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+Properties of a specialist dependency predict which coordination mechanism works better, but no property set found prescribes the mechanism without organisational context. [inference; source: https://eric.ed.gov/?id=EJ251028; https://www.hbs.edu/ris/download.aspx?name=16-124.pdf]
+High recurrence with reversible, bounded-impact work favours delegation, self-service or standardised interfaces, while high required certainty and regulatory exposure favour synchronisation. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q4-decision-rights-placement.html; https://davidamitchell.github.io/Research/research/2026-06-13-standardization-customization-balance-context-ai.html]
+Convergence cost grows with duration and size of divergence in one organisation's cost estimations. [fact; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+That quantification is thin, which leaves the magnitude of convergence cost unestablished. [inference; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+Rollout cost and the time-pressure effect were not measured in any source found. [inference; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://eric.ed.gov/?id=EJ255060]
+The properties partly transfer to software components and to governed decisions only by inference. [inference; source: https://www.hbs.edu/ris/download.aspx?name=16-124.pdf]
+
+### Key Findings
+
+1. The dependency properties found in the literature predict which coordination mechanism works better but none of the property sets reviewed prescribes the mechanism without organisational context, because the contingency critique and the mixed software evidence both show conditional rather than deterministic relationships. ([inference]; medium confidence; source: https://eric.ed.gov/?id=EJ251028; https://www.hbs.edu/ris/download.aspx?name=16-124.pdf)
+2. The candidate property set separates link properties (recurrence and number of requesters, uncertainty or specifiability, interdependence form, volatility over time) from terminus properties (cost of a wrong outcome and required certainty), and required speed appears in the sources reviewed only as a hypothesis. ([inference]; medium confidence; source: https://genres.syr.edu/sites/default/files/acmcs94.pdf; https://www.jstor.org/stable/2094477)
+3. High recurrence combined with reversible, bounded-impact work favours moving decision rights or execution to the requesting units through bounded delegation, self-service with guardrails or standardised interfaces rather than queueing on the specialist unit. ([inference]; low confidence; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q4-decision-rights-placement.html; https://experts.illinois.edu/en/publications/modularity-flexibility-and-knowledge-management-in-product-and-or/)
+4. High required certainty and high regulatory exposure push towards synchronisation, and the support is qualitative: a failure-rate remark and queueing comparison in the coordination literature plus a repository synthesis that governance-infrastructure standardisation rises with regulatory exposure. ([inference]; low confidence; source: https://genres.syr.edu/sites/default/files/acmcs94.pdf; https://davidamitchell.github.io/Research/research/2026-06-13-standardization-customization-balance-context-ai.html)
+5. The cited measurements of synchronisation cost in the evidence reviewed are waiting time in approval and review queues, such as a 441% rise in pull request review time and 97% wait time in one value-stream case, although specialist capacity, batch size and queue utilisation also drive such waits. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html; https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q1-flow-constraint.html)
+6. Convergence cost grows with how long solutions stayed divergent and with the size of the variant's delta, yet the quantification rests on eight cost estimations from one organisation. ([fact]; medium confidence; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf)
+7. No source found measures rollout cost of adopting a general solution across many teams or describes how the general local solution is identified, and the nearest evidence is that platform migration requires re-engineering and affects architecture, organisation structure and process. ([inference]; low confidence; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://dirkriehle.com/wp-content/uploads/2016/12/capraro-riehle-inner-source-definition-benefits-challenges-survey.pdf)
+8. The claim that time pressure sets the dial towards duplication has no direct empirical support in the sources found, and threat-rigidity research offers a rival prediction that pressure increases centralised control. ([inference]; low confidence; source: https://eric.ed.gov/?id=EJ255060)
+9. Duplicate-then-converge is a recognised pattern, since clone and own is the most common route into platforms and forking patterns include experimental variation with later migration, and it is sounder when divergence is short, the delta small and the general solution identifiable later. ([inference]; medium confidence; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://plg.uwaterloo.ca/~migod/papers/2008/emse08-ClonePatterns.pdf)
+10. The properties partly transfer to software components, since the mirroring review and coordination-requirements study support mapping dependencies to team communication but not choosing a mechanism per dependency, while transfer to governed decisions rests only on repository items. ([inference]; low confidence; source: https://www.hbs.edu/ris/download.aspx?name=16-124.pdf; https://patrick.wagstrom.net/publications/Cataldo_2006_IdentificationOfCoordinationRequirements.pdf)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes (Key Finding (KF) number) |
+|---|---|---|---|
+| [inference] Properties predict but do not prescribe the mechanism | https://eric.ed.gov/?id=EJ251028; https://www.hbs.edu/ris/download.aspx?name=16-124.pdf | medium | KF1 |
+| [inference] Link and terminus properties form separate groups | https://genres.syr.edu/sites/default/files/acmcs94.pdf; https://www.jstor.org/stable/2094477 | medium | KF2; Van de Ven via secondary summary |
+| [inference] Recurrence with reversibility favours delegation or self-service | https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q4-decision-rights-placement.html; https://experts.illinois.edu/en/publications/modularity-flexibility-and-knowledge-management-in-product-and-or/ | low | KF3 |
+| [inference] Required certainty and regulatory exposure favour synchronisation | https://genres.syr.edu/sites/default/files/acmcs94.pdf; https://davidamitchell.github.io/Research/research/2026-06-13-standardization-customization-balance-context-ai.html | low | KF4; qualitative |
+| [inference] Measured synchronisation cost is queue waiting | https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html; https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q1-flow-constraint.html | medium | KF5 |
+| [fact] Convergence cost grows with duration and delta | https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf | medium | KF6; single organisation |
+| [inference] Rollout cost is unmeasured in sources found | https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://dirkriehle.com/wp-content/uploads/2016/12/capraro-riehle-inner-source-definition-benefits-challenges-survey.pdf | low | KF7 |
+| [inference] Time pressure toward duplication is unsupported and has a rival | https://eric.ed.gov/?id=EJ255060 | low | KF8 |
+| [inference] Duplicate-then-converge is recognised, with conditions | https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://plg.uwaterloo.ca/~migod/papers/2008/emse08-ClonePatterns.pdf | medium | KF9 |
+| [inference] Transfer holds for components, only inferred for decisions | https://www.hbs.edu/ris/download.aspx?name=16-124.pdf; https://patrick.wagstrom.net/publications/Cataldo_2006_IdentificationOfCoordinationRequirements.pdf | low | KF10 |
+
+### Assumptions
+
+- Practitioner descriptions of golden paths and team interaction modes are taken as evidence of practice and not of effect size. [assumption; source: https://teamtopologies.com/key-concepts]
+- Findings about product teams and software projects are assumed to carry to specialist-service dependencies when the dependency structure is similar. [assumption; source: https://www.hbs.edu/ris/download.aspx?name=16-124.pdf]
+- Repository items are taken as accurate summaries of the sources they cite. [assumption; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q1-flow-constraint.html]
+
+### Analysis
+
+Evidence was weighted by whether a source measured or only described a mechanism. [inference; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+A measured result concerns re-integration cost, which rises with divergence duration and delta, and it comes from one organisation. [fact; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+Kapser and Godfrey and Krüger and Berger measure different outcomes, maintainability by clone type versus re-integration cost in one organisation, so duration of divergence is one candidate reconciliation alongside clone purpose, platform co-evolution and organisation scale, and none is tested. [inference; source: https://plg.uwaterloo.ca/~migod/papers/2008/emse08-ClonePatterns.pdf; https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+Rival remedies for the specialist bottleneck are queue prioritisation, embedding, lateral guilds, self-service and platforms, and the sources favour the reshaping options when recurrence is high and the managing options when certainty must be high. [inference; source: https://genres.syr.edu/sites/default/files/acmcs94.pdf; https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html]
+Pairwise lateral links among embedded specialists grow as n(n-1)/2, which limits how far lateral coordination can substitute for a shared solution. [inference; source: https://davidamitchell.github.io/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html]
+The shadow-tooling and fragmentation items add that duplicated local tooling accrues tacit-knowledge and turnover risk, though only qualitatively. [inference; source: https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html; https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html]
+Because the contingency critique shows property-to-structure relations are more complex than traditional models assume, the mapping is graded medium at best. [inference; source: https://eric.ed.gov/?id=EJ251028]
+
+### Risks, Gaps, and Uncertainties
+
+- Rollout cost and general-solution identification are unmeasured in the sources found. [inference; source: https://dirkriehle.com/wp-content/uploads/2016/12/capraro-riehle-inner-source-definition-benefits-challenges-survey.pdf]
+- The time-pressure hypothesis has no direct support and a rival. [inference; source: https://eric.ed.gov/?id=EJ255060]
+- The convergence-cost quantification comes from one organisation and eight estimations. [fact; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+- Van de Ven, Lawrence and Lorsch and Thompson were read only through secondary pages, and Tushman and Nadler, Burns and Stalker, Duncan, Mintzberg, March and Simon and Henderson and Clark were not read in primary text. [inference; source: https://www.jstor.org/stable/2094477; https://www.talkingaboutorganizations.com/e16/]
+- Transfer to governed decisions is untested outside repository items. [inference; source: https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q4-decision-rights-placement.html]
+
+### Open Questions
+
+- How is the general local solution identified among duplicated embedded solutions, and what does adopting it cost? [assumption; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+- Does required speed predict mechanism choice once recurrence is controlled for? [assumption; source: https://genres.syr.edu/sites/default/files/acmcs94.pdf]
+- Do decision-to-decision dependencies show the same property-to-mechanism links as component dependencies? [assumption; source: https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html]
+
+---
 
 ---
 
