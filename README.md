@@ -42,11 +42,15 @@ make test
 
 ## Research Workflow
 
-1. **Add** a new item: copy `Research/_template.md` to `Research/backlog/YYYY-MM-DD-short-title.md`
-2. **Start** an item: move the file from `backlog/` to `in-progress/`; update status in the file
-3. **Complete** an item: move the file from `in-progress/` to `completed/`; fill in findings
+The primary owner path is to create a GitHub issue with the full research question and any
+seeds or context in its body, then assign it to Copilot. Copilot applies the `research-question`
+skill, creates a structured item under `Research/backlog/`, and opens a pull request (PR).
+After that PR is merged, the `research-loop` workflow can process the item on its weekday
+schedule or when manually triggered from the Actions tab; merging the PR does not trigger the
+loop automatically.
 
-See `Research/README.md` for the full workflow and template details.
+See [Research/README.md](Research/README.md) for the question-quality criteria, full workflow,
+and agent/tooling path.
 
 ---
 
@@ -68,5 +72,8 @@ Copy `.env.example` to `.env` and fill in values. Never commit `.env`.
 
 ## Related
 
+- [Research workflow guide](Research/README.md) — owner intake, question quality, and item lifecycle
+- [Research item template](Research/_template.md) — structure for backlog items
+- [Copilot instructions](.github/copilot-instructions.md) — agent workflow and repository conventions
 - [Latest Developments](https://github.com/davidamitchell/Latest-developments-) — daily AI/ML digest pipeline; YouTube transcript fetcher code lives there and will be ported here
 - [Skills](https://github.com/davidamitchell/Skills) — shared agent skills submodule
