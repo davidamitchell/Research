@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-10-23 09:59 UTC
+Generated on: 2026-10-23 23:41 UTC
 
 ## Table of Contents
 
+* [State mutation decision framework: mapping delivery delay, ownership, and change costs](#2026-10-23-state-mutation-decision-framework-md)
 * [Dependency properties and coordination mechanisms over time](#2026-10-23-dependency-properties-coordination-mechanisms-md)
 * [Optionality and Control Across AI Model Consumption Stages](#2026-10-17-optionality-control-model-stages-md)
 * [Runtime placement criteria for software-engineering agents in regulated organisations](#2026-10-17-agent-runtime-placement-criteria-md)
@@ -470,6 +471,90 @@ Generated on: 2026-10-23 09:59 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-10-23-state-mutation-decision-framework-md"></a>
+
+## State mutation decision framework: mapping delivery delay, ownership, and change costs
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-23-state-mutation-decision-framework.md
+
+## Research Question
+
+Which published empirical software-engineering metrics can operationalise Cost of Delay (CoD),
+Future Cost of Ownership (FCO), and Future Cost of Change (FCC), and what evidence shows whether
+shortcut-related quality degradation compounds over time or affects ownership and change costs
+differently across software architecture styles?
+
+## Findings
+
+### Executive Summary
+
+No examined study validates a measure of Cost of Delay (CoD), Future Cost of Ownership (FCO), or Future Cost of Change (FCC) as a cost construct, and the best-supported measures are proxies: elapsed-time metrics for delay, defect-related activity for ownership cost, and file size, change count, and coupling for change effort. [inference; source: https://dora.dev/guides/dora-metrics/; https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf; https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf] The evidence supports a qualitative claim that debt feeds back into more debt, based on self-reported data and one slower-growth case, but no study estimates a compounding rate. [inference; source: https://research.chalmers.se/en/publication/507477; https://arxiv.org/abs/1902.06282] Architecture-style evidence mixes infrastructure cost and code-debt outcomes from different systems, so run cost and change friction cannot be shown to move together or apart. [inference; source: https://research.tue.nl/en/publications/cost-comparison-of-running-web-applications-in-the-cloud-using-mo/; https://arxiv.org/abs/1902.06282]
+
+### Key Findings
+
+1. Elapsed-time metrics such as DORA change lead time and failed deployment recovery time measure duration, while Cost of Delay is currency per unit time, so these metrics are inputs to a delay-cost calculation and not CoD itself. ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://en.wikipedia.org/wiki/Cost_of_delay)
+2. Across 39 proprietary codebases, low-quality code showed 15 times more defects, 124% more development time per issue, and 9 times longer maximum cycle times, measured in a cross-sectional design. ([fact]; medium confidence; source: https://arxiv.org/abs/2203.04374)
+3. In a controlled maintenance experiment with six developers, none of 12 code smells was significantly associated with higher effort after adjusting for file size and number of changes, which together explained almost all modelled variation. ([fact]; medium confidence; source: https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf)
+4. Tightly coupled core components generated significantly more defect-related activity than peripheral components in two systems of more than 20,000 components each, and refactoring benefits differed between hierarchical and core-periphery designs. ([fact]; medium confidence; source: https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf)
+5. Among 117 candidate metrics tested against engineer-reported technical debt at Google, no single metric predicted reports and linear models explained under 1% of variance. ([fact]; medium confidence; source: https://static.isthisit.nz/artifacts/blog/Defining_Measuring_and_Managing_Technical_Debt.pdf)
+6. Developers reported wasting 23% of development time on technical debt and being forced to add new debt because of existing debt, and one four-year case showed slower debt growth after microservice extraction, yet neither study estimates a compounding rate. ([inference]; medium confidence; source: https://research.chalmers.se/en/publication/507477; https://arxiv.org/abs/1902.06282)
+7. The one cost comparison across architecture styles reports infrastructure savings of 70% or more for provider-operated services, while the one debt study measures code-level debt, so neither addresses both run-state cost and change friction on the same system. ([inference]; medium confidence; source: https://research.tue.nl/en/publications/cost-comparison-of-running-web-applications-in-the-cloud-using-mo/; https://arxiv.org/abs/1902.06282)
+8. Relative code churn predicted defect density in Windows Server 2003 with 89% discrimination accuracy while absolute churn did not. ([fact]; medium confidence; source: https://ieeexplore.ieee.org/document/1553571)
+9. ISO/IEC 25010 maintainability sub-characteristics, ISO/IEC 5055 weakness counts, and COCOMO II cost drivers describe structural condition or estimation inputs rather than realised cost, so each needs an empirical link to FCO or FCC before use. ([inference]; low confidence; source: https://quality.arc42.org/standards/iso-25010; https://quality.arc42.org/standards/iso-5055; https://msdbok.github.io/content/scope/estimates/cocomo_ii_drivers.html)
+
+### Metric Map
+
+| Construct | Measure | Status | Basis |
+|---|---|---|---|
+| CoD | Change lead time, recovery time | [inference] Supported as elapsed-delay input; unsupported as monetised CoD | https://dora.dev/guides/dora-metrics/; https://en.wikipedia.org/wiki/Cost_of_delay |
+| CoD | SLA non-compliance cost | [assumption] Ambiguous; not measured in examined studies | https://en.wikipedia.org/wiki/Cost_of_delay |
+| FCO | Defect density, defect-related activity | [inference] Supported proxy; cross-sectional evidence only | https://arxiv.org/abs/2203.04374; https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf |
+| FCO | Failed-deployment rate, recovery time | [inference] Ambiguous; delivery instability, link to ownership cost not tested | https://dora.dev/guides/dora-metrics/ |
+| FCO | Self-reported wasted time | [inference] Ambiguous; perceived cost | https://research.chalmers.se/en/publication/507477 |
+| FCC | File size, number of changes | [inference] Supported in one controlled experiment | https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf |
+| FCC | Coupling, change propagation | [inference] Supported for defect-related maintenance in two systems | https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf |
+| FCC | Relative code churn | [inference] Ambiguous; predicts defects, not change effort | https://ieeexplore.ieee.org/document/1553571 |
+| FCC | Code smells | [inference] Unsupported by the controlled evidence examined | https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf |
+| FCC | Cyclomatic complexity, modification blast radius | [assumption] Untested in the examined set | https://quality.arc42.org/standards/iso-5055 |
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Elapsed-time metrics are inputs to CoD, not CoD | https://dora.dev/guides/dora-metrics/; https://en.wikipedia.org/wiki/Cost_of_delay | medium | definition from tertiary source |
+| [fact] Low-quality code: 15x defects, 124% more time, 9x max cycle time | https://arxiv.org/abs/2203.04374 | medium | cross-sectional; single tool |
+| [fact] 12 smells not associated with effort after size and changes | https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf | medium | six developers, four systems |
+| [fact] Coupled core components cost more defect-related activity | https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf | medium | two systems |
+| [fact] No single metric predicted perceived debt | https://static.isthisit.nz/artifacts/blog/Defining_Measuring_and_Managing_Technical_Debt.pdf | medium | 117 metrics; mirror copy |
+| [inference] Compounding mechanism supported, rate not | https://research.chalmers.se/en/publication/507477; https://arxiv.org/abs/1902.06282 | medium | self-report; one case |
+| [inference] Run cost and change friction not measured together | https://research.tue.nl/en/publications/cost-comparison-of-running-web-applications-in-the-cloud-using-mo/; https://arxiv.org/abs/1902.06282 | medium | absence within examined set |
+| [fact] Relative churn predicts defect density | https://ieeexplore.ieee.org/document/1553571 | medium | abstract-level read |
+| [inference] Standards describe condition or estimates, not realised cost | https://quality.arc42.org/standards/iso-25010; https://quality.arc42.org/standards/iso-5055; https://msdbok.github.io/content/scope/estimates/cocomo_ii_drivers.html | low | secondary summaries |
+
+### Assumptions
+
+Delivery-time and defect measures are treated as inputs to monetised constructs rather than as the constructs. [assumption; source: https://dora.dev/guides/dora-metrics/] The treatment follows from DORA defining its metrics in time units and ratios. [assumption; source: https://dora.dev/guides/dora-metrics/]
+
+Search coverage: general web engine and publisher pages; ACM Digital Library, IEEE Xplore, Google Scholar, and SEI reports not queried directly; coverage of the literature unmeasured.
+
+### Analysis
+
+Cross-sectional associations (Tornhill and Borg, MacCormack and Sturtevant) and the controlled experiment (Sjøberg and colleagues) answer different questions, and the item keeps all three at medium confidence. [inference; source: https://arxiv.org/abs/2203.04374; https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf; https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf] A rival reading holds that all debt indicators track size, since size and change count explained most effort variance. [inference; source: https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf] The coupling result partly answers that rival because it identifies where cost concentrates within systems of similar size. [inference; source: https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf] A modular monolith is a plausible rival to microservices for change friction, but no examined study measures it. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-21-monolith-vs-cohesive-portfolio-tco.md] Three further readings are derived here: the cross-sectional design and reliance on one commercial code-health tool limit the Tornhill and Borg result, existing metric bundles are unvalidated as stand-ins for perceived cost, and churn indicates defect risk and not directly change effort. [inference; source: https://arxiv.org/abs/2203.04374; https://static.isthisit.nz/artifacts/blog/Defining_Measuring_and_Managing_Technical_Debt.pdf; https://ieeexplore.ieee.org/document/1553571] Prior repository work on code entropy, repository velocity, and throughput supplies churn and coupling signals and a parallel absence of universal coefficients, which this item neither overturns nor extends with new rates. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-ai-code-entropy-quality-metrics.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-29-commit-trends-repo-velocity-rework-abandonment.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.md]
+
+### Risks, Gaps, and Uncertainties
+
+Coverage gap: named databases not queried directly. Unused starting points: McCabe (1976) and Chidamber and Kemerer (1994), with no effect size taken from them. Effect sizes come from heterogeneous designs and are not pooled. [inference; source: https://arxiv.org/abs/2203.04374; https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf] The Jaspan and Green text was read from a mirror of the article. [assumption; source: https://static.isthisit.nz/artifacts/blog/Defining_Measuring_and_Managing_Technical_Debt.pdf] The failed search for a measured shortcut-exposure compounding rate leaves that claim unsupported. [inference; source: https://research.chalmers.se/en/publication/507477; https://arxiv.org/abs/1902.06282]
+
+### Open Questions
+
+- Which monetised value-decay data can be paired with change lead time to estimate CoD?
+- Does any longitudinal repository study estimate change-effort growth against a measured shortcut exposure?
+- How do modular monoliths compare with microservices on both run-state cost and change effort in the same organisation?
+
+---
 
 ---
 
