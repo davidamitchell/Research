@@ -2,12 +2,12 @@
 review_count: 2
 title: "State mutation decision framework: mapping delivery delay, ownership, and change costs"
 added: 2026-10-23T21:41:54+00:00
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 themes: [software-engineering, cost-performance, benchmarks-eval]
 started: 2026-10-23T23:31:01+00:00
-completed: ~
+completed: 2026-10-23T23:40:34+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites: [2026-04-30-ai-code-entropy-quality-metrics, 2026-05-21-monolith-vs-cohesive-portfolio-tco, 2026-05-29-commit-trends-repo-velocity-rework-abandonment, 2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate]
 related: []
