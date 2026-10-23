@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "State mutation decision framework: mapping delivery delay, ownership, and change costs"
 added: 2026-10-23T21:41:54+00:00
 status: reviewing
