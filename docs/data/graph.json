@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated": "2026-10-23T09:56:21Z",
-  "node_count": 470,
-  "edge_count": 80742,
+  "generated": "2026-10-23T10:01:01Z",
+  "node_count": 471,
+  "edge_count": 81049,
   "nodes": [
     {
       "slug": "2026-02-27-indexing-and-tracking-method",
@@ -5634,6 +5634,19 @@
         "regulatory-compliance",
         "benchmarks-eval"
       ]
+    },
+    {
+      "slug": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "title": "Dependency properties and coordination mechanisms over time",
+      "type": "primary",
+      "url": "/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html",
+      "themes": [
+        "organisational-design",
+        "software-engineering",
+        "governance-policy",
+        "enterprise-adoption",
+        "cost-performance"
+      ]
     }
   ],
   "edges": [
@@ -8251,6 +8264,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-02-27-indexing-and-tracking-method"
+    },
+    {
+      "source": "2026-02-27-indexing-and-tracking-method",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
       "provenance": "2026-02-27-indexing-and-tracking-method"
     },
     {
@@ -20147,6 +20168,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "tools-infrastructure",
+      "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
+    },
+    {
+      "source": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
       "provenance": "2026-02-27-research-backlog-vs-repo-improvement-backlog"
     },
     {
@@ -32774,6 +32803,14 @@
       "provenance": "2026-02-28-ai-control-testing-and-assurance"
     },
     {
+      "source": "2026-02-28-ai-control-testing-and-assurance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-02-28-ai-control-testing-and-assurance"
+    },
+    {
       "source": "2026-02-28-ai-line-1-line-2-risk-agents",
       "target": "2026-02-28-ai-strategy",
       "weight": 3,
@@ -35646,6 +35683,14 @@
       "provenance": "2026-02-28-ai-line-1-line-2-risk-agents"
     },
     {
+      "source": "2026-02-28-ai-line-1-line-2-risk-agents",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-02-28-ai-line-1-line-2-risk-agents"
+    },
+    {
       "source": "2026-02-28-ai-strategy",
       "target": "2026-02-28-ai-strategy-business-efficiency-examples",
       "weight": 1,
@@ -38507,6 +38552,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-02-28-ai-strategy"
+    },
+    {
+      "source": "2026-02-28-ai-strategy",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-02-28-ai-strategy"
     },
     {
@@ -41406,6 +41459,14 @@
       "provenance": "2026-02-28-ai-strategy-business-efficiency-examples"
     },
     {
+      "source": "2026-02-28-ai-strategy-business-efficiency-examples",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-02-28-ai-strategy-business-efficiency-examples"
+    },
+    {
       "source": "2026-02-28-ai-strategy-risk-reduction-focus",
       "target": "2026-02-28-ai-strategy-security-focus",
       "weight": 2,
@@ -43822,6 +43883,14 @@
       "provenance": "2026-02-28-ai-strategy-risk-reduction-focus"
     },
     {
+      "source": "2026-02-28-ai-strategy-risk-reduction-focus",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-02-28-ai-strategy-risk-reduction-focus"
+    },
+    {
       "source": "2026-02-28-ai-strategy-security-focus",
       "target": "2026-02-28-exploit-explore-ai-portfolio-framework",
       "weight": 1,
@@ -45739,6 +45808,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk",
+      "provenance": "2026-02-28-ai-strategy-security-focus"
+    },
+    {
+      "source": "2026-02-28-ai-strategy-security-focus",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-02-28-ai-strategy-security-focus"
     },
     {
@@ -48691,6 +48768,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-02-28-ai-strategy-swe-focus"
+    },
+    {
+      "source": "2026-02-28-ai-strategy-swe-focus",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-02-28-ai-strategy-swe-focus"
     },
     {
@@ -52464,6 +52549,14 @@
     {
       "source": "2026-02-28-exploit-explore-ai-portfolio-framework",
       "target": "2026-10-17-agent-runtime-placement-criteria",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-02-28-exploit-explore-ai-portfolio-framework"
+    },
+    {
+      "source": "2026-02-28-exploit-explore-ai-portfolio-framework",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
@@ -59054,6 +59147,14 @@
       "provenance": "2026-02-28-jevons-paradox"
     },
     {
+      "source": "2026-02-28-jevons-paradox",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
+      "provenance": "2026-02-28-jevons-paradox"
+    },
+    {
       "source": "2026-02-28-predictive-processing-active-inference",
       "target": "2026-02-28-youtube-video-hyuos0gkgcs-concepts",
       "weight": 2,
@@ -63547,6 +63648,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "regulatory-compliance",
+      "provenance": "2026-02-28-rbnz-ai-supervisory-expectations"
+    },
+    {
+      "source": "2026-02-28-rbnz-ai-supervisory-expectations",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-02-28-rbnz-ai-supervisory-expectations"
     },
     {
@@ -74502,6 +74611,14 @@
       "provenance": "2026-03-01-agent-lsp-policy-enforcement"
     },
     {
+      "source": "2026-03-01-agent-lsp-policy-enforcement",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-01-agent-lsp-policy-enforcement"
+    },
+    {
       "source": "2026-03-01-context-mode-llm-context-compression",
       "target": "2026-03-01-github-specify-ralph-loop-lisa-planning",
       "weight": 1,
@@ -77107,6 +77224,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,cost-performance",
+      "provenance": "2026-03-01-context-mode-llm-context-compression"
+    },
+    {
+      "source": "2026-03-01-context-mode-llm-context-compression",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-03-01-context-mode-llm-context-compression"
     },
     {
@@ -79923,6 +80048,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-03-01-github-specify-ralph-loop-lisa-planning"
+    },
+    {
+      "source": "2026-03-01-github-specify-ralph-loop-lisa-planning",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-03-01-github-specify-ralph-loop-lisa-planning"
     },
     {
@@ -87835,6 +87968,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-03-02-ai-not-a-data-problem"
+    },
+    {
+      "source": "2026-03-02-ai-not-a-data-problem",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-03-02-ai-not-a-data-problem"
     },
     {
@@ -103550,6 +103691,14 @@
       "provenance": "2026-03-02-transaction-costs"
     },
     {
+      "source": "2026-03-02-transaction-costs",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-02-transaction-costs"
+    },
+    {
       "source": "2026-03-03-knowledge-linking-connected-corpus",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 3,
@@ -118867,6 +119016,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-03-04-sdlc-ai-prompt-patterns"
+    },
+    {
+      "source": "2026-03-04-sdlc-ai-prompt-patterns",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-03-04-sdlc-ai-prompt-patterns"
     },
     {
@@ -135934,6 +136091,14 @@
       "provenance": "2026-03-07-run-build-it-allocation-implementation-how"
     },
     {
+      "source": "2026-03-07-run-build-it-allocation-implementation-how",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy,organisational-design",
+      "provenance": "2026-03-07-run-build-it-allocation-implementation-how"
+    },
+    {
       "source": "2026-03-07-run-vs-build-it-spending-allocation",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 1,
@@ -137952,6 +138117,14 @@
     {
       "source": "2026-03-07-run-vs-build-it-spending-allocation",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-07-run-vs-build-it-spending-allocation"
+    },
+    {
+      "source": "2026-03-07-run-vs-build-it-spending-allocation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -142864,6 +143037,14 @@
     {
       "source": "2026-03-08-bbc-five-case-model",
       "target": "2026-10-17-agent-runtime-placement-criteria",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-08-bbc-five-case-model"
+    },
+    {
+      "source": "2026-03-08-bbc-five-case-model",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
@@ -155566,6 +155747,14 @@
       "provenance": "2026-03-08-lancedb-index-rebuild-from-git"
     },
     {
+      "source": "2026-03-08-lancedb-index-rebuild-from-git",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-08-lancedb-index-rebuild-from-git"
+    },
+    {
       "source": "2026-03-08-self-hosted-mcp-server-options",
       "target": "2026-03-08-servicenow-ai-knowledge-rag-agents",
       "weight": 1,
@@ -162582,6 +162771,14 @@
       "provenance": "2026-03-08-servicenow-csdm-data-modelling"
     },
     {
+      "source": "2026-03-08-servicenow-csdm-data-modelling",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-08-servicenow-csdm-data-modelling"
+    },
+    {
       "source": "2026-03-08-servicenow-platform-strategy",
       "target": "2026-03-08-servicenow-process-mapping",
       "weight": 1,
@@ -165342,6 +165539,14 @@
       "provenance": "2026-03-08-servicenow-platform-strategy"
     },
     {
+      "source": "2026-03-08-servicenow-platform-strategy",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-08-servicenow-platform-strategy"
+    },
+    {
       "source": "2026-03-08-servicenow-process-mapping",
       "target": "2026-03-08-slack-bot-memory-capture-retrieval",
       "weight": 2,
@@ -167947,6 +168152,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-03-08-servicenow-process-mapping"
+    },
+    {
+      "source": "2026-03-08-servicenow-process-mapping",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-03-08-servicenow-process-mapping"
     },
     {
@@ -174534,6 +174747,14 @@
       "provenance": "2026-03-10-adversarial-agents-shared-goals-multi-perspective"
     },
     {
+      "source": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
+      "provenance": "2026-03-10-adversarial-agents-shared-goals-multi-perspective"
+    },
+    {
       "source": "2026-03-10-agent-evaluation-cross-repo-analysis",
       "target": "2026-03-10-ai-concept-classification-taxonomy",
       "weight": 2,
@@ -179726,6 +179947,14 @@
       "provenance": "2026-03-10-ai-concept-classification-taxonomy"
     },
     {
+      "source": "2026-03-10-ai-concept-classification-taxonomy",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-10-ai-concept-classification-taxonomy"
+    },
+    {
       "source": "2026-03-10-dikw-transformation-functions",
       "target": "2026-03-12-ai-force-multiplier-ambition-expansion",
       "weight": 1,
@@ -181115,6 +181344,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-03-10-dikw-transformation-functions"
+    },
+    {
+      "source": "2026-03-10-dikw-transformation-functions",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
       "provenance": "2026-03-10-dikw-transformation-functions"
     },
     {
@@ -187430,6 +187667,14 @@
       "provenance": "2026-03-10-nature-of-the-firm-coase-organisations"
     },
     {
+      "source": "2026-03-10-nature-of-the-firm-coase-organisations",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-03-10-nature-of-the-firm-coase-organisations"
+    },
+    {
       "source": "2026-03-10-research-loop-evaluation-rubric",
       "target": "2026-03-12-ai-team-size-strike-team-thesis",
       "weight": 1,
@@ -191086,6 +191331,14 @@
       "provenance": "2026-03-12-ai-force-multiplier-ambition-expansion"
     },
     {
+      "source": "2026-03-12-ai-force-multiplier-ambition-expansion",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-03-12-ai-force-multiplier-ambition-expansion"
+    },
+    {
       "source": "2026-03-12-ai-team-size-strike-team-thesis",
       "target": "2026-03-12-exploration-synthesis-gap",
       "weight": 1,
@@ -193243,6 +193496,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-03-12-ai-team-size-strike-team-thesis"
+    },
+    {
+      "source": "2026-03-12-ai-team-size-strike-team-thesis",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
       "provenance": "2026-03-12-ai-team-size-strike-team-thesis"
     },
     {
@@ -199302,6 +199563,14 @@
       "provenance": "2026-03-12-hosting-options-for-the-research-repo"
     },
     {
+      "source": "2026-03-12-hosting-options-for-the-research-repo",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-12-hosting-options-for-the-research-repo"
+    },
+    {
       "source": "2026-03-12-superpowers-integration-analysis",
       "target": "2026-03-12-swat-technique-loop-fresh-context",
       "weight": 2,
@@ -204566,6 +204835,14 @@
       "provenance": "2026-03-12-team-size-limits-brooks-dunbar-network-theory"
     },
     {
+      "source": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-03-12-team-size-limits-brooks-dunbar-network-theory"
+    },
+    {
       "source": "2026-03-12-volume-vs-correctness-ai-era",
       "target": "2026-03-13-financial-forecasting-it-run-costs",
       "weight": 1,
@@ -206688,6 +206965,14 @@
     {
       "source": "2026-03-12-volume-vs-correctness-ai-era",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-12-volume-vs-correctness-ai-era"
+    },
+    {
+      "source": "2026-03-12-volume-vs-correctness-ai-era",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -209118,6 +209403,14 @@
       "provenance": "2026-03-13-financial-forecasting-it-run-costs"
     },
     {
+      "source": "2026-03-13-financial-forecasting-it-run-costs",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-03-13-financial-forecasting-it-run-costs"
+    },
+    {
       "source": "2026-03-14-organisational-intent-formal-specification",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 1,
@@ -211158,6 +211451,14 @@
       "provenance": "2026-03-14-organisational-intent-formal-specification"
     },
     {
+      "source": "2026-03-14-organisational-intent-formal-specification",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-14-organisational-intent-formal-specification"
+    },
+    {
       "source": "2026-03-14-reliable-software-llm-era",
       "target": "2026-03-15-adam-smith-org-design-desire-paths-ai",
       "weight": 1,
@@ -213139,6 +213440,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-03-14-reliable-software-llm-era"
+    },
+    {
+      "source": "2026-03-14-reliable-software-llm-era",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-03-14-reliable-software-llm-era"
     },
     {
@@ -215635,6 +215944,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-03-14-ricardian-contract-model"
+    },
+    {
+      "source": "2026-03-14-ricardian-contract-model",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-03-14-ricardian-contract-model"
     },
     {
@@ -218219,6 +218536,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-03-15-adam-smith-org-design-desire-paths-ai"
+    },
+    {
+      "source": "2026-03-15-adam-smith-org-design-desire-paths-ai",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-03-15-adam-smith-org-design-desire-paths-ai"
     },
     {
@@ -226894,6 +227219,14 @@
       "provenance": "2026-03-15-prompt-injection-threat-landscape"
     },
     {
+      "source": "2026-03-15-prompt-injection-threat-landscape",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-15-prompt-injection-threat-landscape"
+    },
+    {
       "source": "2026-03-15-saas-banking-invariants",
       "target": "2026-03-16-adaptive-policy-authorization-compliance",
       "weight": 1,
@@ -229155,6 +229488,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,cost-performance",
+      "provenance": "2026-03-15-saas-banking-invariants"
+    },
+    {
+      "source": "2026-03-15-saas-banking-invariants",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
       "provenance": "2026-03-15-saas-banking-invariants"
     },
     {
@@ -235670,6 +236011,14 @@
       "provenance": "2026-03-16-adaptive-policy-authorization-compliance"
     },
     {
+      "source": "2026-03-16-adaptive-policy-authorization-compliance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-16-adaptive-policy-authorization-compliance"
+    },
+    {
       "source": "2026-03-16-gitagent-declarative-agent-definition",
       "target": "2026-03-16-intent-driven-development",
       "weight": 3,
@@ -240491,6 +240840,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-03-16-intent-driven-development"
+    },
+    {
+      "source": "2026-03-16-intent-driven-development",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-03-16-intent-driven-development"
     },
     {
@@ -260086,6 +260443,14 @@
       "provenance": "2026-03-21-technology-capability-models"
     },
     {
+      "source": "2026-03-21-technology-capability-models",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-21-technology-capability-models"
+    },
+    {
       "source": "2026-03-22-agents-as-finishers-and-synthesisers",
       "target": "2026-03-22-applied-context-engineering-agent-workflows",
       "weight": 1,
@@ -268582,6 +268947,14 @@
       "provenance": "2026-03-22-coding-ai-agent-skills-survey"
     },
     {
+      "source": "2026-03-22-coding-ai-agent-skills-survey",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-03-22-coding-ai-agent-skills-survey"
+    },
+    {
       "source": "2026-03-22-compliance-scanning-gh-actions",
       "target": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
       "weight": 3,
@@ -270822,6 +271195,14 @@
       "provenance": "2026-03-22-compliance-scanning-gh-actions"
     },
     {
+      "source": "2026-03-22-compliance-scanning-gh-actions",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-22-compliance-scanning-gh-actions"
+    },
+    {
       "source": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
       "target": "2026-03-22-using-awesome-copilot-across-repos",
       "weight": 1,
@@ -273059,6 +273440,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "regulatory-compliance",
+      "provenance": "2026-03-22-cross-scanner-compliance-evidence-normalisation"
+    },
+    {
+      "source": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-03-22-cross-scanner-compliance-evidence-normalisation"
     },
     {
@@ -279774,6 +280163,14 @@
       "provenance": "2026-03-23-software-factory"
     },
     {
+      "source": "2026-03-23-software-factory",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-03-23-software-factory"
+    },
+    {
       "source": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
       "target": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
       "weight": 1,
@@ -282054,6 +282451,14 @@
       "provenance": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions"
     },
     {
+      "source": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions"
+    },
+    {
       "source": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
       "target": "2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis",
       "weight": 3,
@@ -284086,6 +284491,14 @@
       "provenance": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit"
     },
     {
+      "source": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit"
+    },
+    {
       "source": "2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis",
       "target": "2026-03-26-cost-reduction-is-not-strategy",
       "weight": 1,
@@ -285968,6 +286381,14 @@
     {
       "source": "2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis",
       "target": "2026-10-17-agent-runtime-placement-criteria",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis"
+    },
+    {
+      "source": "2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
@@ -287888,6 +288309,14 @@
     {
       "source": "2026-03-26-cost-reduction-is-not-strategy",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-26-cost-reduction-is-not-strategy"
+    },
+    {
+      "source": "2026-03-26-cost-reduction-is-not-strategy",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -290792,6 +291221,14 @@
     {
       "source": "2026-03-26-measuring-opportunity-cost",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-03-26-measuring-opportunity-cost"
+    },
+    {
+      "source": "2026-03-26-measuring-opportunity-cost",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -305734,6 +306171,14 @@
       "provenance": "2026-04-01-backpressure-theory-of-constraints"
     },
     {
+      "source": "2026-04-01-backpressure-theory-of-constraints",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-01-backpressure-theory-of-constraints"
+    },
+    {
       "source": "2026-04-01-timesfm-time-series-foundation-models",
       "target": "2026-04-02-ai-company-hiring-strategies",
       "weight": 1,
@@ -307331,6 +307776,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval,cost-performance",
+      "provenance": "2026-04-01-timesfm-time-series-foundation-models"
+    },
+    {
+      "source": "2026-04-01-timesfm-time-series-foundation-models",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-04-01-timesfm-time-series-foundation-models"
     },
     {
@@ -311312,6 +311765,14 @@
     {
       "source": "2026-04-02-ai-funding-and-capital-investment-landscape",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-02-ai-funding-and-capital-investment-landscape"
+    },
+    {
+      "source": "2026-04-02-ai-funding-and-capital-investment-landscape",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -319054,6 +319515,14 @@
       "provenance": "2026-04-02-org-shape-software-cost-zero"
     },
     {
+      "source": "2026-04-02-org-shape-software-cost-zero",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-04-02-org-shape-software-cost-zero"
+    },
+    {
       "source": "2026-04-03-ai-workflow-todo-digest",
       "target": "2026-04-03-oh-my-codex-patterns",
       "weight": 2,
@@ -325078,6 +325547,14 @@
       "provenance": "2026-04-18-latest-developments-trends-forecast"
     },
     {
+      "source": "2026-04-18-latest-developments-trends-forecast",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-18-latest-developments-trends-forecast"
+    },
+    {
       "source": "2026-04-18-shopify-ai-strategy-red-queen-memo",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 1,
@@ -325696,6 +326173,14 @@
     {
       "source": "2026-04-18-shopify-ai-strategy-red-queen-memo",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-18-shopify-ai-strategy-red-queen-memo"
+    },
+    {
+      "source": "2026-04-18-shopify-ai-strategy-red-queen-memo",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
@@ -329854,6 +330339,14 @@
       "provenance": "2026-04-22-ai-governance-assurance-change-control-verification"
     },
     {
+      "source": "2026-04-22-ai-governance-assurance-change-control-verification",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-22-ai-governance-assurance-change-control-verification"
+    },
+    {
       "source": "2026-04-22-enterprise-ai-capability-model",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -331982,6 +332475,14 @@
       "provenance": "2026-04-22-enterprise-ai-capability-model"
     },
     {
+      "source": "2026-04-22-enterprise-ai-capability-model",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption",
+      "provenance": "2026-04-22-enterprise-ai-capability-model"
+    },
+    {
       "source": "2026-04-22-enterprise-ai-platform-operating-models",
       "target": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
       "weight": 3,
@@ -334078,6 +334579,14 @@
       "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
     },
     {
+      "source": "2026-04-22-enterprise-ai-platform-operating-models",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-04-22-enterprise-ai-platform-operating-models"
+    },
+    {
       "source": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
       "target": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
       "weight": 2,
@@ -335987,6 +336496,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-22-enterprise-ai-use-case-routing-frameworks"
+    },
+    {
+      "source": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-22-enterprise-ai-use-case-routing-frameworks"
     },
     {
@@ -337902,6 +338419,14 @@
       "provenance": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building"
     },
     {
+      "source": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building"
+    },
+    {
       "source": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "target": "2026-04-22-recall-competitive-landscape-and-clone-feasibility",
       "weight": 1,
@@ -339739,6 +340264,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "regulatory-compliance",
+      "provenance": "2026-04-22-knowledge-curation-governance-for-regulated-ai"
+    },
+    {
+      "source": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-22-knowledge-curation-governance-for-regulated-ai"
     },
     {
@@ -343550,6 +344083,14 @@
       "provenance": "2026-04-24-ai-agent-regulation-global-financial-services"
     },
     {
+      "source": "2026-04-24-ai-agent-regulation-global-financial-services",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-24-ai-agent-regulation-global-financial-services"
+    },
+    {
       "source": "2026-04-24-business-led-low-code-agent-governance",
       "target": "2026-04-26-access-control-amplification-agentic-operations",
       "weight": 3,
@@ -345758,6 +346299,14 @@
       "provenance": "2026-04-24-business-led-low-code-agent-governance"
     },
     {
+      "source": "2026-04-24-business-led-low-code-agent-governance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-24-business-led-low-code-agent-governance"
+    },
+    {
       "source": "2026-04-26-access-control-amplification-agentic-operations",
       "target": "2026-04-26-agentic-ai-foundational-conditions-dependency-ordering",
       "weight": 3,
@@ -347803,6 +348352,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-04-26-access-control-amplification-agentic-operations"
+    },
+    {
+      "source": "2026-04-26-access-control-amplification-agentic-operations",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-26-access-control-amplification-agentic-operations"
     },
     {
@@ -349878,6 +350435,14 @@
       "provenance": "2026-04-26-agentic-ai-foundational-conditions-dependency-ordering"
     },
     {
+      "source": "2026-04-26-agentic-ai-foundational-conditions-dependency-ordering",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-agentic-ai-foundational-conditions-dependency-ordering"
+    },
+    {
       "source": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
       "target": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
       "weight": 2,
@@ -351915,6 +352480,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "regulatory-compliance",
+      "provenance": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment"
+    },
+    {
+      "source": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment"
     },
     {
@@ -354022,6 +354595,14 @@
       "provenance": "2026-04-26-ai-agent-control-plane-architecture-enterprise"
     },
     {
+      "source": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-agent-control-plane-architecture-enterprise"
+    },
+    {
       "source": "2026-04-26-ai-agent-identity-access-management-enterprise",
       "target": "2026-04-26-ai-governance-cost-performance-delivery-impact",
       "weight": 1,
@@ -356126,6 +356707,14 @@
       "provenance": "2026-04-26-ai-agent-identity-access-management-enterprise"
     },
     {
+      "source": "2026-04-26-ai-agent-identity-access-management-enterprise",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-agent-identity-access-management-enterprise"
+    },
+    {
       "source": "2026-04-26-ai-governance-cost-performance-delivery-impact",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 1,
@@ -358102,6 +358691,14 @@
       "provenance": "2026-04-26-ai-governance-cost-performance-delivery-impact"
     },
     {
+      "source": "2026-04-26-ai-governance-cost-performance-delivery-impact",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-04-26-ai-governance-cost-performance-delivery-impact"
+    },
+    {
       "source": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "target": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
       "weight": 2,
@@ -359694,6 +360291,14 @@
       "provenance": "2026-04-26-ai-governance-culture-incentives-behaviour"
     },
     {
+      "source": "2026-04-26-ai-governance-culture-incentives-behaviour",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-governance-culture-incentives-behaviour"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
       "target": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
       "weight": 3,
@@ -361230,6 +361835,14 @@
       "provenance": "2026-04-26-ai-lowcode-decision-rights-accountability-liability"
     },
     {
+      "source": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-lowcode-decision-rights-accountability-liability"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
       "target": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
       "weight": 2,
@@ -362758,6 +363371,14 @@
       "provenance": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation"
     },
     {
+      "source": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
       "target": "2026-04-26-ai-lowcode-governance-maturity-model",
       "weight": 3,
@@ -364854,6 +365475,14 @@
       "provenance": "2026-04-26-ai-lowcode-governance-enforcement-architecture"
     },
     {
+      "source": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-lowcode-governance-enforcement-architecture"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-governance-maturity-model",
       "target": "2026-04-26-ai-lowcode-lifecycle-management",
       "weight": 2,
@@ -366622,6 +367251,14 @@
       "provenance": "2026-04-26-ai-lowcode-governance-maturity-model"
     },
     {
+      "source": "2026-04-26-ai-lowcode-governance-maturity-model",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-lowcode-governance-maturity-model"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-lifecycle-management",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -368702,6 +369339,14 @@
       "provenance": "2026-04-26-ai-lowcode-lifecycle-management"
     },
     {
+      "source": "2026-04-26-ai-lowcode-lifecycle-management",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-lowcode-lifecycle-management"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "target": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
       "weight": 2,
@@ -370771,6 +371416,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-26-ai-lowcode-observability-telemetry-governance"
+    },
+    {
+      "source": "2026-04-26-ai-lowcode-observability-telemetry-governance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-26-ai-lowcode-observability-telemetry-governance"
     },
     {
@@ -372694,6 +373347,14 @@
       "provenance": "2026-04-26-ai-lowcode-regulatory-compliance-alignment"
     },
     {
+      "source": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-lowcode-regulatory-compliance-alignment"
+    },
+    {
       "source": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
       "target": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
       "weight": 2,
@@ -374427,6 +375088,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-26-ai-lowcode-risk-tier-classification-controls"
+    },
+    {
+      "source": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-26-ai-lowcode-risk-tier-classification-controls"
     },
     {
@@ -376478,6 +377147,14 @@
       "provenance": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration"
     },
     {
+      "source": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration"
+    },
+    {
       "source": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
       "target": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
       "weight": 3,
@@ -378515,6 +379192,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement"
+    },
+    {
+      "source": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement"
     },
     {
@@ -380638,6 +381323,14 @@
       "provenance": "2026-04-26-deployment-pipeline-citizen-development-governed-gate"
     },
     {
+      "source": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-deployment-pipeline-citizen-development-governed-gate"
+    },
+    {
       "source": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "target": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
       "weight": 1,
@@ -382112,6 +382805,14 @@
     {
       "source": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "target": "2026-10-17-agent-runtime-placement-criteria",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-human-in-the-loop-ai-automated-workflows"
+    },
+    {
+      "source": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
@@ -384155,6 +384856,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal"
+    },
+    {
+      "source": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal"
     },
     {
@@ -386243,6 +386952,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-26-lecun-critique-citizen-development-enterprise-risk"
+    },
+    {
+      "source": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-26-lecun-critique-citizen-development-enterprise-risk"
     },
     {
@@ -389782,6 +390499,14 @@
       "provenance": "2026-04-26-llm-verifiability-asymmetry-code-world-action"
     },
     {
+      "source": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-llm-verifiability-asymmetry-code-world-action"
+    },
+    {
       "source": "2026-04-26-ms-copilot-cowork",
       "target": "2026-04-26-multi-ai-provider-control-planes",
       "weight": 2,
@@ -391403,6 +392128,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption",
+      "provenance": "2026-04-26-ms-copilot-cowork"
+    },
+    {
+      "source": "2026-04-26-ms-copilot-cowork",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy",
       "provenance": "2026-04-26-ms-copilot-cowork"
     },
     {
@@ -393411,6 +394144,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,cost-performance",
+      "provenance": "2026-04-26-multi-ai-provider-control-planes"
+    },
+    {
+      "source": "2026-04-26-multi-ai-provider-control-planes",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
       "provenance": "2026-04-26-multi-ai-provider-control-planes"
     },
     {
@@ -395462,6 +396203,14 @@
       "provenance": "2026-04-26-permission-safe-rag-enterprise-information-architecture"
     },
     {
+      "source": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-permission-safe-rag-enterprise-information-architecture"
+    },
+    {
       "source": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
       "target": "2026-04-26-software-engineering-investment-case-llm",
       "weight": 3,
@@ -397462,6 +398211,14 @@
       "provenance": "2026-04-26-policy-coherence-machine-checkable-prerequisite"
     },
     {
+      "source": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-policy-coherence-machine-checkable-prerequisite"
+    },
+    {
       "source": "2026-04-26-software-engineering-investment-case-llm",
       "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
       "weight": 3,
@@ -399446,6 +400203,14 @@
       "provenance": "2026-04-26-software-engineering-investment-case-llm"
     },
     {
+      "source": "2026-04-26-software-engineering-investment-case-llm",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-04-26-software-engineering-investment-case-llm"
+    },
+    {
       "source": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
       "target": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
       "weight": 4,
@@ -401422,6 +402187,14 @@
       "provenance": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis"
     },
     {
+      "source": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis"
+    },
+    {
       "source": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
       "target": "2026-04-26-vendor-platform-governance-constraints-compensating-controls",
       "weight": 4,
@@ -403382,6 +404155,14 @@
       "provenance": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence"
     },
     {
+      "source": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence"
+    },
+    {
       "source": "2026-04-26-vendor-platform-governance-constraints-compensating-controls",
       "target": "2026-04-27-academic-post-publication-amendment-practices",
       "weight": 2,
@@ -405307,6 +406088,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-26-vendor-platform-governance-constraints-compensating-controls"
+    },
+    {
+      "source": "2026-04-26-vendor-platform-governance-constraints-compensating-controls",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-26-vendor-platform-governance-constraints-compensating-controls"
     },
     {
@@ -407326,6 +408115,14 @@
       "provenance": "2026-04-27-academic-post-publication-amendment-practices"
     },
     {
+      "source": "2026-04-27-academic-post-publication-amendment-practices",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-27-academic-post-publication-amendment-practices"
+    },
+    {
       "source": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation",
       "target": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
       "weight": 2,
@@ -409195,6 +409992,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation"
+    },
+    {
+      "source": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-27-cryptographic-intent-preservation-runtime-evaluation"
     },
     {
@@ -411123,6 +411928,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,enterprise-adoption",
+      "provenance": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks"
+    },
+    {
+      "source": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy",
       "provenance": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks"
     },
     {
@@ -413126,6 +413939,14 @@
       "provenance": "2026-04-27-governance-moat-prior-research-implications"
     },
     {
+      "source": "2026-04-27-governance-moat-prior-research-implications",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy",
+      "provenance": "2026-04-27-governance-moat-prior-research-implications"
+    },
+    {
       "source": "2026-04-27-out-of-band-policy-invalidation-remediation",
       "target": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
       "weight": 4,
@@ -414982,6 +415803,14 @@
       "provenance": "2026-04-27-out-of-band-policy-invalidation-remediation"
     },
     {
+      "source": "2026-04-27-out-of-band-policy-invalidation-remediation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-27-out-of-band-policy-invalidation-remediation"
+    },
+    {
       "source": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
       "target": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
       "weight": 3,
@@ -416830,6 +417659,14 @@
       "provenance": "2026-04-27-pap-dynamic-policy-profiling-proportionality"
     },
     {
+      "source": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-27-pap-dynamic-policy-profiling-proportionality"
+    },
+    {
       "source": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
       "target": "2026-04-27-pip-invariant-anomaly-detection",
       "weight": 3,
@@ -418782,6 +419619,14 @@
       "provenance": "2026-04-27-pdp-universal-policy-synchronisation-integrity"
     },
     {
+      "source": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-27-pdp-universal-policy-synchronisation-integrity"
+    },
+    {
       "source": "2026-04-27-pip-invariant-anomaly-detection",
       "target": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
       "weight": 3,
@@ -420614,6 +421459,14 @@
       "provenance": "2026-04-27-pip-invariant-anomaly-detection"
     },
     {
+      "source": "2026-04-27-pip-invariant-anomaly-detection",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-27-pip-invariant-anomaly-detection"
+    },
+    {
       "source": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
       "target": "2026-04-27-uelgf-decommission-lifecycle",
       "weight": 3,
@@ -422550,6 +423403,14 @@
       "provenance": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap"
     },
     {
+      "source": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap"
+    },
+    {
       "source": "2026-04-27-uelgf-decommission-lifecycle",
       "target": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
       "weight": 3,
@@ -424395,6 +425256,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-27-uelgf-decommission-lifecycle"
+    },
+    {
+      "source": "2026-04-27-uelgf-decommission-lifecycle",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-27-uelgf-decommission-lifecycle"
     },
     {
@@ -426262,6 +427131,14 @@
       "provenance": "2026-04-27-uelgf-entity-taxonomy-cia-classification"
     },
     {
+      "source": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-27-uelgf-entity-taxonomy-cia-classification"
+    },
+    {
       "source": "2026-04-27-uelgf-foundational-definitions-principles",
       "target": "2026-04-27-uelgf-governed-golden-rails",
       "weight": 3,
@@ -428174,6 +429051,14 @@
       "provenance": "2026-04-27-uelgf-foundational-definitions-principles"
     },
     {
+      "source": "2026-04-27-uelgf-foundational-definitions-principles",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-27-uelgf-foundational-definitions-principles"
+    },
+    {
       "source": "2026-04-27-uelgf-governed-golden-rails",
       "target": "2026-04-27-uelgf-policy-architecture-8-layer-context",
       "weight": 3,
@@ -429987,6 +430872,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-27-uelgf-governed-golden-rails"
+    },
+    {
+      "source": "2026-04-27-uelgf-governed-golden-rails",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-27-uelgf-governed-golden-rails"
     },
     {
@@ -431806,6 +432699,14 @@
       "provenance": "2026-04-27-uelgf-policy-architecture-8-layer-context"
     },
     {
+      "source": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-27-uelgf-policy-architecture-8-layer-context"
+    },
+    {
       "source": "2026-04-27-uelgf-runtime-feedback-loop",
       "target": "2026-04-27-uelgf-synthesis-complete-framework",
       "weight": 2,
@@ -433299,6 +434200,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-27-uelgf-runtime-feedback-loop"
+    },
+    {
+      "source": "2026-04-27-uelgf-runtime-feedback-loop",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-27-uelgf-runtime-feedback-loop"
     },
     {
@@ -435187,6 +436096,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-27-uelgf-synthesis-complete-framework"
+    },
+    {
+      "source": "2026-04-27-uelgf-synthesis-complete-framework",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-27-uelgf-synthesis-complete-framework"
     },
     {
@@ -437067,6 +437984,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents"
+    },
+    {
+      "source": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents"
     },
     {
@@ -440270,6 +441195,14 @@
       "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
     },
     {
+      "source": "2026-04-28-software-demand-shift-ai-coding-era",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-04-28-software-demand-shift-ai-coding-era"
+    },
+    {
       "source": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
       "target": "2026-04-28-uelgf-human-oversight-accountability-layer",
       "weight": 3,
@@ -441918,6 +442851,14 @@
       "provenance": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring"
     },
     {
+      "source": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring"
+    },
+    {
       "source": "2026-04-28-uelgf-human-oversight-accountability-layer",
       "target": "2026-04-28-uelgf-tooling-reference-architecture",
       "weight": 2,
@@ -443555,6 +444496,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-04-28-uelgf-human-oversight-accountability-layer"
+    },
+    {
+      "source": "2026-04-28-uelgf-human-oversight-accountability-layer",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-28-uelgf-human-oversight-accountability-layer"
     },
     {
@@ -445307,6 +446256,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-28-uelgf-tooling-reference-architecture"
+    },
+    {
+      "source": "2026-04-28-uelgf-tooling-reference-architecture",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-28-uelgf-tooling-reference-architecture"
     },
     {
@@ -448822,6 +449779,14 @@
       "provenance": "2026-04-30-ai-code-entropy-quality-metrics"
     },
     {
+      "source": "2026-04-30-ai-code-entropy-quality-metrics",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-04-30-ai-code-entropy-quality-metrics"
+    },
+    {
       "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
       "target": "2026-04-02-claude-mythos",
       "weight": 3,
@@ -450587,6 +451552,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-04-30-claude-vs-m365-copilot-cowork-comparison"
+    },
+    {
+      "source": "2026-04-30-claude-vs-m365-copilot-cowork-comparison",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy",
       "provenance": "2026-04-30-claude-vs-m365-copilot-cowork-comparison"
     },
     {
@@ -452422,6 +453395,14 @@
       "provenance": "2026-04-30-deep-modules-ai-augmented-codebases"
     },
     {
+      "source": "2026-04-30-deep-modules-ai-augmented-codebases",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-04-30-deep-modules-ai-augmented-codebases"
+    },
+    {
       "source": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
       "target": "2026-02-28-rbnz-ai-supervisory-expectations",
       "weight": 3,
@@ -453851,6 +454832,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,regulatory-compliance",
+      "provenance": "2026-04-30-deterministic-crr-mlr2017-risk-scoring"
+    },
+    {
+      "source": "2026-04-30-deterministic-crr-mlr2017-risk-scoring",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-30-deterministic-crr-mlr2017-risk-scoring"
     },
     {
@@ -455507,6 +456496,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-04-30-explainable-ai-xai-regulation-governance"
+    },
+    {
+      "source": "2026-04-30-explainable-ai-xai-regulation-governance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-30-explainable-ai-xai-regulation-governance"
     },
     {
@@ -457342,6 +458339,14 @@
       "provenance": "2026-04-30-fundamentals-first-vs-specs-to-code"
     },
     {
+      "source": "2026-04-30-fundamentals-first-vs-specs-to-code",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
+      "provenance": "2026-04-30-fundamentals-first-vs-specs-to-code"
+    },
+    {
       "source": "2026-04-30-grill-me-ai-alignment-shared-design",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 3,
@@ -459091,6 +460096,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
+      "provenance": "2026-04-30-grill-me-ai-alignment-shared-design"
+    },
+    {
+      "source": "2026-04-30-grill-me-ai-alignment-shared-design",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-04-30-grill-me-ai-alignment-shared-design"
     },
     {
@@ -460878,6 +461891,14 @@
       "provenance": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy"
     },
     {
+      "source": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-04-30-human-bias-ai-trust-rlhf-sycophancy"
+    },
+    {
       "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
       "target": "2026-03-15-context-layers-aligned-decisions-synthesis",
       "weight": 3,
@@ -462547,6 +463568,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
+    },
+    {
+      "source": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-04-30-orthogonality-thesis-ai-alignment-interpretability"
     },
     {
@@ -464318,6 +465347,14 @@
       "provenance": "2026-04-30-se-fundamentals-ai-code-synthesis"
     },
     {
+      "source": "2026-04-30-se-fundamentals-ai-code-synthesis",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-04-30-se-fundamentals-ai-code-synthesis"
+    },
+    {
       "source": "2026-04-30-strategic-tactical-division-ai-teams",
       "target": "2026-03-14-reliable-software-llm-era",
       "weight": 3,
@@ -465979,6 +467016,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
+      "provenance": "2026-04-30-strategic-tactical-division-ai-teams"
+    },
+    {
+      "source": "2026-04-30-strategic-tactical-division-ai-teams",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design,software-engineering",
       "provenance": "2026-04-30-strategic-tactical-division-ai-teams"
     },
     {
@@ -467702,6 +468747,14 @@
       "provenance": "2026-04-30-tdd-feedback-loops-ai-augmented-dev"
     },
     {
+      "source": "2026-04-30-tdd-feedback-loops-ai-augmented-dev",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-04-30-tdd-feedback-loops-ai-augmented-dev"
+    },
+    {
       "source": "2026-04-30-ubiquitous-language-ai-code-consistency",
       "target": "2026-03-16-intent-driven-development",
       "weight": 4,
@@ -469363,6 +470416,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-04-30-ubiquitous-language-ai-code-consistency"
+    },
+    {
+      "source": "2026-04-30-ubiquitous-language-ai-code-consistency",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-04-30-ubiquitous-language-ai-code-consistency"
     },
     {
@@ -472774,6 +473835,14 @@
       "provenance": "2026-05-01-appropriate-task-selection-coding-agents"
     },
     {
+      "source": "2026-05-01-appropriate-task-selection-coding-agents",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-05-01-appropriate-task-selection-coding-agents"
+    },
+    {
       "source": "2026-05-01-coding-agent-context-management-transparency",
       "target": "2026-03-02-agent-memory-management-context-injection",
       "weight": 4,
@@ -475966,6 +477035,14 @@
       "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
     },
     {
+      "source": "2026-05-01-compound-error-accumulation-ai-codebases",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-01-compound-error-accumulation-ai-codebases"
+    },
+    {
       "source": "2026-05-01-extension-systems-ai-coding-agents",
       "target": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
       "weight": 3,
@@ -479038,6 +480115,14 @@
       "provenance": "2026-05-01-human-oversight-ai-software-development"
     },
     {
+      "source": "2026-05-01-human-oversight-ai-software-development",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-05-01-human-oversight-ai-software-development"
+    },
+    {
       "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 4,
@@ -480678,6 +481763,14 @@
       "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
     },
     {
+      "source": "2026-05-01-oss-sustainability-ai-generated-contributions",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-01-oss-sustainability-ai-generated-contributions"
+    },
+    {
       "source": "2026-05-01-self-modifying-agent-architectures",
       "target": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
       "weight": 3,
@@ -482019,6 +483112,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-05-01-self-modifying-agent-architectures"
+    },
+    {
+      "source": "2026-05-01-self-modifying-agent-architectures",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
       "provenance": "2026-05-01-self-modifying-agent-architectures"
     },
     {
@@ -483451,6 +484552,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement"
+    },
+    {
+      "source": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
       "provenance": "2026-05-01-srinivasan-ai-automation-augmentation-role-replacement"
     },
     {
@@ -485099,6 +486208,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-05-01-sustainable-ai-software-development-synthesis"
+    },
+    {
+      "source": "2026-05-01-sustainable-ai-software-development-synthesis",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,software-engineering",
       "provenance": "2026-05-01-sustainable-ai-software-development-synthesis"
     },
     {
@@ -489854,6 +490971,14 @@
       "provenance": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain"
     },
     {
+      "source": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain"
+    },
+    {
       "source": "2026-05-02-automated-claim-verification-academic-literature",
       "target": "2026-03-05-llm-hallucination-mechanisms",
       "weight": 4,
@@ -494398,6 +495523,14 @@
       "provenance": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp"
     },
     {
+      "source": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp"
+    },
+    {
       "source": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 4,
@@ -495867,6 +497000,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls"
+    },
+    {
+      "source": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-02-incentive-misalignment-shadow-ai-skill-decay-controls"
     },
     {
@@ -499923,6 +501064,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,cost-performance",
+      "provenance": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model"
+    },
+    {
+      "source": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
       "provenance": "2026-05-02-ms-copilot-vs-aws-bedrock-enterprise-ai-capability-model"
     },
     {
@@ -507126,6 +508275,14 @@
       "provenance": "2026-05-02-vendor-lock-in-portability-multi-platform-ai"
     },
     {
+      "source": "2026-05-02-vendor-lock-in-portability-multi-platform-ai",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-05-02-vendor-lock-in-portability-multi-platform-ai"
+    },
+    {
       "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
       "target": "2026-03-12-failure-mode-taxonomy-expansion",
       "weight": 3,
@@ -508475,6 +509632,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
+      "provenance": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability"
+    },
+    {
+      "source": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-03-hbr-ai-positional-bias-strategic-advice-reliability"
     },
     {
@@ -510214,6 +511379,14 @@
       "provenance": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update"
     },
     {
+      "source": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-06-ai-capability-reference-architecture-security-supply-chain-update"
+    },
+    {
       "source": "2026-05-06-aibom-declared-construction-practice",
       "target": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
       "weight": 4,
@@ -511758,6 +512931,14 @@
       "provenance": "2026-05-06-aibom-declared-construction-practice"
     },
     {
+      "source": "2026-05-06-aibom-declared-construction-practice",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-06-aibom-declared-construction-practice"
+    },
+    {
       "source": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
       "target": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
       "weight": 3,
@@ -513211,6 +514392,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-05-06-aibom-effectiveness-risk-mitigation-limits"
+    },
+    {
+      "source": "2026-05-06-aibom-effectiveness-risk-mitigation-limits",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-06-aibom-effectiveness-risk-mitigation-limits"
     },
     {
@@ -515926,6 +517115,14 @@
       "provenance": "2026-05-06-aibom-identity-delegation-trust-theory"
     },
     {
+      "source": "2026-05-06-aibom-identity-delegation-trust-theory",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-06-aibom-identity-delegation-trust-theory"
+    },
+    {
       "source": "2026-05-06-aibom-platform-observability-control-comparison",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -517446,6 +518643,14 @@
       "provenance": "2026-05-06-aibom-platform-observability-control-comparison"
     },
     {
+      "source": "2026-05-06-aibom-platform-observability-control-comparison",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-06-aibom-platform-observability-control-comparison"
+    },
+    {
       "source": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
       "target": "2026-04-24-ai-agent-regulation-global-financial-services",
       "weight": 4,
@@ -518918,6 +520123,14 @@
       "provenance": "2026-05-06-aibom-regulatory-eu-ai-act-intersection"
     },
     {
+      "source": "2026-05-06-aibom-regulatory-eu-ai-act-intersection",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-06-aibom-regulatory-eu-ai-act-intersection"
+    },
+    {
       "source": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -520358,6 +521571,14 @@
       "provenance": "2026-05-06-aibom-runtime-capture-opentelemetry-practice"
     },
     {
+      "source": "2026-05-06-aibom-runtime-capture-opentelemetry-practice",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-06-aibom-runtime-capture-opentelemetry-practice"
+    },
+    {
       "source": "2026-05-06-aibom-runtime-generation-divergence-theory",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -521723,6 +522944,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-05-06-aibom-runtime-generation-divergence-theory"
+    },
+    {
+      "source": "2026-05-06-aibom-runtime-generation-divergence-theory",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-06-aibom-runtime-generation-divergence-theory"
     },
     {
@@ -523182,6 +524411,14 @@
       "provenance": "2026-05-06-aibom-sbom-conceptual-gaps-theory"
     },
     {
+      "source": "2026-05-06-aibom-sbom-conceptual-gaps-theory",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-06-aibom-sbom-conceptual-gaps-theory"
+    },
+    {
       "source": "2026-05-06-aibom-schema-design-standards-alignment",
       "target": "2026-05-02-ai-security-threat-model-prompt-injection-rag-supply-chain",
       "weight": 4,
@@ -524635,6 +525872,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-06-aibom-schema-design-standards-alignment"
+    },
+    {
+      "source": "2026-05-06-aibom-schema-design-standards-alignment",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-06-aibom-schema-design-standards-alignment"
     },
     {
@@ -528694,6 +529939,14 @@
       "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
     },
     {
+      "source": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-05-06-gpt-oss-safeguard-policy-enforcement-open-weight"
+    },
+    {
       "source": "2026-05-06-it-system-legibility-measurement-frameworks",
       "target": "2026-03-15-tracking-work-across-systems",
       "weight": 3,
@@ -530187,6 +531440,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-06-it-system-legibility-measurement-frameworks"
+    },
+    {
+      "source": "2026-05-06-it-system-legibility-measurement-frameworks",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-06-it-system-legibility-measurement-frameworks"
     },
     {
@@ -533894,6 +535155,14 @@
       "provenance": "2026-05-07-ai-production-incidents-deep-dive"
     },
     {
+      "source": "2026-05-07-ai-production-incidents-deep-dive",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-07-ai-production-incidents-deep-dive"
+    },
+    {
       "source": "2026-05-07-ai-regulatory-guidance-update-gap-check",
       "target": "2026-02-28-rbnz-ai-supervisory-expectations",
       "weight": 4,
@@ -534830,6 +536099,14 @@
       "provenance": "2026-05-07-ai-regulatory-guidance-update-gap-check"
     },
     {
+      "source": "2026-05-07-ai-regulatory-guidance-update-gap-check",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-07-ai-regulatory-guidance-update-gap-check"
+    },
+    {
       "source": "2026-05-07-five-eyes-ai-risks-and-advice",
       "target": "2026-02-28-ai-strategy-security-focus",
       "weight": 4,
@@ -535739,6 +537016,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk",
+      "provenance": "2026-05-07-five-eyes-ai-risks-and-advice"
+    },
+    {
+      "source": "2026-05-07-five-eyes-ai-risks-and-advice",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-07-five-eyes-ai-risks-and-advice"
     },
     {
@@ -537262,6 +538547,14 @@
       "provenance": "2026-05-08-ai-capability-reference-architecture-second-cycle-update"
     },
     {
+      "source": "2026-05-08-ai-capability-reference-architecture-second-cycle-update",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-08-ai-capability-reference-architecture-second-cycle-update"
+    },
+    {
       "source": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 3,
@@ -538483,6 +539776,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions"
+    },
+    {
+      "source": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions"
     },
     {
@@ -539766,6 +541067,14 @@
       "provenance": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification"
     },
     {
+      "source": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-08-capability-debt-definition-measurement-ai-risk-amplification"
+    },
+    {
       "source": "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 4,
@@ -541035,6 +542344,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk"
+    },
+    {
+      "source": "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-08-integrated-cascading-failure-agentic-vs-generative-ai-risk"
     },
     {
@@ -542350,6 +543667,14 @@
       "provenance": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai"
     },
     {
+      "source": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy,software-engineering",
+      "provenance": "2026-05-08-productivity-incentive-metrics-quality-review-agentic-ai"
+    },
+    {
       "source": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 4,
@@ -543646,6 +544971,14 @@
       "provenance": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates"
     },
     {
+      "source": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-08-scaled-hitl-oversight-quality-measurement-productivity-mandates"
+    },
+    {
       "source": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 3,
@@ -544878,6 +546211,14 @@
       "provenance": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness"
     },
     {
+      "source": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-08-shadow-ai-behavioral-drivers-governance-effectiveness"
+    },
+    {
       "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 4,
@@ -546070,6 +547411,14 @@
       "provenance": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification"
     },
     {
+      "source": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification"
+    },
+    {
       "source": "2026-05-09-build-vs-improve-throughput-tradeoff",
       "target": "2026-03-26-measuring-opportunity-cost",
       "weight": 4,
@@ -547179,6 +548528,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
+      "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
+    },
+    {
+      "source": "2026-05-09-build-vs-improve-throughput-tradeoff",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design,software-engineering",
       "provenance": "2026-05-09-build-vs-improve-throughput-tradeoff"
     },
     {
@@ -548430,6 +549787,14 @@
       "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
     },
     {
+      "source": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-09-cobit-cmmi-defined-process-risk-mitigation"
+    },
+    {
       "source": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
       "target": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
       "weight": 3,
@@ -549667,6 +551032,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk",
+      "provenance": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions"
+    },
+    {
+      "source": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-09-compliance-risks-stochastic-llm-governance-decisions"
     },
     {
@@ -550958,6 +552331,14 @@
       "provenance": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension"
     },
     {
+      "source": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-09-data-governance-frameworks-llm-nondeterminism-extension"
+    },
+    {
       "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
       "target": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
       "weight": 4,
@@ -552110,6 +553491,14 @@
       "provenance": "2026-05-09-data-governance-standards-ai-agentic-applicability"
     },
     {
+      "source": "2026-05-09-data-governance-standards-ai-agentic-applicability",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-09-data-governance-standards-ai-agentic-applicability"
+    },
+    {
       "source": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 3,
@@ -553219,6 +554608,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "regulatory-compliance",
+      "provenance": "2026-05-09-governance-policy-determinism-vs-stochastic-llm"
+    },
+    {
+      "source": "2026-05-09-governance-policy-determinism-vs-stochastic-llm",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-09-governance-policy-determinism-vs-stochastic-llm"
     },
     {
@@ -554574,6 +555971,14 @@
       "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
     },
     {
+      "source": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-09-hybrid-architecture-probabilistic-llm-deterministic-governance"
+    },
+    {
       "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
       "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
       "weight": 3,
@@ -555707,6 +557112,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-09-key-person-dependency-basel-risk-linkage"
+    },
+    {
+      "source": "2026-05-09-key-person-dependency-basel-risk-linkage",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-09-key-person-dependency-basel-risk-linkage"
     },
     {
@@ -556998,6 +558411,14 @@
       "provenance": "2026-05-09-llm-determinism-limits-temperature-zero"
     },
     {
+      "source": "2026-05-09-llm-determinism-limits-temperature-zero",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy",
+      "provenance": "2026-05-09-llm-determinism-limits-temperature-zero"
+    },
+    {
       "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -558107,6 +559528,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts"
+    },
+    {
+      "source": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-09-nist-800-53-provenance-gaps-in-shadow-artifacts"
     },
     {
@@ -559374,6 +560803,14 @@
       "provenance": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk"
     },
     {
+      "source": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy",
+      "provenance": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk"
+    },
+    {
       "source": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
       "target": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
       "weight": 3,
@@ -560638,6 +562075,14 @@
       "provenance": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance"
     },
     {
+      "source": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-09-policy-as-code-guardrails-regulatory-ai-governance"
+    },
+    {
       "source": "2026-05-09-policy-lsp-capability-debt-detection",
       "target": "2026-03-01-agent-lsp-policy-enforcement",
       "weight": 4,
@@ -561766,6 +563211,14 @@
       "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
     },
     {
+      "source": "2026-05-09-policy-lsp-capability-debt-detection",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-09-policy-lsp-capability-debt-detection"
+    },
+    {
       "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
       "target": "2026-05-09-basel-iso-nist-shadow-workforce-risk-classification",
       "weight": 4,
@@ -562843,6 +564296,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
+    },
+    {
+      "source": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-09-prc-risk-scoring-unstandardized-workforce-processes"
     },
     {
@@ -563958,6 +565419,14 @@
       "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
     },
     {
+      "source": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-09-process-inefficiency-vs-latent-risk-taxonomy"
+    },
+    {
       "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -565035,6 +566504,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
+    },
+    {
+      "source": "2026-05-09-system-of-record-bypass-control-deficiencies",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-09-system-of-record-bypass-control-deficiencies"
     },
     {
@@ -566166,6 +567643,14 @@
       "provenance": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks"
     },
     {
+      "source": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-10-m365-copilot-sensitive-data-security-governance-risks"
+    },
+    {
       "source": "2026-05-12-data-product-ontology",
       "target": "2026-05-09-data-governance-standards-ai-agentic-applicability",
       "weight": 3,
@@ -567187,6 +568672,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-12-data-product-ontology"
+    },
+    {
+      "source": "2026-05-12-data-product-ontology",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-12-data-product-ontology"
     },
     {
@@ -569118,6 +570611,14 @@
       "provenance": "2026-05-12-hardware-load-inference-performance"
     },
     {
+      "source": "2026-05-12-hardware-load-inference-performance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-05-12-hardware-load-inference-performance"
+    },
+    {
       "source": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 3,
@@ -569843,6 +571344,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "regulatory-compliance",
+      "provenance": "2026-05-12-iso-iec-42001-aims-controls-adoption-history"
+    },
+    {
+      "source": "2026-05-12-iso-iec-42001-aims-controls-adoption-history",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-12-iso-iec-42001-aims-controls-adoption-history"
     },
     {
@@ -572078,6 +573587,14 @@
       "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
     },
     {
+      "source": "2026-05-12-knowledge-graph-data-product-agentic",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-12-knowledge-graph-data-product-agentic"
+    },
+    {
       "source": "2026-05-12-knowledge-graph-lifecycle-management-agentic",
       "target": "2026-03-03-knowledge-linking-connected-corpus",
       "weight": 3,
@@ -574182,6 +575699,14 @@
       "provenance": "2026-05-12-odrl-policies-knowledge-graph-agentic-access"
     },
     {
+      "source": "2026-05-12-odrl-policies-knowledge-graph-agentic-access",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-12-odrl-policies-knowledge-graph-agentic-access"
+    },
+    {
       "source": "2026-05-12-rag-document-drift-agent-behavior",
       "target": "2026-03-08-servicenow-ai-knowledge-rag-agents",
       "weight": 4,
@@ -575435,6 +576960,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
+      "provenance": "2026-05-12-rag-document-drift-agent-behavior"
+    },
+    {
+      "source": "2026-05-12-rag-document-drift-agent-behavior",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-12-rag-document-drift-agent-behavior"
     },
     {
@@ -578518,6 +580051,14 @@
       "provenance": "2026-05-13-agent-process-reliability-architecture"
     },
     {
+      "source": "2026-05-13-agent-process-reliability-architecture",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
+      "provenance": "2026-05-13-agent-process-reliability-architecture"
+    },
+    {
       "source": "2026-05-13-anthropic-4d-framework-ai-agent-taxonomy",
       "target": "2026-03-02-integrative-framework-agent-decision-making",
       "weight": 3,
@@ -580494,6 +582035,14 @@
       "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
     },
     {
+      "source": "2026-05-13-graph-db-landscape-tco-interoperability",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-05-13-graph-db-landscape-tco-interoperability"
+    },
+    {
       "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
       "target": "2026-04-24-business-led-low-code-agent-governance",
       "weight": 4,
@@ -581411,6 +582960,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
+    },
+    {
+      "source": "2026-05-14-citizen-development-rollout-empirical-evidence",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-14-citizen-development-rollout-empirical-evidence"
     },
     {
@@ -583110,6 +584667,14 @@
       "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
     },
     {
+      "source": "2026-05-14-org-failure-modes-accountability-gaps",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-accountability-gaps"
+    },
+    {
       "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -583958,6 +585523,14 @@
       "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
     },
     {
+      "source": "2026-05-14-org-failure-modes-cohort-demand-domain-it",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-14-org-failure-modes-cohort-demand-domain-it"
+    },
+    {
       "source": "2026-05-14-org-failure-modes-project-demand-product-it",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -584803,6 +586376,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-project-demand-product-it",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-14-org-failure-modes-project-demand-product-it"
     },
     {
@@ -585699,6 +587280,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
+      "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy,organisational-design",
       "provenance": "2026-05-14-org-failure-modes-split-risk-cost-benefits-accountability"
     },
     {
@@ -586603,6 +588192,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
+    },
+    {
+      "source": "2026-05-14-org-failure-modes-vendor-standards-gaps",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-14-org-failure-modes-vendor-standards-gaps"
     },
     {
@@ -588270,6 +589867,14 @@
       "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
     },
     {
+      "source": "2026-05-15-declaration-independence-cyberspace-ai-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-15-declaration-independence-cyberspace-ai-risk"
+    },
+    {
       "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
       "target": "2026-05-12-data-product-ontology",
       "weight": 4,
@@ -589302,6 +590907,14 @@
       "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
     },
     {
+      "source": "2026-05-15-ontology-landscape-for-curated-enterprise-context",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
+      "provenance": "2026-05-15-ontology-landscape-for-curated-enterprise-context"
+    },
+    {
       "source": "2026-05-15-organisational-failure-modes-structural-fragmentation",
       "target": "2026-05-14-org-failure-modes-accountability-gaps",
       "weight": 4,
@@ -590283,6 +591896,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
+    },
+    {
+      "source": "2026-05-15-uelgf-live-queryable-knowledge-graph",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-15-uelgf-live-queryable-knowledge-graph"
     },
     {
@@ -591286,6 +592907,14 @@
       "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
     },
     {
+      "source": "2026-05-16-agent-operational-cost-vs-gap-closure-cost",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-05-16-agent-operational-cost-vs-gap-closure-cost"
+    },
+    {
       "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
       "target": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
       "weight": 4,
@@ -592267,6 +593896,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
+    },
+    {
+      "source": "2026-05-16-decommission-trigger-design-for-do-mode-agents",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
       "provenance": "2026-05-16-decommission-trigger-design-for-do-mode-agents"
     },
     {
@@ -593331,6 +594968,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
+    },
+    {
+      "source": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design",
       "provenance": "2026-05-16-do-mode-demand-persistence-and-build-mode-displacement"
     },
     {
@@ -595094,6 +596739,14 @@
       "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
     },
     {
+      "source": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy,organisational-design",
+      "provenance": "2026-05-16-governance-structures-build-mode-without-full-accountability-colocation"
+    },
+    {
       "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
       "target": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
       "weight": 3,
@@ -596118,6 +597771,14 @@
       "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
     },
     {
+      "source": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design",
+      "provenance": "2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate"
+    },
+    {
       "source": "2026-05-16-reference-architecture-definition-frameworks-detail",
       "target": "2026-03-21-technology-capability-models",
       "weight": 4,
@@ -597003,6 +598664,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
+    },
+    {
+      "source": "2026-05-16-reference-architecture-definition-frameworks-detail",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-16-reference-architecture-definition-frameworks-detail"
     },
     {
@@ -597931,6 +599600,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
+    },
+    {
+      "source": "2026-05-16-variance-control-comparison-across-delivery-modes",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-05-16-variance-control-comparison-across-delivery-modes"
     },
     {
@@ -598939,6 +600616,14 @@
       "weight": 4,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,security-risk,tools-infrastructure",
+      "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-17-ai-policy-ambiguity-accountability-governance-risk"
     },
     {
@@ -599974,6 +601659,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-ai-policy-ambiguity-adversarial-prompting-interpretation-laundering-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
       "target": "2026-03-12-failure-mode-taxonomy-expansion",
       "weight": 3,
@@ -600995,6 +602688,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-17-ai-policy-ambiguity-authority-drift-policy-decay-risk"
     },
     {
@@ -602022,6 +603723,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-ai-policy-ambiguity-cognitive-closure-confirmation-bias-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 3,
@@ -603046,6 +604755,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-ai-policy-ambiguity-context-synthesis-hallucination-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
       "target": "2026-04-26-ai-governance-culture-incentives-behaviour",
       "weight": 4,
@@ -603971,6 +605688,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
+      "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
+    },
+    {
+      "source": "2026-05-17-ai-policy-ambiguity-epistemic-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-17-ai-policy-ambiguity-epistemic-risk"
     },
     {
@@ -604966,6 +606691,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-ai-policy-ambiguity-feedback-loop-systemic-homogenization-risk"
+    },
+    {
       "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
       "target": "2026-05-02-hitl-review-volume-bottleneck-rubber-stamp",
       "weight": 3,
@@ -605910,6 +607643,14 @@
       "provenance": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk"
     },
     {
+      "source": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-ai-policy-ambiguity-institutional-knowledge-social-friction-risk"
+    },
+    {
       "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 3,
@@ -606731,6 +608472,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,tools-infrastructure",
+      "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
+    },
+    {
+      "source": "2026-05-17-aws-bedrock-agentcore-suite-capabilities",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-17-aws-bedrock-agentcore-suite-capabilities"
     },
     {
@@ -607670,6 +609419,14 @@
       "provenance": "2026-05-17-aws-bedrock-capabilities"
     },
     {
+      "source": "2026-05-17-aws-bedrock-capabilities",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-17-aws-bedrock-capabilities"
+    },
+    {
       "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
       "target": "2026-05-07-ai-production-incidents-deep-dive",
       "weight": 3,
@@ -608422,6 +610179,14 @@
       "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
     },
     {
+      "source": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
+      "provenance": "2026-05-17-build-mode-failure-vs-do-mode-incident-comparison-denominator"
+    },
+    {
       "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 3,
@@ -609091,6 +610856,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "governance-policy,tools-infrastructure",
+      "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
+    },
+    {
+      "source": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-17-integrator-rights-vs-risk-cost-benefit-colocation-governance"
     },
     {
@@ -610758,6 +612531,14 @@
       "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
     },
     {
+      "source": "2026-05-17-layered-reasoning-state-abstraction-interfaces",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-17-layered-reasoning-state-abstraction-interfaces"
+    },
+    {
       "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
       "target": "2026-03-08-servicenow-process-mapping",
       "weight": 3,
@@ -611638,6 +613419,14 @@
       "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
     },
     {
+      "source": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-manual-workaround-to-central-it-backlog-conversion-datasets"
+    },
+    {
       "source": "2026-05-17-ms-azure-ai-foundry-capabilities",
       "target": "2026-04-26-ai-agent-identity-access-management-enterprise",
       "weight": 4,
@@ -612502,6 +614291,14 @@
       "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
     },
     {
+      "source": "2026-05-17-ms-azure-ai-foundry-capabilities",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-17-ms-azure-ai-foundry-capabilities"
+    },
+    {
       "source": "2026-05-17-ms-copilot-studio-capabilities",
       "target": "2026-04-24-business-led-low-code-agent-governance",
       "weight": 4,
@@ -613294,6 +615091,14 @@
       "provenance": "2026-05-17-ms-copilot-studio-capabilities"
     },
     {
+      "source": "2026-05-17-ms-copilot-studio-capabilities",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-17-ms-copilot-studio-capabilities"
+    },
+    {
       "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
       "target": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "weight": 4,
@@ -614054,6 +615859,14 @@
       "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
     },
     {
+      "source": "2026-05-17-policy-enforcement-formal-verification-energy-functions",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-17-policy-enforcement-formal-verification-energy-functions"
+    },
+    {
       "source": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
       "target": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
       "weight": 3,
@@ -614811,6 +616624,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
+      "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
+    },
+    {
+      "source": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design",
       "provenance": "2026-05-17-post-gap-closure-persistence-low-code-bots-agents"
     },
     {
@@ -615611,6 +617432,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "ai-architecture",
+      "provenance": "2026-05-17-servicenow-ai-control-tower-capabilities"
+    },
+    {
+      "source": "2026-05-17-servicenow-ai-control-tower-capabilities",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-17-servicenow-ai-control-tower-capabilities"
     },
     {
@@ -616494,6 +618323,14 @@
       "provenance": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes"
     },
     {
+      "source": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-17-vendor-vs-internal-do-mode-automation-visibility-exit-outcomes"
+    },
+    {
       "source": "2026-05-18-agentic-explainability-vs-traditional",
       "target": "2026-04-26-ai-lowcode-observability-telemetry-governance",
       "weight": 4,
@@ -617299,6 +619136,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "ai-architecture,benchmarks-eval",
+      "provenance": "2026-05-18-agentic-explainability-vs-traditional"
+    },
+    {
+      "source": "2026-05-18-agentic-explainability-vs-traditional",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-05-18-agentic-explainability-vs-traditional"
     },
     {
@@ -618195,6 +620040,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval",
+      "provenance": "2026-05-18-agentic-production-tradeoffs"
+    },
+    {
+      "source": "2026-05-18-agentic-production-tradeoffs",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
       "provenance": "2026-05-18-agentic-production-tradeoffs"
     },
     {
@@ -624454,6 +626307,14 @@
       "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
     },
     {
+      "source": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-18-rq5-2-flexibility-vs-predictability-auditability"
+    },
+    {
       "source": "2026-05-18-rq6-1-halting-problem-static-analysis",
       "target": "2026-05-18-rq1-1-popper-falsifiability",
       "weight": 4,
@@ -625550,6 +627411,14 @@
       "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
     },
     {
+      "source": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
+      "provenance": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour"
+    },
+    {
       "source": "2026-05-19-how-do-asset-specificity-and-information-asymmetry-block-knowledge-transfer",
       "target": "2026-03-10-nature-of-the-firm-coase-organisations",
       "weight": 4,
@@ -626294,6 +628163,14 @@
       "provenance": "2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows"
     },
     {
+      "source": "2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-19-how-do-formal-governance-structures-distort-cross-department-knowledge-flows"
+    },
+    {
       "source": "2026-05-19-human-ai-cognitive-divergence-risk",
       "target": "2026-02-28-interoception-and-the-predictive-self",
       "weight": 4,
@@ -626808,6 +628685,14 @@
     {
       "source": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing",
       "target": "2026-10-17-agent-runtime-placement-criteria",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing"
+    },
+    {
+      "source": "2026-05-19-trust-institutions-vs-incentive-schemes-knowledge-sharing",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
@@ -627331,6 +629216,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "cost-performance",
+      "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
+    },
+    {
+      "source": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,organisational-design",
       "provenance": "2026-05-19-what-are-the-micro-transaction-costs-of-internal-knowledge-sourcing"
     },
     {
@@ -627870,6 +629763,14 @@
       "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
     },
     {
+      "source": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-05-19-what-institutional-designs-create-low-cost-psychologically-safe-help-seeking"
+    },
+    {
       "source": "2026-05-19-which-network-structures-bottleneck-or-accelerate-knowledge-flow",
       "target": "2026-05-19-how-do-activation-energy-barriers-shape-knowledge-seeking-behaviour",
       "weight": 4,
@@ -628267,6 +630168,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "knowledge-management",
+      "provenance": "2026-05-19-which-network-structures-bottleneck-or-accelerate-knowledge-flow"
+    },
+    {
+      "source": "2026-05-19-which-network-structures-bottleneck-or-accelerate-knowledge-flow",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
       "provenance": "2026-05-19-which-network-structures-bottleneck-or-accelerate-knowledge-flow"
     },
     {
@@ -628942,6 +630851,14 @@
       "provenance": "2026-05-20-agentic-km-5-pillar-capability-model"
     },
     {
+      "source": "2026-05-20-agentic-km-5-pillar-capability-model",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-05-20-agentic-km-5-pillar-capability-model"
+    },
+    {
       "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
       "target": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
       "weight": 4,
@@ -629494,6 +631411,14 @@
       "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
     },
     {
+      "source": "2026-05-20-banking-agent-sprawl-governance-and-resilience",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
+      "provenance": "2026-05-20-banking-agent-sprawl-governance-and-resilience"
+    },
+    {
       "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
       "target": "2026-04-26-human-in-the-loop-ai-automated-workflows",
       "weight": 3,
@@ -629979,6 +631904,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "agentic-ai",
+      "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
+    },
+    {
+      "source": "2026-05-20-banking-ai-syntactic-confidence-trap",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
       "provenance": "2026-05-20-banking-ai-syntactic-confidence-trap"
     },
     {
@@ -630534,6 +632467,14 @@
       "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
     },
     {
+      "source": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
+      "provenance": "2026-05-20-banking-llm-sycophancy-prompt-mirroring-controls"
+    },
+    {
       "source": "2026-05-20-hitl-capacity-thresholds-in-banking-compliance",
       "target": "2026-04-26-ai-governance-cost-performance-delivery-impact",
       "weight": 3,
@@ -631051,6 +632992,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,tools-infrastructure",
+      "provenance": "2026-05-20-hitl-capacity-thresholds-in-banking-compliance"
+    },
+    {
+      "source": "2026-05-20-hitl-capacity-thresholds-in-banking-compliance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
       "provenance": "2026-05-20-hitl-capacity-thresholds-in-banking-compliance"
     },
     {
@@ -632590,6 +634539,14 @@
       "provenance": "2026-05-21-monolith-vs-cohesive-portfolio-tco"
     },
     {
+      "source": "2026-05-21-monolith-vs-cohesive-portfolio-tco",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design",
+      "provenance": "2026-05-21-monolith-vs-cohesive-portfolio-tco"
+    },
+    {
       "source": "2026-05-21-prompt-program-optimization-theory-mechanisms",
       "target": "2026-03-03-research-loop-quality-prompt-engineering",
       "weight": 3,
@@ -633342,6 +635299,14 @@
       "provenance": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split"
     },
     {
+      "source": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 5,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design,software-engineering",
+      "provenance": "2026-05-23-funding-authority-delivery-capability-risk-accountability-split"
+    },
+    {
       "source": "2026-05-23-governance-controls-effectiveness-conditions",
       "target": "2026-03-02-transaction-costs",
       "weight": 4,
@@ -633843,6 +635808,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,regulatory-compliance",
+      "provenance": "2026-05-23-governance-controls-effectiveness-conditions"
+    },
+    {
+      "source": "2026-05-23-governance-controls-effectiveness-conditions",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design",
       "provenance": "2026-05-23-governance-controls-effectiveness-conditions"
     },
     {
@@ -634350,6 +636323,14 @@
       "provenance": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention"
     },
     {
+      "source": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design",
+      "provenance": "2026-05-23-governance-failure-mechanisms-bureaucracy-circumvention"
+    },
+    {
       "source": "2026-05-23-governance-reform-leadership-failure",
       "target": "2026-03-02-transaction-costs",
       "weight": 4,
@@ -634811,6 +636792,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,regulatory-compliance",
+      "provenance": "2026-05-23-governance-reform-leadership-failure"
+    },
+    {
+      "source": "2026-05-23-governance-reform-leadership-failure",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design",
       "provenance": "2026-05-23-governance-reform-leadership-failure"
     },
     {
@@ -635998,6 +637987,14 @@
       "provenance": "2026-05-25-llm-math-programming-reasoning-substrate"
     },
     {
+      "source": "2026-05-25-llm-math-programming-reasoning-substrate",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "software-engineering",
+      "provenance": "2026-05-25-llm-math-programming-reasoning-substrate"
+    },
+    {
       "source": "2026-05-25-ontology-world-model-llm-prediction-forcing-functions",
       "target": "2026-02-28-predictive-processing-active-inference",
       "weight": 3,
@@ -636830,6 +638827,14 @@
       "provenance": "2026-05-27-ai-first-software-ecology-developer-ecosystems"
     },
     {
+      "source": "2026-05-27-ai-first-software-ecology-developer-ecosystems",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,organisational-design,software-engineering",
+      "provenance": "2026-05-27-ai-first-software-ecology-developer-ecosystems"
+    },
+    {
       "source": "2026-05-27-plato-forms-map-territory-representation-reality",
       "target": "2026-02-28-controlled-hallucination-perception-as-construction",
       "weight": 3,
@@ -637470,6 +639475,14 @@
       "provenance": "2026-05-27-semantic-domain-emergence-enterprise-ontology"
     },
     {
+      "source": "2026-05-27-semantic-domain-emergence-enterprise-ontology",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,organisational-design",
+      "provenance": "2026-05-27-semantic-domain-emergence-enterprise-ontology"
+    },
+    {
       "source": "2026-05-29-commit-trends-repo-velocity-rework-abandonment",
       "target": "2026-03-12-volume-vs-correctness-ai-era",
       "weight": 4,
@@ -637907,6 +639920,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-05-29-commit-trends-repo-velocity-rework-abandonment"
+    },
+    {
+      "source": "2026-05-29-commit-trends-repo-velocity-rework-abandonment",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,software-engineering",
       "provenance": "2026-05-29-commit-trends-repo-velocity-rework-abandonment"
     },
     {
@@ -638398,6 +640419,14 @@
       "provenance": "2026-05-29-split-authority-p1-operating-model-synthesis"
     },
     {
+      "source": "2026-05-29-split-authority-p1-operating-model-synthesis",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design",
+      "provenance": "2026-05-29-split-authority-p1-operating-model-synthesis"
+    },
+    {
       "source": "2026-05-29-split-authority-q1-flow-constraint",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -638862,6 +640891,14 @@
       "provenance": "2026-05-29-split-authority-q1-flow-constraint"
     },
     {
+      "source": "2026-05-29-split-authority-q1-flow-constraint",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy,organisational-design,software-engineering",
+      "provenance": "2026-05-29-split-authority-q1-flow-constraint"
+    },
+    {
       "source": "2026-05-29-split-authority-q2-demand-segmentation",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -639310,6 +641347,14 @@
       "provenance": "2026-05-29-split-authority-q2-demand-segmentation"
     },
     {
+      "source": "2026-05-29-split-authority-q2-demand-segmentation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design",
+      "provenance": "2026-05-29-split-authority-q2-demand-segmentation"
+    },
+    {
       "source": "2026-05-29-split-authority-q3-routing-exception-isolation",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -639715,6 +641760,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-05-29-split-authority-q3-routing-exception-isolation"
+    },
+    {
+      "source": "2026-05-29-split-authority-q3-routing-exception-isolation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design",
       "provenance": "2026-05-29-split-authority-q3-routing-exception-isolation"
     },
     {
@@ -640126,6 +642179,14 @@
       "provenance": "2026-05-29-split-authority-q4-decision-rights-placement"
     },
     {
+      "source": "2026-05-29-split-authority-q4-decision-rights-placement",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 5,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design,software-engineering",
+      "provenance": "2026-05-29-split-authority-q4-decision-rights-placement"
+    },
+    {
       "source": "2026-05-29-split-authority-q5-control-model-tradeoff",
       "target": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
       "weight": 3,
@@ -640531,6 +642592,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption,regulatory-compliance",
+      "provenance": "2026-05-29-split-authority-q5-control-model-tradeoff"
+    },
+    {
+      "source": "2026-05-29-split-authority-q5-control-model-tradeoff",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,organisational-design",
       "provenance": "2026-05-29-split-authority-q5-control-model-tradeoff"
     },
     {
@@ -640990,6 +643059,14 @@
       "provenance": "2026-05-29-split-authority-q6-instability-leading-indicators"
     },
     {
+      "source": "2026-05-29-split-authority-q6-instability-leading-indicators",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,governance-policy,organisational-design",
+      "provenance": "2026-05-29-split-authority-q6-instability-leading-indicators"
+    },
+    {
       "source": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage",
       "target": "2026-05-31-capability-claim-telemetry-conflict-arbitration",
       "weight": 2,
@@ -641307,6 +643384,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage"
+    },
+    {
+      "source": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy,software-engineering",
       "provenance": "2026-05-30-enterprise-pricing-concessions-switching-costs-exit-leverage"
     },
     {
@@ -641678,6 +643763,14 @@
       "provenance": "2026-05-31-capability-claim-telemetry-conflict-arbitration"
     },
     {
+      "source": "2026-05-31-capability-claim-telemetry-conflict-arbitration",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design,software-engineering",
+      "provenance": "2026-05-31-capability-claim-telemetry-conflict-arbitration"
+    },
+    {
       "source": "2026-05-31-formal-methods-interdependent-inputs-feasibility",
       "target": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
       "weight": 4,
@@ -641918,6 +644011,14 @@
       "provenance": "2026-05-31-formal-methods-interdependent-inputs-feasibility"
     },
     {
+      "source": "2026-05-31-formal-methods-interdependent-inputs-feasibility",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,software-engineering",
+      "provenance": "2026-05-31-formal-methods-interdependent-inputs-feasibility"
+    },
+    {
       "source": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling",
       "target": "2026-04-01-backpressure-theory-of-constraints",
       "weight": 4,
@@ -642134,6 +644235,14 @@
       "provenance": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling"
     },
     {
+      "source": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "organisational-design,software-engineering",
+      "provenance": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling"
+    },
+    {
       "source": "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals",
       "target": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling",
       "weight": 3,
@@ -642411,6 +644520,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals"
+    },
+    {
+      "source": "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,software-engineering",
       "provenance": "2026-05-31-goal-fragmentation-vs-legitimate-sub-goal-signals"
     },
     {
@@ -642683,6 +644800,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-31-goal-scope-change-constraint-propagation"
+    },
+    {
+      "source": "2026-05-31-goal-scope-change-constraint-propagation",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,software-engineering",
       "provenance": "2026-05-31-goal-scope-change-constraint-propagation"
     },
     {
@@ -642958,6 +645083,14 @@
       "provenance": "2026-05-31-goal-specification-completeness-schema"
     },
     {
+      "source": "2026-05-31-goal-specification-completeness-schema",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-05-31-goal-specification-completeness-schema"
+    },
+    {
       "source": "2026-05-31-gore-strategic-intent-to-delivery-decomposition",
       "target": "2026-05-31-goal-constraint-feedback-convergence-vs-cycling",
       "weight": 3,
@@ -643203,6 +645336,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-31-gore-strategic-intent-to-delivery-decomposition"
+    },
+    {
+      "source": "2026-05-31-gore-strategic-intent-to-delivery-decomposition",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,software-engineering",
       "provenance": "2026-05-31-gore-strategic-intent-to-delivery-decomposition"
     },
     {
@@ -643470,6 +645611,14 @@
       "provenance": "2026-05-31-itil-capacity-baseline-assertion-vs-telemetry"
     },
     {
+      "source": "2026-05-31-itil-capacity-baseline-assertion-vs-telemetry",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,software-engineering",
+      "provenance": "2026-05-31-itil-capacity-baseline-assertion-vs-telemetry"
+    },
+    {
       "source": "2026-05-31-sre-slo-threshold-justification",
       "target": "2026-05-31-capability-claim-telemetry-conflict-arbitration",
       "weight": 4,
@@ -643707,6 +645856,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "governance-policy",
+      "provenance": "2026-05-31-sre-slo-threshold-justification"
+    },
+    {
+      "source": "2026-05-31-sre-slo-threshold-justification",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design,software-engineering",
       "provenance": "2026-05-31-sre-slo-threshold-justification"
     },
     {
@@ -643987,6 +646144,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption",
+      "provenance": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement"
+    },
+    {
+      "source": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy,software-engineering",
       "provenance": "2026-05-31-togaf-motivation-architecture-driver-goal-requirement"
     },
     {
@@ -644390,6 +646555,14 @@
       "provenance": "2026-06-10-ai-productivity-quality-governance-open-questions"
     },
     {
+      "source": "2026-06-10-ai-productivity-quality-governance-open-questions",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy,software-engineering",
+      "provenance": "2026-06-10-ai-productivity-quality-governance-open-questions"
+    },
+    {
       "source": "2026-06-13-friction-aligned-apprenticeship",
       "target": "2026-05-08-ai-skill-decay-deskilling-measurement-interventions",
       "weight": 4,
@@ -644691,6 +646864,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-06-13-local-global-optima-knowledge-work-throughput"
+    },
+    {
+      "source": "2026-06-13-local-global-optima-knowledge-work-throughput",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,organisational-design,software-engineering",
       "provenance": "2026-06-13-local-global-optima-knowledge-work-throughput"
     },
     {
@@ -645022,6 +647203,14 @@
       "provenance": "2026-06-13-local-tooling-fragmentation-threshold-measurement"
     },
     {
+      "source": "2026-06-13-local-tooling-fragmentation-threshold-measurement",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy,organisational-design",
+      "provenance": "2026-06-13-local-tooling-fragmentation-threshold-measurement"
+    },
+    {
       "source": "2026-06-13-platform-engineering-innersource-hybrid-standardization",
       "target": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
       "weight": 4,
@@ -645259,6 +647448,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption",
+      "provenance": "2026-06-13-platform-engineering-innersource-hybrid-standardization"
+    },
+    {
+      "source": "2026-06-13-platform-engineering-innersource-hybrid-standardization",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,organisational-design,software-engineering",
       "provenance": "2026-06-13-platform-engineering-innersource-hybrid-standardization"
     },
     {
@@ -645539,6 +647736,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption",
+      "provenance": "2026-06-13-shadow-it-custom-tooling-governance-transition"
+    },
+    {
+      "source": "2026-06-13-shadow-it-custom-tooling-governance-transition",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy",
       "provenance": "2026-06-13-shadow-it-custom-tooling-governance-transition"
     },
     {
@@ -645910,6 +648115,14 @@
       "provenance": "2026-06-13-standardization-customization-balance-context-ai"
     },
     {
+      "source": "2026-06-13-standardization-customization-balance-context-ai",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy,organisational-design",
+      "provenance": "2026-06-13-standardization-customization-balance-context-ai"
+    },
+    {
       "source": "2026-07-05-vector-rag-to-ontology-kg-rag-migration",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 3,
@@ -646192,6 +648405,14 @@
     {
       "source": "2026-07-05-vector-rag-to-ontology-kg-rag-migration",
       "target": "2026-10-17-optionality-control-model-stages",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-07-05-vector-rag-to-ontology-kg-rag-migration"
+    },
+    {
+      "source": "2026-07-05-vector-rag-to-ontology-kg-rag-migration",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption",
@@ -647222,6 +649443,14 @@
       "provenance": "2026-07-20-autonomous-knowledge-curation-truth-maintenance"
     },
     {
+      "source": "2026-07-20-autonomous-knowledge-curation-truth-maintenance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-07-20-autonomous-knowledge-curation-truth-maintenance"
+    },
+    {
       "source": "2026-07-20-aws-agentcore-knowledge-context-layer",
       "target": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
       "weight": 4,
@@ -647523,6 +649752,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,tools-infrastructure",
+      "provenance": "2026-07-20-aws-agentcore-knowledge-context-layer"
+    },
+    {
+      "source": "2026-07-20-aws-agentcore-knowledge-context-layer",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-07-20-aws-agentcore-knowledge-context-layer"
     },
     {
@@ -648422,6 +650659,14 @@
       "provenance": "2026-07-20-privacy-preserving-agent-long-term-memory"
     },
     {
+      "source": "2026-07-20-privacy-preserving-agent-long-term-memory",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-07-20-privacy-preserving-agent-long-term-memory"
+    },
+    {
       "source": "2026-07-20-regulated-safe-to-fail-probing-operating-models",
       "target": "2026-02-28-exploit-explore-ai-portfolio-framework",
       "weight": 4,
@@ -648683,6 +650928,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval,enterprise-adoption,regulatory-compliance",
+      "provenance": "2026-07-20-regulated-safe-to-fail-probing-operating-models"
+    },
+    {
+      "source": "2026-07-20-regulated-safe-to-fail-probing-operating-models",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy,organisational-design",
       "provenance": "2026-07-20-regulated-safe-to-fail-probing-operating-models"
     },
     {
@@ -648966,6 +651219,14 @@
       "provenance": "2026-08-09-what-is-an-enterprise-architect"
     },
     {
+      "source": "2026-08-09-what-is-an-enterprise-architect",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 4,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy,organisational-design,software-engineering",
+      "provenance": "2026-08-09-what-is-an-enterprise-architect"
+    },
+    {
       "source": "2026-08-12-ai-coding-agent-runtime-security-evolution",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 3,
@@ -649150,6 +651411,14 @@
       "provenance": "2026-08-12-ai-coding-agent-runtime-security-evolution"
     },
     {
+      "source": "2026-08-12-ai-coding-agent-runtime-security-evolution",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
+      "provenance": "2026-08-12-ai-coding-agent-runtime-security-evolution"
+    },
+    {
       "source": "2026-08-13-llm-consumption-maturity-ladder",
       "target": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
       "weight": 3,
@@ -649323,6 +651592,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-08-13-llm-consumption-maturity-ladder"
+    },
+    {
+      "source": "2026-08-13-llm-consumption-maturity-ladder",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption,governance-policy",
       "provenance": "2026-08-13-llm-consumption-maturity-ladder"
     },
     {
@@ -649558,6 +651835,14 @@
       "provenance": "2026-08-17-cohesive-coherent-organisational-governance"
     },
     {
+      "source": "2026-08-17-cohesive-coherent-organisational-governance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy,organisational-design",
+      "provenance": "2026-08-17-cohesive-coherent-organisational-governance"
+    },
+    {
       "source": "2026-08-17-decision-governance",
       "target": "2026-04-22-enterprise-ai-platform-operating-models",
       "weight": 4,
@@ -649707,6 +651992,14 @@
       "weight": 1,
       "rel": "theme-overlap",
       "evidence": "enterprise-adoption",
+      "provenance": "2026-08-17-decision-governance"
+    },
+    {
+      "source": "2026-08-17-decision-governance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,governance-policy,organisational-design",
       "provenance": "2026-08-17-decision-governance"
     },
     {
@@ -649875,6 +652168,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy,tools-infrastructure",
+      "provenance": "2026-08-20-aws-coa-governance-latency-contextual-debt"
+    },
+    {
+      "source": "2026-08-20-aws-coa-governance-latency-contextual-debt",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-08-20-aws-coa-governance-latency-contextual-debt"
     },
     {
@@ -650051,6 +652352,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval,cost-performance",
+      "provenance": "2026-08-20-execution-harness-closed-loop-performance"
+    },
+    {
+      "source": "2026-08-20-execution-harness-closed-loop-performance",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance",
       "provenance": "2026-08-20-execution-harness-closed-loop-performance"
     },
     {
@@ -650462,6 +652771,14 @@
       "provenance": "2026-08-20-independent-goal-attainment-verification"
     },
     {
+      "source": "2026-08-20-independent-goal-attainment-verification",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-08-20-independent-goal-attainment-verification"
+    },
+    {
       "source": "2026-08-20-mediated-content-pool-semantic-clarity",
       "target": "2026-03-03-knowledge-representation-agent-context",
       "weight": 3,
@@ -650606,6 +652923,14 @@
       "provenance": "2026-08-20-mediated-content-pool-semantic-clarity"
     },
     {
+      "source": "2026-08-20-mediated-content-pool-semantic-clarity",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-08-20-mediated-content-pool-semantic-clarity"
+    },
+    {
       "source": "2026-08-20-neuro-symbolic-nuance-loss-explainability",
       "target": "2026-04-30-explainable-ai-xai-regulation-governance",
       "weight": 3,
@@ -650707,6 +653032,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-08-20-neuro-symbolic-nuance-loss-explainability"
+    },
+    {
+      "source": "2026-08-20-neuro-symbolic-nuance-loss-explainability",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-08-20-neuro-symbolic-nuance-loss-explainability"
     },
     {
@@ -650934,6 +653267,14 @@
       "provenance": "2026-08-20-three-zone-interface-feedback-constraints"
     },
     {
+      "source": "2026-08-20-three-zone-interface-feedback-constraints",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy,organisational-design",
+      "provenance": "2026-08-20-three-zone-interface-feedback-constraints"
+    },
+    {
       "source": "2026-09-14-higher-order-agentic-ai-platform-patterns",
       "target": "2026-04-22-enterprise-ai-capability-model",
       "weight": 4,
@@ -651134,6 +653475,14 @@
       "provenance": "2026-09-14-modern-technology-platform-taxonomy"
     },
     {
+      "source": "2026-09-14-modern-technology-platform-taxonomy",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,organisational-design,software-engineering",
+      "provenance": "2026-09-14-modern-technology-platform-taxonomy"
+    },
+    {
       "source": "2026-09-20-alignment-shared-background-limits",
       "target": "2026-05-09-orthogonality-thesis-llm-training-posttraining-enterprise-risk",
       "weight": 4,
@@ -651179,6 +653528,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "agentic-ai,governance-policy",
+      "provenance": "2026-09-20-alignment-shared-background-limits"
+    },
+    {
+      "source": "2026-09-20-alignment-shared-background-limits",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
       "provenance": "2026-09-20-alignment-shared-background-limits"
     },
     {
@@ -651235,6 +653592,14 @@
       "weight": 3,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval,cost-performance,enterprise-adoption",
+      "provenance": "2026-09-23-ms-copilot-office365-feedback-quality"
+    },
+    {
+      "source": "2026-09-23-ms-copilot-office365-feedback-quality",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
       "provenance": "2026-09-23-ms-copilot-office365-feedback-quality"
     },
     {
@@ -651318,6 +653683,14 @@
       "provenance": "2026-10-01-thinnest-viable-internal-platform-standard"
     },
     {
+      "source": "2026-10-01-thinnest-viable-internal-platform-standard",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,organisational-design,software-engineering",
+      "provenance": "2026-10-01-thinnest-viable-internal-platform-standard"
+    },
+    {
       "source": "2026-10-02-ideal-internal-platform-product-standard",
       "target": "2026-06-13-local-global-optima-knowledge-work-throughput",
       "weight": 3,
@@ -651371,6 +653744,14 @@
       "weight": 2,
       "rel": "theme-overlap",
       "evidence": "benchmarks-eval,enterprise-adoption",
+      "provenance": "2026-10-02-ideal-internal-platform-product-standard"
+    },
+    {
+      "source": "2026-10-02-ideal-internal-platform-product-standard",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 3,
+      "rel": "theme-overlap",
+      "evidence": "enterprise-adoption,organisational-design,software-engineering",
       "provenance": "2026-10-02-ideal-internal-platform-product-standard"
     },
     {
@@ -651510,6 +653891,14 @@
       "provenance": "2026-10-03-zone-intervention-cross-effects"
     },
     {
+      "source": "2026-10-03-zone-intervention-cross-effects",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-10-03-zone-intervention-cross-effects"
+    },
+    {
       "source": "2026-10-17-agent-runtime-placement-criteria",
       "target": "2026-03-08-ai-coding-harnesses-agent-philosophy",
       "weight": 3,
@@ -651558,6 +653947,14 @@
       "provenance": "2026-10-17-agent-runtime-placement-criteria"
     },
     {
+      "source": "2026-10-17-agent-runtime-placement-criteria",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 1,
+      "rel": "theme-overlap",
+      "evidence": "governance-policy",
+      "provenance": "2026-10-17-agent-runtime-placement-criteria"
+    },
+    {
       "source": "2026-10-17-optionality-control-model-stages",
       "target": "2026-03-19-layered-org-llm-architecture",
       "weight": 4,
@@ -651572,6 +653969,78 @@
       "rel": "cites",
       "evidence": "frontmatter:cites",
       "provenance": "2026-10-17-optionality-control-model-stages"
+    },
+    {
+      "source": "2026-10-17-optionality-control-model-stages",
+      "target": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "weight": 2,
+      "rel": "theme-overlap",
+      "evidence": "cost-performance,enterprise-adoption",
+      "provenance": "2026-10-17-optionality-control-model-stages"
+    },
+    {
+      "source": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "target": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
+    },
+    {
+      "source": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "target": "2026-05-29-split-authority-q1-flow-constraint",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
+    },
+    {
+      "source": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "target": "2026-05-29-split-authority-q4-decision-rights-placement",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
+    },
+    {
+      "source": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "target": "2026-06-13-local-global-optima-knowledge-work-throughput",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
+    },
+    {
+      "source": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "target": "2026-06-13-local-tooling-fragmentation-threshold-measurement",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
+    },
+    {
+      "source": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "target": "2026-06-13-platform-engineering-innersource-hybrid-standardization",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
+    },
+    {
+      "source": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "target": "2026-06-13-shadow-it-custom-tooling-governance-transition",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
+    },
+    {
+      "source": "2026-10-23-dependency-properties-coordination-mechanisms",
+      "target": "2026-06-13-standardization-customization-balance-context-ai",
+      "weight": 4,
+      "rel": "cites",
+      "evidence": "frontmatter:cites",
+      "provenance": "2026-10-23-dependency-properties-coordination-mechanisms"
     }
   ]
 }

@@ -1,6 +1,125 @@
 {
-  "extracted_at": "2026-10-23T09:56:17Z",
+  "extracted_at": "2026-10-23T10:00:55Z",
   "items": {
+    "2026-10-23-dependency-properties-coordination-mechanisms": {
+      "named_concepts": [
+        "one organisation",
+        "required certainty",
+        "regulatory exposure",
+        "convergence cost",
+        "rollout cost",
+        "cost grows",
+        "governed decisions",
+        "sources found",
+        "coordination mechanism",
+        "organisational context",
+        "reversible bounded-impact",
+        "favours delegation",
+        "delegation self-service",
+        "standardised interfaces",
+        "exposure favour",
+        "favour synchronisation",
+        "cost estimations",
+        "properties partly",
+        "partly transfer",
+        "software components"
+      ],
+      "source_urls": [
+        "https://ideas.repec.org/a/inm/orinte/v4y1974i3p28-36.html",
+        "https://sk.sagepub.com/ency/edvol/embed/encyclopedia-of-management-theory/chpt/technology-interdependence-uncertainty",
+        "https://en.wikiquote.org/wiki/Paul_R._Lawrence",
+        "https://www.talkingaboutorganizations.com/e16/",
+        "https://pubsonline.informs.org/doi/references/10.1287/mnsc.1060.0526",
+        "https://genres.syr.edu/sites/default/files/acmcs94.pdf",
+        "https://www.jstor.org/stable/257550",
+        "https://rasch.org/rmt/rmt194.pdf",
+        "https://ci.nii.ac.jp/ncid/BA01136657",
+        "https://www.sfipress.org/21-simon-1962",
+        "https://experts.mcmaster.ca/scholarly-works/2169027",
+        "https://blog.acolyer.org/2019/12/13/how-do-committees-invent/",
+        "https://experts.illinois.edu/en/publications/modularity-flexibility-and-knowledge-management-in-product-and-or/",
+        "https://dash.harvard.edu/entities/publication/3affcf33-4dea-4371-ab4c-4767380018ab",
+        "https://pubsonline.informs.org/doi/fpi/10.1287/mnsc.1040.0289",
+        "https://dash.harvard.edu/entities/publication/73120379-10f0-6bd4-e053-0100007fdf3b",
+        "https://doi.org/10.1145/1180875.1180929",
+        "https://devops.com/it-revolution-announces-new-book-team-topologies-organizing-business-and-technology-teams-for-fast-flow/",
+        "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf",
+        "https://plg.uwaterloo.ca/~migod/papers/2008/emse08-ClonePatterns.pdf",
+        "https://dirkriehle.com/wp-content/uploads/2016/12/capraro-riehle-inner-source-definition-benefits-challenges-survey.pdf",
+        "https://eric.ed.gov/?id=EJ255060",
+        "https://eric.ed.gov/?id=EJ251028",
+        "https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction",
+        "https://teamtopologies.com/key-concepts",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://www.jstor.org/stable/2094477",
+        "https://books.google.com/books/about/Organizations.html?id=FbBJEAAAQBAJ",
+        "https://www.hbs.edu/ris/download.aspx?name=16-124.pdf",
+        "https://patrick.wagstrom.net/publications/Cataldo_2006_IdentificationOfCoordinationRequirements.pdf",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-standardization-customization-balance-context-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q4-decision-rights-placement.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q1-flow-constraint.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html",
+        "https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html"
+      ],
+      "key_claims": [
+        {
+          "text": "The dependency properties found in the literature predict which coordination mechanism works better but none of the property sets reviewed prescribes the mechanism without organisational context, because the contingency critique and the mixed software evidence both show conditional rather than deterministic relationships",
+          "sources": [
+            "https://eric.ed.gov/?id=EJ251028",
+            "https://www.hbs.edu/ris/download.aspx?name=16-124.pdf"
+          ]
+        },
+        {
+          "text": "The candidate property set separates link properties (recurrence and number of requesters, uncertainty or specifiability, interdependence form, volatility over time) from terminus properties (cost of a wrong outcome and required certainty), and required speed appears in the sources reviewed only as a hypothesis",
+          "sources": [
+            "https://genres.syr.edu/sites/default/files/acmcs94.pdf",
+            "https://www.jstor.org/stable/2094477"
+          ]
+        },
+        {
+          "text": "High recurrence combined with reversible, bounded-impact work favours moving decision rights or execution to the requesting units through bounded delegation, self-service with guardrails or standardised interfaces rather than queueing on the specialist unit",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q4-decision-rights-placement.html",
+            "https://experts.illinois.edu/en/publications/modularity-flexibility-and-knowledge-management-in-product-and-or/"
+          ]
+        },
+        {
+          "text": "High required certainty and high regulatory exposure push towards synchronisation, and the support is qualitative: a failure-rate remark and queueing comparison in the coordination literature plus a repository synthesis that governance-infrastructure standardisation rises with regulatory exposure",
+          "sources": [
+            "https://genres.syr.edu/sites/default/files/acmcs94.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-06-13-standardization-customization-balance-context-ai.html"
+          ]
+        },
+        {
+          "text": "The cited measurements of synchronisation cost in the evidence reviewed are waiting time in approval and review queues, such as a 441% rise in pull request review time and 97% wait time in one value-stream case, although specialist capacity, batch size and queue utilisation also drive such waits",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html",
+            "https://davidamitchell.github.io/Research/research/2026-05-29-split-authority-q1-flow-constraint.html"
+          ]
+        },
+        {
+          "text": "Convergence cost grows with how long solutions stayed divergent and with the size of the variant's delta, yet the quantification rests on eight cost estimations from one organisation",
+          "sources": [
+            "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf"
+          ]
+        },
+        {
+          "text": "No source found measures rollout cost of adopting a general solution across many teams or describes how the general local solution is identified, and the nearest evidence is that platform migration requires re-engineering and affects architecture, organisation structure and process",
+          "sources": [
+            "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf",
+            "https://dirkriehle.com/wp-content/uploads/2016/12/capraro-riehle-inner-source-definition-benefits-challenges-survey.pdf"
+          ]
+        },
+        {
+          "text": "The claim that time pressure sets the dial towards duplication has no direct empirical support in the sources found, and threat-rigidity research offers a rival prediction that pressure increases centralised control",
+          "sources": [
+            "https://eric.ed.gov/?id=EJ255060"
+          ]
+        }
+      ]
+    },
     "2026-10-17-optionality-control-model-stages": {
       "named_concepts": [
         "managed platforms",
