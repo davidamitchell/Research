@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Dependency properties and coordination mechanisms over time"
 added: 2026-10-23T09:20:04+00:00
 status: reviewing
