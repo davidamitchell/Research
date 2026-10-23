@@ -99,27 +99,27 @@ create later operating or modification costs.
 
 Starting points from the completed research corpus and references already catalogued there:
 
-- [ ] [McCabe (1976) A Complexity Measure](https://doi.org/10.1109/TSE.1976.233837) — cyclomatic complexity measure used in the quality-metrics review.
-- [ ] [Chidamber and Kemerer (1994) A Metrics Suite for Object Oriented Design](https://ieeexplore.ieee.org/document/295895/) — object-oriented design metrics cited in the architecture cost review.
-- [ ] [DevOps Research and Assessment (DORA) 2024 State of DevOps Report](https://dora.dev/research/2024/dora-report/) — delivery-performance and stability outcomes.
-- [ ] [GitClear (2025) AI Copilot Code Quality: 2025 Look Back at 12 Months of Data](https://www.gitclear.com/ai_assistant_code_quality_2025_research) — repository-mining indicators of churn and rework.
-- [ ] [Mitchell (2026) Artificial Intelligence code entropy and complexity](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-ai-code-entropy-quality-metrics.md) — prior work on code-quality indicators and remediation-cost metric gaps.
-- [ ] [Mitchell (2026) Long-term total cost of ownership trade-offs](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-21-monolith-vs-cohesive-portfolio-tco.md) — prior architecture comparison and open questions on modular-monolith and governance costs.
-- [ ] [Mitchell (2026) Software-development commit trends](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-29-commit-trends-repo-velocity-rework-abandonment.md) — repository velocity, rework, and open longitudinal questions.
-- [ ] [Mitchell (2026) Information Technology throughput and debt accumulation](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.md) — prior work on delivery constraints and the need for debt-accumulation indicators.
-- [ ] [Tornhill and Borg (2022) Code Red](https://arxiv.org/abs/2203.04374) — code quality, defects, and cycle time in 39 codebases.
-- [ ] [Besker et al. (2018) Technical Debt Cripples Software Developer Productivity](https://research.chalmers.se/en/publication/507477) — wasted development time due to technical debt.
-- [ ] [Lenarduzzi et al. (2019) Does Migrating a Monolithic System to Microservices Decrease the Technical Debt?](https://arxiv.org/abs/1902.06282) — debt growth before and after microservice extraction.
-- [ ] [MacCormack and Sturtevant (2016) Technical Debt and System Architecture](https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf) — coupling and defect-related activity.
-- [ ] [Jaspan and Green (2018) Defining, Measuring, and Managing Technical Debt](https://static.isthisit.nz/artifacts/blog/Defining_Measuring_and_Managing_Technical_Debt.pdf) — metrics versus engineer-reported debt (mirror copy).
-- [ ] [Sjøberg et al. (2013) Quantifying the Effect of Code Smells on Maintenance Effort](https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf) — controlled maintenance experiment.
-- [ ] [Nagappan and Ball (2005) Use of Relative Code Churn Measures to Predict System Defect Density](https://ieeexplore.ieee.org/document/1553571) — churn and defect density.
-- [ ] [Villamizar et al. (2017) Cost Comparison of Running Web Applications in the Cloud](https://research.tue.nl/en/publications/cost-comparison-of-running-web-applications-in-the-cloud-using-mo/) — infrastructure cost by architecture style.
-- [ ] [DORA Software Delivery Performance Metrics](https://dora.dev/guides/dora-metrics/) — definitions of change lead time and recovery time.
-- [ ] [Wikipedia Cost of Delay](https://en.wikipedia.org/wiki/Cost_of_delay) — orientation definition only.
-- [ ] [arc42 ISO/IEC 25010 Quality Model](https://quality.arc42.org/standards/iso-25010) — maintainability sub-characteristics.
-- [ ] [arc42 ISO/IEC 5055 Automated Source Code Quality Measures](https://quality.arc42.org/standards/iso-5055) — CISQ weakness measures.
-- [ ] [MSDBOK COCOMO II Drivers](https://msdbok.github.io/content/scope/estimates/cocomo_ii_drivers.html) — scale factors and effort multipliers.
+- [ ] [McCabe (1976) A Complexity Measure](https://doi.org/10.1109/TSE.1976.233837): cyclomatic complexity measure used in the quality-metrics review.
+- [ ] [Chidamber and Kemerer (1994) A Metrics Suite for Object Oriented Design](https://ieeexplore.ieee.org/document/295895/): object-oriented design metrics cited in the architecture cost review.
+- [ ] [DevOps Research and Assessment (DORA) 2024 State of DevOps Report](https://dora.dev/research/2024/dora-report/): delivery-performance and stability outcomes.
+- [ ] [GitClear (2025) AI Copilot Code Quality: 2025 Look Back at 12 Months of Data](https://www.gitclear.com/ai_assistant_code_quality_2025_research): repository-mining indicators of churn and rework.
+- [ ] [Mitchell (2026) Artificial Intelligence code entropy and complexity](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-30-ai-code-entropy-quality-metrics.md): prior work on code-quality indicators and remediation-cost metric gaps.
+- [ ] [Mitchell (2026) Long-term total cost of ownership trade-offs](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-21-monolith-vs-cohesive-portfolio-tco.md): prior architecture comparison and open questions on modular-monolith and governance costs.
+- [ ] [Mitchell (2026) Software-development commit trends](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-29-commit-trends-repo-velocity-rework-abandonment.md): repository velocity, rework, and open longitudinal questions.
+- [ ] [Mitchell (2026) Information Technology throughput and debt accumulation](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-16-it-throughput-constraint-magnitude-and-debt-accumulation-rate.md): prior work on delivery constraints and the need for debt-accumulation indicators.
+- [ ] [Tornhill and Borg (2022) Code Red](https://arxiv.org/abs/2203.04374): code quality, defects, and cycle time in 39 codebases.
+- [ ] [Besker et al. (2018) Technical Debt Cripples Software Developer Productivity](https://research.chalmers.se/en/publication/507477): wasted development time due to technical debt.
+- [ ] [Lenarduzzi et al. (2019) Does Migrating a Monolithic System to Microservices Decrease the Technical Debt?](https://arxiv.org/abs/1902.06282): debt growth before and after microservice extraction.
+- [ ] [MacCormack and Sturtevant (2016) Technical Debt and System Architecture](https://www.hbs.edu/ris/Publication%20Files/2016-JSS%20Technical%20Debt_d793c712-5160-4aa9-8761-781b444cc75f.pdf): coupling and defect-related activity.
+- [ ] [Jaspan and Green (2018) Defining, Measuring, and Managing Technical Debt](https://static.isthisit.nz/artifacts/blog/Defining_Measuring_and_Managing_Technical_Debt.pdf): metrics versus engineer-reported debt (mirror copy).
+- [ ] [Sjøberg et al. (2013) Quantifying the Effect of Code Smells on Maintenance Effort](https://www.mn.uio.no/ifi/personer/vit/dagsj/sjoberg.yamashita.anda.mockus.dyba.tse.2013.pdf): controlled maintenance experiment.
+- [ ] [Nagappan and Ball (2005) Use of Relative Code Churn Measures to Predict System Defect Density](https://ieeexplore.ieee.org/document/1553571): churn and defect density.
+- [ ] [Villamizar et al. (2017) Cost Comparison of Running Web Applications in the Cloud](https://research.tue.nl/en/publications/cost-comparison-of-running-web-applications-in-the-cloud-using-mo/): infrastructure cost by architecture style.
+- [ ] [DORA Software Delivery Performance Metrics](https://dora.dev/guides/dora-metrics/): definitions of change lead time and recovery time.
+- [ ] [Wikipedia Cost of Delay](https://en.wikipedia.org/wiki/Cost_of_delay): orientation definition only.
+- [ ] [arc42 ISO/IEC 25010 Quality Model](https://quality.arc42.org/standards/iso-25010): maintainability sub-characteristics.
+- [ ] [arc42 ISO/IEC 5055 Automated Source Code Quality Measures](https://quality.arc42.org/standards/iso-5055): CISQ weakness measures.
+- [ ] [MSDBOK COCOMO II Drivers](https://msdbok.github.io/content/scope/estimates/cocomo_ii_drivers.html): scale factors and effort multipliers.
 
 ---
 
