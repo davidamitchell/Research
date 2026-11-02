@@ -1,6 +1,116 @@
 {
-  "extracted_at": "2026-11-02T05:35:48Z",
+  "extracted_at": "2026-11-02T05:39:08Z",
   "items": {
+    "2026-11-01-substrate-aware-strategic-objectives": {
+      "named_concepts": [
+        "design synthesis",
+        "demand-and-capacity record",
+        "substrate acknowledgement",
+        "universal scalability",
+        "scalability law",
+        "railway occupancy",
+        "capability debt",
+        "objective formulation",
+        "less critical",
+        "direct empirical",
+        "earliest exit",
+        "exit date",
+        "date plus",
+        "plus transition",
+        "transition lead",
+        "lead time",
+        "time falls",
+        "per-bottleneck demand-and-capacity",
+        "shared hard-to-reverse",
+        "hard-to-reverse elements"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-10-01-thinnest-viable-internal-platform-standard.html",
+        "https://davidamitchell.github.io/Research/research/2026-10-02-ideal-internal-platform-product-standard.html",
+        "https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html",
+        "https://davidamitchell.github.io/Research/research/2026-05-31-gore-strategic-intent-to-delivery-decomposition.html",
+        "https://www.melconway.com/Home/Committees_Paper.html",
+        "https://arxiv.org/abs/0808.1431",
+        "https://doi.org/10.1016/j.respol.2012.10.007",
+        "https://doi.org/10.1109/MS.2012.130",
+        "https://www.sei.cmu.edu/library/measure-it-manage-it-ignore-it-software-practitioners-and-technical-debt/",
+        "https://doi.org/10.1109/TSE.2012.32",
+        "https://cisr.mit.edu/publication/enterprise-architecture-as-strategy",
+        "https://ideas.repec.org/a/bla/stratm/v6y1985i3p257-272.html",
+        "https://teamtopologies.com/key-concepts",
+        "https://www.ibano.com/insights/uic-406-rail-line-capacity-compression",
+        "https://plus.maths.org/agner-krarup-erlang-1878-1929",
+        "https://doi.org/10.1287/opre.9.3.383",
+        "https://doi.org/10.1145/1465482.1465560",
+        "https://agilelaws.com/iterative-delivery-and-flow/kingmans-formula.html",
+        "https://dora.dev/capabilities/loosely-coupled-teams/",
+        "https://fortelabs.com/blog/theory-of-constraints-103-the-four-fundamental-principles-of-flow/",
+        "https://www.infoprolearning.com/blog/learning-debt-the-hidden-cost-of-deferring-ld-capacity-decisions/",
+        "https://www.connectingexperts.com/the-real-transformation-bottleneck-capability-debt-and-why-strategic-hiring-fixes-it-faster-than-reorganisation",
+        "https://vendorbenchmark.com/guides/renewal-negotiation-playbook",
+        "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025"
+      ],
+      "key_claims": [
+        {
+          "text": "Direct empirical evidence that explicit substrate acknowledgement at objective formulation improves delivery feasibility was not found, and the case for it rests on adjacent studies of organisational structure, coordination, and architecture",
+          "sources": [
+            "https://doi.org/10.1109/TSE.2012.32",
+            "https://cisr.mit.edu/publication/enterprise-architecture-as-strategy"
+          ]
+        },
+        {
+          "text": "Organisation structure constrains which designs can be built, and a comparison of loosely and tightly coupled organisations found that loosely coupled ones produced more modular products, which supports treating structure as a real constraint on objectives",
+          "sources": [
+            "https://www.melconway.com/Home/Committees_Paper.html",
+            "https://doi.org/10.1016/j.respol.2012.10.007"
+          ]
+        },
+        {
+          "text": "Gaps between coordination requirements and actual coordination were associated with more software failures in two large projects, which supports checking dependency-coordination fit when objectives are set",
+          "sources": [
+            "https://doi.org/10.1109/TSE.2012.32"
+          ]
+        },
+        {
+          "text": "Substrate acknowledgement is less critical when strategy is emergent, or when the substrate can be changed through funded projects inside the horizon, so the criterion is conditional on binding commitments",
+          "sources": [
+            "https://ideas.repec.org/a/bla/stratm/v6y1985i3p257-272.html",
+            "https://cisr.mit.edu/publication/enterprise-architecture-as-strategy"
+          ]
+        },
+        {
+          "text": "A proposed contract criterion treats a commitment as binding an objective when its earliest exit date plus transition lead time falls after the date the objective needs the change, and no located study validates this test, so it remains a design inference",
+          "sources": [
+            "https://vendorbenchmark.com/guides/renewal-negotiation-playbook",
+            "https://davidamitchell.github.io/Research/research/2026-10-01-thinnest-viable-internal-platform-standard.html"
+          ]
+        },
+        {
+          "text": "Local speed gains flooded a shared review queue in cited telemetry, and queueing theory summaries show delay rising steeply near full utilisation, which supports a per-bottleneck demand-and-capacity record with slack instead of planning shared resources at full load",
+          "sources": [
+            "https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025",
+            "https://agilelaws.com/iterative-delivery-and-flow/kingmans-formula.html",
+            "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html"
+          ]
+        },
+        {
+          "text": "Centralised coordination is indicated for decisions that touch shared, hard-to-reverse elements with many consumers, while reversible bounded decisions suit delegation or self-service, although no dependency property set prescribes a mechanism without organisational context",
+          "sources": [
+            "https://teamtopologies.com/key-concepts",
+            "https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html",
+            "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html"
+          ]
+        },
+        {
+          "text": "Goal-Oriented Requirements Engineering (GORE) refinement frameworks offer no sufficiency criterion and no standard propagation of constraints, so substrate constraints need an external register whose entries each refined goal inherits by reference",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-05-31-gore-strategic-intent-to-delivery-decomposition.html"
+          ]
+        }
+      ]
+    },
     "2026-10-23-temporary-specialist-ring-fencing": {
       "named_concepts": [
         "convergence path",
