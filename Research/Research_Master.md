@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-10-23 23:41 UTC
+Generated on: 2026-11-02 05:22 UTC
 
 ## Table of Contents
 
+* [Temporary specialist ring-fencing and re-convergence](#2026-10-23-temporary-specialist-ring-fencing-md)
 * [State mutation decision framework: mapping delivery delay, ownership, and change costs](#2026-10-23-state-mutation-decision-framework-md)
 * [Dependency properties and coordination mechanisms over time](#2026-10-23-dependency-properties-coordination-mechanisms-md)
 * [Optionality and Control Across AI Model Consumption Stages](#2026-10-17-optionality-control-model-stages-md)
@@ -471,6 +472,87 @@ Generated on: 2026-10-23 23:41 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-10-23-temporary-specialist-ring-fencing-md"></a>
+
+## Temporary specialist ring-fencing and re-convergence
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-23-temporary-specialist-ring-fencing.md
+
+## Research Question
+
+Given the dependency properties identified in the prior item (recurrence, uncertainty, and required speed, alongside terminus properties such as the cost of a wrong outcome and required certainty), under what combinations does temporarily ring-fencing specialist capacity in an autonomous, self-contained team with positive capacity produce higher delivery certainty at lower total life-cycle cost than remaining coupled to a shared specialist pool? What does the evidence measure about the cost and success rate of later re-converging the duplicated capability?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+The retrieved evidence does not show that temporarily ring-fencing specialist capacity yields higher delivery certainty at lower total life-cycle cost than a shared specialist pool, because no source measures that comparison. [inference; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf]
+The only measured convergence evidence comes from software clone and own at one organisation, where re-integration cost rose with how long the copy diverged and with the size of its delta. [fact; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+Organisational literature attributes failed separate-then-reintegrate efforts to missing reintegration and reports no rates. [fact; source: https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf]
+A time-bounded ring-fence with a named convergence path is the variant the evidence does not contradict, which makes it a conditional design hypothesis and not a validated rule. [inference; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf]
+
+### Key Findings
+
+1. Re-integration cost grew with divergence duration and with the size of the variant's delta, and short-living clones took considerably less time to re-integrate than long-living ones, in eight cost estimations from one organisation. ([fact]; medium confidence; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf)
+2. At Axis, long-living clones used to enter new markets or test new features were sometimes re-integrated only after years or possibly not at all, and the paper reports no rate of failed convergence. ([fact]; medium confidence; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf)
+3. The software evidence quantifies platform-oriented reuse against clone and own, with a median saving of 52 percent in the systematic literature review, and therefore does not measure a temporary team duplication against a shared pool. ([fact]; medium confidence; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf)
+4. A 2025 systematic review of ambidexterity attributes failure of separate-then-reintegrate arrangements often to a lack of dynamic reintegration, and the review reports no cost or success rate for reintegration. ([inference]; medium confidence; source: https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf)
+5. No retrieved source measures delivery certainty or total life-cycle cost for ring-fencing against a shared specialist pool, so any property-combination rule for that comparison is unmeasured. ([inference]; low confidence; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf)
+6. The best-supported conditional rule is that ring-fencing fits high uncertainty and urgency against a congested pool only when the divergence period is short, the delta small and the convergence path and owner are named in advance. ([inference]; low confidence; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html; https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html)
+7. High required certainty and regulatory exposure favoured synchronisation and standardisation in earlier repository evidence, so ring-fencing there would add a duty to keep each copy compliant, which no retrieved source measures. ([inference]; low confidence; source: https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html)
+8. Co-evolution drift between a copy and its original plausibly transfers from software to teams, while the mechanical cost of merging code does not transfer to people, tacit knowledge and accountability. ([inference]; low confidence; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf)
+9. A standard core with local extensions, self-service platforms and shared contribution models is a rival remedy that builds the convergence path in from the start. ([inference]; low confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Re-integration cost rises with divergence duration and delta | https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf | medium | KF1; eight estimations |
+| [fact] Long-living clones re-integrated after years or not at all at Axis | https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf | medium | KF2; no rate |
+| [fact] Software savings compare platform and clone and own | https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf | medium | KF3 |
+| [inference] Failure often tied to missing reintegration; no rates | https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf | medium | KF4; single review |
+| [inference] Certainty and life-cycle cost comparison unmeasured | https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf | low | KF5 |
+| [inference] Conditional rule: short, small delta, named convergence path | https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html; https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html | low | KF6 |
+| [inference] Regulatory exposure adds per-copy compliance duty | https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html | low | KF7; unmeasured |
+| [inference] Drift transfers, merge mechanics do not | https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf; https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf | low | KF8 |
+| [inference] Standard core is a rival remedy | https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html | low | KF9 |
+
+### Assumptions
+
+Positive capacity is defined here as specialist capacity in the team that shared-pool allocation does not dilute. [assumption; source: https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html]
+No retrieved source defines the term, so the working definition is the item's own. [assumption; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+
+Software convergence mechanisms are treated as a partial analogue for team convergence. [assumption; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+The analogue is bounded by the differences in Key Finding 8. [assumption; source: https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf]
+
+The review of ambidexterity is treated as an accurate report of the primary papers it cites. [assumption; source: https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf]
+The primary papers were not read in text here. [assumption; source: https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Organizational_Learning_and_Change/Tushman_&_OReilly_1996_Ambidextrous_Organizations.pdf]
+
+### Analysis
+
+Evidence was weighted by whether a source measured a cost or only described a mechanism, and only the software study measured one. [inference; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+The software result concerns copies of a system, so it supports the direction of the cost-duration relationship and not its size for teams. [inference; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+Rival remedies are adding capacity to the shared pool, embedding specialists, and a standard core with local extensions, and the retrieved evidence neither ranks nor rejects them against ring-fencing. [inference; source: https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html; https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html]
+Ring-fencing is preferred over a shared pool only if the pool's queue cost exceeds duplication plus expected convergence cost, and no source quantifies either side. [inference; source: https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html]
+Under high regulatory exposure the added duty to keep each copy compliant weighs against ring-fencing, while a congested pool weighs for it, and the sources do not settle the balance. [inference; source: https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html]
+
+### Risks, Gaps, and Uncertainties
+
+- The convergence-cost evidence rests on eight cost estimations from one organisation. [fact; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+- Delivery-certainty outcomes, specialist scarcity effects and regulatory-exposure effects are unmeasured in the retrieved sources. [inference; source: https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf]
+- Ghabach et al. validate their cost-estimation method only on an author-built case study. [fact; source: https://hal.science/hal-01903006v1/document]
+
+### Open Questions
+
+- How is the convergence date, owner and general solution chosen before the ring-fence starts? [assumption; source: https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf]
+- Does a ring-fenced regulated team accrue measurable extra audit or compliance cost per duplicated control? [assumption; source: https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html]
+
+---
 
 ---
 
