@@ -1,6 +1,93 @@
 {
-  "extracted_at": "2026-11-02T02:34:08Z",
+  "extracted_at": "2026-11-02T05:24:22Z",
   "items": {
+    "2026-10-23-temporary-specialist-ring-fencing": {
+      "named_concepts": [
+        "convergence path",
+        "life-cycle cost",
+        "one organisation",
+        "re-integration cost",
+        "shared pool",
+        "regulatory exposure",
+        "standard core",
+        "specialist capacity",
+        "delivery certainty",
+        "total life-cycle",
+        "shared specialist",
+        "specialist pool",
+        "missing reintegration",
+        "named convergence",
+        "divergence duration",
+        "eight cost",
+        "cost estimations",
+        "long-living clones",
+        "conditional rule",
+        "congested pool"
+      ],
+      "source_urls": [
+        "https://hal.science/hal-01903006v1/document",
+        "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf",
+        "https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html",
+        "https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf",
+        "https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Organizational_Learning_and_Change/Tushman_&_OReilly_1996_Ambidextrous_Organizations.pdf",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Re-integration cost grew with divergence duration and with the size of the variant's delta, and short-living clones took considerably less time to re-integrate than long-living ones, in eight cost estimations from one organisation",
+          "sources": [
+            "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf"
+          ]
+        },
+        {
+          "text": "At Axis, long-living clones used to enter new markets or test new features were sometimes re-integrated only after years or possibly not at all, and the paper reports no rate of failed convergence",
+          "sources": [
+            "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf"
+          ]
+        },
+        {
+          "text": "The software evidence quantifies platform-oriented reuse against clone and own, with a median saving of 52 percent in the systematic literature review, and therefore does not measure a temporary team duplication against a shared pool",
+          "sources": [
+            "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf"
+          ]
+        },
+        {
+          "text": "A 2025 systematic review of ambidexterity attributes failure of separate-then-reintegrate arrangements often to a lack of dynamic reintegration, and the review reports no cost or success rate for reintegration",
+          "sources": [
+            "https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf"
+          ]
+        },
+        {
+          "text": "No retrieved source measures delivery certainty or total life-cycle cost for ring-fencing against a shared specialist pool, so any property-combination rule for that comparison is unmeasured",
+          "sources": [
+            "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf",
+            "https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf"
+          ]
+        },
+        {
+          "text": "The best-supported conditional rule is that ring-fencing fits high uncertainty and urgency against a congested pool only when the divergence period is short, the delta small and the convergence path and owner are named in advance",
+          "sources": [
+            "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf",
+            "https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html",
+            "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html"
+          ]
+        },
+        {
+          "text": "High required certainty and regulatory exposure favoured synchronisation and standardisation in earlier repository evidence, so ring-fencing there would add a duty to keep each copy compliant, which no retrieved source measures",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html"
+          ]
+        },
+        {
+          "text": "Co-evolution drift between a copy and its original plausibly transfers from software to teams, while the mechanical cost of merging code does not transfer to people, tacit knowledge and accountability",
+          "sources": [
+            "https://www.cse.chalmers.se/~bergert/paper/2020-fse-reusecosts.pdf",
+            "https://conference.management.ase.ro/archives/2025/pdf_IMC2025/1_8.pdf"
+          ]
+        }
+      ]
+    },
     "2026-10-23-state-mutation-decision-framework": {
       "named_concepts": [
         "defect-related activity",
