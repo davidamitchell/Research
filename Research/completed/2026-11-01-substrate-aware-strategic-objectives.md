@@ -2,12 +2,12 @@
 review_count: 2
 title: "Substrate-aware enterprise strategic objectives and feasible delivery allocation"
 added: 2026-11-01T10:53:33+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 themes: [enterprise-adoption, organisational-design, software-engineering, formal-methods, cost-performance]
 started: 2026-11-02T05:23:16+00:00
-completed: ~
+completed: 2026-11-02T05:37:18+00:00
 output: []
 cites:
   - 2026-10-01-thinnest-viable-internal-platform-standard
