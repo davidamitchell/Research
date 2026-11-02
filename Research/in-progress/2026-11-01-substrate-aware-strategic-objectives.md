@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Substrate-aware enterprise strategic objectives and feasible delivery allocation"
 added: 2026-11-01T10:53:33+00:00
 status: reviewing
