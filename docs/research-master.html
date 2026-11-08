@@ -669,7 +669,179 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-11-02 05:22 UTC</p>
+<p>Generated on: 2026-11-02 05:37 UTC</p>
+<p><a id="2026-11-01-substrate-aware-strategic-objectives-md"></a></p>
+<h2>Substrate-aware enterprise strategic objectives and feasible delivery allocation</h2>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-11-01-substrate-aware-strategic-objectives.md</p>
+<h2>Research Question</h2>
+<p>What evidence supports or challenges the need for enterprise strategic objectives to explicitly incorporate the existing delivery substrate (multi-year Software as a Service (SaaS) contracts, embedded platform commitments, established team topologies, capacity limits, and architectural dependencies), and which objective-formulation criteria and mechanisms make subsequent allocation between stream-aligned autonomy and centralized architectural coordination feasible without generating technical or capability debt?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Substrate-aware objective formulation, meaning formulation that records the existing delivery base of contracts, platforms, team structures, and capacity limits, is warranted when commitments bind inside the objective's horizon and is less critical when the base is renegotiable through funded or staged change, and no direct empirical test of the hypothesis was located. [inference; source: https://doi.org/10.1109/TSE.2012.32; https://ideas.repec.org/a/bla/stratm/v6y1985i3p257-272.html]
+The best-supported formulation criteria are a contract test (a commitment binds an objective when its earliest exit date plus transition lead time falls after the date the objective needs the change), a per-bottleneck demand-and-capacity record, and a coordination rule that centralises decisions touching shared, hard-to-reverse elements. [inference; source: https://www.melconway.com/Home/Committees_Paper.html; https://doi.org/10.1109/TSE.2012.32; https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html]
+Capacity models from telephony, queueing, and railways supply structural questions and bounds and supply no transferable utilisation thresholds, and debt buffers are best sized from locally observed rework and onboarding cost. [inference; source: https://plus.maths.org/agner-krarup-erlang-1878-1929; https://www.ibano.com/insights/uic-406-rail-line-capacity-compression; https://doi.org/10.1109/MS.2012.130]</p>
+<h3>Key Findings</h3>
+<ol>
+<li>Direct empirical evidence that explicit substrate acknowledgement at objective formulation improves delivery feasibility was not found, and the case for it rests on adjacent studies of organisational structure, coordination, and architecture. ([inference]; medium confidence; source: https://doi.org/10.1109/TSE.2012.32; https://cisr.mit.edu/publication/enterprise-architecture-as-strategy)</li>
+<li>Organisation structure constrains which designs can be built, and a comparison of loosely and tightly coupled organisations found that loosely coupled ones produced more modular products, which supports treating structure as a real constraint on objectives. ([inference]; medium confidence; source: https://www.melconway.com/Home/Committees_Paper.html; https://doi.org/10.1016/j.respol.2012.10.007)</li>
+<li>Gaps between coordination requirements and actual coordination were associated with more software failures in two large projects, which supports checking dependency-coordination fit when objectives are set. ([inference]; medium confidence; source: https://doi.org/10.1109/TSE.2012.32)</li>
+<li>Substrate acknowledgement is less critical when strategy is emergent, or when the substrate can be changed through funded projects inside the horizon, so the criterion is conditional on binding commitments. ([inference]; medium confidence; source: https://ideas.repec.org/a/bla/stratm/v6y1985i3p257-272.html; https://cisr.mit.edu/publication/enterprise-architecture-as-strategy)</li>
+<li>A proposed contract criterion treats a commitment as binding an objective when its earliest exit date plus transition lead time falls after the date the objective needs the change, and no located study validates this test, so it remains a design inference. ([inference]; low confidence; source: https://vendorbenchmark.com/guides/renewal-negotiation-playbook; https://davidamitchell.github.io/Research/research/2026-10-01-thinnest-viable-internal-platform-standard.html)</li>
+<li>Local speed gains flooded a shared review queue in cited telemetry, and queueing theory summaries show delay rising steeply near full utilisation, which supports a per-bottleneck demand-and-capacity record with slack instead of planning shared resources at full load. ([inference]; low confidence; source: https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://agilelaws.com/iterative-delivery-and-flow/kingmans-formula.html; https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html)</li>
+<li>Centralised coordination is indicated for decisions that touch shared, hard-to-reverse elements with many consumers, while reversible bounded decisions suit delegation or self-service, although no dependency property set prescribes a mechanism without organisational context. ([inference]; low confidence; source: https://teamtopologies.com/key-concepts; https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html; https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html)</li>
+<li>Goal-Oriented Requirements Engineering (GORE) refinement frameworks offer no sufficiency criterion and no standard propagation of constraints, so substrate constraints need an external register whose entries each refined goal inherits by reference. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-05-31-gore-strategic-intent-to-delivery-decomposition.html)</li>
+<li>The Erlang, Little, Amdahl, Universal Scalability Law, and railway occupancy models each rest on assumptions that enterprise work violates in places, and the railway occupancy rates are track-specific values that should not become enterprise buffer percentages. ([inference]; low confidence; source: https://plus.maths.org/agner-krarup-erlang-1878-1929; https://arxiv.org/abs/0808.1431; https://www.ibano.com/insights/uic-406-rail-line-capacity-compression)</li>
+<li>Technical debt buffers are best sized from observed interest such as rework and incident time, because the located literature offers a debt metaphor and practitioner survey but no validated enterprise reservation percentage. ([inference]; low confidence; source: http://c2.com/doc/oopsla92.html; https://doi.org/10.1109/MS.2012.130; https://www.sei.cmu.edu/library/measure-it-manage-it-ignore-it-software-practitioners-and-technical-debt/)</li>
+<li>Capability debt lacks an authoritative definition in the located sources, which are consultancy and training-vendor publications, so buffers for it should rest on observable indicators such as single-person dependencies and onboarding time. ([inference]; low confidence; source: https://www.infoprolearning.com/blog/learning-debt-the-hidden-cost-of-deferring-ld-capacity-decisions/; https://www.connectingexperts.com/the-real-transformation-bottleneck-capability-debt-and-why-strategic-hiring-fixes-it-faster-than-reorganisation)</li>
+</ol>
+<h3>Cross-domain Model Table</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Transferable idea</th>
+<th>Where the assumption breaks</th>
+<th>Validation status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Erlang B</td>
+<td>Finite servers produce blocking</td>
+<td>Work waits and retries, sizes vary</td>
+<td>Secondary summary only; source: https://plus.maths.org/agner-krarup-erlang-1878-1929</td>
+</tr>
+<tr>
+<td>[inference] Little's law</td>
+<td>Work in system equals arrival rate times time in system for stable systems</td>
+<td>Unstable or unmeasured flow</td>
+<td>Primary paper not read; source: https://doi.org/10.1287/opre.9.3.383</td>
+</tr>
+<tr>
+<td>[inference] Amdahl and Universal Scalability Law</td>
+<td>Serial and coordination fractions cap scaling</td>
+<td>Fractions are hard to identify and change over time</td>
+<td>Equivalence proved; no enterprise fit located; source: https://arxiv.org/abs/0808.1431</td>
+</tr>
+<tr>
+<td>[inference] Kingman's formula</td>
+<td>Delay rises steeply near full load</td>
+<td>Single-queue idealisation</td>
+<td>Practitioner summary; source: https://agilelaws.com/iterative-delivery-and-flow/kingmans-formula.html</td>
+</tr>
+<tr>
+<td>[inference] UIC 406</td>
+<td>Capacity is measured by compressing a real plan</td>
+<td>Occupancy rates are track-specific</td>
+<td>Secondary summary; source: https://www.ibano.com/insights/uic-406-rail-line-capacity-compression</td>
+</tr>
+</tbody>
+</table>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Direct empirical evidence that explicit substrate acknowledgement at objective formulation improves delivery feasibility was not found, and the case for it rests on adjacent studies of organisational structure, coordination, and architecture.</td>
+<td>https://doi.org/10.1109/TSE.2012.32; https://cisr.mit.edu/publication/enterprise-architecture-as-strategy</td>
+<td>medium</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] Organisation structure constrains which designs can be built, and a comparison of loosely and tightly coupled organisations found that loosely coupled ones produced more modular products, which supports treating structure as a real constraint on objectives.</td>
+<td>https://www.melconway.com/Home/Committees_Paper.html; https://doi.org/10.1016/j.respol.2012.10.007</td>
+<td>medium</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] Gaps between coordination requirements and actual coordination were associated with more software failures in two large projects, which supports checking dependency-coordination fit when objectives are set.</td>
+<td>https://doi.org/10.1109/TSE.2012.32</td>
+<td>medium</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] Substrate acknowledgement is less critical when strategy is emergent, or when the substrate can be changed through funded projects inside the horizon, so the criterion is conditional on binding commitments.</td>
+<td>https://ideas.repec.org/a/bla/stratm/v6y1985i3p257-272.html; https://cisr.mit.edu/publication/enterprise-architecture-as-strategy</td>
+<td>medium</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] A proposed contract criterion treats a commitment as binding an objective when its earliest exit date plus transition lead time falls after the date the objective needs the change, and no located study validates this test, so it remains a design inference.</td>
+<td>https://vendorbenchmark.com/guides/renewal-negotiation-playbook; https://davidamitchell.github.io/Research/research/2026-10-01-thinnest-viable-internal-platform-standard.html</td>
+<td>low</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] Local speed gains flooded a shared review queue in cited telemetry, and queueing theory summaries show delay rising steeply near full utilisation, which supports a per-bottleneck demand-and-capacity record with slack instead of planning shared resources at full load.</td>
+<td>https://www.faros.ai/blog/key-takeaways-from-the-dora-report-2025; https://agilelaws.com/iterative-delivery-and-flow/kingmans-formula.html; https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html</td>
+<td>low</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] Centralised coordination is indicated for decisions that touch shared, hard-to-reverse elements with many consumers, while reversible bounded decisions suit delegation or self-service, although no dependency property set prescribes a mechanism without organisational context.</td>
+<td>https://teamtopologies.com/key-concepts; https://davidamitchell.github.io/Research/research/2026-10-23-dependency-properties-coordination-mechanisms.html; https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html</td>
+<td>low</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] Goal-Oriented Requirements Engineering (GORE) refinement frameworks offer no sufficiency criterion and no standard propagation of constraints, so substrate constraints need an external register whose entries each refined goal inherits by reference.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-05-31-gore-strategic-intent-to-delivery-decomposition.html</td>
+<td>medium</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] The Erlang, Little, Amdahl, Universal Scalability Law, and railway occupancy models each rest on assumptions that enterprise work violates in places, and the railway occupancy rates are track-specific values that should not become enterprise buffer percentages.</td>
+<td>https://plus.maths.org/agner-krarup-erlang-1878-1929; https://arxiv.org/abs/0808.1431; https://www.ibano.com/insights/uic-406-rail-line-capacity-compression</td>
+<td>low</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] Technical debt buffers are best sized from observed interest such as rework and incident time, because the located literature offers a debt metaphor and practitioner survey but no validated enterprise reservation percentage.</td>
+<td>http://c2.com/doc/oopsla92.html; https://doi.org/10.1109/MS.2012.130; https://www.sei.cmu.edu/library/measure-it-manage-it-ignore-it-software-practitioners-and-technical-debt/</td>
+<td>low</td>
+<td>design synthesis</td>
+</tr>
+<tr>
+<td>[inference] Capability debt lacks an authoritative definition in the located sources, which are consultancy and training-vendor publications, so buffers for it should rest on observable indicators such as single-person dependencies and onboarding time.</td>
+<td>https://www.infoprolearning.com/blog/learning-debt-the-hidden-cost-of-deferring-ld-capacity-decisions/; https://www.connectingexperts.com/the-real-transformation-bottleneck-capability-debt-and-why-strategic-hiring-fixes-it-faster-than-reorganisation</td>
+<td>low</td>
+<td>design synthesis</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<p>Objectives are assumed to be set over a horizon of years for an enterprise with shared platforms and multi-year contracts. [assumption; source: https://github.com/davidamitchell/Research/issues/686]
+The issue's hypothesis that late discovery of entrenched constraints leads to local workarounds and debt is assumed plausible enough to test and is not assumed true. [assumption; source: https://github.com/davidamitchell/Research/issues/686]
+Practitioner and vendor sources are assumed to establish common usage of terms such as capability debt without establishing measured effect. [assumption; source: https://www.infoprolearning.com/blog/learning-debt-the-hidden-cost-of-deferring-ld-capacity-decisions/]</p>
+<h3>Analysis</h3>
+<p>Evidence weight is highest for the structural-constraint claims, which rest on a foundational paper and two empirical studies of different design. [inference; source: https://www.melconway.com/Home/Committees_Paper.html; https://doi.org/10.1109/TSE.2012.32]
+The criteria are weighted lower because they combine those studies with prior repository findings and practitioner sources and have not been tested as objective-level rules. [inference; source: https://davidamitchell.github.io/Research/research/2026-10-01-thinnest-viable-internal-platform-standard.html; https://doi.org/10.1109/MS.2012.130]
+One rival remedy is to pre-plan everything against a complete substrate model, which Cunningham's incremental-growth argument and Mintzberg and Waters' emergent strategy both count against when requirements are unclear. [inference; source: http://c2.com/doc/oopsla92.html; https://ideas.repec.org/a/bla/stratm/v6y1985i3p257-272.html]
+A second rival remedy is to pool the shared bottleneck through a central platform team, which the platform items show can itself become the blocking dependency. [inference; source: https://davidamitchell.github.io/Research/research/2026-10-02-ideal-internal-platform-product-standard.html; https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html]
+The two remedies are resolved as complements: staged commitment handles renegotiable substrate, and register-based acknowledgement handles binding substrate. [inference; source: https://ideas.repec.org/a/bla/stratm/v6y1985i3p257-272.html; https://cisr.mit.edu/publication/enterprise-architecture-as-strategy]
+Definition needed: a &quot;demand-and-capacity record&quot; here means a list of demand lines against each shared bottleneck, such as a platform team, a review queue, or an architecture authority, with the nearest evidence-backed equivalent being the Theory of Constraints (TOC) practice of identifying the constraining resource. [inference; source: https://fortelabs.com/blog/theory-of-constraints-103-the-four-fundamental-principles-of-flow/]
+Debt reservations are proposed to enter that record as demand lines sized from observed rework, incident time, onboarding time, and contractor reliance. [assumption; source: http://c2.com/doc/oopsla92.html; https://www.connectingexperts.com/the-real-transformation-bottleneck-capability-debt-and-why-strategic-hiring-fixes-it-faster-than-reorganisation]</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<p>No peer-reviewed study of objective-level constraint registers or contract-horizon tests was found in the searches recorded in §2. [inference; source: https://vendorbenchmark.com/guides/renewal-negotiation-playbook]
+Primary sources for Erlang's 1909 paper, the UIC 406 leaflet, and the Little and Amdahl papers were not read, so transfer-assumption claims rest on secondary summaries. [inference; source: https://plus.maths.org/agner-krarup-erlang-1878-1929; https://www.ibano.com/insights/uic-406-rail-line-capacity-compression]
+Wardley Mapping and Goldratt's primary text on the Theory of Constraints were not examined, which leaves two named seed topics only partly covered. [inference; source: https://fortelabs.com/blog/theory-of-constraints-103-the-four-fundamental-principles-of-flow/]
+Regulatory obligations as substrate constraints are not covered by the located sources. [assumption; source: https://doi.org/10.1109/MS.2012.130]</p>
+<h3>Open Questions</h3>
+<ul>
+<li>Can a contract-horizon test be validated against recorded cases of objectives that failed on contract or platform constraints? [assumption; source: https://vendorbenchmark.com/guides/renewal-negotiation-playbook]</li>
+<li>Can the Universal Scalability Law be fitted to measured enterprise team data? [assumption; source: https://arxiv.org/abs/0808.1431]</li>
+<li>What measurable definition of capability debt would survive peer review? [assumption; source: https://www.infoprolearning.com/blog/learning-debt-the-hidden-cost-of-deferring-ld-capacity-decisions/]</li>
+</ul>
+<hr />
+<hr />
 <p><a id="2026-10-23-temporary-specialist-ring-fencing-md"></a></p>
 <h2>Temporary specialist ring-fencing and re-convergence</h2>
 <p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-23-temporary-specialist-ring-fencing.md</p>
