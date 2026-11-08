@@ -1,6 +1,93 @@
 {
-  "extracted_at": "2026-11-08T01:39:38Z",
+  "extracted_at": "2026-11-08T01:46:53Z",
   "items": {
+    "2026-11-07-dedicated-innovation-pipeline-value": {
+      "named_concepts": [
+        "emergent lodging",
+        "protected funding",
+        "ex ante",
+        "ante selection",
+        "ideas move",
+        "autonomous process",
+        "bell labs",
+        "ibm case",
+        "dedicated pipeline",
+        "defined sponsor",
+        "target metrics",
+        "shared platform",
+        "central approval",
+        "pipeline against",
+        "against emergent",
+        "ibm lacked",
+        "selection criteria",
+        "xerox insider",
+        "chief executive",
+        "venture capital"
+      ],
+      "source_urls": [
+        "https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf",
+        "https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf",
+        "https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/",
+        "https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies",
+        "https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation",
+        "https://www.computerhistory.org/siliconengine/bell-labs-licenses-transistor-technology/",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-standardization-customization-balance-context-ai.html",
+        "https://davidamitchell.github.io/Research/research/2026-10-02-ideal-internal-platform-product-standard.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Before its Emerging Business Opportunity system, IBM lacked disciplines for selecting, funding, and terminating new businesses, and ideas lacking a senior sponsor were often the first cut when budgets tightened",
+          "sources": [
+            "https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf"
+          ]
+        },
+        {
+          "text": "IBM's earlier corporate venture fund produced loosely specified proposals, so budget without explicit selection criteria did not create a working pipeline",
+          "sources": [
+            "https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf"
+          ]
+        },
+        {
+          "text": "After 18 EBOs were funded, only two were rated green on winning in the marketplace in early 2003, so the pipeline's early yield was stronger at funding than at scaling",
+          "sources": [
+            "https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf"
+          ]
+        },
+        {
+          "text": "Microsoft's Bing team reported that fewer than a third of ideas move their target metrics in controlled tests, which limits what ex ante selection can add relative to cheap testing and retirement",
+          "sources": [
+            "https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/"
+          ]
+        },
+        {
+          "text": "Bing teams run over 10,000 experiments per year autonomously on a shared platform with a periodically changed evaluation criterion, so throughput came from platform and federation rather than central approval",
+          "sources": [
+            "https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf"
+          ]
+        },
+        {
+          "text": "Across 35 Xerox spin-offs, a Xerox insider as chief executive correlated with lower performance and venture capital board share with higher performance. (; medium confidence; source: https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies) Parent governance of the promotion path can therefore reduce the value of promoted ideas",
+          "sources": [
+            "https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies"
+          ]
+        },
+        {
+          "text": "Burgelman's Intel study proposes that successful reorientations were preceded by internal experimentation through an autonomous process. (; medium confidence; source: https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation) Emergent lodging can therefore deliver strategic novelty where sponsors exist",
+          "sources": [
+            "https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation"
+          ]
+        },
+        {
+          "text": "The Bell Labs 1952 transistor symposium documents a deliberate paid transfer route for research output but says nothing about overhead or selection, so it is weak evidence for the cost-benefit question",
+          "sources": [
+            "https://www.computerhistory.org/siliconengine/bell-labs-licenses-transistor-technology/"
+          ]
+        }
+      ]
+    },
     "2026-11-01-substrate-aware-strategic-objectives": {
       "named_concepts": [
         "design synthesis",
