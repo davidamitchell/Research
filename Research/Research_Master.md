@@ -1,9 +1,12 @@
 # Research Master Document
 
-Generated on: 2026-11-02 05:37 UTC
+Generated on: 2026-11-08 01:49 UTC
 
 ## Table of Contents
 
+* [How can medium-to-large knowledge-work organisations capture everyday friction and scale useful improvements without a dedicated innovation pipeline?](#2026-11-07-emergent-friction-lodging-md)
+* [What does a dedicated innovation pipeline buy organisations, and when is its overhead justified?](#2026-11-07-dedicated-innovation-pipeline-value-md)
+* [What is lost when organisations rely only on emergent problem lodging?](#2026-11-07-cost-of-no-innovation-pipeline-md)
 * [Substrate-aware enterprise strategic objectives and feasible delivery allocation](#2026-11-01-substrate-aware-strategic-objectives-md)
 * [Temporary specialist ring-fencing and re-convergence](#2026-10-23-temporary-specialist-ring-fencing-md)
 * [State mutation decision framework: mapping delivery delay, ownership, and change costs](#2026-10-23-state-mutation-decision-framework-md)
@@ -473,6 +476,230 @@ Generated on: 2026-11-02 05:37 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-11-07-emergent-friction-lodging-md"></a>
+
+## How can medium-to-large knowledge-work organisations capture everyday friction and scale useful improvements without a dedicated innovation pipeline?
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-11-07-emergent-friction-lodging.md
+
+## Research Question
+
+How can individuals and teams in medium-to-large knowledge-work organisations lodge real day-to-day friction in a shared problems register, keep it usable, and select, experiment with, scale, or retire high-leverage improvements without a dedicated innovation pipeline or formal innovation budget?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+A friction register can work without an innovation pipeline if it is a small, time-bounded list with explicit ageing and duplicate rules, a named person who can promote or stop an item, and a safe social climate for lodging, but no source consulted measures this combination in a knowledge-work organisation. [inference; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md; https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full]
+The only randomised field experiment located is one in which rewards for approved ideas broadened participation and the broader base persisted after the reward ended. [fact; source: https://www.iza.org/publications/dp/8096]
+Register upkeep practices come from software teams, where Shape Up discards unselected items and Kubernetes ages out inactive issues. [fact; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md]
+Scaling a local improvement needs a check on the shared queues it feeds and a decision-rights owner. [inference; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html; https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html]
+
+### Key Findings
+
+1. Team psychological safety, defined as a shared belief that interpersonal risk taking is safe, was associated with learning behavior in 51 manufacturing teams, so a safe social climate may help friction lodging, although that study measured learning behavior and not the raising of problems. ([inference]; low confidence; source: https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full)
+2. A randomised field experiment with 19 teams found that rewards for approved ideas raised idea quality and participation, left total quantity unchanged, and left a broader participation base after the reward stopped. ([fact]; medium confidence; source: https://www.iza.org/publications/dp/8096)
+3. Shape Up argues that unpruned backlogs accumulate items nobody will address and consume grooming time, and replaces them with a short betting table where unselected items are dropped and important ones return. ([fact]; low confidence; source: https://basecamp.com/shapeup/2.1-chapter-07)
+4. Kubernetes triage rules close unanswered issues after 20 days, release ownership after 30 days without a pull request, and mark inactive issues stale after 90 days, giving a working template for ageing and retirement. ([fact]; medium confidence; source: https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md; https://www.kubernetes.dev/docs/guide/issue-triage/)
+5. Safe-to-fail probes are small contained experiments whose useful patterns are amplified only when the system shows strong stability, which fits low-authority local trials of improvements. ([inference]; medium confidence; source: https://cynefin.io/wiki/Safe_to_fail_probes)
+6. Promoting a local improvement requires a check on shared downstream queues, because local tooling gains degraded whole-system throughput in documented telemetry where review capacity was not raised. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html)
+7. A staged identify, evaluate, and allocate sequence from shadow IT governance supplies a template for deciding whether a promoted improvement continues, is decommissioned, or moves to owned governance. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html)
+8. Explicit division of decision rights with guardrails is associated with better financial outcomes in three surveys, so a register without a named promoter lacks a decision structure that selection needs. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html)
+9. A regulated safe-to-fail pilot generated learning but could not scale because its model would exceed existing statutory authority, which shows that a limit above the experiment can block scaling. ([fact]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Psychological safety may help friction lodging | https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full | low | one manufacturing study |
+| [fact] Rewards broadened persistent participation | https://www.iza.org/publications/dp/8096 | medium | one firm, 19 teams |
+| [fact] Shape Up drops unselected items | https://basecamp.com/shapeup/2.1-chapter-07 | low | practitioner account |
+| [fact] Kubernetes ageing and ownership rules | https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md; https://www.kubernetes.dev/docs/guide/issue-triage/ | medium | same organisation |
+| [inference] Safe-to-fail probes suit low-authority trials | https://cynefin.io/wiki/Safe_to_fail_probes | medium | reading of definition |
+| [inference] Promotion needs downstream check | https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html | medium | repository item |
+| [inference] Staged shadow IT sequence as template | https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html | medium | repository item |
+| [inference] Named promoter needed | https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html | medium | repository item |
+| [fact] Regulated pilot blocked from scaling by authority above it | https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html | medium | repository item |
+
+### Assumptions
+
+Open-source triage rules transfer to employees with competing assigned work. [assumption; source: https://www.kubernetes.dev/docs/guide/issue-triage/]
+The transfer is reasonable because both settings need to manage a shared inflow of problem reports with limited reviewer time. [assumption; source: https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md]
+
+### Analysis
+
+The evidence is asymmetric: rigorous measurement exists for incentives, while register upkeep rests on practitioner documents. [inference; source: https://www.iza.org/publications/dp/8096; https://basecamp.com/shapeup/2.1-chapter-07]
+Shape Up and Kubernetes disagree on whether to keep unselected ideas, and the choice depends on how cheap retention is. [inference; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md]
+Sustained participation could instead reflect manager sponsorship rather than register design, since the Edmondson abstract reports that team leader coaching and context support shape team outcomes alongside shared beliefs. [inference; source: https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full]
+The consulted sources do not separate sponsorship from register design, so the conclusion is kept to the elements each source directly supports. [inference; source: https://basecamp.com/shapeup/2.1-chapter-07; https://www.iza.org/publications/dp/8096]
+
+### Risks, Gaps, and Uncertainties
+
+- The field experiment, Shape Up, and Kubernetes triage sources used here do not measure duplicate rates, overload, or abandonment in a friction register inside a knowledge-work organisation. [inference; source: https://www.iza.org/publications/dp/8096; https://basecamp.com/shapeup/2.1-chapter-07; https://www.kubernetes.dev/docs/guide/issue-triage/]
+- The regulated safe-to-fail item located no source measuring how an internal experiment-tracking mechanism affects experiment volume or adoption. [fact; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html]
+- The reward experiment covers one technology firm, so its results may not transfer to unrewarded registers. [inference; source: https://www.iza.org/publications/dp/8096]
+
+### Open Questions
+
+- Does non-monetary recognition match monetary rewards for participation persistence?
+- What stale-item threshold suits a company register?
+
+---
+
+---
+
+<a id="2026-11-07-dedicated-innovation-pipeline-value-md"></a>
+
+## What does a dedicated innovation pipeline buy organisations, and when is its overhead justified?
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-11-07-dedicated-innovation-pipeline-value.md
+
+## Research Question
+
+What does a dedicated innovation pipeline, combining budget, a managed backlog, explicit selection, and a promotion path, add to problem-selection quality, experiment throughput, and the ability to scale improvements in medium-to-large organisations, and under what conditions do those benefits justify its overhead compared with emergent problem lodging?
+
+## Findings
+
+### Executive Summary
+
+A dedicated pipeline buys protected funding and a defined sponsor, while the route from experiment to scale was the weakest part of the cases examined, and the available evidence supports the pipeline mainly where cross-unit coordination blocks emergent ideas, as in IBM's matrix. [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf] Evidence that it improves ex ante selection is weak, because fewer than a third of ideas move their target metrics when tested at Bing. [fact; source: https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/] High experiment throughput at Microsoft came from a shared platform with federated ownership rather than central approval. [inference; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf] No source located measures a pipeline against emergent lodging head to head, so the conditions for justifying overhead are inferred from case evidence. [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf; https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation]
+
+### Key Findings
+
+1. Before its Emerging Business Opportunity system, IBM lacked disciplines for selecting, funding, and terminating new businesses, and ideas lacking a senior sponsor were often the first cut when budgets tightened. ([fact]; medium confidence; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf)
+2. IBM's earlier corporate venture fund produced loosely specified proposals, so budget without explicit selection criteria did not create a working pipeline. ([inference]; medium confidence; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf)
+3. After 18 EBOs were funded, only two were rated green on winning in the marketplace in early 2003, so the pipeline's early yield was stronger at funding than at scaling. ([inference]; medium confidence; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf)
+4. Microsoft's Bing team reported that fewer than a third of ideas move their target metrics in controlled tests, which limits what ex ante selection can add relative to cheap testing and retirement. ([inference]; medium confidence; source: https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/)
+5. Bing teams run over 10,000 experiments per year autonomously on a shared platform with a periodically changed evaluation criterion, so throughput came from platform and federation rather than central approval. ([inference]; medium confidence; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf)
+6. Across 35 Xerox spin-offs, a Xerox insider as chief executive correlated with lower performance and venture capital board share with higher performance. ([fact]; medium confidence; source: https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies) Parent governance of the promotion path can therefore reduce the value of promoted ideas. ([inference]; medium confidence; source: https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies)
+7. Burgelman's Intel study proposes that successful reorientations were preceded by internal experimentation through an autonomous process. ([fact]; medium confidence; source: https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation) Emergent lodging can therefore deliver strategic novelty where sponsors exist. ([inference]; medium confidence; source: https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation)
+8. The Bell Labs 1952 transistor symposium documents a deliberate paid transfer route for research output but says nothing about overhead or selection, so it is weak evidence for the cost-benefit question. ([inference]; medium confidence; source: https://www.computerhistory.org/siliconengine/bell-labs-licenses-transistor-technology/)
+9. The FDA Pre-Cert pilot generated learning but could not scale because authority sat above the pilot, so a promotion path needs authority to scale, not only a budget. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html)
+10. Pipeline overhead is most plausibly justified where ideas cross unit boundaries, sponsorship is scarce, and experiment volume is high enough to amortise shared tooling, and least justified for cheap single-team changes. ([inference]; low confidence; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf; https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] IBM lacked selection, funding, termination disciplines; ideas lacked sponsorship | https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf | medium | single case |
+| [inference] Budget without selection criteria did not work at IBM | https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf | medium | single case |
+| [inference] EBO yield stronger at funding than scaling | https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf | medium | 2003 ratings |
+| [inference] Under a third of ideas move metrics, limiting ex ante selection | https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/ | medium | web product |
+| [inference] Throughput from platform and federation | https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf | medium | same vendor family |
+| [fact] Xerox insider chief executive and venture capital board share correlate with spin-off performance | https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies | medium | 35 spin-offs |
+| [fact] Autonomous process precedes reorientation at Intel | https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation | medium | single firm |
+| [inference] Bell Labs transfer is weak cost-benefit evidence | https://www.computerhistory.org/siliconengine/bell-labs-licenses-transistor-technology/ | medium | historical |
+| [inference] Promotion needs authority to scale | https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html | medium | prior item |
+| [inference] Conditions that justify overhead | https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf; https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf | low | synthesis |
+
+### Assumptions
+
+The Microsoft web-product results are assumed to inform other knowledge-work contexts only as a pattern, not as transferable rates. [assumption; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf] That assumption is reasonable because the sources report Microsoft's own products and no study located reports rates for process-improvement ideas. [assumption; source: https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/]
+
+The IBM case is assumed to be representative of large matrix organisations. [assumption; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf] That assumption rests on the case describing a general pattern of missing sponsorship, but it remains one firm. [assumption; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf]
+
+### Analysis
+
+The evidence supports a narrow claim: a pipeline substitutes protected funding and a defined sponsor for the ad hoc senior-executive sponsorship that, in the IBM case, determined whether an idea had a chance to scale. [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf] Emergent lodging remains a credible rival because Intel's strategic reorientation emerged through an autonomous process. [inference; source: https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation] A rival remedy, investing in shared tooling instead of adding a selection layer, is consistent with the Microsoft pattern, where platform investment rather than approval layers drove throughput. [inference; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf] The IBM case outweighs the other evidence on the funding and sponsorship question because it is the only source here that directly describes both the baseline and the formal system. [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf] Adjacent completed work on golden paths, fragmentation thresholds, and adoption measurement suggests that the pipeline's shared rules should sit at the governance layer while ideas stay local. [inference; source: https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html; https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html; https://davidamitchell.github.io/Research/research/2026-06-13-standardization-customization-balance-context-ai.html; https://davidamitchell.github.io/Research/research/2026-10-02-ideal-internal-platform-product-standard.html]
+
+Comparison dimensions for the dependent loss question: sponsorship availability for cross-unit ideas, protection of funding under budget pressure, existence of a termination mechanism, experiment cost and volume, authority to scale, and executive time per venture. [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf; https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf]
+
+### Risks, Gaps, and Uncertainties
+
+- No located source measures a dedicated pipeline against emergent lodging within the same organisation. [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf]
+- The Bell Labs evidence covers only a technology-transfer episode and not funding or selection. [inference; source: https://www.computerhistory.org/siliconengine/bell-labs-licenses-transistor-technology/]
+- The Microsoft sources share an origin, and the IBM and Xerox evidence is single-case or correlational. [inference; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf; https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies]
+
+### Open Questions
+
+- What does the loss from lacking a pipeline look like in observable terms for process-improvement ideas? [assumption; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf]
+- What lightweight pipeline subset, for example only protected funding and a sponsor, captures most of the benefit? [assumption; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf]
+
+---
+
+---
+
+<a id="2026-11-07-cost-of-no-innovation-pipeline-md"></a>
+
+## What is lost when organisations rely only on emergent problem lodging?
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-11-07-cost-of-no-innovation-pipeline.md
+
+## Research Question
+
+Compared with a dedicated innovation pipeline, what is lost in problem coverage, speed of learning, selection quality, and ability to scale improvements when medium-to-large knowledge-work organisations rely solely on emergent problem lodging and have no formal innovation budget?
+
+## Findings
+
+### Executive Summary
+
+Relying only on emergent lodging most plausibly loses cross-unit coverage, a standing sponsor and termination discipline, and an owner for scaling, while it does not by itself lose experiment speed or selection accuracy. [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf; https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf]
+The only directly evidenced loss is the IBM finding that unsponsored ideas were cut first. [fact; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf]
+No source located compares the two approaches head to head. [fact; source: https://davidamitchell.github.io/Research/research/2026-11-07-dedicated-innovation-pipeline-value.html]
+The losses are conditional on cross-unit ideas, scarce sponsors, and authority above the team. [inference; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html]
+
+### Key Findings
+
+1. Before its Emerging Business Opportunity system, IBM lacked disciplines for selecting, funding, and terminating new businesses, and ideas lacking a senior sponsor were often the first cut when budgets tightened, which is the clearest directly evidenced loss. ([fact]; medium confidence; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf)
+2. Money without selection criteria did not create a working pipeline at IBM, so the loss without a pipeline is the absence of explicit selection and termination rules rather than the absence of a budget alone. ([inference]; medium confidence; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf)
+3. Experiment throughput at Microsoft came from a shared platform with federated ownership, so an emergent organisation loses speed of learning only if it also lacks shared experiment tooling. ([inference]; medium confidence; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf)
+4. Fewer than a third of ideas moved their target metrics in controlled tests at Bing, so a pipeline's ex ante selection is not shown to beat cheap testing and retirement in an emergent system. ([inference]; medium confidence; source: https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/)
+5. Local tooling gains degraded whole-system throughput where a shared downstream queue was not expanded, so a register read team by team can miss cross-team value that a coordinating body would see. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html)
+6. Rewards for approved ideas broadened participation in a 19-team field experiment and the broader base persisted, so an unfunded register may lose participation breadth, though only one firm was studied. ([inference]; low confidence; source: https://www.iza.org/publications/dp/8096)
+7. A regulated safe-to-fail pilot generated learning but could not scale because authority sat above it, so a scaling loss can arise from limits that neither approach controls. ([fact]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html)
+8. Shadow IT literature names continuity lack as a recurring risk of locally owned tooling and offers a staged identify, evaluate, and allocate route to owned governance, so improvements lodged emergently may stay unowned without a standing promoter. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html; https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html)
+9. Burgelman's Intel study proposes that reorientations were preceded by autonomous internal experimentation, so emergent action can deliver strategic novelty where a sponsor exists and the loss from having no pipeline is then small. ([inference]; medium confidence; source: https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation)
+10. A short register with ageing rules and a named promoter is documented in software teams, so a bare register is not the only emergent form, and some selection loss can be reduced without a funded pipeline. ([inference]; medium confidence; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] IBM lacked selection, funding, termination disciplines; unsponsored ideas cut first | https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf | medium | single case |
+| [inference] Missing selection and termination rules, not budget alone | https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf | medium | single case |
+| [inference] Speed depends on shared tooling | https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf | medium | one vendor |
+| [inference] Ex ante selection not shown superior | https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/ | medium | web product |
+| [inference] Team-by-team register misses cross-team value | https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html | medium | repository item |
+| [inference] Participation breadth may be lost | https://www.iza.org/publications/dp/8096 | low | one firm |
+| [fact] Regulated pilot blocked by authority above it | https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html | medium | repository item |
+| [inference] Locally lodged improvements may stay unowned | https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html; https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html | medium | repository items |
+| [inference] Emergent action delivered Intel reorientation | https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation | medium | single firm |
+| [inference] Short register with ageing and promoter reduces selection loss | https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md | medium | software teams |
+
+### Assumptions
+
+The IBM, Intel, and Microsoft cases are assumed to indicate patterns for medium-to-large knowledge-work organisations rather than transferable rates. [assumption; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf]
+The assumption is reasonable because no study located reports rates for process-improvement ideas, and each case describes a mechanism rather than a benchmark. [assumption; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf]
+Open-source and software-team register rules are assumed to transfer to employees with competing assigned work. [assumption; source: https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md]
+That transfer is reasonable because both settings manage a shared inflow of problem reports with limited reviewer time. [assumption; source: https://basecamp.com/shapeup/2.1-chapter-07]
+
+### Analysis
+
+Losses fall into three classes: directly evidenced (unsponsored ideas cut first), inferred from a missing mechanism (cross-unit visibility, termination rules, promotion owner), and context-dependent (participation breadth, scaling ceilings). [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf; https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html]
+Speed of learning and selection accuracy show the weakest case for a pipeline, since throughput traced to shared tooling and ex ante selection yielded few winners. [inference; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf; https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/]
+Sponsorship could instead explain Intel's emergent success and IBM's emergent failure, which means the loss may track sponsor availability rather than pipeline presence. [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf; https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation]
+Rival remedies to a full pipeline are investing in shared experiment tooling, adding a named promoter and ageing rules to the register, or redesigning decision rights, and the sources support each at small scale but none was compared with a pipeline. [inference; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf; https://basecamp.com/shapeup/2.1-chapter-07]
+Scaling blocks caused by authority above the team or by promotion-path governance apply to both approaches, so they are not losses attributable to the absence of a pipeline. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html; https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies]
+Golden-path style shared defaults suggest the pipeline's governance layer should be thin while ideas stay local. [inference; source: https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html]
+
+### Risks, Gaps, and Uncertainties
+
+- No located source measures a dedicated pipeline against emergent lodging within the same organisation, so every loss is inferred from case or adjacent evidence. [fact; source: https://davidamitchell.github.io/Research/research/2026-11-07-dedicated-innovation-pipeline-value.html]
+- Unequal voice in emergent registers is inferred from the IBM sponsorship finding, and no consulted source measures it in a register. [inference; source: https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf]
+- The Microsoft sources share an origin and the IBM, Intel, and Xerox evidence is single-case or correlational. [inference; source: https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf; https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies]
+- The participation evidence comes from one technology firm. [inference; source: https://www.iza.org/publications/dp/8096]
+
+### Open Questions
+
+- What lightweight pipeline subset, for example a named promoter plus protected funding, captures most of the avoided loss?
+- How can cross-team value be made visible in an emergent register without a central body?
+
+---
 
 ---
 
