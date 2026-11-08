@@ -2,12 +2,12 @@
 review_count: 2
 title: "How can medium-to-large knowledge-work organisations capture everyday friction and scale useful improvements without a dedicated innovation pipeline?"
 added: 2026-11-07T23:40:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-11-07-cost-of-no-innovation-pipeline]
 themes: [organisational-design, knowledge-management, enterprise-adoption, governance-policy]
 started: 2026-11-08T01:40:44+00:00
-completed: ~
+completed: 2026-11-08T01:47:10+00:00
 output: []
 cites: [2026-07-20-regulated-safe-to-fail-probing-operating-models, 2026-06-13-local-global-optima-knowledge-work-throughput, 2026-06-13-shadow-it-custom-tooling-governance-transition, 2026-08-17-decision-governance]
 related: []
