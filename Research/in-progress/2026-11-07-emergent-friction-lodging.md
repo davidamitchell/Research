@@ -218,35 +218,35 @@ Historical lens: structured improvement mechanisms such as quality circles sprea
 **Executive summary:**
 
 A friction register can work without an innovation pipeline if it is a small, time-bounded list with explicit ageing and duplicate rules, a named person who can promote or stop an item, and a safe social climate for lodging, but no source consulted measures this combination in a knowledge-work organisation. [inference; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md; https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full]
-The strongest empirical result is a randomised field experiment in which rewards for approved ideas broadened participation and the broader base persisted after the reward ended. [fact; source: https://www.iza.org/publications/dp/8096]
+The only randomised field experiment located is one in which rewards for approved ideas broadened participation and the broader base persisted after the reward ended. [fact; source: https://www.iza.org/publications/dp/8096]
 Register upkeep practices come from software teams, where Shape Up discards unselected items and Kubernetes ages out inactive issues. [fact; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md]
 Scaling a local improvement needs a check on the shared queues it feeds and a decision-rights owner. [inference; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html; https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html]
 
 **Key findings:**
 
-1. Team psychological safety, defined as a shared belief that interpersonal risk taking is safe, was associated with learning behavior in 51 manufacturing teams, so lodging friction likely depends on a safe social climate. ([inference]; medium confidence; source: https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full)
+1. Team psychological safety, defined as a shared belief that interpersonal risk taking is safe, was associated with learning behavior in 51 manufacturing teams, so a safe social climate may help friction lodging, although that study measured learning behavior and not the raising of problems. ([inference]; low confidence; source: https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full)
 2. A randomised field experiment with 19 teams found that rewards for approved ideas raised idea quality and participation, left total quantity unchanged, and left a broader participation base after the reward stopped. ([fact]; medium confidence; source: https://www.iza.org/publications/dp/8096)
 3. Shape Up argues that unpruned backlogs accumulate items nobody will address and consume grooming time, and replaces them with a short betting table where unselected items are dropped and important ones return. ([fact]; low confidence; source: https://basecamp.com/shapeup/2.1-chapter-07)
 4. Kubernetes triage rules close unanswered issues after 20 days, release ownership after 30 days without a pull request, and mark inactive issues stale after 90 days, giving a working template for ageing and retirement. ([fact]; medium confidence; source: https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md; https://www.kubernetes.dev/docs/guide/issue-triage/)
-5. Safe-to-fail probes are small contained experiments whose useful patterns are amplified only when the system shows strong stability, which fits low-authority local trials of improvements. ([inference]; medium confidence; source: https://cynefin.io/wiki/Safe_to_fail_probes; https://hbr.org/2007/11/a-leaders-framework-for-decision-making)
+5. Safe-to-fail probes are small contained experiments whose useful patterns are amplified only when the system shows strong stability, which fits low-authority local trials of improvements. ([inference]; medium confidence; source: https://cynefin.io/wiki/Safe_to_fail_probes)
 6. Promoting a local improvement requires a check on shared downstream queues, because local tooling gains degraded whole-system throughput in documented telemetry where review capacity was not raised. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html)
 7. A staged identify, evaluate, and allocate sequence from shadow IT governance supplies a template for deciding whether a promoted improvement continues, is decommissioned, or moves to owned governance. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html)
 8. Explicit division of decision rights with guardrails is associated with better financial outcomes in three surveys, so a register without a named promoter lacks a decision structure that selection needs. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html)
-9. Regulated safe-to-fail programmes show that scaling can be blocked by authority above the experiment, and no consulted source measures how an internal tracking mechanism affects adoption. ([fact]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html)
+9. A regulated safe-to-fail pilot generated learning but could not scale because its model would exceed existing statutory authority, which shows that a limit above the experiment can block scaling. ([fact]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html)
 
 **Evidence map:**
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] Lodging depends on psychological safety | https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full | medium | one manufacturing study |
+| [inference] Psychological safety may help friction lodging | https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full | low | one manufacturing study |
 | [fact] Rewards broadened persistent participation | https://www.iza.org/publications/dp/8096 | medium | one firm, 19 teams |
 | [fact] Shape Up drops unselected items | https://basecamp.com/shapeup/2.1-chapter-07 | low | practitioner account |
 | [fact] Kubernetes ageing and ownership rules | https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md; https://www.kubernetes.dev/docs/guide/issue-triage/ | medium | same organisation |
-| [inference] Safe-to-fail probes suit low-authority trials | https://cynefin.io/wiki/Safe_to_fail_probes; https://hbr.org/2007/11/a-leaders-framework-for-decision-making | medium | reading of definition |
+| [inference] Safe-to-fail probes suit low-authority trials | https://cynefin.io/wiki/Safe_to_fail_probes | medium | reading of definition |
 | [inference] Promotion needs downstream check | https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html | medium | repository item |
 | [inference] Staged shadow IT sequence as template | https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html | medium | repository item |
 | [inference] Named promoter needed | https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html | medium | repository item |
-| [fact] Scaling blocked by authority above the experiment | https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html | medium | repository item |
+| [fact] Regulated pilot blocked from scaling by authority above it | https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html | medium | repository item |
 
 **Assumptions:**
 
@@ -257,11 +257,13 @@ The transfer is reasonable because both settings need to manage a shared inflow 
 
 The evidence is asymmetric: rigorous measurement exists for incentives, while register upkeep rests on practitioner documents. [inference; source: https://www.iza.org/publications/dp/8096; https://basecamp.com/shapeup/2.1-chapter-07]
 Shape Up and Kubernetes disagree on whether to keep unselected ideas, and the choice depends on how cheap retention is. [inference; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md]
-A rival remedy to the register is hiring an improvement team, which is the dedicated-pipeline model this item excludes. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html]
+Sustained participation could instead reflect manager sponsorship rather than register design, since the Edmondson abstract reports that team leader coaching and context support shape team outcomes alongside shared beliefs. [inference; source: https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full]
+The consulted sources do not separate sponsorship from register design, so the conclusion is kept to the elements each source directly supports. [inference; source: https://basecamp.com/shapeup/2.1-chapter-07; https://www.iza.org/publications/dp/8096]
 
 **Risks, gaps, uncertainties:**
 
-No source consulted measures duplicate rates, overload, or abandonment in a friction register inside a knowledge-work organisation. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html]
+The field experiment, Shape Up, and Kubernetes triage sources used here do not measure duplicate rates, overload, or abandonment in a friction register inside a knowledge-work organisation. [inference; source: https://www.iza.org/publications/dp/8096; https://basecamp.com/shapeup/2.1-chapter-07; https://www.kubernetes.dev/docs/guide/issue-triage/]
+- The regulated safe-to-fail item located no source measuring how an internal experiment-tracking mechanism affects experiment volume or adoption. [fact; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html]
 The reward experiment covers one technology firm, so its results may not transfer to unrewarded registers. [inference; source: https://www.iza.org/publications/dp/8096]
 
 **Open questions:**
@@ -286,35 +288,35 @@ parity_check: passed
 ### Executive Summary
 
 A friction register can work without an innovation pipeline if it is a small, time-bounded list with explicit ageing and duplicate rules, a named person who can promote or stop an item, and a safe social climate for lodging, but no source consulted measures this combination in a knowledge-work organisation. [inference; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md; https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full]
-The strongest empirical result is a randomised field experiment in which rewards for approved ideas broadened participation and the broader base persisted after the reward ended. [fact; source: https://www.iza.org/publications/dp/8096]
+The only randomised field experiment located is one in which rewards for approved ideas broadened participation and the broader base persisted after the reward ended. [fact; source: https://www.iza.org/publications/dp/8096]
 Register upkeep practices come from software teams, where Shape Up discards unselected items and Kubernetes ages out inactive issues. [fact; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md]
 Scaling a local improvement needs a check on the shared queues it feeds and a decision-rights owner. [inference; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html; https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html]
 
 ### Key Findings
 
-1. Team psychological safety, defined as a shared belief that interpersonal risk taking is safe, was associated with learning behavior in 51 manufacturing teams, so lodging friction likely depends on a safe social climate. ([inference]; medium confidence; source: https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full)
+1. Team psychological safety, defined as a shared belief that interpersonal risk taking is safe, was associated with learning behavior in 51 manufacturing teams, so a safe social climate may help friction lodging, although that study measured learning behavior and not the raising of problems. ([inference]; low confidence; source: https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full)
 2. A randomised field experiment with 19 teams found that rewards for approved ideas raised idea quality and participation, left total quantity unchanged, and left a broader participation base after the reward stopped. ([fact]; medium confidence; source: https://www.iza.org/publications/dp/8096)
 3. Shape Up argues that unpruned backlogs accumulate items nobody will address and consume grooming time, and replaces them with a short betting table where unselected items are dropped and important ones return. ([fact]; low confidence; source: https://basecamp.com/shapeup/2.1-chapter-07)
 4. Kubernetes triage rules close unanswered issues after 20 days, release ownership after 30 days without a pull request, and mark inactive issues stale after 90 days, giving a working template for ageing and retirement. ([fact]; medium confidence; source: https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md; https://www.kubernetes.dev/docs/guide/issue-triage/)
-5. Safe-to-fail probes are small contained experiments whose useful patterns are amplified only when the system shows strong stability, which fits low-authority local trials of improvements. ([inference]; medium confidence; source: https://cynefin.io/wiki/Safe_to_fail_probes; https://hbr.org/2007/11/a-leaders-framework-for-decision-making)
+5. Safe-to-fail probes are small contained experiments whose useful patterns are amplified only when the system shows strong stability, which fits low-authority local trials of improvements. ([inference]; medium confidence; source: https://cynefin.io/wiki/Safe_to_fail_probes)
 6. Promoting a local improvement requires a check on shared downstream queues, because local tooling gains degraded whole-system throughput in documented telemetry where review capacity was not raised. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html)
 7. A staged identify, evaluate, and allocate sequence from shadow IT governance supplies a template for deciding whether a promoted improvement continues, is decommissioned, or moves to owned governance. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html)
 8. Explicit division of decision rights with guardrails is associated with better financial outcomes in three surveys, so a register without a named promoter lacks a decision structure that selection needs. ([inference]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html)
-9. Regulated safe-to-fail programmes show that scaling can be blocked by authority above the experiment, and no consulted source measures how an internal tracking mechanism affects adoption. ([fact]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html)
+9. A regulated safe-to-fail pilot generated learning but could not scale because its model would exceed existing statutory authority, which shows that a limit above the experiment can block scaling. ([fact]; medium confidence; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html)
 
 ### Evidence Map
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] Lodging depends on psychological safety | https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full | medium | one manufacturing study |
+| [inference] Psychological safety may help friction lodging | https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full | low | one manufacturing study |
 | [fact] Rewards broadened persistent participation | https://www.iza.org/publications/dp/8096 | medium | one firm, 19 teams |
 | [fact] Shape Up drops unselected items | https://basecamp.com/shapeup/2.1-chapter-07 | low | practitioner account |
 | [fact] Kubernetes ageing and ownership rules | https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md; https://www.kubernetes.dev/docs/guide/issue-triage/ | medium | same organisation |
-| [inference] Safe-to-fail probes suit low-authority trials | https://cynefin.io/wiki/Safe_to_fail_probes; https://hbr.org/2007/11/a-leaders-framework-for-decision-making | medium | reading of definition |
+| [inference] Safe-to-fail probes suit low-authority trials | https://cynefin.io/wiki/Safe_to_fail_probes | medium | reading of definition |
 | [inference] Promotion needs downstream check | https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html | medium | repository item |
 | [inference] Staged shadow IT sequence as template | https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html | medium | repository item |
 | [inference] Named promoter needed | https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html | medium | repository item |
-| [fact] Scaling blocked by authority above the experiment | https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html | medium | repository item |
+| [fact] Regulated pilot blocked from scaling by authority above it | https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html | medium | repository item |
 
 ### Assumptions
 
@@ -325,11 +327,13 @@ The transfer is reasonable because both settings need to manage a shared inflow 
 
 The evidence is asymmetric: rigorous measurement exists for incentives, while register upkeep rests on practitioner documents. [inference; source: https://www.iza.org/publications/dp/8096; https://basecamp.com/shapeup/2.1-chapter-07]
 Shape Up and Kubernetes disagree on whether to keep unselected ideas, and the choice depends on how cheap retention is. [inference; source: https://basecamp.com/shapeup/2.1-chapter-07; https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md]
-A rival remedy to the register is hiring an improvement team, which is the dedicated-pipeline model this item excludes. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html]
+Sustained participation could instead reflect manager sponsorship rather than register design, since the Edmondson abstract reports that team leader coaching and context support shape team outcomes alongside shared beliefs. [inference; source: https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full]
+The consulted sources do not separate sponsorship from register design, so the conclusion is kept to the elements each source directly supports. [inference; source: https://basecamp.com/shapeup/2.1-chapter-07; https://www.iza.org/publications/dp/8096]
 
 ### Risks, Gaps, and Uncertainties
 
-- No source consulted measures duplicate rates, overload, or abandonment in a friction register inside a knowledge-work organisation. [inference; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html]
+- The field experiment, Shape Up, and Kubernetes triage sources used here do not measure duplicate rates, overload, or abandonment in a friction register inside a knowledge-work organisation. [inference; source: https://www.iza.org/publications/dp/8096; https://basecamp.com/shapeup/2.1-chapter-07; https://www.kubernetes.dev/docs/guide/issue-triage/]
+- The regulated safe-to-fail item located no source measuring how an internal experiment-tracking mechanism affects experiment volume or adoption. [fact; source: https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html]
 - The reward experiment covers one technology firm, so its results may not transfer to unrewarded registers. [inference; source: https://www.iza.org/publications/dp/8096]
 
 ### Open Questions
