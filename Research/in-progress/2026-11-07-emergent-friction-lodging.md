@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How can medium-to-large knowledge-work organisations capture everyday friction and scale useful improvements without a dedicated innovation pipeline?"
 added: 2026-11-07T23:40:00+00:00
 status: reviewing
