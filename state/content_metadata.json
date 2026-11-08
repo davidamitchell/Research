@@ -1,6 +1,96 @@
 {
-  "extracted_at": "2026-11-08T01:46:53Z",
+  "extracted_at": "2026-11-08T01:51:39Z",
   "items": {
+    "2026-11-07-emergent-friction-lodging": {
+      "named_concepts": [
+        "field experiment",
+        "friction register",
+        "safe social",
+        "social climate",
+        "knowledge-work organisation",
+        "randomised field",
+        "approved ideas",
+        "register upkeep",
+        "inactive issues",
+        "local improvement",
+        "psychological safety",
+        "learning behavior",
+        "help friction",
+        "friction lodging",
+        "kubernetes triage",
+        "triage rules",
+        "safe-to-fail probes",
+        "named promoter",
+        "regulated safe-to-fail",
+        "register design"
+      ],
+      "source_urls": [
+        "https://basecamp.com/shapeup/2.1-chapter-07",
+        "https://www.iza.org/publications/dp/8096",
+        "https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md",
+        "https://www.kubernetes.dev/docs/guide/issue-triage/",
+        "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full",
+        "https://cynefin.io/wiki/Safe_to_fail_probes",
+        "https://hbr.org/2007/11/a-leaders-framework-for-decision-making",
+        "https://hbr.org/1999/09/decoding-the-dna-of-the-toyota-production-system",
+        "https://sre.google/sre-book/postmortem-culture/",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html",
+        "https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Team psychological safety, defined as a shared belief that interpersonal risk taking is safe, was associated with learning behavior in 51 manufacturing teams, so a safe social climate may help friction lodging, although that study measured learning behavior and not the raising of problems",
+          "sources": [
+            "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full"
+          ]
+        },
+        {
+          "text": "A randomised field experiment with 19 teams found that rewards for approved ideas raised idea quality and participation, left total quantity unchanged, and left a broader participation base after the reward stopped",
+          "sources": [
+            "https://www.iza.org/publications/dp/8096"
+          ]
+        },
+        {
+          "text": "Shape Up argues that unpruned backlogs accumulate items nobody will address and consume grooming time, and replaces them with a short betting table where unselected items are dropped and important ones return",
+          "sources": [
+            "https://basecamp.com/shapeup/2.1-chapter-07"
+          ]
+        },
+        {
+          "text": "Kubernetes triage rules close unanswered issues after 20 days, release ownership after 30 days without a pull request, and mark inactive issues stale after 90 days, giving a working template for ageing and retirement",
+          "sources": [
+            "https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md",
+            "https://www.kubernetes.dev/docs/guide/issue-triage/"
+          ]
+        },
+        {
+          "text": "Safe-to-fail probes are small contained experiments whose useful patterns are amplified only when the system shows strong stability, which fits low-authority local trials of improvements",
+          "sources": [
+            "https://cynefin.io/wiki/Safe_to_fail_probes"
+          ]
+        },
+        {
+          "text": "Promoting a local improvement requires a check on shared downstream queues, because local tooling gains degraded whole-system throughput in documented telemetry where review capacity was not raised",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html"
+          ]
+        },
+        {
+          "text": "A staged identify, evaluate, and allocate sequence from shadow IT governance supplies a template for deciding whether a promoted improvement continues, is decommissioned, or moves to owned governance",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html"
+          ]
+        },
+        {
+          "text": "Explicit division of decision rights with guardrails is associated with better financial outcomes in three surveys, so a register without a named promoter lacks a decision structure that selection needs",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-08-17-decision-governance.html"
+          ]
+        }
+      ]
+    },
     "2026-11-07-dedicated-innovation-pipeline-value": {
       "named_concepts": [
         "emergent lodging",
@@ -84,6 +174,99 @@
           "text": "The Bell Labs 1952 transistor symposium documents a deliberate paid transfer route for research output but says nothing about overhead or selection, so it is weak evidence for the cost-benefit question",
           "sources": [
             "https://www.computerhistory.org/siliconengine/bell-labs-licenses-transistor-technology/"
+          ]
+        }
+      ]
+    },
+    "2026-11-07-cost-of-no-innovation-pipeline": {
+      "named_concepts": [
+        "directly evidenced",
+        "unsponsored ideas",
+        "cut first",
+        "termination rules",
+        "ex ante",
+        "ante selection",
+        "cross-team value",
+        "participation breadth",
+        "named promoter",
+        "emergent lodging",
+        "selection accuracy",
+        "evidenced loss",
+        "ibm lacked",
+        "budget alone",
+        "shared experiment",
+        "experiment tooling",
+        "one firm",
+        "stay unowned",
+        "emergent action",
+        "ageing rules"
+      ],
+      "source_urls": [
+        "https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf",
+        "https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf",
+        "https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/",
+        "https://www.gsb.stanford.edu/faculty-research/publications/intraorganizational-ecology-strategy-making-organizational-adaptation",
+        "https://www.academia.edu/120648458/The_governance_and_performance_of_Xerox_s_technology_spin_off_companies",
+        "https://www.iza.org/publications/dp/8096",
+        "https://dash.harvard.edu/entities/publication/13a7b031-0fdd-45ec-a7e0-2b80e2bc679f/full",
+        "https://basecamp.com/shapeup/2.1-chapter-07",
+        "https://github.com/kubernetes/community/blob/master/contributors/guide/issue-triage.md",
+        "https://davidamitchell.github.io/Research/research/2026-11-07-emergent-friction-lodging.html",
+        "https://davidamitchell.github.io/Research/research/2026-11-07-dedicated-innovation-pipeline-value.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html",
+        "https://davidamitchell.github.io/Research/research/2026-06-13-platform-engineering-innersource-hybrid-standardization.html",
+        "https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html"
+      ],
+      "key_claims": [
+        {
+          "text": "Before its Emerging Business Opportunity system, IBM lacked disciplines for selecting, funding, and terminating new businesses, and ideas lacking a senior sponsor were often the first cut when budgets tightened, which is the clearest directly evidenced loss",
+          "sources": [
+            "https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf"
+          ]
+        },
+        {
+          "text": "Money without selection criteria did not create a working pipeline at IBM, so the loss without a pipeline is the absence of explicit selection and termination rules rather than the absence of a budget alone",
+          "sources": [
+            "https://www.elkarbide.com/sites/default/files/ibm_ebo_1.pdf"
+          ]
+        },
+        {
+          "text": "Experiment throughput at Microsoft came from a shared platform with federated ownership, so an emergent organisation loses speed of learning only if it also lacks shared experiment tooling",
+          "sources": [
+            "https://exp-platform.com/Documents/2017-05%20ICSE2017_EvolutionOfExP.pdf"
+          ]
+        },
+        {
+          "text": "Fewer than a third of ideas moved their target metrics in controlled tests at Bing, so a pipeline's ex ante selection is not shown to beat cheap testing and retirement in an emergent system",
+          "sources": [
+            "https://blogs.bing.com/search-quality-insights/2013/8/Large-Scale-Experimentation-at-Bing/"
+          ]
+        },
+        {
+          "text": "Local tooling gains degraded whole-system throughput where a shared downstream queue was not expanded, so a register read team by team can miss cross-team value that a coordinating body would see",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-06-13-local-global-optima-knowledge-work-throughput.html"
+          ]
+        },
+        {
+          "text": "Rewards for approved ideas broadened participation in a 19-team field experiment and the broader base persisted, so an unfunded register may lose participation breadth, though only one firm was studied",
+          "sources": [
+            "https://www.iza.org/publications/dp/8096"
+          ]
+        },
+        {
+          "text": "A regulated safe-to-fail pilot generated learning but could not scale because authority sat above it, so a scaling loss can arise from limits that neither approach controls",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-07-20-regulated-safe-to-fail-probing-operating-models.html"
+          ]
+        },
+        {
+          "text": "Shadow IT literature names continuity lack as a recurring risk of locally owned tooling and offers a staged identify, evaluate, and allocate route to owned governance, so improvements lodged emergently may stay unowned without a standing promoter",
+          "sources": [
+            "https://davidamitchell.github.io/Research/research/2026-06-13-shadow-it-custom-tooling-governance-transition.html",
+            "https://davidamitchell.github.io/Research/research/2026-06-13-local-tooling-fragmentation-threshold-measurement.html"
           ]
         }
       ]
