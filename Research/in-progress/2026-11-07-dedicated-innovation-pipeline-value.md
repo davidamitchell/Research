@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What does a dedicated innovation pipeline buy organisations, and when is its overhead justified?"
 added: 2026-11-07T23:40:00+00:00
 status: reviewing
