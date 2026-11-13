@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-11-08 01:49 UTC
+Generated on: 2026-11-13 07:14 UTC
 
 ## Table of Contents
 
+* [A practical product quality measurement rubric for internal platforms](#2026-11-12-product-quality-measurement-rubric-md)
 * [How can medium-to-large knowledge-work organisations capture everyday friction and scale useful improvements without a dedicated innovation pipeline?](#2026-11-07-emergent-friction-lodging-md)
 * [What does a dedicated innovation pipeline buy organisations, and when is its overhead justified?](#2026-11-07-dedicated-innovation-pipeline-value-md)
 * [What is lost when organisations rely only on emergent problem lodging?](#2026-11-07-cost-of-no-innovation-pipeline-md)
@@ -476,6 +477,101 @@ Generated on: 2026-11-08 01:49 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-11-12-product-quality-measurement-rubric-md"></a>
+
+## A practical product quality measurement rubric for internal platforms
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-11-12-product-quality-measurement-rubric.md
+
+## Research Question
+
+What is the most practical way to adapt and operationalise the International Organization for Standardization and International Electrotechnical Commission (ISO/IEC) 25010 Product Quality Model as a reusable, evidence-backed measurement and five-level maturity rubric for assessing and improving internal platforms and enterprise systems in knowledge-work and regulated settings?
+
+## Findings
+
+### Executive Summary
+
+The most practical rubric scores the eight 2011-era characteristics that ISO/IEC 25023:2016 measures under their 2023 names, adds Safety as a conditional ninth characteristic, and rates each characteristic separately on an adapted five-level scale tied to evidence tiers rather than to universal numeric thresholds. [inference; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf; https://quality.arc42.org/articles/iso-25010-update-2023]
+
+The standard itself cannot supply the thresholds because ISO/IEC 25023 assigns no value ranges to rated levels, so it offers conformance, benchmark or time-series interpretation. [fact; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf] Each team therefore has to agree targets locally. [inference; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf]
+
+Existing delivery metrics, monitoring, fitness functions, chaos drills and accessibility audits supply the indicators, and the resulting evidence supports, but does not demonstrate, compliance with CIS and NIST controls. [inference; source: https://dora.dev/guides/dora-metrics/; https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final]
+
+Scores guide investment by pairing level gaps with consumer reach and by tying levels 4 and 5 of reliability and performance efficiency to an SLO with an error budget policy, with the main uncertainty being that the ISO/IEC 25023 measurement formulas and the supplied summary were not accessible. [inference; source: https://sre.google/workbook/error-budget-policy/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-02-ideal-internal-platform-product-standard.md]
+
+### Key Findings
+
+1. ISO/IEC 25010:2023 defines nine product quality characteristics, adding Safety and renaming Usability to Interaction capability and Portability to Flexibility. ([fact]; high confidence; source: https://quality.arc42.org/articles/iso-25010-update-2023; https://blog.spree.de/2024/01/02/iso-iec-25010-news-from-the-2nd-edition-2023-11/) The requested eight-characteristic framing is therefore not the current edition's structure. ([inference]; medium confidence; source: https://quality.arc42.org/articles/iso-25010-update-2023)
+2. The ISO/IEC 25023:2016 table of contents organises measures under eight characteristics with 2011-era sub-characteristic names, and the standards-body record places its successor at close of voting. ([fact]; medium confidence; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf; https://iss.rs/en/project/show/iso:proj:89069) No published measure catalogue therefore appears to cover the 2023 characteristics. ([inference]; medium confidence; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf; https://iss.rs/en/project/show/iso:proj:89069)
+3. ISO/IEC 25023 normalises most measures to a 0.0 to 1.0 range, assigns no value ranges to rated levels, and offers conformance, benchmark and time-series interpretation. ([fact]; medium confidence; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf) Level thresholds are therefore left to local decision. ([inference]; medium confidence; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf)
+4. A rubric that scores the eight characteristics under 2023 names, treats Safety as a conditional ninth, and reports each characteristic separately resolves the edition mismatch while matching the finding that maturity levels overlap rather than progress linearly. ([inference]; medium confidence; source: https://blog.spree.de/2024/01/02/iso-iec-25010-news-from-the-2nd-edition-2023-11/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-13-llm-consumption-maturity-ladder.md)
+5. The five-level scale can adapt the CMMI maturity levels Initial, Managed, Defined, Quantitatively Managed and Optimizing and pair each level with an evidence tier from attestation to automated retained output, but it remains a rubric in CMMI style rather than a formal appraisal. ([inference]; medium confidence; source: https://cmmiinstitute.com/learning/appraisals/levels; https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf)
+6. DORA's five delivery metrics, chaos experiments with stated steady-state hypotheses, architecture fitness functions and WCAG 2.2 success-criteria audits can each supply indicators for reliability, maintainability and interaction capability using data that teams already produce. ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/; https://principlesofchaos.org/; https://www.thoughtworks.com/insights/articles/fitness-function-driven-development; https://www.w3.org/TR/WCAG22/)
+7. DORA recommends measuring one application or service at a time and warns that blending metrics across teams can mislead. ([fact]; medium confidence; source: https://dora.dev/guides/dora-metrics/) Cross-team comparison should therefore use shared level criteria while indicator values stay per service. ([inference]; medium confidence; source: https://dora.dev/guides/dora-metrics/)
+8. Candidate control mappings link Security to CIS controls 5, 6, 7 and 16 and NIST SP 800-218, and Reliability to CIS controls 11 and 17, with audit-log evidence tied to CIS control 8. ([inference]; medium confidence; source: https://www.cisecurity.org/controls/cis-controls-list; https://csrc.nist.gov/pubs/sp/800/218/final)
+9. NIST states that its mappings give only a general indication of coverage and must not be treated as equivalence, so rubric output should be worded as evidence supporting a control and never as control compliance. ([fact]; medium confidence; source: https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
+10. WCAG 2.2 criteria are testable statements that do not cover every user need. ([fact]; medium confidence; source: https://www.w3.org/TR/WCAG22/) Accessibility audit pass rates therefore give partial evidence for interaction capability that task-based measures must complement. ([inference]; medium confidence; source: https://www.w3.org/TR/WCAG22/)
+11. Google's example error budget policy halts non-priority changes after a four-week budget breach, and the earlier service-level-objective item found that an SLO without such a policy becomes passive reporting, which supports requiring both for level 4 reliability. ([inference]; medium confidence; source: https://sre.google/workbook/error-budget-policy/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-sre-slo-threshold-justification.md)
+12. Reach, Impact, Confidence and Effort scoring from the earlier platform-standard item can rank improvements by pairing a characteristic's level gap with consumer reach, with only characteristics that yield a user-facing indicator driving SLOs. ([inference]; medium confidence; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-02-ideal-internal-platform-product-standard.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-sre-slo-threshold-justification.md)
+
+The per-characteristic indicator table and the five-level criteria table are held in `§2 Investigation` sections 2b and 3a, and each row there carries its own label and sources.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] ISO/IEC 25010:2023 has nine characteristics with Safety added and two renames | https://quality.arc42.org/articles/iso-25010-update-2023; https://blog.spree.de/2024/01/02/iso-iec-25010-news-from-the-2nd-edition-2023-11/ | high | Two independent commentators |
+| [fact] 25023:2016 covers eight 2011-era characteristics; successor at close of voting | https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf; https://iss.rs/en/project/show/iso:proj:89069 | medium | Preview pages only |
+| [fact] 25023 assigns no rating ranges; offers three interpretation methods | https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf | medium | Single source |
+| [inference] Eight characteristics under 2023 names plus conditional Safety, reported per characteristic | https://blog.spree.de/2024/01/02/iso-iec-25010-news-from-the-2nd-edition-2023-11/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-13-llm-consumption-maturity-ladder.md | medium | Design choice |
+| [inference] Five-level scale adapted from CMMI levels with evidence tiers | https://cmmiinstitute.com/learning/appraisals/levels; https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf | medium | Not an appraisal |
+| [inference] Existing metrics, drills, fitness functions and audits supply indicators | https://dora.dev/guides/dora-metrics/; https://principlesofchaos.org/; https://www.thoughtworks.com/insights/articles/fitness-function-driven-development; https://www.w3.org/TR/WCAG22/ | medium | Adapted indicators |
+| [fact] DORA advises per-service measurement and cautions on blending | https://dora.dev/guides/dora-metrics/ | medium | Single organisation |
+| [inference] Candidate CIS and SP 800-218 mappings per characteristic | https://www.cisecurity.org/controls/cis-controls-list; https://csrc.nist.gov/pubs/sp/800/218/final | medium | SP 800-53 titles not retrieved |
+| [fact] NIST warns mappings are not equivalence | https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final | medium | Single source |
+| [fact] WCAG 2.2 criteria are testable but not exhaustive | https://www.w3.org/TR/WCAG22/ | medium | Single source |
+| [inference] Error budget policy plus SLO required at level 4 for reliability | https://sre.google/workbook/error-budget-policy/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-sre-slo-threshold-justification.md | medium | Same evidence family |
+| [inference] RICE with level gap ranks improvements; SLOs only where an indicator exists | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-02-ideal-internal-platform-product-standard.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-05-31-sre-slo-threshold-justification.md | medium | Repository items only |
+
+### Assumptions
+
+The audit-record fields of characteristic, scope, level, evidence links, assessor, date and re-assessment due date are assumed sufficient as an audit trail for a regulated setting. [assumption; source: https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final] NIST's own cautions about mappings show that auditors ultimately judge control coverage, so the record needs to be traceable rather than exhaustive. [assumption; source: https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final]
+
+The indicator families chosen are assumed to remain valid after the unread ISO/IEC 25023 clause 8 formulas are consulted. [assumption; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf] The preview confirms that users may modify measures if they document the relation to the 25010 model, which limits the cost of an error here. [assumption; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf]
+
+Requirements for the 2011 and 2023 editions of the quality model are assumed to differ little for internal platforms outside Safety and the renames. [assumption; source: https://quality.arc42.org/articles/iso-25010-update-2023] The arc42 summary of the official changes is assumed to be complete, so no characteristic was removed beyond those it lists. [assumption; source: https://quality.arc42.org/articles/iso-25010-update-2023]
+
+### Analysis
+
+The main trade-off is between standard fidelity and usability: adopting the 2023 model unchanged would leave no published measure catalogue, while adopting the 2011 measure families unchanged would use retired names. [inference; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf; https://iss.rs/en/project/show/iso:proj:89069] Scoring the 2011 families under 2023 names, with documented modifications as 25023 permits, balances both. [inference; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf; https://quality.arc42.org/articles/iso-25010-update-2023]
+
+Universal numeric thresholds were considered and rejected as the basis of levels because the standard leaves ranges to the nature of the system and DORA warns that context differs between teams. [inference; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf; https://dora.dev/guides/dora-metrics/] Defining levels by evidence tier and process rigour keeps scores comparable without forcing identical targets. [inference; source: https://cmmiinstitute.com/learning/appraisals/levels; https://dora.dev/guides/dora-metrics/]
+
+A single composite score is the rival design, and it was set aside because maturity levels are reported to overlap within one organisation and a composite hides which characteristic limits the platform. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-13-llm-consumption-maturity-ladder.md]
+
+Rival remedies for weak evidence, such as relying on self-attestation alone or buying a new measurement platform, were weighed against reusing tool output the teams already produce, which fits the constraint of avoiding a heavy programme and the finding that self-reported and logs-based data complement each other. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-02-ideal-internal-platform-product-standard.md; https://dora.dev/guides/dora-metrics/]
+
+Score validation can follow the cheaper-checks-first ordering from the research-quality-assurance item, with automated evidence checks before peer review of attestations. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-research-quality-assurance-methodology.md]
+
+### Risks, Gaps, and Uncertainties
+
+- The supplied summary referred to in the issue was not part of the issue text available for this item, so the requested eight-characteristic list is inferred from the 2011 model. [inference; source: https://quality.arc42.org/articles/iso-25010-update-2023]
+- The clause 8 measurement functions of ISO/IEC 25023:2016 sit beyond the freely available preview pages, so formulas for availability, response time or fault-correction measures are not verified and every indicator is an adaptation. [inference; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf]
+- The revised ISO/IEC 25023 is at close of voting and may change measure names and families before publication. [fact; source: https://iss.rs/en/project/show/iso:proj:89069]
+- The 2023 sub-characteristic structure is drawn from commentary and the ISO 25000 portal rather than the standard text. [inference; source: https://iso25000.com/index.php/en/iso-25000-standards/iso-25010; https://quality.arc42.org/articles/iso-25010-update-2023]
+- Specific SP 800-53 control identifiers were not mapped because the catalogue titles were not retrieved. [inference; source: https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final]
+- No empirical study was found that tests whether a higher rubric level predicts better platform outcomes, so the rubric is a design proposal. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-13-llm-consumption-maturity-ladder.md]
+
+### Open Questions
+
+- Which ISO/IEC 25023 clause 8 formulas should be licensed and verified, and do they change the proposed indicator families once the revised edition is published?
+- How should a Safety characteristic be scored for internal platforms that touch clinical or physical processes?
+- Does pilot scoring across several teams show stable inter-assessor agreement at each level?
+
+---
 
 ---
 
