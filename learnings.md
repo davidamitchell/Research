@@ -843,3 +843,16 @@ The Microsoft 365 Copilot feedback-quality item adds a vendor-side self-correcti
 - `Research/completed/2026-05-06-aibom-identity-attribution-multiagent-practice.md` — supplies the mechanism-level explanation for how attribution breaks at trust-boundary crossings in deployed multi-agent pipelines, directly explaining how the governance layer's blind spot manifests in practice
 
 **Open thread:** Would a red-team engagement design that holds attacker effort or engagement scope constant across the human-consent boundary and the machine-to-machine integrity surface distinguish a genuine governance-maturity gap from a testing-selection artefact? Does closing the machine-identity precondition (first-class agent identity, delegation-preserving tokens) measurably reduce inter-agent trust escalation incidents in a subsequent red-team cycle?
+
+---
+
+## Thread 31 — Quality standards supply measures, not thresholds: level boundaries must be set locally and tied to evidence tiers
+
+**The learning:** ISO/IEC 25023 defines measures and interpretation methods (conformance, benchmark, time series) but assigns no value ranges to rated levels, and DORA warns against blending metrics across teams, so any five-level product quality rubric must define its own level criteria around evidence tiers and per-service indicator values rather than borrowing universal thresholds from a standard.
+
+**Evidence:**
+- `Research/completed/2026-11-12-product-quality-measurement-rubric.md` — primary source for this thread; adapts ISO/IEC 25010:2023 into a rubric and documents that the standard supplies measure families only
+- `Research/completed/2026-10-02-ideal-internal-platform-product-standard.md` — supplies the platform product standard the rubric levels are meant to measure
+- `Research/completed/2026-05-31-sre-slo-threshold-justification.md` — supplies the local, justified-threshold pattern (service level objective with error budget policy) used for the upper levels
+
+**Open thread:** Do teams that adopt shared level criteria with per-service indicators show less metric gaming than teams that rank services on a single composite score?

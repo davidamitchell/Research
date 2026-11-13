@@ -2,12 +2,12 @@
 review_count: 2
 title: "A practical product quality measurement rubric for internal platforms"
 added: 2026-11-12T08:07:53+00:00
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 themes: [benchmarks-eval, software-engineering, tools-infrastructure, regulatory-compliance, organisational-design]
 started: 2026-11-13T07:05:20+00:00
-completed: ~
+completed: 2026-11-13T07:13:35+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 cites:
   - 2026-10-02-ideal-internal-platform-product-standard
@@ -79,7 +79,7 @@ Readiness: READY, the question is specific, answerable in principle, scoped, mot
 - [x] [NIST SP 800-53 Rev. 5 Security and Privacy Controls for Information Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
 - [x] [NIST SP 800-218 Secure Software Development Framework Version 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)
 - [x] [Principles of Chaos Engineering](https://principlesofchaos.org/)
-- [x] [W3C Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/)
+- [x] [World Wide Web Consortium (W3C) Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/)
 - [x] [Paul and Wang (2019) Fitness function-driven development, Thoughtworks](https://www.thoughtworks.com/insights/articles/fitness-function-driven-development)
 - [x] [CMMI Institute CMMI Levels of Capability and Performance](https://cmmiinstitute.com/learning/appraisals/levels)
 - [x] [Thurgood (2018) Example Error Budget Policy, Google Site Reliability Engineering (SRE) Workbook](https://sre.google/workbook/error-budget-policy/)
@@ -138,7 +138,7 @@ At sub-characteristic level, inclusivity and self-descriptiveness were added to 
 
 Safety has five sub-characteristics: operational constraint, risk identification, fail safe, hazard warning and safe integration, and is defined as the capability of a product not to endanger human health, property or the environment. [fact; source: https://blog.spree.de/2024/01/02/iso-iec-25010-news-from-the-2nd-edition-2023-11/]
 
-Access note: the iso.org catalogue pages for ISO/IEC 25010 and 25023 returned HTTP 403; the standards text itself is paywalled, so sub-characteristic lists rely on the secondary sources above and the ISO 25000 portal.
+Access note: iso.org catalogue pages not retrievable; sub-characteristic lists rely on the secondary sources above. [assumption; source: https://iso25000.com/index.php/en/iso-25000-standards/iso-25010]
 
 #### 1b. Alignment of 25023 and revision status
 
@@ -168,7 +168,7 @@ It proposes three ways to interpret a measure that is hard to read in isolation:
 
 It also allows users to modify the measures or define new ones, provided they state how the new measure relates to the 25010 model. [fact; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf]
 
-Access note: only the preview pages through section 8.1 were retrievable, so the clause 8 measurement functions were not read; searches for the formulas returned unsourced restatements and were not used. Search queries used: "ISO/IEC 25023:2016 measurement formulas availability mean time to recovery fault correction mean response time" (no primary text found).
+Access note: only the preview pages through section 8.1 were retrievable, so the clause 8 measurement functions were not read; searches for the formulas returned unsourced restatements and were not used. Search queries used: "ISO/IEC 25023:2016 measurement formulas availability mean time to recovery fault correction mean response time" (no primary text found). [assumption; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf]
 
 Because the clause 8 formulas were not read, indicators below are adaptations that name the 25023 sub-characteristic family they stand in for, not verified 25023 functions. [inference; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf]
 
@@ -248,7 +248,7 @@ NIST states that its mappings and crosswalks give a general indication of contro
 
 Rubric output should therefore be described as evidence that supports a control, never as control compliance, and the specific SP 800-53 control identifiers should be taken from the catalogue during adoption. [inference; source: https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final]
 
-Access note: the SP 800-53 catalogue control titles were not retrieved, so this item does not assign individual SP 800-53 controls to characteristics.
+Access note: the SP 800-53 catalogue control titles were not retrieved, so this item does not assign individual SP 800-53 controls to characteristics. [assumption; source: https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final]
 
 #### 5a. Using scores for prioritisation, SLOs and error budgets
 
@@ -294,7 +294,7 @@ Regulatory lens: a regulated organisation can retain score records and linked ev
 
 Economic lens: the TVP principle implies that scoring every sub-characteristic on every platform is waste, so a profile of in-scope sub-characteristics chosen by consumer need keeps measurement cost proportionate. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-10-01-thinnest-viable-internal-platform-standard.md]
 
-Behavioural lens: scores used as targets may invite gaming, so reading them as diagnostics for improvement conversations rather than team rankings is a design choice. [assumption; source: https://dora.dev/guides/dora-metrics/]
+Behavioural lens: scores used as targets may invite gaming, so reading them as diagnostics for improvement conversations rather than team rankings is a design choice. [assumption; source: https://dora.dev/guides/dora-metrics/; https://sre.google/workbook/error-budget-policy/]
 
 Competing explanation: a single composite maturity score is simpler to communicate, yet overlap between levels within one organisation argues for per-characteristic reporting. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-13-llm-consumption-maturity-ladder.md]
 
