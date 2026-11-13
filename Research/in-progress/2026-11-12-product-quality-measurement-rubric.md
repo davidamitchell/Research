@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "A practical product quality measurement rubric for internal platforms"
 added: 2026-11-12T08:07:53+00:00
 status: reviewing
