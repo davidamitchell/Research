@@ -1,6 +1,104 @@
 {
-  "extracted_at": "2026-11-13T07:12:55Z",
+  "extracted_at": "2026-11-13T07:15:41Z",
   "items": {
+    "2026-11-12-product-quality-measurement-rubric": {
+      "named_concepts": [
+        "iso iec",
+        "eight characteristics",
+        "five-level scale",
+        "fitness functions",
+        "error budget",
+        "budget policy",
+        "interaction capability",
+        "maturity levels",
+        "conditional ninth",
+        "characteristic separately",
+        "universal numeric",
+        "numeric thresholds",
+        "value ranges",
+        "rated levels",
+        "offers conformance",
+        "conformance benchmark",
+        "time-series interpretation",
+        "delivery metrics",
+        "audits supply",
+        "consumer reach"
+      ],
+      "source_urls": [
+        "https://quality.arc42.org/articles/iso-25010-update-2023",
+        "https://blog.spree.de/2024/01/02/iso-iec-25010-news-from-the-2nd-edition-2023-11/",
+        "https://iso25000.com/index.php/en/iso-25000-standards/iso-25010",
+        "https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf",
+        "https://iss.rs/en/project/show/iso:proj:89069",
+        "https://dora.dev/guides/dora-metrics/",
+        "https://www.cisecurity.org/controls/cis-controls-list",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "https://principlesofchaos.org/",
+        "https://www.w3.org/TR/WCAG22/",
+        "https://www.thoughtworks.com/insights/articles/fitness-function-driven-development",
+        "https://cmmiinstitute.com/learning/appraisals/levels",
+        "https://sre.google/workbook/error-budget-policy/"
+      ],
+      "key_claims": [
+        {
+          "text": "ISO/IEC 25010:2023 defines nine product quality characteristics, adding Safety and renaming Usability to Interaction capability and Portability to Flexibility. (; high confidence; source: https://quality.arc42.org/articles/iso-25010-update-2023; https://blog.spree.de/2024/01/02/iso-iec-25010-news-from-the-2nd-edition-2023-11/) The requested eight-characteristic framing is therefore not the current edition's structure",
+          "sources": [
+            "https://quality.arc42.org/articles/iso-25010-update-2023",
+            "https://blog.spree.de/2024/01/02/iso-iec-25010-news-from-the-2nd-edition-2023-11/"
+          ]
+        },
+        {
+          "text": "The ISO/IEC 25023:2016 table of contents organises measures under eight characteristics with 2011-era sub-characteristic names, and the standards-body record places its successor at close of voting. (; medium confidence; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf; https://iss.rs/en/project/show/iso:proj:89069) No published measure catalogue therefore appears to cover the 2023 characteristics",
+          "sources": [
+            "https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf",
+            "https://iss.rs/en/project/show/iso:proj:89069"
+          ]
+        },
+        {
+          "text": "ISO/IEC 25023 normalises most measures to a 0.0 to 1.0 range, assigns no value ranges to rated levels, and offers conformance, benchmark and time-series interpretation. (; medium confidence; source: https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf) Level thresholds are therefore left to local decision",
+          "sources": [
+            "https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf"
+          ]
+        },
+        {
+          "text": "A rubric that scores the eight characteristics under 2023 names, treats Safety as a conditional ninth, and reports each characteristic separately resolves the edition mismatch while matching the finding that maturity levels overlap rather than progress linearly",
+          "sources": [
+            "https://blog.spree.de/2024/01/02/iso-iec-25010-news-from-the-2nd-edition-2023-11/",
+            "https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-08-13-llm-consumption-maturity-ladder.md"
+          ]
+        },
+        {
+          "text": "The five-level scale can adapt the CMMI maturity levels Initial, Managed, Defined, Quantitatively Managed and Optimizing and pair each level with an evidence tier from attestation to automated retained output, but it remains a rubric in CMMI style rather than a formal appraisal",
+          "sources": [
+            "https://cmmiinstitute.com/learning/appraisals/levels",
+            "https://cdn.standards.iteh.ai/samples/35747/34b91bc957f647ce8bbb2093907d7bc0/ISO-IEC-25023-2016.pdf"
+          ]
+        },
+        {
+          "text": "DORA's five delivery metrics, chaos experiments with stated steady-state hypotheses, architecture fitness functions and WCAG 2.2 success-criteria audits can each supply indicators for reliability, maintainability and interaction capability using data that teams already produce",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/",
+            "https://principlesofchaos.org/",
+            "https://www.thoughtworks.com/insights/articles/fitness-function-driven-development",
+            "https://www.w3.org/TR/WCAG22/"
+          ]
+        },
+        {
+          "text": "DORA recommends measuring one application or service at a time and warns that blending metrics across teams can mislead. (; medium confidence; source: https://dora.dev/guides/dora-metrics/) Cross-team comparison should therefore use shared level criteria while indicator values stay per service",
+          "sources": [
+            "https://dora.dev/guides/dora-metrics/"
+          ]
+        },
+        {
+          "text": "Candidate control mappings link Security to CIS controls 5, 6, 7 and 16 and NIST SP 800-218, and Reliability to CIS controls 11 and 17, with audit-log evidence tied to CIS control 8",
+          "sources": [
+            "https://www.cisecurity.org/controls/cis-controls-list",
+            "https://csrc.nist.gov/pubs/sp/800/218/final"
+          ]
+        }
+      ]
+    },
     "2026-11-07-emergent-friction-lodging": {
       "named_concepts": [
         "field experiment",
